@@ -1,0 +1,42 @@
+Sessió 1 · 29/09/2026 · Miguel Ángel Tirado · CEIP Mestre Lluís Andreu
+Resum elaborat pel CEP a partir de la gravació de la sessió.
+
+1. Què avaluam i per a què
+Avaluam els aprenentatges essencials que permeten a l'alumnat progressar. I avaluam per prendre decisions: detectar dificultats aviat i donar una resposta immediata, sense esperar diagnòstics ni etiquetes. Una prova no és el punt d'arribada, és el punt de partida de les decisions. La metodologia és un mitjà: el que compta és que l'alumnat aprengui, no l'aparença d'aprenentatge.
+
+2. Llegir és una qüestió de cultura
+«El problema de la lectura no és un problema de lectura, és un problema de cultura.» Com més vocabulari i coneixements té un infant, més pot comprendre. Es va veure amb una notícia sobre el Brexit: per entendre-la calen molts coneixements previs (el Big Ben, Brussel·les, la Unió Europea...). Per això una prova de comprensió s'ha de fer sobre continguts i vocabulari treballats abans.
+
+3. Lectura i escriptura: part mecànica i part de llenguatge
+Totes dues tenen una part mecànica que s'ha d'automatitzar (descodificar; traçar les lletres amb fluïdesa i llegibilitat) i una part de llenguatge (comprendre; compondre). Si la part mecànica no està automatitzada, no queden recursos per pensar. L'escriptura és més difícil que la lectura i sovint és la gran desconnectada.
+
+4. Aprendre a llegir
+Tres elements imprescindibles, amb una seqüència estructurada i progressiva:
+- Consciència fonològica (lèxica, sil·làbica i fonèmica), treballada cada dia, uns 15 minuts, de manera sistemàtica. Objectiu en acabar infantil: segmentar les paraules en fonemes.
+- Principi alfabètic: relació grafia-so i reconeixement dels sons de les lletres. Si un infant no en reconeix alguna, se sap quina és i s'ensenya.
+- Automatització del reconeixement de paraules: velocitat, precisió i prosòdia.
+
+5. Eficàcia lectora
+L'eficàcia lectora combina velocitat, precisió i comprensió. A primer i segon s'avaluen la velocitat i la precisió; a partir de tercer, també la comprensió. Es fa servir una taula de referència basada en la recerca de Ripoll, amb colors comuns al municipi: el gris indica que cal ajuda. Això permet distingir qui llegeix lent però comprèn, qui llegeix bé però no comprèn (vocabulari) i qui té problemes de precisió. Les proves institucionals les passa un equip especialitzat, no el tutor del grup.
+
+6. Després de la prova: el model de resposta a la intervenció (RTI)
+Tres preguntes davant els resultats: el problema és individual o estructural? Quina dificultat predomina? Quines mesures i amb quina intensitat? Hi ha tres nivells: tot el grup, petit grup i un treball especialitzat individual, amb temps i espai propis. Programes breus de diverses setmanes (lectura coral, lectura repetida...) i una nova mesura per veure si han funcionat. Inclusió no vol dir deixar l'infant a l'aula sense el suport que necessita, ni delegar-ho tot als especialistes.
+
+7. Infantil: programar, avaluar i informar en un sol document
+Es va mostrar un full de càlcul d'infantil amb indicadors observables per àmbits i per edats (3, 4 i 5 anys) que serveix alhora per programar, avaluar, seguir el progrés de cada infant i informar les famílies.
+
+8. Com és una bona prova de comprensió lectora
+- Tres documents: el text de l'alumne, el full de respostes i la pauta de correcció amb el protocol d'aplicació.
+- Text no justificat fins a cinquè i tipografia neta.
+- Extensió = minuts d'atenció previstos × velocitat mínima esperable (per exemple, a tercer, uns 7 minuts a 60 paraules per minut).
+- Sintaxi i paràgrafs que creixen en complexitat curs a curs.
+- Preguntes tancades segons els processos del marc PIRLS (localitzar, deduir, interpretar i integrar, avaluar) i una darrera oberta, que es respon amb un paràgraf de tres oracions.
+- La correcció explica l'evidència del text que justifica cada resposta.
+- Sempre la mateixa manera de treballar: primera lectura ràpida, segona lectura activa i resposta.
+Miguel Ángel Tirado va mostrar un prompt molt detallat per generar proves amb intel·ligència artificial (per exemple, una narració amb diàleg sobre el canvi climàtic per a cinquè, amb un títol que s'ha d'interpretar). El mestre sempre revisa la prova, i les que funcionen es guarden en un repositori. Els criteris comuns són una decisió de municipi, perquè tot l'alumnat arriba al mateix institut.
+
+9. Escriure: la part mecànica
+La maduresa per escriure no només s'espera: també es construeix, amb ensenyament. Rutina per introduir una lletra: parlar-ne i jugar amb el seu so, observar-la i comparar-la amb altres, traçar-la a l'aire i en diferents superfícies (per exemple, paper de vidre), i després amb llapis, cuidant la postura i una pinça funcional. Practicar amb pauta, en progressió, i ensenyar els infants a revisar la seva pròpia lletra.
+
+10. Prova de fluïdesa cal·ligràfica
+Una prova breu, encara en validació: dos minuts de còpia de paraules i dos de pseudoparaules. Es compten les paraules copiades sense errors i es valora la llegibilitat (traç, alineació, espaiat i, a primària, proporció) amb exemples reals. Es van veure diferències molt grans entre infants.

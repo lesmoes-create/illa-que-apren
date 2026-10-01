@@ -1,0 +1,137 @@
+{
+ "titol": "La mirada avaluativa: lectura i escriptura a infantil i primària",
+ "fills": [
+  {
+   "titol": "Avaluar per decidir",
+   "nota": "Una prova és el punt de partida de les decisions.",
+   "fills": [
+    {
+     "titol": "Aprenentatges essencials",
+     "nota": "Els que permeten a l'alumnat progressar.",
+     "fills": []
+    },
+    {
+     "titol": "Resposta immediata",
+     "nota": "Detectar aviat i actuar, sense esperar diagnòstics ni etiquetes.",
+     "fills": []
+    },
+    {
+     "titol": "La metodologia és un mitjà",
+     "nota": "Compta l'aprenentatge, no l'aparença d'aprenentatge.",
+     "fills": []
+    }
+   ]
+  },
+  {
+   "titol": "Llegir és una qüestió de cultura",
+   "nota": "Com més vocabulari i coneixements, més comprensió.",
+   "fills": [
+    {
+     "titol": "Proves sobre contingut treballat",
+     "nota": "El vocabulari no ha de limitar la mesura.",
+     "fills": []
+    }
+   ]
+  },
+  {
+   "titol": "Aprendre a llegir",
+   "nota": "Seqüència estructurada i progressiva.",
+   "fills": [
+    {
+     "titol": "Consciència fonològica",
+     "nota": "Lèxica, sil·làbica i fonèmica. Cada dia, uns 15 minuts.",
+     "fills": []
+    },
+    {
+     "titol": "Principi alfabètic",
+     "nota": "Relació grafia-so i sons de les lletres.",
+     "fills": []
+    },
+    {
+     "titol": "Automatització",
+     "nota": "Velocitat, precisió i prosòdia.",
+     "fills": []
+    }
+   ]
+  },
+  {
+   "titol": "Eficàcia lectora",
+   "nota": "Velocitat, precisió i comprensió.",
+   "fills": [
+    {
+     "titol": "Taula de referència",
+     "nota": "Basada en la recerca de Ripoll, amb colors comuns al municipi.",
+     "fills": []
+    },
+    {
+     "titol": "Proves institucionals",
+     "nota": "Les passa un equip especialitzat.",
+     "fills": []
+    }
+   ]
+  },
+  {
+   "titol": "Resposta a la intervenció (RTI)",
+   "nota": "Què fer després de la prova.",
+   "fills": [
+    {
+     "titol": "Tres preguntes",
+     "nota": "Individual o estructural? Quina dificultat? Quines mesures i amb quina intensitat?",
+     "fills": []
+    },
+    {
+     "titol": "Tres nivells",
+     "nota": "Tot el grup, petit grup i treball individual especialitzat.",
+     "fills": []
+    },
+    {
+     "titol": "Programes breus",
+     "nota": "Lectura coral, lectura repetida... i una nova mesura.",
+     "fills": []
+    }
+   ]
+  },
+  {
+   "titol": "Una bona prova de comprensió",
+   "nota": "Criteris comuns de municipi.",
+   "fills": [
+    {
+     "titol": "Tres documents",
+     "nota": "Text, full de respostes i pauta de correcció amb protocol.",
+     "fills": []
+    },
+    {
+     "titol": "Extensió",
+     "nota": "Minuts previstos × velocitat mínima esperable.",
+     "fills": []
+    },
+    {
+     "titol": "Preguntes PIRLS",
+     "nota": "Tancades i una darrera oberta de tres oracions.",
+     "fills": []
+    }
+   ]
+  },
+  {
+   "titol": "Escriptura",
+   "nota": "La maduresa per escriure també es construeix.",
+   "fills": [
+    {
+     "titol": "Introduir una lletra",
+     "nota": "Parlar-ne, jugar amb el so, comparar-la, traçar-la a l'aire i en superfícies diverses.",
+     "fills": []
+    },
+    {
+     "titol": "Fluïdesa cal·ligràfica",
+     "nota": "Prova breu en validació: còpia de paraules i pseudoparaules.",
+     "fills": []
+    }
+   ]
+  },
+  {
+   "titol": "Infantil",
+   "nota": "Un sol document per programar, avaluar i informar les famílies.",
+   "fills": []
+  }
+ ]
+}

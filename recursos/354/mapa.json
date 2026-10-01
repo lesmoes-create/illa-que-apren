@@ -1,0 +1,126 @@
+{
+ "titol": "Avaluació de la lectura i l'escriptura a secundària",
+ "fills": [
+  {
+   "titol": "Dos objectius diferents",
+   "nota": "No confondre l'hàbit lector amb la comprensió lectora.",
+   "fills": [
+    {
+     "titol": "Temps de lectura",
+     "nota": "Hàbit lector i cultura literària, també amb els clàssics adaptats.",
+     "fills": []
+    },
+    {
+     "titol": "Lectura dins les matèries",
+     "nota": "Llegir per aprendre continguts de cada matèria, on hi ha el lèxic més potent.",
+     "fills": []
+    }
+   ]
+  },
+  {
+   "titol": "Comprenem gràcies al que sabem",
+   "nota": "«El problema de la lectura no és un problema de lectura, és un problema de cultura.»",
+   "fills": [
+    {
+     "titol": "Vocabulari i context",
+     "nota": "Sense coneixements previs no hi ha comprensió.",
+     "fills": []
+    },
+    {
+     "titol": "Proves sobre contingut treballat",
+     "nota": "Perquè el vocabulari no limiti la mesura.",
+     "fills": []
+    }
+   ]
+  },
+  {
+   "titol": "Dissenyar un text o una prova",
+   "nota": "Decisions que s'han de prendre abans d'escriure.",
+   "fills": [
+    {
+     "titol": "Extensió",
+     "nota": "Velocitat d'un lector lent × minuts. A secundària, uns 10 minuts.",
+     "fills": []
+    },
+    {
+     "titol": "Sintaxi, paràgrafs i tipografia",
+     "nota": "Adequats al curs; no iguals a primària que a secundària.",
+     "fills": []
+    },
+    {
+     "titol": "Seqüència i gènere",
+     "nota": "Una seqüència principal i una de complementària; notícia, reportatge, article...",
+     "fills": []
+    },
+    {
+     "titol": "Fonts primàries",
+     "nota": "Textos reals de cada matèria.",
+     "fills": []
+    }
+   ]
+  },
+  {
+   "titol": "Les preguntes",
+   "nota": "Processos de comprensió del marc PIRLS.",
+   "fills": [
+    {
+     "titol": "Localitzar, deduir, interpretar, avaluar",
+     "nota": "De menor a major demanda cognitiva.",
+     "fills": []
+    },
+    {
+     "titol": "Tancades i una d'oberta",
+     "nota": "L'oberta, en tres oracions com a màxim, com un paràgraf.",
+     "fills": []
+    },
+    {
+     "titol": "Correcció amb evidència",
+     "nota": "Cada resposta es justifica amb el text. Exemples reals de l'alumnat per a l'oberta.",
+     "fills": []
+    }
+   ]
+  },
+  {
+   "titol": "Si la comprensió surt baixa",
+   "nota": "Primer cal saber per què.",
+   "fills": [
+    {
+     "titol": "Descodificació",
+     "nota": "Problema mecànic: es detecta amb una prova de velocitat i es treballa de manera específica.",
+     "fills": []
+    },
+    {
+     "titol": "Vocabulari i coneixements",
+     "nota": "Es treballa ampliant coneixements.",
+     "fills": []
+    },
+    {
+     "titol": "Atenció",
+     "nota": "Llegir a l'aula amb temps pautat entrena l'atenció sostinguda.",
+     "fills": []
+    }
+   ]
+  },
+  {
+   "titol": "Feina de centre i de municipi",
+   "nota": "Una manera de fer compartida.",
+   "fills": [
+    {
+     "titol": "Mateix mètode a totes les matèries",
+     "nota": "Primera lectura, segona lectura activa, resposta.",
+     "fills": []
+    },
+    {
+     "titol": "Repositori",
+     "nota": "Textos i proves que han funcionat, per al professorat nou.",
+     "fills": []
+    },
+    {
+     "titol": "Progressió des d'infantil",
+     "nota": "«Tot comença a infantil.»",
+     "fills": []
+    }
+   ]
+  }
+ ]
+}

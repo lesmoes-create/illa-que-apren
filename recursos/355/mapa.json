@@ -1,0 +1,191 @@
+{
+ "titol": "Avaluació i Millora de l'Aprenentatge de la Lectura i l'Escriptura",
+ "fills": [
+  {
+   "titol": "Nivells d'Avaluació Institucional",
+   "nota": "Estructura organitzativa per a la presa de decisions pedagògiques.",
+   "fills": [
+    {
+     "titol": "Avaluació a l'Aula",
+     "nota": "Seguiment del progrés individual de cada alumne i detecció de dificultats particulars.",
+     "fills": []
+    },
+    {
+     "titol": "Avaluació dels Equips Docents",
+     "nota": "Organització dels recursos de suport i coordinació de respostes educatives.",
+     "fills": []
+    },
+    {
+     "titol": "Avaluació Institucional de Centre",
+     "nota": "Proves internes unificades per comprovar l'eficàcia dels programes del centre.",
+     "fills": []
+    },
+    {
+     "titol": "Avaluació Externa",
+     "nota": "Control extern del sistema educatiu i comparativa de resultats (ex. PIRLS).",
+     "fills": []
+    }
+   ]
+  },
+  {
+   "titol": "Pilars Fundamentals de la Lectura Inicial",
+   "nota": "Base científica per a l'adquisició de la lectoescriptura.",
+   "fills": [
+    {
+     "titol": "Consciència Fonològica",
+     "nota": "Treball sistemàtic que culmina amb la segmentació fonèmica al final d'Infantil.",
+     "fills": []
+    },
+    {
+     "titol": "Principi Alfabètic",
+     "nota": "Associació explícita entre grafemes i fonemes.",
+     "fills": []
+    },
+    {
+     "titol": "Mètode Fonètic",
+     "nota": "Ensenyament explícit de la descodificació, avalat per l'evidència científica.",
+     "fills": []
+    }
+   ]
+  },
+  {
+   "titol": "Automatització Lector-Decodificadora i Model RTI",
+   "nota": "Preveure el fracàs lector abans de 3r de Primària.",
+   "fills": [
+    {
+     "titol": "Velocitat i Fluïdesa Lectora",
+     "nota": "L'automatització allibera memòria de treball per a la comprensió.",
+     "fills": []
+    },
+    {
+     "titol": "Detecció del Nivell Gris",
+     "nota": "Identificació de l'alumnat per sota dels llindars de les taules de Ripoll.",
+     "fills": []
+    },
+    {
+     "titol": "Estratègies del Model RTI",
+     "nota": "Intervencions d'alta freqüència i curta durada a l'aula.",
+     "fills": [
+      {
+       "titol": "Lectura Coral",
+       "nota": "Lectura col·lectiva simultània a la velocitat del docent.",
+       "fills": []
+      },
+      {
+       "titol": "Lectura Repetida",
+       "nota": "Relectura de fragments prèviament modelats.",
+       "fills": []
+      },
+      {
+       "titol": "Lectura Cronometrada",
+       "nota": "Autoregistre individual de paraules per minut per a l'automotivació.",
+       "fills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "titol": "Mecànica i Fluïdesa Cal·ligràfica",
+   "nota": "La cal·ligrafia com a suport del desenvolupament del pensament.",
+   "fills": [
+    {
+     "titol": "Automatització del Traç",
+     "nota": "Ensenyar a escriure és equivalent a ensenyar a pensar.",
+     "fills": []
+    },
+    {
+     "titol": "Avaluació del Gest Gràfic",
+     "nota": "Mètrica mixta de velocitat i llegibilitat.",
+     "fills": [
+      {
+       "titol": "Mètrica Quantitativa",
+       "nota": "Comptatge de paraules i pseudoparaules copiades en 2 minuts.",
+       "fills": []
+      },
+      {
+       "titol": "Mètrica Qualitativa",
+       "nota": "Avaluació del traç, alineació, espaiat i proporció de les lletres.",
+       "fills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "titol": "Eficàcia Lectora i Composició Textual",
+   "nota": "Avaluació integrada a partir de 3r de Primària.",
+   "fills": [
+    {
+     "titol": "Comprensió Lectora (Marc PIRLS)",
+     "nota": "Avaluació conjunta de velocitat i comprensió.",
+     "fills": [
+      {
+       "titol": "Localitzar informació directament al text",
+       "fills": []
+      },
+      {
+       "titol": "Deduir i extreure conclusions directes",
+       "fills": []
+      },
+      {
+       "titol": "Interpretar i integrar idees",
+       "fills": []
+      },
+      {
+       "titol": "Avaluar el contingut i l'estructura",
+       "fills": []
+      }
+     ]
+    },
+    {
+     "titol": "Avaluació de l'Escriptura",
+     "nota": "Escala mixta o llista de verificació ampliada sobre 4 dimensions.",
+     "fills": [
+      {
+       "titol": "Adequació",
+       "nota": "Ajust al gènere discursiu i a la consigna demanada.",
+       "fills": []
+      },
+      {
+       "titol": "Coherència",
+       "nota": "Estructura oracional ben construïda i sense idees inconnexes.",
+       "fills": []
+      },
+      {
+       "titol": "Cohesió",
+       "nota": "Ús adequat de connectors i organització clara en paràgrafs.",
+       "fills": []
+      },
+      {
+       "titol": "Correcció",
+       "nota": "Assimilació de l'ortografia bàsica d'etapa i concordança.",
+       "fills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "titol": "Aprenentatge Autorregulat (Model Cíclic de Zimmerman)",
+   "nota": "Desenvolupament de la capacitat metacognitiva i motivacional de l'alumnat.",
+   "fills": [
+    {
+     "titol": "Fase de Previsió (Forethought)",
+     "nota": "Anàlisi de la tasca, establiment d'objectius, planificació i autoeficàcia.",
+     "fills": []
+    },
+    {
+     "titol": "Fase d'Execució (Performance)",
+     "nota": "Autocontrol, manteniment de l'esforç i autoobservació metacognitiva.",
+     "fills": []
+    },
+    {
+     "titol": "Fase d'Autorreflexió (Self-reflection)",
+     "nota": "Autoavaluació del resultat, atribucions causals i inferències adaptatives.",
+     "fills": []
+    }
+   ]
+  }
+ ]
+}

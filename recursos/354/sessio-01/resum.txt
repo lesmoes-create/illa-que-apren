@@ -1,0 +1,41 @@
+Sessió 1 · 28/09/2026 · Ponència de Miguel Ángel Tirado · IES Marc Ferrer
+Resum elaborat pel CEP a partir de la gravació de la sessió.
+
+1. Hàbit lector i comprensió lectora són objectius diferents
+El temps de lectura diari amb llibres que agraden millora l'hàbit i la cultura literària (també els clàssics, adaptats si cal). La comprensió lectora és una altra cosa: s'ha de treballar a totes les matèries, llegint per aprendre continguts de la matèria. El lèxic més potent és a les matèries específiques (biologia, física, història, filosofia...).
+
+2. Comprenem gràcies al que ja sabem
+«El problema de la lectura no és un problema de lectura, és un problema de cultura.» Si l'alumne no coneix el vocabulari ni el context d'un text, no el pot comprendre. Per això una prova de comprensió lectora s'ha de fer sobre un contingut ja treballat a classe: així el vocabulari no limita el que volem avaluar.
+
+3. Decisions per dissenyar un text, una activitat o una prova de lectura
+- Extensió: es calcula a partir de la velocitat d'un lector lent multiplicada pels minuts de lectura. A secundària, uns 10 minuts de primera lectura.
+- Complexitat sintàctica i estructura de paràgrafs adequades al curs.
+- Tipografia i format (no han de ser iguals a primària que a secundària).
+- Seqüència textual principal (expositiva, narrativa, argumentativa...) i una de complementària, per exemple un diàleg dins d'una exposició.
+- Gènere discursiu: notícia, reportatge, article de divulgació o d'opinió...
+- Vocabulari propi del tema.
+Es va proposar també fer servir fonts primàries i textos reals (per exemple, fragments de clàssics a filosofia o documents d'època a història).
+
+4. Si la comprensió surt baixa, primer cal saber per què
+Pot ser un problema de descodificació (l'alumne no té automatitzat el reconeixement de paraules i llegeix molt lent) o de vocabulari i coneixements. Per distingir-ho, l'equip de suport pot passar una prova de velocitat lectora. Són dos treballs diferents: la descodificació es pot millorar amb un treball específic; el vocabulari, ampliant coneixements. També es va parlar de la prosòdia (pauses, entonació, puntuació). Un alumne que llegeix lent però comprèn no és un problema greu.
+
+5. L'atenció
+Mantenir l'atenció davant d'un text llarg costa cada vegada més. Llegir a l'aula, amb temps i extensió pautats, és una eina per entrenar l'atenció sostinguda, que és la porta de l'aprenentatge.
+
+6. Com són les preguntes d'una prova
+Es prenen com a referència els processos de comprensió del marc PIRLS: localitzar informació explícita, fer inferències directes, interpretar i integrar informació, i analitzar i avaluar el contingut. Les preguntes de la prova són tancades (tipus test) perquè l'escriptura no limiti la mesura de la comprensió, excepte la darrera, oberta, que es respon en un màxim de tres oracions. La correcció demana l'evidència del text i la justificació. Per a la pregunta oberta, és útil posar exemples reals de respostes de l'alumnat (completa, parcial, incorrecta).
+
+7. El paràgraf com a eina per pensar
+Un paràgraf gira entorn d'una idea: s'introdueix, es matisa o s'exemplifica i es tanca. Treballar-lo a totes les matèries ajuda l'escriptura i també la comprensió.
+
+8. Una mateixa manera de fer a totes les matèries
+Primera lectura global, segona lectura comprensiva (subratllant) i resposta a les preguntes. Si tot el professorat ho fa igual, l'alumnat ho automatitza.
+
+9. Una eina per generar textos i proves
+Miguel Ángel Tirado va presentar un prompt en proves per generar, amb intel·ligència artificial, textos, activitats i proves de comprensió lectora d'una matèria concreta, amb aquestes decisions (curs, tema, extensió, seqüència, gènere, vocabulari). La revisió final sempre és del professorat.
+
+10. Un repositori que creixi cada curs
+Guardar els textos i les proves que s'han aplicat a l'aula, que han funcionat i s'han millorat, perquè el professorat nou de cada curs els trobi fets.
+
+11. Feina de municipi
+Les escoles i l'institut haurien de treballar la comprensió amb una progressió comuna des d'infantil i primària fins a secundària. Es va citar l'experiència de Capdepera, on escoles i institut han elaborat plegats una prova d'escriptura a partir del nivell que s'espera en acabar l'etapa. «Tot comença a infantil»: és l'etapa que més pot compensar les desigualtats de partida.

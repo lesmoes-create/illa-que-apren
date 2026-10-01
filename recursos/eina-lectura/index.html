@@ -1,0 +1,1035 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eina de comprensió lectora · Illa que aprèn</title>
+<meta name="description" content="Eina per preparar el prompt mestre de Miguel Ángel Tirado per elaborar proves de comprensió lectora adaptades al curs. CEP de Formentera.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Semi+Condensed:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<style>
+/* Estils propis de l'eina. La resta ve de site.css */
+.pas{padding-block:0 2.5rem;margin-bottom:2.5rem;border-bottom:1px solid var(--rule)}
+.pas:last-child{border-bottom:0;margin-bottom:0}
+.pas > h2{display:flex;align-items:baseline;gap:.75rem;font-size:var(--step-2);color:var(--blue);margin-bottom:.6rem}
+.pas > h2 span{font-size:1.5em;line-height:.8;color:var(--sun)}
+.pas > p.intro{color:var(--ink-2);max-width:var(--measure);margin-bottom:1.25rem}
+.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem 1.5rem}
+.fgrid .full{grid-column:1 / -1}
+@media (max-width:640px){.fgrid{grid-template-columns:1fr}}
+.fld{display:grid;gap:.35rem;align-content:start;min-width:0}
+.fld > label,.fld > .lbl{font-weight:600}
+.fld small{color:var(--ink-2);font-size:var(--step--1)}
+.fld input[type=text],.fld select,.fld textarea,.fld input[type=number]{font:inherit;font-size:1rem;width:100%;padding:.6rem .7rem;border:1px solid var(--sea);border-radius:2px;background:var(--paper);color:var(--ink)}
+.fld textarea{resize:vertical;min-height:5.5rem;line-height:1.5}
+.fld input:focus-visible,.fld select:focus-visible,.fld textarea:focus-visible{outline:3px solid var(--sun);outline-offset:1px}
+.req{color:var(--sun-ink);font-weight:600}
+.checks{display:flex;flex-wrap:wrap;gap:.4rem .5rem;border:0;margin:0;padding:0;min-width:0}
+.checks legend{font-weight:600;padding:0;margin-bottom:.4rem}
+.checks label{display:inline-flex;align-items:center;gap:.45rem;padding:.4rem .7rem;border:1px solid var(--rule);border-radius:2px;cursor:pointer;font-size:.98rem;background:var(--paper)}
+.checks label:hover{background:var(--paper-2)}
+.checks input{accent-color:var(--blue);margin:0}
+.resum-prompt{display:flex;flex-wrap:wrap;gap:.35rem 1.5rem;padding:1rem 1.2rem;background:var(--blue);color:var(--on-blue-2);border-radius:2px;margin-bottom:1rem}
+.resum-prompt b{color:var(--sun);font-weight:600}
+.prompt-box summary{cursor:pointer;font-weight:600;color:var(--blue);padding-block:.4rem}
+.prompt-box textarea{width:100%;min-height:22rem;margin-top:.5rem;font:inherit;font-size:.9rem;line-height:1.45;padding:.8rem;border:1px solid var(--rule);border-radius:2px;background:var(--paper-2);color:var(--ink)}
+.quiz-bar{margin-block:1rem}
+.quiz-bar a.btn{font-family:var(--f-display);font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:1.05rem;padding:.65rem 1.1rem;background:transparent;color:var(--blue);border:2px solid var(--blue);border-radius:2px;text-decoration:none}
+.quiz-bar a.btn:hover,.quiz-bar button.sec:hover{background:var(--blue);color:#fff}
+.quiz-bar button:disabled{opacity:.45;cursor:not-allowed}
+.avis{padding:.9rem 1.1rem;background:var(--gold-soft);color:var(--ink);border-radius:2px;max-width:var(--measure)}
+.avis b{color:var(--sun-ink)}
+.usar{margin:1rem 0 0;padding-left:1.25rem;display:grid;gap:.4rem;max-width:var(--measure)}
+.estat{display:block;font-family:var(--f-data);font-weight:600;color:var(--ink-2);min-height:1.5em}
+.mesura{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:1rem;border-radius:2px}
+.mesura div{background:var(--paper);padding:1rem}
+.mesura b{display:block;font-family:var(--f-display);font-weight:700;font-size:2.4rem;line-height:1;color:var(--blue);font-variant-numeric:tabular-nums}
+.mesura span{color:var(--ink-2);font-size:var(--step--1)}
+@media (max-width:560px){.mesura{grid-template-columns:1fr}}
+.veredicte{margin-top:.75rem;padding:.75rem 1rem;border-radius:2px;border-left:5px solid var(--rule);background:var(--paper-2);max-width:var(--measure)}
+.veredicte.ok{border-left-color:var(--blue)}
+.veredicte.fora{border-left-color:var(--sun)}
+.encerts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.6rem}
+@media (max-width:560px){.encerts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.encerts .fld label{font-weight:500;font-size:var(--step--1)}
+.box ul{margin:0;padding-left:1.1rem;display:grid;gap:.3rem;font-size:var(--step--1)}
+.box .data{color:var(--sun-ink);font-weight:600}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<a class="skip" href="#eina">Salta a l'eina</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="../../index.html#inici"><img src="../../assets/logos/cep-formentera.png" alt="Centre de Professorat de Formentera" width="120" height="43"><span>Illa que aprèn</span></a>
+    <nav class="nav" aria-label="Seccions">
+      <a href="../../index.html#recursos">Espais de treball</a><a href="../../index.html#centres">Centres</a>
+      <a href="../../index.html#recorregut">Recorregut</a>
+      <a href="../../index.html#municipi">Municipi</a>
+      <a href="../../index.html#origens">D'on venim</a>
+      <a href="../../index.html#pensament">El fil</a>
+      <a href="../../index.html#replicar">Com replicar-ho</a>
+      <a href="../../index.html#biblioteca">Biblioteca</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap crumbs" style="padding-bottom:1rem"><a href="../../index.html">Illa que aprèn</a> · <a href="../../index.html#recursos">Espais de treball</a> · Eina de comprensió lectora</div>
+  <div class="e-hero"><div class="wrap">
+    <h1>Eina de comprensió lectora</h1>
+    <div class="facts data"><span>Prompt mestre de <b>Miguel Ángel Tirado</b></span><span>Versió <b>1.1</b> · Formentera</span><span><b>4</b> passes</span><span>Sense registre</span></div>
+    <p class="lede" style="margin-top:1rem">Prepara el prompt per a una prova concreta: tries el curs i les dades, el copies i l'enganxes a l'assistent d'IA que facis servir. Després pots comprovar l'extensió del text i enviar-nos la valoració per millorar-lo.</p>
+  </div></div>
+
+  <div class="wrap e-grid" id="eina">
+    <div>
+
+      <!-- PAS 1 -->
+      <section class="pas" aria-labelledby="p1">
+        <h2 id="p1"><span>1</span>Dades de la prova</h2>
+        <p class="intro">Només el curs és obligatori. Si deixes un camp buit, la IA triarà l'opció més adequada al curs i a l'àrea. El centre i el format discontinu o mixt no s'inventen mai.</p>
+        <form id="f-dades" class="fgrid" autocomplete="off">
+          <div class="fld">
+            <label for="curs">Curs <span class="req">(obligatori)</span></label>
+            <select id="curs" required>
+              <option value="">Tria el curs</option>
+              <optgroup label="Educació Primària">
+                <option value="3p">3r de primària</option>
+                <option value="4p">4t de primària</option>
+                <option value="5p">5è de primària</option>
+                <option value="6p">6è de primària</option>
+              </optgroup>
+              <optgroup label="Educació Secundària Obligatòria">
+                <option value="1e">1r d'ESO</option>
+                <option value="2e">2n d'ESO</option>
+                <option value="3e">3r d'ESO</option>
+                <option value="4e">4t d'ESO</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="fld">
+            <label for="llengua">Llengua de la prova</label>
+            <select id="llengua">
+              <option value="català">Català</option>
+              <option value="castellà">Castellà</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label for="centre">Centre</label>
+            <input type="text" id="centre" list="l-centre" placeholder="Opcional">
+            <datalist id="l-centre"><option value="CEIP Mestre Lluís Andreu"><option value="CEIP Sant Ferran de ses Roques"><option value="CEIP El Pilar de la Mola"><option value="CCEIP Virgen Milagrosa"><option value="IES Marc Ferrer"></datalist>
+            <small>Si el deixes buit, la prova no n'inclourà cap.</small>
+          </div>
+          <div class="fld">
+            <label for="area">Àrea o matèria</label>
+            <input type="text" id="area" list="l-area" placeholder="Opcional">
+            <datalist id="l-area">
+              <option value="Llengua catalana"><option value="Llengua castellana"><option value="Coneixement del Medi"><option value="Ciències Naturals"><option value="Ciències Socials"><option value="Geografia i Història"><option value="Biologia">
+            </datalist>
+          </div>
+          <div class="fld full">
+            <label for="tema">Tema o contingut</label>
+            <input type="text" id="tema" placeholder="Opcional. Per exemple: la posidònia de Formentera">
+          </div>
+          <div class="fld">
+            <label for="sequencia">Seqüència textual dominant</label>
+            <select id="sequencia">
+              <option value="">Que la triï la IA</option>
+              <option>narrativa</option><option>descriptiva</option><option>explicativa</option><option>argumentativa</option><option>dialogal</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label for="genere">Gènere discursiu</label>
+            <input type="text" id="genere" list="l-genere" placeholder="Opcional">
+            <datalist id="l-genere">
+              <option value="notícia"><option value="reportatge"><option value="relat"><option value="conte"><option value="faula"><option value="llegenda"><option value="biografia"><option value="crònica"><option value="entrevista"><option value="article divulgatiu"><option value="entrada enciclopèdica"><option value="carta"><option value="correu electrònic"><option value="diari"><option value="ressenya"><option value="fullet informatiu"><option value="instruccions"><option value="text teatral">
+            </datalist>
+          </div>
+          <fieldset class="checks full" id="complementaries">
+            <legend>Seqüències complementàries (opcional)</legend>
+            <label><input type="checkbox" value="narrativa"> narrativa</label>
+            <label><input type="checkbox" value="descriptiva"> descriptiva</label>
+            <label><input type="checkbox" value="explicativa"> explicativa</label>
+            <label><input type="checkbox" value="argumentativa"> argumentativa</label>
+            <label><input type="checkbox" value="dialogal"> dialogal</label>
+          </fieldset>
+          <div class="fld">
+            <label for="format">Format textual</label>
+            <select id="format">
+              <option value="continu">Continu (per defecte)</option>
+              <option value="discontinu">Discontinu</option>
+              <option value="mixt">Mixt</option>
+            </select>
+          </div>
+          <div class="fld">
+            <span class="lbl">Extensió prevista</span>
+            <span class="estat" id="objectiu">Tria un curs per veure-la.</span>
+          </div>
+          <div class="fld full">
+            <label for="vocabulari">Vocabulari que ha d'aparèixer</label>
+            <textarea id="vocabulari" rows="3" placeholder="Opcional. Paraules, expressions o termes separats per comes"></textarea>
+          </div>
+        </form>
+      </section>
+
+      <!-- PAS 2 -->
+      <section class="pas" aria-labelledby="p2">
+        <h2 id="p2"><span>2</span>Copia el prompt</h2>
+        <p class="intro">El prompt inclou només les files de les taules que corresponen al curs triat, perquè la IA no les confongui. La resta del text és el de la versió 1.1, i al final s'hi afegeixen les dades del pas 1.</p>
+        <div class="resum-prompt data" id="resum-prompt"><span>Encara no has triat el curs.</span></div>
+        <div class="quiz-bar">
+          <button type="button" id="b-copiar" disabled>Copiar el prompt</button>
+          <button type="button" class="sec" id="b-txt" disabled>Descarregar .txt</button>
+          <span class="estat" id="estat-copia" role="status" aria-live="polite"></span>
+        </div>
+        <details class="prompt-box">
+          <summary>Veure el prompt que es copiarà</summary>
+          <textarea id="prompt" readonly aria-label="Prompt preparat"></textarea>
+        </details>
+        <ol class="usar">
+          <li>Obre una conversa nova a l'assistent d'IA que facis servir, enganxa el prompt i envia'l.</li>
+          <li>Revisa la prova abans de passar-la: el text, cada pregunta i la pauta de correcció. La IA s'equivoca, sobretot en el recompte de paraules i en la classificació d'alguns ítems.</li>
+          <li>Per maquetar-la, descarrega la plantilla de Word del curs (a la columna de la dreta) i enganxa-hi el contingut sense format.</li>
+        </ol>
+        <p class="avis" style="margin-top:1rem"><b>No hi posis dades de l'alumnat.</b> Ni noms ni cap informació personal: l'eina no en necessita cap.</p>
+      </section>
+
+      <!-- PAS 3 -->
+      <section class="pas" aria-labelledby="p3">
+        <h2 id="p3"><span>3</span>Comprova l'extensió del text</h2>
+        <p class="intro">La IA no compta bé les paraules. Enganxa aquí només el cos del text de lectura, sense el títol ni les preguntes, i l'eina el compta per tu.</p>
+        <div class="fld">
+          <label for="text-lectura">Text de lectura</label>
+          <textarea id="text-lectura" rows="8" placeholder="Enganxa aquí el text generat"></textarea>
+        </div>
+        <div class="mesura" aria-live="polite">
+          <div><b id="m-paraules">0</b><span>paraules</span></div>
+          <div><b id="m-paragrafs">0</b><span>paràgrafs</span></div>
+          <div><b id="m-oracio">0</b><span>paraules per oració, de mitjana</span></div>
+        </div>
+        <p class="veredicte" id="veredicte">Tria un curs al pas 1 per comparar-ho amb l'extensió prevista.</p>
+      </section>
+
+      <!-- PAS 4 -->
+      <section class="pas" aria-labelledby="p4">
+        <h2 id="p4"><span>4</span>Envia'ns la teva valoració</h2>
+        <p class="intro">Cada valoració arriba al CEP de Formentera i serveix per millorar el prompt en les properes versions. Ens interessa sobretot què ha fallat i amb quina IA. Si has passat la prova a l'aula, els encerts per pregunta ens ajuden a saber quins ítems funcionen.</p>
+        <form id="f-valoracio" class="fgrid" autocomplete="off">
+          <div class="fld">
+            <label for="ia">IA que has fet servir</label>
+            <select id="ia">
+              <option value="">Tria'n una</option>
+              <option>Claude</option><option>ChatGPT</option><option>Gemini</option><option>Copilot</option><option>Una altra</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label for="global">Valoració global de la prova</label>
+            <select id="global">
+              <option value="">Tria una opció</option>
+              <option value="5">5 · La podria passar tal com està</option>
+              <option value="4">4 · Amb retocs petits</option>
+              <option value="3">3 · Amb canvis importants</option>
+              <option value="2">2 · Gairebé l'he hagut de refer</option>
+              <option value="1">1 · No m'ha servit</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label for="adequacio">El text és adequat al curs?</label>
+            <select id="adequacio">
+              <option value="">Tria una opció</option>
+              <option>Sí</option><option>Massa fàcil</option><option>Massa difícil</option><option>Massa llarg</option><option>Massa curt</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label for="titol">El títol és suggeridor però no explícit?</label>
+            <select id="titol">
+              <option value="">Tria una opció</option>
+              <option>Sí</option><option>És massa explícit</option><option>És confús o enganyós</option>
+            </select>
+          </div>
+          <fieldset class="checks full" id="problemes">
+            <legend>Problemes que has trobat (marca els que calgui)</legend>
+            <label><input type="checkbox" value="Procés mal assignat"> Procés mal assignat</label>
+            <label><input type="checkbox" value="Dues respostes defensables"> Dues respostes defensables</label>
+            <label><input type="checkbox" value="Distractors poc plausibles"> Distractors poc plausibles</label>
+            <label><input type="checkbox" value="Resposta que depèn de coneixements externs"> Depèn de coneixements externs</label>
+            <label><input type="checkbox" value="Una pregunta revela la resposta d'una altra"> Una pregunta revela una altra</label>
+            <label><input type="checkbox" value="Respostes correctes mal repartides entre A, B, C i D"> Respostes mal repartides</label>
+            <label><input type="checkbox" value="Pauta de correcció amb errors"> Pauta amb errors</label>
+            <label><input type="checkbox" value="La IA no ha seguit el format"> No ha seguit el format</label>
+          </fieldset>
+          <div class="fld full">
+            <label for="items">Quins ítems i què hi passa</label>
+            <textarea id="items" rows="3" placeholder="Per exemple: la 5 és d'INTERPRETAR però es respon copiant una frase"></textarea>
+          </div>
+          <div class="fld">
+            <label for="aula">L'has passada a l'aula?</label>
+            <select id="aula">
+              <option value="">Tria una opció</option>
+              <option>Sí</option><option>No</option>
+            </select>
+          </div>
+          <div class="fld" id="w-alumnes" hidden>
+            <label for="alumnes">Nombre d'alumnes que l'han feta</label>
+            <input type="number" id="alumnes" min="1" max="60" inputmode="numeric">
+          </div>
+          <fieldset class="checks full" id="w-encerts" hidden style="display:block">
+            <legend>Alumnes que han encertat cada pregunta (opcional, sense noms)</legend>
+            <div class="encerts" id="encerts"></div>
+          </fieldset>
+          <div class="fld full">
+            <label for="comentari">Altres comentaris o propostes de millora</label>
+            <textarea id="comentari" rows="3"></textarea>
+          </div>
+        </form>
+        <div class="quiz-bar">
+          <button type="button" id="b-correu">Enviar la valoració</button>
+          <button type="button" class="sec" id="b-copiar-val">Copiar la valoració</button>
+          <span class="estat" id="estat-val" role="status" aria-live="polite"></span>
+        </div>
+        <p id="ajuda-val" style="color:var(--ink-2);font-size:var(--step--1);max-width:var(--measure)">El botó obre el teu programa de correu amb la valoració ja escrita, adreçada a <a href="mailto:cep@cepformentera.cat">cep@cepformentera.cat</a>. Si no se t'obre, copia-la i envia-la tu.</p>
+      </section>
+    </div>
+
+    <aside class="aside">
+      <div class="box">
+        <h2>Autoria i llicència</h2>
+        <p><i>Prompt mestre per elaborar proves de comprensió lectora</i>, versió 1.1 per als centres de Formentera. Autor: Miguel Ángel Tirado.</p>
+        <p>Llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>. Les versions modificades han d'indicar els canvis i no es poden presentar com la versió oficial.</p>
+        <button type="button" class="go" id="b-complet" style="all:unset;cursor:pointer;font-family:var(--f-display);font-weight:700;font-size:1.05rem;text-transform:uppercase;letter-spacing:.03em;color:var(--blue);border-bottom:3px solid var(--sun);justify-self:start">Prompt complet (.txt)</button>
+      </div>
+      <div class="box">
+        <h2>Plantilles de Word</h2>
+        <p>Amb la tipografia, el cos de lletra, l'alineació i la partició de paraules de cada curs ja configurats.</p>
+        <p class="data" id="plantilla-curs">Tria un curs per veure la seva plantilla.</p>
+        <div id="plantilla-links" class="slots" style="margin-top:0"></div>
+      </div>
+      <div class="box">
+        <h2>Versions</h2>
+        <ul><li><b>1.1</b> · Adaptació als centres de Formentera, acordada amb l’autor. Frases introductòries de les llistes restituïdes.</li><li><b>1.0</b> · Versió original per als centres de Capdepera.</li></ul>
+        <p>Les millores es publicaran aquí a partir de les vostres valoracions.</p>
+      </div>
+      <div class="box">
+        <h2>Contacte</h2>
+        <p>CEP de Formentera. Coordinació: Carmen Moles i Enrique Ozán.</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap logos" aria-label="Institucions">
+    <img src="../../assets/logos/cep-formentera.png" alt="Centre de Professorat de Formentera" height="48">
+    <img src="../../assets/logos/sfpp.png" alt="Servei de Formació Permanent del Professorat" height="48">
+    <img src="../../assets/logos/govern-illes-balears.png" alt="Govern de les Illes Balears" height="48">
+  </div>
+  <div class="wrap">
+    <div>
+      <p><b>CEP de Formentera</b> · Servei de Formació Permanent del Professorat · Govern de les Illes Balears</p>
+      <p>Prompt mestre de Miguel Ángel Tirado, difós amb la seva autorització. L'eina no desa cap dada: tot el que hi escrius es queda al teu navegador.</p>
+    </div>
+    <div>
+      <p>Continguts sota llicència <b>Creative Commons BY-NC-SA 4.0</b>: podeu compartir-los i adaptar-los citant la font, sense ús comercial i amb la mateixa llicència.</p>
+      <p>Darrera actualització: 1 d'octubre de 2026.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var VERSIO='1.1';
+var CORREU='cep@cepformentera.cat';
+
+/* ---------- Dades per curs (taules del prompt) ---------- */
+var CURSOS={
+ '3p':{nom:"3r de primària",taula:"3r Primària",etapa:'P',grup:'3-4P',vel:"58 paraules/minut",temps:"8 min 30 s",ext:490,cos:"13,5-14 pt",
+   sint:"Predomini d’oracions simples i coordinades. Subordinació molt limitada i transparent.",par:"Relativament breus i centrats en una idea clarament recognoscible.",voc:"Lèxic freqüent. Densitat baixa o moderada.",alin:'A',slug:'3r-primaria'},
+ '4p':{nom:"4t de primària",taula:"4t Primària",etapa:'P',grup:'3-4P',vel:"75 paraules/minut",temps:"9 min",ext:675,cos:"13-13,5 pt",
+   sint:"Oracions simples i compostes senzilles. Introducció progressiva de subordinades freqüents.",par:"Breus o mitjans, amb idea principal clara i desenvolupament senzill.",voc:"Lèxic més variat. Alguns termes específics inferibles pel context.",alin:'A',slug:'4t-primaria'},
+ '5p':{nom:"5è de primària",taula:"5è Primària",etapa:'P',grup:'5-6P',vel:"87 paraules/minut",temps:"9 min 30 s",ext:825,cos:"12,5-13 pt",
+   sint:"Major varietat d’estructures. Coordinació i subordinació freqüents, sense encadenaments complexos.",par:"Mitjans, amb idea principal i desenvolupament mitjançant explicacions, exemples o dades.",voc:"Més vocabulari acadèmic i específic de l’àrea. Densitat mitjana.",alin:'A',slug:'5e-primaria'},
+ '6p':{nom:"6è de primària",taula:"6è Primària",etapa:'P',grup:'5-6P',vel:"96 paraules/minut",temps:"10 min",ext:960,cos:"12-12,5 pt",
+   sint:"Combinació natural d’oracions simples i complexes. Subordinació causal, temporal, relativa, condicional o consecutiva.",par:"Mitjans, ben cohesionats i amb relacions clares entre ells.",voc:"Lèxic més precís i cert grau d’abstracció.",alin:'B',slug:'6e-primaria'},
+ '1e':{nom:"1r d’ESO",taula:"1r ESO",etapa:'S',grup:'ESO',vel:"100 paraules/minut",temps:"10 min 30 s",ext:1050,cos:"11,5-12 pt",
+   sint:"Estructures variades, amb subordinació habitual i algunes oracions més llargues.",par:"Mitjans, amb desenvolupament més elaborat d’una idea.",voc:"Lèxic acadèmic més freqüent i major densitat conceptual.",alin:'B',slug:'1r-eso'},
+ '2e':{nom:"2n d’ESO",taula:"2n ESO",etapa:'S',grup:'ESO',vel:"101 paraules/minut",temps:"11 min",ext:1110,cos:"11,5-12 pt",
+   sint:"Major complexitat sintàctica i varietat de connectors. Algunes relacions implícites.",par:"Mitjans o relativament extensos, sempre amb unitat temàtica.",voc:"Vocabulari més precís, abstracte o disciplinari.",alin:'B',slug:'2n-eso'},
+ '3e':{nom:"3r d’ESO",taula:"3r ESO",etapa:'S',grup:'ESO',vel:"102 paraules/minut",temps:"11 min 30 s",ext:1170,cos:"11-11,5 pt",
+   sint:"Sintaxi complexa però clara, amb subordinació diversa, incisos i estructures explicatives o argumentatives més elaborades.",par:"Més desenvolupats, amb progressió temàtica i idees secundàries relacionades.",voc:"Major densitat conceptual i lèxic especialitzat natural.",alin:'B',slug:'3r-eso'},
+ '4e':{nom:"4t d’ESO",taula:"4t ESO",etapa:'S',grup:'ESO',vel:"referència ajustada",temps:"12 min",ext:1230,cos:"11-11,5 pt",
+   sint:"Sintaxi pròpia de textos autèntics adreçats a adolescents competents, amb estructures complexes però clares.",par:"Desenvolupats, amb organització interna sòlida i relacions explícites o implícites.",voc:"Major abstracció, precisió i densitat informativa.",alin:'B',slug:'4t-eso'}
+};
+var ORDRE=['3p','4p','5p','6p','1e','2e','3e','4e'];
+var GRUPS={
+ '3-4P':{nom:"3r-4t Primària",d:[3,3,2,2]},
+ '5-6P':{nom:"5è-6è Primària",d:[2,3,3,2]},
+ 'ESO':{nom:"1r-4t ESO",d:[2,2,3,3]}
+};
+var ORDRE_GRUPS=['3-4P','5-6P','ESO'];
+
+function milers(n){var s=String(Math.round(n));return s.replace(/\B(?=(\d{3})+(?!\d))/g,'.');}
+function marge(c){return [Math.round(c.ext*0.95),Math.round(c.ext*1.05)];}
+
+/* ---------- Taules filtrades ---------- */
+function llista(k){return k?[k]:ORDRE;}
+function t5(k){
+  var r=["| Curs | Velocitat de referència | Temps orientatiu | Extensió aproximada |","|---|---|---|---|"];
+  llista(k).forEach(function(x){var c=CURSOS[x];r.push("| "+c.taula+" | "+c.vel+" | "+c.temps+" | ≈ "+milers(c.ext)+" paraules |");});
+  return r.join("\n");
+}
+function t6(k){
+  var r=["| Curs | Cos de lletra orientatiu | Complexitat sintàctica | Paràgrafs | Vocabulari i densitat |","|---|---|---|---|---|"];
+  llista(k).forEach(function(x){var c=CURSOS[x];r.push("| "+c.taula+" | "+c.cos+" | "+c.sint+" | "+c.par+" | "+c.voc+" |");});
+  return r.join("\n");
+}
+function grups(k){return k?[CURSOS[k].grup]:ORDRE_GRUPS;}
+function t9(k){
+  var r=["| Curs | LOCALITZAR | DEDUIR | INTERPRETAR | AVALUAR |","|---|---|---|---|---|"];
+  grups(k).forEach(function(g){var G=GRUPS[g];r.push("| "+G.nom+" | "+G.d.join(" | ")+" |");});
+  return r.join("\n");
+}
+function t26(k){
+  var r=["| Curs | LOCALITZAR | DEDUIR | INTERPRETAR | AVALUAR | Total |","|---|---|---|---|---|---|"];
+  grups(k).forEach(function(g){var G=GRUPS[g];r.push("| "+G.nom+" | "+G.d.join(" | ")+" | 10 |");});
+  return r.join("\n");
+}
+var TIPO_P="Tipografia a Educació Primària\n\nUtilitza una tipografia sans serif especialment clara i de gran llegibilitat, com Verdana, Arial, Atkinson Hyperlegible o una d’equivalent. Evita tipografies decoratives, condensades o amb formes que dificultin la discriminació de les lletres.\n\n";
+var TIPO_S="Tipografia a Educació Secundària\n\nEs poden utilitzar tipografies més pròpies dels llibres, revistes o textos impresos adreçats a adolescents o adults, incloses tipografies amb serif, sempre que siguin clares i de bona llegibilitat. Per exemple: Georgia, Cambria, Charter, Source Serif o equivalent.\n\n";
+function t19(k){
+  function mides(et){return ORDRE.filter(function(x){return CURSOS[x].etapa===et&&(!k||x===k);}).map(function(x){return "- "+CURSOS[x].taula+": "+CURSOS[x].cos;}).join("\n");}
+  var out=[];
+  if(!k||CURSOS[k].etapa==='P')out.push(TIPO_P+mides('P'));
+  if(!k||CURSOS[k].etapa==='S')out.push(TIPO_S+mides('S'));
+  return out.join("\n\n");
+}
+var AL_A="3r, 4t i 5è de primària\n\n- Text alineat a l’esquerra, sense justificar.\n- Mantén una separació regular entre lletres i paraules.\n- No utilitzis partició de paraules al final de línia.\n- Evita línies excessivament llargues.";
+var AL_B="6è de primària i ESO\n\n- Text justificat.\n- Utilitza la partició sil·làbica amb guionet al final de línia quan sigui necessària per evitar espais excessius entre paraules.\n- La partició ha de respectar les normes ortogràfiques de la llengua de la prova.\n- Evita tant els espais irregulars produïts per una justificació deficient com l’ús excessiu dels guionets.";
+var AL_C="En tots els cursos\n\n- Interlineat aproximat entre 1,15 i 1,30, segons l’edat.\n- Marges amplis.\n- Separació visible entre paràgrafs.\n- Espai en blanc suficient.\n- Jerarquia visual clara.\n- Negreta només quan sigui funcional.\n- No comprimeixis el text per reduir pàgines.\n- Evita dividir un mateix paràgraf entre pàgines quan es pugui evitar.";
+function t20(k){
+  var out=[];
+  if(!k||CURSOS[k].alin==='A')out.push(AL_A);
+  if(!k||CURSOS[k].alin==='B')out.push(AL_B);
+  out.push(AL_C);
+  return out.join("\n\n");
+}
+
+/* ---------- Text del prompt mestre, versió 1.0 ---------- */
+var PROMPT=`PROMPT MESTRE PER ELABORAR PROVES DE COMPRENSIÓ LECTORA
+
+Centres de Formentera - Versió 1.1
+
+Actua com a especialista en didàctica de la lectura, avaluació de la comprensió lectora i disseny de proves educatives. Has d’elaborar una prova completa de comprensió lectora adaptada al curs indicat i seguint rigorosament les especificacions següents.
+
+1. DADES QUE ES PROPORCIONARAN
+
+- Centre: CEIP Mestre Lluís Andreu / CEIP Sant Ferran de ses Roques / CEIP El Pilar de la Mola / CCEIP Virgen Milagrosa / IES Marc Ferrer / un altre. Si no s’indica cap centre, no l’inventis ni l’incloguis.
+- Curs: 3r de primària / 4t de primària / 5è de primària / 6è de primària / 1r d’ESO / 2n d’ESO / 3r d’ESO / 4t d’ESO.
+- Llengua de la prova: català / castellà.
+- Àrea o matèria: Llengua, Coneixement del Medi, Ciències Naturals, Ciències Socials, Geografia i Història, Biologia, etc.
+- Tema o contingut: tema concret o lliure.
+- Seqüència textual dominant: narrativa / descriptiva / explicativa / argumentativa / dialogal.
+- Altres seqüències textuals complementàries: una o diverses, si escau.
+- Gènere discursiu: notícia, reportatge, relat, conte, faula, llegenda, biografia, crònica, entrevista, article divulgatiu, entrada enciclopèdica, carta, correu electrònic, diari, ressenya, fullet informatiu, instruccions, text teatral, etc.
+- Format textual: continu / discontinu / mixt. Per defecte, el format serà continu. Només elabora un text discontinu o mixt quan s’indiqui expressament.
+- Vocabulari que ha d’aparèixer: paraules, expressions, conceptes o termes específics que es vulguin incorporar al text. Integra aquest vocabulari de manera natural, sense forçar-lo ni concentrar-lo en un únic paràgraf. Quan algun terme pugui resultar poc conegut per al curs, proporciona prou context perquè se’n pugui inferir el significat, excepte si es vol avaluar expressament aquest significat.
+
+La seqüència textual dominant, el gènere discursiu i el format textual són dimensions diferents. Per exemple, un reportatge pot ser predominantment explicatiu, incorporar una seqüència narrativa i presentar-se en format mixt si combina text continu amb una taula o una infografia.
+
+Si alguna dada no s’especifica, selecciona una opció adequada al curs, a l’àrea i a l’objectiu d’avaluar la comprensió lectora, excepte el centre i el format discontinu o mixt, que no s’han d’inventar.
+
+2. ESTRUCTURA GENERAL DE LA PROVA
+
+- Capçalera i dades de l’alumne.
+- Instruccions.
+- Text o conjunt de materials de lectura.
+- Preguntes de comprensió.
+- Pauta de correcció per al docent.
+
+El títol general serà:
+
+PROVA DE COMPRENSIÓ LECTORA
+
+A la capçalera s’ha d’identificar el centre, si s’ha proporcionat, i el curs. Mantén aquesta identificació de manera discreta i coherent en la maquetació de la prova.
+
+Títol del text
+
+El títol ha de ser suggeridor però no explícit. No ha de revelar directament el tema central, la idea principal ni la conclusió del text. Ha d’oferir alguna pista suficient per activar hipòtesis o expectatives, de manera que l’alumnat hagi d’inferir de què pot tractar el text abans o durant la lectura.
+
+El títol pot ser:
+
+- evocador;
+- metafòric;
+- interrogatiu;
+- una expressió significativa;
+- una frase breu relacionada amb una idea del text;
+- una referència indirecta a algun element rellevant.
+
+Evita títols purament temàtics que revelin directament el contingut central. El títol no ha de ser enganyós ni arbitrari: després de llegir el text, la seva relació amb el contingut ha de resultar comprensible.
+
+3. DADES DE L’ALUMNE
+
+Nom i llinatges: ___________________________________________
+
+Curs / grup: ______________________
+
+Data: ______________________
+
+4. INSTRUCCIONS PER A L’ALUMNAT
+
+Inclou l’apartat següent:
+
+ABANS DE COMENÇAR
+
+1. Primera lectura global
+Llegeix tot el text seguit per entendre de què tracta i identificar-ne les idees principals. Encara no cal recordar tots els detalls.
+
+2. Segona lectura activa
+Torna’l a llegir amb més atenció. Pots subratllar paraules o idees importants, encerclar dades i fer petites anotacions al marge.
+
+3. Respon
+Pots tornar al text tantes vegades com ho necessitis. Abans de marcar una resposta, comprova que el text la justifica.
+
+4. Preguntes 1-9
+Respon cada pregunta segons el format que s’indiqui.
+
+5. Pregunta 10
+Respon breument i justifica la teva resposta a partir del text en un màxim de tres oracions.
+
+6. Revisa
+Abans de lliurar la prova, revisa totes les respostes.
+
+5. EXTENSIÓ DEL TEXT
+
+Per als textos continus, utilitza aquesta progressió orientativa:
+
+{{T5}}
+
+En 4t d’ESO s’aplica deliberadament una correcció a la baixa de l’extensió per mantenir una progressió equilibrada respecte dels cursos anteriors. No utilitzis mecànicament la velocitat lectora de la taula original per calcular-ne la llargada.
+
+En textos continus s’admet una desviació aproximada de ±5 % si és necessària per preservar la naturalitat, la coherència i la qualitat del text. No allarguis artificialment un text només per arribar al nombre previst de paraules.
+
+Textos discontinus i mixtos
+
+Quan el format sigui discontinu o mixt, el nombre de paraules deixa de ser el criteri principal. Ajusta la quantitat de text i d’informació a una càrrega lectora equivalent al nivell i al temps previstos per al curs.
+
+- No intentis completar artificialment el nombre de paraules establert per als textos continus.
+- En un text discontinu, considera la densitat de dades, el nombre de categories, llegendes, eixos, apartats, relacions espacials i informació que s’ha d’integrar.
+- En un text mixt, redueix la longitud del component continu en funció de la quantitat i la complexitat de la informació aportada pels elements discontinus.
+- No apliquis un percentatge fix de reducció: adapta la càrrega lectora al material concret.
+
+6. ADEQUACIÓ PROGRESSIVA AL CURS
+
+L’adequació al nivell no ha de dependre només de la longitud. També s’han de graduar la complexitat sintàctica, la longitud de les oracions, el vocabulari, la densitat informativa, el grau d’abstracció, la quantitat d’informació implícita, la distància entre informacions que s’han de relacionar, la complexitat de l’estructura textual, la varietat de connectors, la mida de la lletra i la densitat visual de la pàgina.
+
+{{T6}}
+
+La complexitat sintàctica no ha de ser artificial. Fins i tot als cursos superiors, prioritza la claredat, la cohesió, les relacions lògiques recognoscibles, els connectors adequats i els referents pronominals inequívocs.
+
+7. ESTRUCTURA DELS PARÀGRAFS
+
+Aquest criteri és obligatori en tots els cursos. Cada paràgraf ha de constituir una unitat de significat i ha de girar entorn d’una idea principal. Comprova que:
+
+- cada paràgraf té una idea central identificable;
+- les altres oracions desenvolupen, expliquen, exemplifiquen, contrasten o concreten aquesta idea;
+- no s’hi acumulen dues idees principals independents;
+- la longitud dels paràgrafs és adequada al curs;
+- hi ha progressió lògica entre uns paràgrafs i els altres;
+- el conjunt construeix una macroestructura coherent.
+
+Als cursos inicials, la idea principal ha de ser més fàcilment recognoscible. A mesura que augmenta el nivell, pot aparèixer de manera menys explícita i exigir més integració per part del lector.
+
+8. CARACTERÍSTIQUES DEL TEXT
+
+El text ha de:
+
+- ser adequat a l’edat i al curs;
+- resultar interessant;
+- ser clar i coherent;
+- tenir prou riquesa informativa per permetre preguntes de diferent profunditat;
+- evitar l’acumulació excessiva de noms, dates o dades secundàries;
+- contenir relacions causals, temporals, comparatives o argumentatives;
+- permetre fer inferències;
+- tenir una idea global recognoscible;
+- permetre integrar informació de diferents fragments;
+- oferir elements que permetin valorar críticament afirmacions, evidències, decisions o punts de vista.
+
+El text s’ha de poder llegir com un text autèntic i coherent per si mateix, no com un conjunt de frases construïdes només per generar preguntes.
+
+Format continu, discontinu o mixt
+
+Per defecte, el material serà continu. Si s’indica expressament un format discontinu o mixt, pot incloure taules, cronologies, gràfics, mapes, infografies, cartells, horaris, formularis, esquemes, menús, prospectes, requadres o altres elements semblants.
+
+Un element discontinu només compta com a part real del text si aporta informació necessària per comprendre o respondre almenys alguna pregunta. Una imatge merament decorativa no converteix el text en mixt.
+
+9. PROCESSOS DE COMPRENSIÓ I NOMENCLATURA
+
+| Etiqueta | Descripció |
+|---|---|
+| LOCALITZAR | Localitzar i obtenir informació explícita. |
+| DEDUIR | Extreure conclusions directes. |
+| INTERPRETAR | Interpretar i integrar idees i informacions. |
+| AVALUAR | Analitzar i avaluar el contingut i els elements textuals. |
+
+Utilitza sempre aquestes quatre etiquetes en majúscules a la pauta de correcció i al resum de resultats.
+
+Distribució dels processos segons el curs
+
+{{T9}}
+
+La numeració concreta de les preguntes ha de respectar aquesta distribució i mantenir els ítems agrupats per procés, de menor a major demanda cognitiva. La pregunta 10 serà sempre d’AVALUAR.
+
+10. LOCALITZAR
+
+Les preguntes de LOCALITZAR han d’exigir identificar informació expressada directament en el text. Poden consistir a:
+
+- localitzar una dada;
+- identificar una acció o característica;
+- trobar una informació concreta;
+- reconèixer una idea explícita;
+- recuperar informació d’una taula, imatge, mapa o gràfic.
+
+No converteixis totes les preguntes de LOCALITZAR en simples cerques de xifres, noms o dates. Almenys una ha d’exigir comprendre correctament una idea explícita.
+
+11. DEDUIR
+
+Les preguntes de DEDUIR han d’exigir connectar dues o més informacions per obtenir una conclusió que no apareix formulada literalment, però que es desprèn clarament del text. Poden consistir a:
+
+- establir una relació causa-conseqüència;
+- deduir per què passa alguna cosa;
+- relacionar dos fets;
+- inferir una característica;
+- establir una relació temporal o lògica;
+- connectar informacions situades en llocs diferents.
+
+La inferència s’ha de poder justificar a partir del text, sense necessitat de coneixements externs.
+
+12. INTERPRETAR
+
+Les preguntes d’INTERPRETAR han d’exigir comprendre una part substancial del text o el text en conjunt. Poden consistir a:
+
+- identificar la idea principal o el missatge global;
+- relacionar diferents paràgrafs;
+- comparar o contrastar informacions;
+- integrar diferents exemples sota una mateixa idea;
+- interpretar la funció d’un episodi dins el conjunt;
+- formular una generalització;
+- identificar la millor síntesi;
+- aplicar una idea del text a una situació nova.
+
+Algunes preguntes poden presentar un propòsit de lectura concret, com seleccionar quina informació seria més útil per explicar una idea, defensar una conclusió o resoldre una finalitat determinada.
+
+13. AVALUAR
+
+Les preguntes d’AVALUAR han d’exigir prendre distància respecte del text i formular un judici fonamentat. Poden consistir a:
+
+- decidir si una afirmació està ben sustentada;
+- valorar si una evidència és adequada;
+- identificar una conclusió insuficientment fonamentada;
+- valorar el títol;
+- analitzar la intenció o perspectiva de l’autor;
+- valorar la funció d’un element gràfic;
+- distingir entre fet, interpretació i opinió;
+- valorar si una explicació és suficient;
+- determinar quina informació és més pertinent per a una finalitat.
+
+La resposta s’ha de poder justificar principalment a partir del text. No converteixis aquestes preguntes en simples opinions personals. Com que el títol és suggeridor i no explícit, alguna pregunta d’AVALUAR pot demanar valorar la relació entre el títol i el contingut quan sigui adequat al curs.
+
+14. FORMAT DE LES PREGUNTES 1-9
+
+Les preguntes 1-9 seran majoritàriament de resposta múltiple amb quatre opcions: A, B, C i D. Només hi haurà una resposta inequívocament correcta.
+
+Els distractors han de ser:
+
+- plausibles;
+- homogenis en extensió i estructura;
+- basats en possibles errors de comprensió;
+- prou versemblants per exigir la lectura del text;
+- clarament incorrectes un cop s’ha comprès bé el text.
+
+Evita “totes les anteriors”, “cap de les anteriors”, distractors absurds, pistes gramaticals o lèxiques, alternatives parcialment correctes i que la resposta correcta sigui sistemàticament la més llarga. Distribueix de manera equilibrada les respostes correctes entre A, B, C i D.
+
+15. PREGUNTA DE COMPLETAR BUITS A ESO
+
+A les proves de 1r, 2n, 3r i 4t d’ESO, una de les preguntes 1-9 ha de consistir a completar els buits d’un paràgraf. Aquesta pregunta:
+
+- substituirà una de les preguntes de resposta múltiple;
+- mantindrà el total de 10 preguntes;
+- s’ubicarà dins el procés de comprensió més adequat;
+- tindrà una extensió aproximada d’un paràgraf i formarà una unitat coherent de significat;
+- no serà una simple còpia d’un paràgraf original amb paraules eliminades;
+- preferentment reconstruirà, sintetitzarà o integrarà informació del text;
+- obligarà a comprendre les relacions entre idees;
+- no es convertirà en un exercici purament gramatical o lèxic;
+- podrà exigir comprendre relacions causals, temporals, referencials, argumentatives, explicatives o de síntesi;
+- inclourà un banc d’opcions que permeti una correcció objectiva;
+- els distractors seran plausibles;
+- cada opció s’utilitzarà una sola vegada, tret que s’indiqui expressament el contrari.
+
+La pregunta valdrà 1 punt en total, independentment del nombre de buits. A la pauta de correcció s’ha d’especificar el valor de cada resposta correcta.
+
+16. PREGUNTA 10
+
+La pregunta 10 serà sempre oberta, breu i d’AVALUAR. Pot partir de:
+
+- una afirmació feta per un alumne;
+- una interpretació;
+- una conclusió;
+- una valoració;
+- una decisió sobre l’ús d’una determinada evidència.
+
+L’alumne haurà de respondre i justificar la resposta a partir del text. Format orientatiu:
+
+Un alumne afirma: «[...]».
+Està ben fonamentada aquesta afirmació segons el text? Justifica la teva resposta.
+
+La resposta tindrà un màxim de tres oracions.
+
+17. GRADACIÓ DE LA DIFICULTAT
+
+La dificultat no s’ha de basar simplement en paraules més rares. Ha de dependre progressivament de:
+
+- la quantitat d’informació que cal localitzar;
+- la distància entre les informacions que s’han de relacionar;
+- el grau d’explicitud de la resposta;
+- la necessitat d’integrar fragments;
+- la necessitat de comprendre el text global;
+- la complexitat sintàctica;
+- la densitat conceptual;
+- la presència d’informació implícita;
+- la necessitat de valorar evidències;
+- la necessitat de justificar una conclusió.
+
+Dins cada procés, inclou ítems de dificultat diversa i ajusta la demanda cognitiva al curs. Una pregunta d’AVALUAR de 3r de primària no ha de tenir la mateixa exigència que una de 4t d’ESO.
+
+18. CONTROL DE QUALITAT DELS ÍTEMS
+
+Abans de presentar la prova, comprova que:
+
+- la resposta correcta es pot demostrar a partir del text;
+- no hi ha dues respostes defensables;
+- el procés assignat és realment el que exigeix la pregunta;
+- una pregunta de LOCALITZAR no sigui en realitat inferencial;
+- una pregunta de DEDUIR no es pugui respondre copiant literalment una frase;
+- una pregunta d’INTERPRETAR exigeixi integrar informació;
+- una pregunta d’AVALUAR exigeixi valorar o justificar;
+- la resposta no depengui de coneixements externs;
+- una pregunta no reveli la resposta d’una altra;
+- en la pregunta de completar buits, la resposta depengui de la comprensió del text i no només de pistes gramaticals.
+
+Si un ítem no compleix aquests criteris, reescriu-lo abans de presentar-lo.
+
+19. FORMAT VISUAL DEL DOCUMENT
+
+La prova ha de tenir una estètica neta, clara, professional, moderna, adequada a l’edat i poc recarregada.
+
+{{T19}}
+
+La tipografia triada s’ha de mantenir de manera consistent en el cos del text. Els títols i encapçalaments poden utilitzar una tipografia complementària.
+
+20. ALINEACIÓ I COMPOSICIÓ DEL TEXT
+
+{{T20}}
+
+21. IMATGES I ELEMENTS GRÀFICS
+
+Inclou una imatge rellevant com a norma general. Només n’incloguis dues quan el contingut o el gènere ho justifiquin. Les imatges han de:
+
+- estar directament relacionades amb el text;
+- aportar context, interès o informació;
+- integrar-se sense interrompre la lectura;
+- ser adequades a l’edat;
+- tenir qualitat suficient.
+
+No converteixis la prova en un document excessivament il·lustrat. Si una imatge, mapa, gràfic o taula conté informació rellevant, alguna pregunta pot exigir interpretar-la. Si és merament contextual o estètica, cap resposta no n’ha de dependre.
+
+PAUTA DE CORRECCIÓ PER AL DOCENT
+
+Després de la prova de l’alumnat, genera una secció independent titulada PAUTA DE CORRECCIÓ.
+
+22. RESPOSTES CORRECTES DE LES PREGUNTES 1-9
+
+Inclou una taula amb aquest format:
+
+| Pregunta | Resposta correcta | Procés | Evidència textual | Justificació |
+|---|---|---|---|---|
+| 1 | B | LOCALITZAR | [...] | [...] |
+| 2 | D | LOCALITZAR | [...] | [...] |
+| 3 | A | DEDUIR | [...] | [...] |
+
+La justificació ha de ser breu però prou precisa perquè el docent pugui entendre per què la resposta correcta és inequívoca. En les preguntes de DEDUIR, INTERPRETAR o AVALUAR, explica també breument quina operació cognitiva exigeix l’ítem.
+
+Pregunta de completar buits
+
+Quan la prova sigui d’ESO, indica també la solució correcta de cada buit, el valor de cada resposta, la puntuació total de la pregunta, el procés que avalua i una breu justificació de per què la tasca pertany a aquest procés.
+
+23. CORRECCIÓ DE LA PREGUNTA 10
+
+Resposta model
+
+Redacta una resposta possible, correcta i adequada al curs, amb un màxim de tres oracions.
+
+Idees o evidències clau
+
+Indica quines idees, informacions o evidències del text haurien d’aparèixer, explícitament o mitjançant una paràfrasi equivalent, perquè la resposta es consideri ben fonamentada. No exigeixis que la resposta de l’alumne coincideixi literalment amb el model.
+
+24. RÚBRICA DE LA PREGUNTA 10
+
+| Puntuació | Criteri |
+|---|---|
+| 1 punt | Respon correctament a la qüestió i justifica la resposta de manera clara i suficient mitjançant una o més informacions rellevants del text. La relació entre l’evidència i la conclusió és comprensible. |
+| 0,5 punts | La resposta és essencialment correcta, però la justificació és parcial, massa general, poc precisa o incompleta. També es pot concedir 0,5 quan s’aporta una evidència pertinent però la relació amb la conclusió queda poc explicada. |
+| 0 punts | La resposta és incorrecta, contradictòria amb el text, no està justificada, es basa només en una opinió personal o utilitza informació que no permet sostenir la conclusió. |
+
+- No penalitzis errors ortogràfics, gramaticals o d’expressió, excepte si impedeixen comprendre la resposta.
+- No exigeixis citacions literals.
+- Accepta paràfrasis correctes.
+- Una resposta més llarga no obté més puntuació pel fet de ser-ho.
+- Valora la comprensió i la justificació, no la qualitat estilística.
+- Si la resposta és correcta però no hi ha cap justificació, la puntuació màxima serà 0,5 punts.
+- Si la conclusió és incorrecta, la puntuació serà 0 punts, encara que l’alumne copiï informació del text, excepte si la pregunta admet expressament més d’una valoració possible i aquesta està ben argumentada.
+
+25. EXEMPLES DE CORRECCIÓ DE LA PREGUNTA 10
+
+- Exemple d’1 punt: resposta correcta i ben justificada.
+- Exemple de 0,5 punts: resposta correcta o essencialment correcta, però amb una justificació incompleta.
+- Exemple de 0 punts: resposta incorrecta, no justificada o basada únicament en una opinió.
+
+26. RESULTATS PER PROCESSOS
+
+Inclou el quadre corresponent al curs. Cada pregunta val 1 punt i la prova queda directament puntuada sobre 10.
+
+{{T26}}
+
+En ESO, la pregunta de completar buits continua valent 1 punt en total i ocupa una de les deu preguntes segons el procés que avaluï.
+
+27. INFORMACIÓ FINAL DE CONTROL PER AL DOCENT
+
+- Centre:
+- Curs:
+- Llengua de la prova:
+- Àrea o matèria:
+- Tema o contingut:
+- Seqüència textual dominant:
+- Seqüències complementàries:
+- Gènere discursiu:
+- Format textual: continu / discontinu / mixt.
+- Nombre exacte de paraules del text continu, si escau:
+- Extensió prevista o càrrega lectora prevista:
+- Velocitat de referència utilitzada, si escau:
+- Temps estimat de lectura:
+- Tipografia i mida utilitzades:
+- Alineació del text:
+- Distribució d’ítems per processos:
+- Pregunta de completar buits: sí / no.
+- Procés en què s’ha incorporat, si escau:
+
+En textos continus, comprova que el nombre real de paraules no es desviï més d’un ±5 % de l’objectiu previst, llevat que hi hagi una justificació clara de qualitat textual. En textos discontinus o mixtos, no utilitzis aquest límit de manera mecànica: valora la càrrega lectora global.
+
+28. PROCEDIMENT DE GENERACIÓ
+
+Segueix aquests passos:
+
+- determina l’extensió o la càrrega lectora i el grau de dificultat corresponents al curs;
+- identifica el format textual sol·licitat: continu, discontinu o mixt;
+- planifica internament l’estructura global del text o dels materials de lectura;
+- defineix internament la idea principal de cada paràgraf quan hi hagi text continu;
+- redacta i organitza el material complet;
+- comprova la coherència, la cohesió, l’estructura dels paràgrafs, l’adequació al curs i, quan correspongui, el nombre de paraules;
+- comprova que el títol sigui suggeridor però no explícit;
+- aplica la distribució de preguntes per processos corresponent al curs;
+- si és una prova d’ESO, incorpora una pregunta de completar buits dins el procés més adequat;
+- comprova individualment la qualitat, la dificultat i la classificació de cada ítem;
+- redacta la pauta de correcció;
+- revisa el format visual segons l’etapa i el tipus de text;
+- revisa el conjunt abans de presentar-lo.
+
+No mostris aquesta planificació interna. Presenta directament la prova acabada i, a continuació, la pauta de correcció per al docent.`;
+
+function construeix(k){
+  return PROMPT.replace('{{T5}}',t5(k)).replace('{{T6}}',t6(k)).replace('{{T9}}',t9(k))
+    .replace('{{T19}}',t19(k)).replace('{{T20}}',t20(k)).replace('{{T26}}',t26(k));
+}
+
+/* ---------- Formulari ---------- */
+var $=function(id){return document.getElementById(id);};
+function val(id){return ($(id).value||'').trim();}
+function marcats(id){return [].slice.call($(id).querySelectorAll('input:checked')).map(function(i){return i.value;});}
+
+function dades(){
+  var k=$('curs').value;if(!k)return null;
+  var c=CURSOS[k];
+  var NO="no s’especifica; tria l’opció més adequada";
+  var comp=marcats('complementaries');
+  var linies=[
+    "- Centre: "+(val('centre')||"no s’indica cap centre"),
+    "- Curs: "+c.nom,
+    "- Llengua de la prova: "+$('llengua').value,
+    "- Àrea o matèria: "+(val('area')||NO),
+    "- Tema o contingut: "+(val('tema')||NO),
+    "- Seqüència textual dominant: "+($('sequencia').value||NO),
+    "- Altres seqüències textuals complementàries: "+(comp.length?comp.join(", "):NO),
+    "- Gènere discursiu: "+(val('genere')||NO),
+    "- Format textual: "+$('format').value,
+    "- Vocabulari que ha d’aparèixer: "+(val('vocabulari')||"cap en concret")
+  ];
+  return {k:k,c:c,text:"\n\nDADES D’AQUESTA PROVA\n\n"+linies.join("\n")};
+}
+
+var promptActual='';
+var ultimesParaules=0;
+var FORMULARI=null;
+function actualitza(){
+  var d=dades();
+  var ok=!!d;
+  $('b-copiar').disabled=!ok;$('b-txt').disabled=!ok;
+  if(!ok){
+    promptActual='';$('prompt').value='';
+    $('resum-prompt').innerHTML='<span>Encara no has triat el curs.</span>';
+    $('objectiu').textContent='Tria un curs per veure-la.';
+    plantilles(null);comptar();return;
+  }
+  promptActual=construeix(d.k)+d.text;
+  $('prompt').value=promptActual;
+  var m=marge(d.c);
+  var continu=$('format').value==='continu';
+  $('objectiu').innerHTML=continu?('≈ <b>'+milers(d.c.ext)+'</b> paraules ('+milers(m[0])+'-'+milers(m[1])+') · '+d.c.temps+' de lectura'):('Càrrega lectora equivalent a '+d.c.temps+' de lectura');
+  $('resum-prompt').innerHTML='<span><b>'+d.c.nom+'</b></span><span>'+$('llengua').value+'</span><span>format '+$('format').value+'</span><span>'+milers(promptActual.length)+' caràcters</span>';
+  plantilles(d);comptar();
+}
+
+/* ---------- Copiar i descarregar ---------- */
+function copia(text,estat){
+  function fet(){$(estat).textContent='Copiat. Ara enganxa-ho on calgui.';}
+  function alt(){
+    var t=document.createElement('textarea');t.value=text;t.setAttribute('readonly','');t.style.position='fixed';t.style.opacity='0';
+    document.body.appendChild(t);t.select();
+    try{document.execCommand('copy');fet();}catch(e){$(estat).textContent='No s’ha pogut copiar. Selecciona el text i copia’l a mà.';}
+    document.body.removeChild(t);
+  }
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(fet,alt);}else{alt();}
+}
+function descarrega(nom,text){
+  var b=new Blob([text],{type:'text/plain;charset=utf-8'});
+  var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=nom;
+  document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},500);
+}
+$('b-copiar').addEventListener('click',function(){copia(promptActual,'estat-copia');});
+$('b-txt').addEventListener('click',function(){var d=dades();descarrega('prompt-comprensio-lectora-v'+VERSIO+'-'+d.c.slug+'.txt',promptActual);});
+$('b-complet').addEventListener('click',function(){descarrega('prompt-mestre-comprensio-lectora-v'+VERSIO+'-complet.txt',construeix(null));});
+
+/* ---------- Plantilles ---------- */
+function plantilles(d){
+  var box=$('plantilla-links');box.innerHTML='';
+  if(!d){$('plantilla-curs').textContent='Tria un curs per veure la seva plantilla.';return;}
+  var c=d.c;
+  $('plantilla-curs').textContent=c.nom+' · '+c.cos+' · '+(c.alin==='A'?'alineat a l’esquerra':'justificat amb partició');
+  [['ca','Català'],['es','Castellà']].forEach(function(l){
+    var a=document.createElement('a');a.className='slot ready';
+    a.href='plantilles/plantilla-'+c.slug+'-'+l[0]+'.docx';a.setAttribute('download','');
+    a.textContent='Word · '+l[1];box.appendChild(a);
+  });
+}
+
+/* ---------- Comptador ---------- */
+function comptar(){
+  var t=$('text-lectura').value.trim();
+  var paraules=t?t.split(/\s+/).filter(function(w){return /[A-Za-zÀ-ÿ0-9·]/.test(w);}).length:0;
+  var paragrafs=t?t.split(/\n+/).filter(function(p){return p.trim().length>0;}).length:0;
+  var oracions=t?t.split(/[.!?…]+(?=\s|$)/).filter(function(o){return /[A-Za-zÀ-ÿ0-9]/.test(o);}).length:0;
+  ultimesParaules=paraules;
+  $('m-paraules').textContent=milers(paraules);
+  $('m-paragrafs').textContent=paragrafs;
+  $('m-oracio').textContent=oracions?String(Math.round(paraules/oracions*10)/10).replace('.',','):'0';
+  var v=$('veredicte'),k=$('curs').value;
+  v.className='veredicte';
+  if(!k){v.textContent='Tria un curs al pas 1 per comparar-ho amb l’extensió prevista.';return;}
+  var c=CURSOS[k],m=marge(c);
+  if($('format').value!=='continu'){v.textContent='En textos discontinus o mixtos, el nombre de paraules no és el criteri principal (apartat 5 del prompt). Valora la càrrega lectora global.';return;}
+  if(!paraules){v.textContent='Objectiu per a '+c.nom+': ≈ '+milers(c.ext)+' paraules (entre '+milers(m[0])+' i '+milers(m[1])+').';return;}
+  if(paraules<m[0]){v.className='veredicte fora';v.textContent='Curt: en falten '+milers(m[0]-paraules)+' per arribar al mínim ('+milers(m[0])+'). Si el text és bo, no cal allargar-lo artificialment; si no, demana a la IA que el desenvolupi.';}
+  else if(paraules>m[1]){v.className='veredicte fora';v.textContent='Llarg: en sobren '+milers(paraules-m[1])+' respecte del màxim ('+milers(m[1])+'). Pots demanar a la IA que el retalli sense perdre cap informació que necessitin les preguntes.';}
+  else{v.className='veredicte ok';v.textContent='Dins del marge de ±5 % per a '+c.nom+' ('+milers(m[0])+'-'+milers(m[1])+' paraules).';}
+}
+$('text-lectura').addEventListener('input',comptar);
+
+/* ---------- Valoració ---------- */
+(function(){
+  var h='';for(var i=1;i<=10;i++){h+='<div class="fld"><label for="e'+i+'">Pregunta '+i+'</label><input type="number" id="e'+i+'" min="0" max="60" inputmode="numeric"></div>';}
+  $('encerts').innerHTML=h;
+})();
+$('aula').addEventListener('change',function(){var s=this.value==='Sí';$('w-alumnes').hidden=!s;$('w-encerts').hidden=!s;});
+
+function textValoracio(){
+  var d=dades();
+  var r=["VALORACIÓ · Eina de comprensió lectora · Prompt v"+VERSIO,""];
+  r.push("Curs: "+(d?d.c.nom:"no indicat"));
+  r.push("Llengua: "+$('llengua').value);
+  r.push("Format: "+$('format').value);
+  if(val('area'))r.push("Àrea: "+val('area'));
+  if(val('genere'))r.push("Gènere: "+val('genere'));
+  r.push("IA utilitzada: "+(val('ia')||"no indicada"));
+  r.push("Valoració global: "+(val('global')||"no indicada")+" / 5");
+  r.push("Adequació al curs: "+(val('adequacio')||"no indicada"));
+  r.push("Títol: "+(val('titol')||"no indicat"));
+  var p=$('m-paraules').textContent;
+  if(p!=='0')r.push("Paraules del text (comptador de l'eina): "+p);
+  var pr=marcats('problemes');
+  r.push("Problemes: "+(pr.length?pr.join("; "):"cap marcat"));
+  if(val('items'))r.push("Ítems concrets: "+val('items'));
+  r.push("Passada a l'aula: "+(val('aula')||"no indicat"));
+  if(val('aula')==='Sí'){
+    if(val('alumnes'))r.push("Alumnes: "+val('alumnes'));
+    var e=[];for(var i=1;i<=10;i++){var x=val('e'+i);if(x!=='')e.push("P"+i+"="+x);}
+    if(e.length)r.push("Encerts per pregunta: "+e.join(", "));
+  }
+  if(val('comentari'))r.push("Comentaris: "+val('comentari'));
+  return r.join("\n");
+}
+$('b-copiar-val').addEventListener('click',function(){copia(textValoracio(),'estat-val');});
+/* Formulari de Google: es configura amb config-formulari.json (vegeu LEEME) */
+function cap(t){return t?t.charAt(0).toUpperCase()+t.slice(1):t;}
+function urlFormulari(){
+  var d=dades(),E=FORMULARI.e,q=['usp=pp_url'];
+  function posa(k,v){if(E[k]&&v!==''&&v!=null)q.push(E[k]+'='+encodeURIComponent(v));}
+  posa('versio',VERSIO);
+  posa('curs',d?d.c.nom:'');
+  posa('llengua',cap($('llengua').value));
+  posa('format',cap($('format').value));
+  posa('area',val('area'));posa('genere',val('genere'));
+  posa('ia',val('ia'));posa('global',val('global'));
+  posa('adequacio',val('adequacio'));posa('titol',val('titol'));
+  if(ultimesParaules)posa('paraules',String(ultimesParaules));
+  marcats('problemes').forEach(function(x){posa('problemes',x);});
+  posa('items',val('items'));posa('aula',val('aula'));
+  if(val('aula')==='Sí'){posa('alumnes',val('alumnes'));for(var i=1;i<=10;i++)posa('e'+i,val('e'+i));}
+  posa('comentari',val('comentari'));
+  return FORMULARI.url+(FORMULARI.url.indexOf('?')>-1?'&':'?')+q.join('&');
+}
+fetch('config-formulari.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(c){
+  if(c&&c.url&&c.e){FORMULARI=c;
+    $('ajuda-val').textContent='El botó obre el formulari de valoració amb les teves respostes ja posades. Revisa-les i prem «Envia» al final del formulari.';}
+}).catch(function(){});
+$('b-correu').addEventListener('click',function(){
+  if(FORMULARI){window.open(urlFormulari(),'_blank','noopener');$('estat-val').textContent='S’ha obert el formulari en una pestanya nova. Recorda prémer «Envia».';return;}
+  var d=dades();
+  var assumpte='Valoració eina de comprensió lectora v'+VERSIO+(d?' · '+d.c.nom:'');
+  window.location.href='mailto:'+CORREU+'?subject='+encodeURIComponent(assumpte)+'&body='+encodeURIComponent(textValoracio());
+  $('estat-val').textContent='S’ha obert el correu. Si no el veus, copia la valoració.';
+});
+
+['curs','llengua','centre','area','tema','sequencia','genere','format','vocabulari'].forEach(function(id){
+  $(id).addEventListener('input',actualitza);$(id).addEventListener('change',actualitza);
+});
+$('complementaries').addEventListener('change',actualitza);
+$('f-dades').addEventListener('submit',function(e){e.preventDefault();});
+$('f-valoracio').addEventListener('submit',function(e){e.preventDefault();});
+actualitza();
+})();
+</script>
+</body>
+</html>
