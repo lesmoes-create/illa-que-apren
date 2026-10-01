@@ -19,7 +19,7 @@ Para enlazarla o incrustarla en el WordPress del CEP: enlace normal, o un bloque
 
 Hay **dos tipos de sesión**:
 
-- **Ponencia de Miguel Ángel Tirado**: presentación, audio, pódcast, resumen y materiales.
+- **Ponencia de Miguel Ángel Tirado**: presentación, pódcast, resumen y materiales.
 - **Formación al centro**: el equipo trabaja con los recursos de Tirado hasta llegar a sus conclusiones y protocolos. No hay audio, ni resumen, ni tarjetas: solo se publica lo que produce el equipo.
 
 Cada formación tiene su carpeta y cada sesión una subcarpeta numerada:
@@ -48,7 +48,6 @@ recursos/
 | Archivo | Qué es | Cómo aparece en la web |
 |---|---|---|
 | `presentacio.pdf` | Presentación de la sesión | Botón «Presentació» |
-| `audio.mp3` | Audio de la sesión | Reproductor |
 | `podcast.mp3` | Pódcast | Reproductor |
 | `resum.txt` | Resumen e ideas clave (texto plano) | Desplegable «Resum i idees clau» |
 | `materials.pdf` | Materiales de la ponencia | Botón «Materials i productes» |
@@ -111,6 +110,7 @@ En GitHub, entra en la carpeta (por ejemplo `recursos/354/sessio-02`), pulsa **A
 
 ## 5. Antes de subir nada, comprueba
 
+- Las grabaciones completas de las sesiones no se publican (hablan docentes): son de uso interno.
 - Fotos y audios: solo con consentimiento de las personas que aparecen o hablan.
 - Nunca listas de participantes, hojas de firmas ni datos personales.
 - Los audios pesan: GitHub admite archivos de hasta 100 MB. Si un audio pesa más, pásamelo y lo comprimo.
