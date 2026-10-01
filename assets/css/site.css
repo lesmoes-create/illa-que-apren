@@ -428,3 +428,40 @@ footer .logos img{height:44px;width:auto;max-width:100%}
 .ses-note{color:var(--ink-2);font-size:var(--step--1);max-width:var(--measure);margin:0 0 .2rem}
 .ses.pon .d b{color:var(--blue);font-weight:600}
 .ses.pon h3{color:var(--blue)}
+
+/* ===== Portada: bloc per al professorat (01/10/2026) ===== */
+.hero{min-height:min(56vh,540px)}
+.nav-cta{flex:none;color:#0B1B33;background:var(--sun);padding:.4rem .8rem;border-radius:2px;text-decoration:none;font-family:var(--f-display);font-weight:700;font-size:1.02rem;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap}
+.brand span{white-space:nowrap}
+.bar .nav{min-width:0}
+.nav-cta:hover{background:#CDB43A}
+.prof{padding-block:clamp(2rem,4vw,3.25rem) clamp(2.5rem,5vw,4rem);background:var(--paper-2)}
+.prof .wrap{display:grid;gap:1.5rem}
+.prof-kicker{font-family:var(--f-data);font-size:var(--step--1);font-weight:600;letter-spacing:.08em;color:var(--sun-ink)}
+.eina{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.6rem 2rem;align-items:center;padding:clamp(1.5rem,3vw,2.25rem);background:var(--blue-deep);color:var(--on-blue);text-decoration:none;border-radius:2px;border-left:8px solid var(--sun);transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s}
+.eina:hover{transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(0,53,112,.55)}
+.eina > span{grid-column:1}
+.eina-tag{justify-self:start;font-family:var(--f-data);font-weight:600;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:#0B1B33;background:var(--sun);padding:.15rem .55rem;border-radius:2px}
+.eina-t{font-family:var(--f-display);font-weight:700;text-transform:uppercase;font-size:clamp(2rem,1.2rem + 2.6vw,3.2rem);line-height:.95;color:#fff}
+.eina-p{max-width:60ch;color:var(--on-blue-2);font-size:var(--step-1);line-height:1.45}
+.eina-f{display:flex;flex-wrap:wrap;gap:.35rem 1.25rem;color:var(--on-blue-2)}
+.eina-f span::before{content:"";display:inline-block;width:.45rem;height:.45rem;background:var(--sun);margin-right:.45rem;vertical-align:.1em}
+.eina > .eina-go{grid-column:2;grid-row:1 / span 4;display:inline-flex;align-items:center;gap:.7rem;padding:1rem 1.6rem;background:var(--sun);color:#0B1B33;font-family:var(--f-display);font-weight:700;font-size:1.3rem;text-transform:uppercase;letter-spacing:.04em;border-radius:2px;white-space:nowrap}
+.eina-go::after{content:"";width:.6rem;height:.6rem;border-right:3px solid currentColor;border-top:3px solid currentColor;transform:rotate(45deg)}
+.eina:hover .eina-go{background:#CDB43A}
+@media (max-width:760px){.eina{grid-template-columns:1fr}.eina > .eina-go{grid-column:1;grid-row:auto;justify-self:start;margin-top:.5rem}}
+.prof-head{display:grid;gap:.5rem;margin-top:1rem}
+.prof-head h3{font-size:var(--step-2);color:var(--blue)}
+.prof-head p{color:var(--ink-2);max-width:var(--measure)}
+.prof .espais a{border:1px solid var(--rule);border-top:4px solid var(--blue)}
+.prof .espais small{color:var(--ink-2);font-size:var(--step--1)}
+.prof .espais em{font-family:var(--f-display);font-weight:700;font-size:1.05rem;text-transform:uppercase;letter-spacing:.04em;color:var(--blue);border-bottom:3px solid var(--sun);justify-self:start;padding-bottom:1px}
+.box.practica{border-color:var(--sun);border-width:2px;background:var(--gold-soft,var(--paper-2))}
+.box.practica h2{color:var(--sun-ink)}
+.box.practica p{color:var(--ink)}
+.cta::after{transform:rotate(-45deg) translate(-1px,-1px)}
+.nav{gap:1.1rem}
+.ia-ico{width:1.15em;height:1.15em;flex:none;vertical-align:-.2em;margin-right:.4em}
+.nav-cta{display:inline-flex;align-items:center}
+.eina-t{display:flex;align-items:center;gap:.25em}
+.ia-big{width:1em;height:1em;margin-right:.1em;color:var(--sun)}
