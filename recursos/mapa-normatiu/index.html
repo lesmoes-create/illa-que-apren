@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Mapa normatiu d'infantil i primària a les Illes Balears, curs 2026-2027: currículum, avaluació, decisions de centre i traspàs. CEP de Formentera.">
+<title>Mapa normatiu d'infantil i primària</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@500;600&display=swap">
+<style>
+/* Layout: capçalera blava del CEP amb pestanyes (tot el centre, infantil, primària); mapa radial al centre; a sota, la llista de tot el que diu cada caixa, que també és la segona pàgina en imprimir */
+:root{
+  --bg:#f4f6fa; --surface:#ffffff; --fg:#14213a; --muted:#56627a; --line:#cfd6e4;
+  --blue:#004B99; --blue-soft:#e3ecf8; --gold:#B79D1E; --gold-soft:#f5efd3; --gold-ink:#6e5c0a;
+  --on-blue:#ffffff; --green:#2f6f4f; --green-soft:#e2f0e8;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ui:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c1322; --surface:#141e33; --fg:#e6ebf5; --muted:#9aa6bf; --line:#2b3954;
+  --blue:#5e9de6; --blue-soft:#162a4b; --gold:#d6bb45; --gold-soft:#302a10; --gold-ink:#e8d27a;
+  --on-blue:#0c1322; --green:#6fcf9b; --green-soft:#12301f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1322; --surface:#141e33; --fg:#e6ebf5; --muted:#9aa6bf; --line:#2b3954;
+  --blue:#5e9de6; --blue-soft:#162a4b; --gold:#d6bb45; --gold-soft:#302a10; --gold-ink:#e8d27a;
+  --on-blue:#0c1322; --green:#6fcf9b; --green-soft:#12301f; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:16px/1.5 var(--body)}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{background:var(--blue);color:var(--on-blue)}
+header.top .wrap{padding-block:22px 18px;display:grid;gap:6px}
+.eyebrow{font:600 13px/1 var(--ui);letter-spacing:.12em;text-transform:uppercase;opacity:.88}
+h1{font:700 clamp(28px,4.6vw,42px)/1.04 var(--display);margin:0;text-wrap:balance}
+header.top p{margin:0;max-width:78ch;opacity:.93}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+nav.tabs button{font:600 15px/1 var(--ui);border:1px solid rgba(255,255,255,.55);background:transparent;color:var(--on-blue);border-radius:999px;padding:9px 14px;cursor:pointer}
+nav.tabs button[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:#1b1503}
+nav.tabs button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.rule{height:4px;background:var(--gold)}
+main.wrap{padding-block:18px 44px;display:grid;gap:18px}
+main.wrap>*{min-width:0}
+.lead{font-size:17px;margin:0;max-width:85ch}
+.mapbox{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow-x:auto}
+svg.map{display:block;width:100%;min-width:760px;height:auto}
+.map .edge{fill:none;stroke:var(--line);stroke-width:2}
+.map .node rect{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+.map .node .l{font:600 16px var(--ui);fill:var(--fg)}
+.map .node .s{font:500 12.5px var(--ui);fill:var(--muted)}
+.map .node.hub rect{fill:var(--blue);stroke:var(--blue)}
+.map .node.hub .l{fill:var(--on-blue);font:700 20px var(--display)}
+.map .node.hub .s{fill:var(--on-blue);opacity:.85}
+.map .node.dec rect{fill:var(--green-soft);stroke:var(--green)}
+.map .node.dec .l{fill:var(--green)}
+.map .node.hubdec rect{fill:var(--green);stroke:var(--green)}
+.map .node.hubdec .l{fill:var(--surface);font:700 20px var(--display)}
+.map .node.hubdec .s{fill:var(--surface);opacity:.9}
+.map .node.cep rect{fill:var(--gold);stroke:var(--gold)}
+.map .node.cep .l,.map .node.cep .s{fill:#1b1503}
+.map .node.center rect{fill:var(--fg);stroke:var(--fg)}
+.map .node.center .l{fill:var(--bg);font:700 22px var(--display)}
+.map .node.center .s{fill:var(--bg);opacity:.85}
+.map .node{cursor:pointer}
+.map .node:focus-visible rect,.map .node.sel rect{stroke:var(--gold);stroke-width:3}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;padding:10px 14px;border-top:1px solid var(--line);font:500 14px var(--ui);color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px;border:1.5px solid var(--line)}
+.legend .b{background:var(--blue);border-color:var(--blue)} .legend .g{background:var(--gold);border-color:var(--gold)} .legend .v{background:var(--green);border-color:var(--green)}
+.detail{background:var(--blue-soft);border-radius:10px;padding:16px clamp(16px,3vw,24px);display:grid;gap:6px;min-width:0}
+.detail .kind{font:600 13px/1 var(--ui);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.detail h2{font:700 24px/1.1 var(--display);margin:0;color:var(--blue)}
+.detail p{margin:0;max-width:80ch} .detail ul{margin:0;padding-left:20px;max-width:85ch}
+h2.sec{font:700 28px/1.1 var(--display);margin:4px 0 0}
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px}
+.grp{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:8px;align-content:start;min-width:0}
+.grp h3{font:700 20px/1.1 var(--display);margin:0;color:var(--blue)}
+.grp.dec h3{color:var(--green)} .grp.cep h3{color:var(--gold-ink)}
+.item{display:grid;gap:2px}
+.item b{font:600 15px/1.25 var(--ui)}
+.item span{font-size:15px;color:var(--fg)}
+.item ul{margin:2px 0 0;padding-left:18px;font-size:14.5px}
+footer{color:var(--muted);font-size:14px;line-height:1.5;display:grid;gap:4px}
+footer a{color:var(--blue)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{
+  @page{size:A4 landscape;margin:10mm}
+  :root,:root[data-theme="dark"]{--bg:#fff;--surface:#fff;--fg:#14213a;--muted:#56627a;--line:#cfd6e4;--blue:#004B99;--blue-soft:#e6eef8;--gold:#B79D1E;--gold-soft:#f6f0d6;--gold-ink:#6b5a0c;--on-blue:#fff;--green:#2f6f4f;--green-soft:#e2f0e8;color-scheme:light}
+  body{font-size:10.5pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .wrap{max-width:none;padding:0}
+  header.top .wrap{padding:12px 16px}
+  h1{font-size:24pt} header.top p{font-size:10pt}
+  nav.tabs,.detail,footer .noprint{display:none}
+  main.wrap{padding:8px 0 0;gap:8px}
+  .lead{font-size:10.5pt}
+  .mapbox{border:0;overflow:visible} svg.map{min-width:0;width:auto;height:128mm;margin:0 auto}
+  .listing{break-before:page}
+  .groups{grid-template-columns:repeat(4,1fr);gap:7px}
+  .grp{padding:8px 10px;gap:5px;break-inside:avoid}
+  .grp h3{font-size:12pt} .item b{font-size:8.8pt} .item span,.item ul{font-size:8.4pt;line-height:1.3}
+  h2.sec{font-size:15pt}
+  footer{font-size:8pt}
+}
+.backbar{background:var(--surface);border-bottom:1px solid var(--line)}.backbar .wrap{padding-block:10px;font:600 15px var(--ui)}.backbar a{color:var(--blue);text-decoration:none}.backbar a:hover{text-decoration:underline}
+@media print{.backbar{display:none}}
+</style>
+</head>
+<body>
+<div class="backbar"><div class="wrap"><a href="../../index.html#recursos">← Illa que aprèn · Per al professorat</a></div></div>
+
+
+<header class="top"><div class="wrap">
+  <div class="eyebrow">CEP de Formentera · Illa que aprèn · Recursos · Curs 2026-2027</div>
+  <h1 id="h1">Mapa normatiu d'infantil i primària</h1>
+  <p id="sub"></p>
+  <nav class="tabs" role="tablist" aria-label="Vista del mapa">
+    <button type="button" role="tab" id="tab-centre" data-view="centre">Infantil i primària</button>
+    <button type="button" role="tab" id="tab-infantil" data-view="infantil">Infantil</button>
+    <button type="button" role="tab" id="tab-primaria" data-view="primaria">Primària</button>
+  </nav>
+</div></header>
+<div class="rule"></div>
+
+<main class="wrap">
+  <p class="lead" id="lead"></p>
+  <div class="mapbox">
+    <svg class="map" id="map" viewBox="0 0 1200 760" role="group" aria-label="Mapa mental"></svg>
+    <div class="legend">
+      <span><i class="b"></i>Què diu la norma</span>
+      <span><i class="v"></i>Què decideix el centre</span>
+      <span><i class="g"></i>Traspàs i formació amb el CEP</span>
+      <span><i></i>Article o acord concret</span>
+    </div>
+  </div>
+  <section class="detail" id="detail" aria-live="polite"></section>
+  <section class="listing" style="display:grid;gap:10px">
+    <h2 class="sec" id="listTitle">Tot el que hi ha al mapa</h2>
+    <div class="groups" id="groups"></div>
+  </section>
+  <footer>
+    <div>D40 = Decret 40/2025, d'1 d'agost (infantil, BOIB 102/2025) · D41 = Decret 41/2025, d'1 d'agost (primària, BOIB 103/2025) · O28 = Ordre 28/2025 i O29 = Ordre 29/2025, de 21 d'octubre (avaluació a primària i a infantil, BOIB 140/2025) · Instruccions d'organització i funcionament 2026-27. Comprovat el 27/10/2026.</div>
+    <div class="noprint">Fonts: <a href="https://caib.es/sites/lomloe/ca/inf_normativa/" target="_blank" rel="noopener">normativa d'infantil</a> · <a href="https://caib.es/sites/lomloe/ca/prim_normativa/" target="_blank" rel="noopener">normativa de primària</a> · <a href="https://intranet.caib.es/sites/instruccions201617/ca/centres_pablics_deducacia_infantil_educacia_primaria_i_educacia_secundaria_2026-2027/" target="_blank" rel="noopener">Instruccions 2026-2027</a></div>
+    <div>CEP de Formentera · CC BY-NC-SA 4.0</div>
+  </footer>
+</main>
+
+<script>
+/* Cada vista: un centre, uns blocs (hubs) i les seves caixes (fulles). side: L o R. cls: hub | hubdec | cep */
+const CEP_PRI = {id:"cep",side:"R",cls:"cep",l:"Amb el CEP",s:"formació i eines",kind:"Formació",
+  p:"El CEP de Formentera acompanya els centres en la formació sobre avaluació, lectura i escriptura, amb Miguel Ángel Tirado com a fil conductor.",
+  leaves:[
+   {l:"Pla de formació",s:"de cada centre",p:"Cada centre elabora el seu Pla de formació en coordinació amb el CEP, a partir del diagnòstic, la memòria i el Pla quadriennal (Instruccions 2026-27, 1.2). La direcció representa el professorat davant el CEP."},
+   {l:"Formacions en centre",s:"2026-27",p:"FeC 353 al CEIP Mestre Lluís Andreu (La mirada avaluativa) i FeC 355 al CEIP Sant Ferran de ses Roques (Què i com avaluar per millorar l'aprenentatge)."},
+   {l:"Eina de lectura",s:"de 3r a 6è",p:"Prepara proves de comprensió lectora amb el prompt de Miguel Ángel Tirado i quatre processos: LOCALITZAR, DEDUIR, INTERPRETAR i AVALUAR. En català i castellà; versió per a l'anglès en pilotatge."},
+   {l:"Febrer de 2027",s:"ponència de Tirado",p:"Segona ponència de Miguel Ángel Tirado a les formacions en centre (15 i 16/02/2027)."}
+  ]};
+
+const VIEWS = {
+ centre:{
+  title:"Mapa normatiu d'infantil i primària", center:{l:"Infantil i primària",s:"escoletes i CEIP"},
+  sub:"Per a tots els centres d'infantil i primària de Formentera: què diu la norma, què decideix cada centre i com hi ajuda el CEP.",
+  lead:"Aquest curs cada centre decideix com avalua i com ho explica a les famílies. A primària ho aprova el claustre, i pot fer-ho amb una nota per àrea i un informe complementari; a infantil ho decideix l'equip de cicle.",
+  hubs:[
+   {id:"cur",side:"L",cls:"hub",l:"Currículum",s:"què s'ha d'aprendre",leaves:[
+     {l:"Decret 40/2025",s:"infantil · BOIB 102/2025",p:"Ordenació i currículum d'infantil, primer i segon cicle. Deroga el Decret 30/2022.",li:["Art. 6.8-6.9: bases de la lectura i l'escriptura de manera sistemàtica, sense que siguin exigibles.","Art. 13: avaluació per observació, sense qualificar criteris numèricament.","Art. 20: traspàs entre cicles i a primària amb lectura, escriptura, llengües i habilitats logicomatemàtiques."]},
+     {l:"Decret 41/2025",s:"primària · BOIB 103/2025",p:"Ordenació i currículum de primària. Deroga el Decret 31/2022.",li:["Art. 6.3-6.4: lectura i escriptura a totes les àrees, amb temps diari de lectura.","Art. 13-14: avaluació formativa; no cal qualificar criteris numèricament; informe de final de cicle amb competències «assolida» o «en procés».","Art. 33: criteris d'avaluació vinculats a cada unitat de programació."]}]},
+   {id:"ava",side:"L",cls:"hub",l:"Avaluació",s:"com es valora",leaves:[
+     {l:"Ordre 29/2025",s:"avaluació a infantil",p:"BOIB 140, de 23/10/2025.",li:["Art. 9.1: el sistema de valoració el tria l'equip de cicle d'infantil.","Art. 12: informes de final de curs, de cicle i d'etapa."]},
+     {l:"Ordre 28/2025",s:"avaluació a primària",p:"BOIB 140, de 23/10/2025.",li:["Art. 10.1: el claustre tria una nota per àrea o ponderar criteris.","Art. 10.11: el claustre fixa la informació complementària a les famílies.","Art. 21: criteris d'avaluació, qualificació i promoció públics."]},
+     {l:"Diagnòstic de 4t",s:"abril i maig de 2027",p:"Català, castellà, anglès i matemàtiques (D41, art. 16; Instruccions 2026-27, 2.12.1).",li:["Centres mostrals: 19-23/04/2027. Censals: 19/04-19/05/2027.","Pla de millora a partir dels resultats durant el primer trimestre."]}]},
+   {id:"dec",side:"R",cls:"hubdec",l:"Decideix el centre",s:"acords de cada escola",leaves:[
+     {cls:"dec",l:"Claustre",s:"sistema de qualificació",p:"A primària, tria una sola qualificació per àrea o ponderar criteris, i les característiques de l'informe complementari a les famílies, si n'hi ha (O28, art. 10.1 i 10.11). Consta a l'acta i a la programació general anual."},
+     {cls:"dec",l:"Equip d'infantil",s:"sistema i informes propis",p:"Tria valoració qualitativa per àrea o ponderar criteris, i el format dels informes (O29, art. 9.1 i 12.5). No ho decideix el claustre."},
+     {cls:"dec",l:"Equips de cicle",s:"programacions i unitats",p:"Programacions didàctiques i criteris d'avaluació vinculats a cada unitat de programació (D41, art. 32-33; D40, art. 18-19). Ho revisa la inspecció."},
+     {cls:"dec",l:"Equip directiu",s:"criteris públics",p:"Publica els criteris d'avaluació, qualificació, recuperació i promoció (O28, art. 21) i coordina el Pla de formació del centre amb el CEP."}]},
+   CEP_PRI
+  ]},
+ infantil:{
+  title:"Mapa normatiu d'infantil", center:{l:"Infantil",s:"primer cicle 0-3 · segon cicle 3-6"},
+  sub:"Per a escoletes (0-3 anys) i escoles d'infantil (3-6 anys): què diu la norma, què decideix l'equip i com es fa el traspàs.",
+  lead:"A infantil s'avalua observant i descrivint, sense notes. El sistema el decideix l'equip de cicle, i el que es registra al final de cada cicle sobre el desenvolupament, la lectura i l'escriptura és el punt de partida de l'etapa següent.",
+  hubs:[
+   {id:"cur",side:"L",cls:"hub",l:"Decret 40/2025",s:"currículum d'infantil",leaves:[
+     {l:"Art. 6.7-6.8",s:"aproximació i treball sistemàtic",p:"Es pot afavorir una primera aproximació a la lectura i l'escriptura, sense que sigui exigible per començar primària. Al segon cicle es treballen de manera sistemàtica i estructurada les habilitats que les afavoreixen."},
+     {l:"Art. 6.9",s:"bases de la lectura",p:"La iniciació a la lectura i l'escriptura és el fonament: cal treballar atenció, percepció, memòria visual i auditiva i consciència fonològica."},
+     {l:"Art. 11",s:"llengua estrangera",p:"Des del segon cicle, obligatòria al darrer curs, dins l'àrea de Comunicació i representació de la realitat."},
+     {l:"Art. 13",s:"avaluar observant",p:"Avaluació global, contínua i formativa. L'observació directa i sistemàtica és la tècnica principal. No és obligatori qualificar els criteris numèricament. En acabar el primer cicle i l'etapa, el tutor emet un informe."}]},
+   {id:"ava",side:"L",cls:"hub",l:"Ordre 29/2025",s:"avaluació a infantil",leaves:[
+     {l:"Art. 7",s:"avaluació inicial",p:"Quan l'infant s'incorpora a l'etapa es recullen les dades més significatives. A principi de curs, entrevista amb la família i observació directa."},
+     {l:"Art. 8",s:"sessions",p:"Mínim dues sessions de seguiment i una final. Les valoracions són qualitatives i descriptives."},
+     {l:"Art. 12",s:"informes",p:"Informe final de cada curs. Final del primer cicle: annex 1. Final d'etapa: annex 2, amb cada competència específica «assolida» o «en procés»."},
+     {l:"Art. 18",s:"traspàs",p:"Entre cicles i a primària s'han de traspassar el desenvolupament, l'autonomia i la comunicació, i el progrés en lectura, escriptura, habilitats logicomatemàtiques i llengües."}]},
+   {id:"cic",side:"R",cls:"hubdec",l:"Decideix l'equip",s:"de cicle",leaves:[
+     {cls:"dec",l:"Sistema de valoració",s:"O29, art. 9.1",p:"L'equip de cicle tria entre (a) valoració qualitativa de cada àrea o (b) ponderar els criteris d'avaluació."},
+     {cls:"dec",l:"Format dels informes",s:"O29, art. 12.5",p:"El centre determina el format i la forma de registre dels informes de final de cicle i d'etapa, i ho fa constar a la programació general anual."},
+     {cls:"dec",l:"Pauta comuna",s:"entrevista i observació",p:"Les dades i els instruments de l'avaluació inicial els decideix l'equip de cicle i consten a la concreció curricular (O29, art. 7.3)."},
+     {cls:"dec",l:"Programacions",s:"D40, art. 18-19",p:"Programació per curs i cicle; cada unitat de programació porta els criteris d'avaluació associats."}]},
+   {id:"tra",side:"R",cls:"cep",l:"Traspàs i coordinació",s:"d'una etapa a l'altra",leaves:[
+     {l:"Escoleta → 3 anys",s:"D40, art. 20.2",p:"Coordinació entre els centres que imparteixen cicles diferents. El traspàs inclou el desenvolupament global, l'autonomia i la comunicació (O29, art. 18.2), amb l'informe de final del primer cicle (annex 1)."},
+     {l:"5 anys → 1r",s:"O29, art. 18",p:"L'informe de final d'etapa és la base de l'avaluació inicial de 1r de primària. Inclou com va cada infant en lectura, escriptura i llengües."},
+     {l:"Amb el CEP",s:"Pla de formació",p:"El Pla de formació del centre es fa en coordinació amb el CEP (Instruccions 2026-27, 1.2). L'eina de comprensió lectora del CEP comença a 3r de primària: a infantil cal triar altres instruments."}]}
+  ]},
+ primaria:{
+  title:"Mapa normatiu de primària", center:{l:"Primària",s:"de 1r a 6è"},
+  sub:"Per a totes les escoles de primària: què diu la norma, què decideix el claustre i què toca a cada cicle.",
+  lead:"A primària el claustre tria una nota per àrea o ponderar criteris, i pot afegir un informe complementari a les famílies. Al final de cada cicle l'equip docent valora cada competència clau com a «assolida» o «en procés».",
+  hubs:[
+   {id:"cur",side:"L",cls:"hub",l:"Decret 41/2025",s:"currículum de primària",leaves:[
+     {l:"Art. 6.3-6.4",s:"lectura a totes les àrees",p:"Comprensió lectora i expressió oral i escrita a totes les àrees, amb temps diari de lectura recollit al projecte educatiu."},
+     {l:"Art. 12 · annex 7",s:"horari",p:"El claustre aprova els criteris de l'horari. Català i castellà amb la mateixa càrrega dins cada cicle."},
+     {l:"Art. 13-14",s:"avaluació formativa",p:"No és obligatori qualificar els criteris numèricament. Informe de final de cicle amb cada competència clau «assolida» o «en procés»."},
+     {l:"Art. 33 i 35",s:"unitats i traspàs",p:"Criteris d'avaluació vinculats a cada unitat de programació (ho revisa la inspecció). Coordinació i traspàs amb infantil i amb l'ESO."}]},
+   {id:"ava",side:"L",cls:"hub",l:"Ordre 28/2025",s:"avaluació a primària",leaves:[
+     {l:"Art. 7-8",s:"sessions",p:"Una sessió inicial, dues de seguiment i una final per grup, amb informe a les famílies després de cada una (art. 12)."},
+     {l:"Art. 10.1 i 10.11",s:"nota i informe complementari",p:"El claustre tria una sola qualificació per àrea o ponderar criteris, i fixa la informació complementària a les famílies."},
+     {l:"Art. 10.12-14 i 11",s:"final de cicle i promoció",p:"Final del primer curs del cicle: actes. Final del segon: competències clau, mesures de suport, promoció i actes."},
+     {l:"Art. 17 i 21",s:"final d'etapa i criteris",p:"L'informe de final de 6è és document oficial. Criteris d'avaluació, qualificació i promoció públics."}]},
+   {id:"cic",side:"R",cls:"hubdec",l:"Per cicles",s:"què toca a cada un",leaves:[
+     {cls:"dec",l:"Primer cicle",s:"1r i 2n",p:"Rep l'informe d'infantil i el fa servir a l'avaluació inicial. Lectura inicial i fluïdesa. L'eina de comprensió lectora del CEP no hi arriba: cal triar instruments propis."},
+     {cls:"dec",l:"Segon cicle",s:"3r i 4t",p:"Primer cicle on arriba l'eina de comprensió lectora. Proves de diagnòstic de 4t a l'abril i maig de 2027."},
+     {cls:"dec",l:"Tercer cicle",s:"5è i 6è",p:"Eina de comprensió lectora a 5è i 6è. Informe de final d'etapa amb mesures per a l'ESO i traspàs a l'institut."},
+     {cls:"dec",l:"Claustre",s:"acord de centre",p:"Aprova el sistema de qualificació i, si n'hi ha, l'informe complementari (O28, art. 10.1 i 10.11), i el centre publica criteris d'avaluació, qualificació, recuperació i promoció (art. 21)."}]},
+   CEP_PRI
+  ]}
+};
+
+const NS="http://www.w3.org/2000/svg", svg=document.getElementById("map");
+const mk=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e};
+const curve=(a,b)=>{const dx=(b.x-a.x)/2;return `M${a.x},${a.y} C${a.x+dx},${a.y} ${b.x-dx},${b.y} ${b.x},${b.y}`};
+function esc(s){const d=document.createElement("div");d.textContent=s;return d.innerHTML}
+const det=document.getElementById("detail");
+let nodes=[];
+
+function layout(v){
+  const W=1200, LH=58, GAP=14, HG=34;
+  const C={x:600,y:0,w:290,h:74,cls:"center",l:v.center.l,s:v.center.s,kind:"Centre",p:v.lead,li:[]};
+  const sides={L:v.hubs.filter(h=>h.side==="L"),R:v.hubs.filter(h=>h.side==="R")};
+  const H={};
+  for(const sd of ["L","R"]){
+    let total=0; sides[sd].forEach((h,i)=>{total+=h.leaves.length*(LH+GAP)-GAP+(i?HG:0)});
+    H[sd]=total;
+  }
+  const height=Math.max(H.L,H.R)+60, out=[]; C.y=height/2;
+  for(const sd of ["L","R"]){
+    let y=(height-H[sd])/2;
+    sides[sd].forEach((h,i)=>{
+      if(i) y+=HG;
+      const n=h.leaves.length, top=y, bh=n*(LH+GAP)-GAP;
+      const hub={...h,x: sd==="L"?355:845,y:top+bh/2,w:200,h:62,kind:h.kind||"Bloc",p:h.p||"",li:h.li||[]};
+      out.push({n:hub,parent:C});
+      h.leaves.forEach((lf,j)=>{
+        const leaf={...lf,x: sd==="L"?125:1075,y:top+j*(LH+GAP)+LH/2,w:220,h:LH,kind:lf.kind||h.l};
+        out.push({n:leaf,parent:hub});
+      });
+      y+=bh;
+    });
+  }
+  return {C,items:out,height};
+}
+
+function render(view){
+  const v=VIEWS[view];
+  document.getElementById("h1").textContent=v.title;
+  document.getElementById("sub").textContent=v.sub;
+  document.getElementById("lead").textContent=v.lead;
+  document.title=v.title;
+  document.querySelectorAll("nav.tabs button").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.view===view)));
+  const {C,items,height}=layout(v);
+  svg.setAttribute("viewBox",`0 0 1200 ${height}`);
+  svg.innerHTML="";
+  const gE=mk("g",{}),gN=mk("g",{});svg.append(gE,gN);
+  nodes=[C,...items.map(i=>i.n)];
+  items.forEach(({n,parent})=>gE.append(mk("path",{class:"edge",d:curve(parent,n)})));
+  nodes.forEach((n,i)=>{
+    const g=mk("g",{class:"node "+(n.cls||""),tabindex:"0",role:"button","aria-label":n.l+": "+(n.s||"")});
+    g.append(mk("rect",{x:n.x-n.w/2,y:n.y-n.h/2,width:n.w,height:n.h,rx:8}));
+    const l=mk("text",{class:"l",x:n.x,y:n.y-(n.s?3:-5),"text-anchor":"middle"});l.textContent=n.l;g.append(l);
+    if(n.s){const s=mk("text",{class:"s",x:n.x,y:n.y+16,"text-anchor":"middle"});s.textContent=n.s;g.append(s);}
+    const go=()=>show(i,g);g.addEventListener("click",go);
+    g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go()}});
+    gN.append(g);
+  });
+  show(0,gN.firstChild);
+  // llistat complet
+  const gw=document.getElementById("groups");gw.innerHTML="";
+  v.hubs.forEach(h=>{
+    const d=document.createElement("div");d.className="grp "+(h.cls==="hubdec"?"dec":h.cls==="cep"?"cep":"");
+    d.innerHTML=`<h3>${esc(h.l)} <span style="font:500 14px var(--ui);color:var(--muted)">${esc(h.s)}</span></h3>`+(h.p?`<div class="item"><span>${esc(h.p)}</span></div>`:"")+
+      h.leaves.map(lf=>`<div class="item"><b>${esc(lf.l)}${lf.s?" · "+esc(lf.s):""}</b><span>${esc(lf.p||"")}</span>${lf.li&&lf.li.length?"<ul>"+lf.li.map(x=>"<li>"+esc(x)+"</li>").join("")+"</ul>":""}</div>`).join("");
+    gw.append(d);
+  });
+}
+function show(i,g){
+  const n=nodes[i];
+  svg.querySelectorAll(".node.sel").forEach(x=>x.classList.remove("sel"));
+  if(g) g.classList.add("sel");
+  det.innerHTML=`<div class="kind">${esc(n.kind||"")}</div><h2>${esc(n.l)}${n.s?" · "+esc(n.s):""}</h2>`+(n.p?`<p>${esc(n.p)}</p>`:"")+
+    (n.li&&n.li.length?`<ul>${n.li.map(x=>"<li>"+esc(x)+"</li>").join("")}</ul>`:"")+
+    (i===0?`<p style="color:var(--muted)">Toca una caixa del mapa per veure què diu.</p>`:"");
+}
+function current(){const h=(location.hash||"").slice(1);return VIEWS[h]?h:"centre"}
+document.querySelectorAll("nav.tabs button").forEach(b=>b.addEventListener("click",()=>{location.hash=b.dataset.view}));
+window.addEventListener("hashchange",()=>render(current()));
+render(current());
+</script>
+
+</body>
+</html>
