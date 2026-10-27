@@ -1,0 +1,147 @@
+<!-- wp:html -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400&display=swap');
+.cepaps{--navy:#12305A;--navy2:#0B2240;--teal:#2F6F7A;--gold:#B8902B;--cream:#F5F1E8;--sand:#EDE5D3;--ink:#1F2933;--ink2:#4A5563;font-family:inherit;color:var(--ink);max-width:1040px;margin:0 auto}
+.cepaps *{box-sizing:border-box}
+.cepaps p,.cepaps li{font-size:18px!important;line-height:1.6!important}
+.cepaps h2,.cepaps h3{box-shadow:none!important;border:0!important;background:none!important;padding:0!important;text-transform:none!important;letter-spacing:0!important}
+.cepaps h2{font-family:'Fraunces',Georgia,serif!important;font-weight:600!important;font-size:34px!important;line-height:1.15!important;color:var(--navy)!important;margin:0 0 14px!important}
+.cepaps h3{font-family:'Fraunces',Georgia,serif!important;font-weight:600!important;font-size:22px!important;line-height:1.25!important;color:var(--navy)!important;margin:0 0 6px!important}
+.cepaps a{color:var(--navy)}
+.cepaps .hero{display:grid;grid-template-columns:1fr 200px;gap:32px;align-items:center;background:var(--cream);border-radius:14px;padding:36px}
+.cepaps .hero h1{font-family:'Fraunces',Georgia,serif!important;font-weight:600!important;font-size:44px!important;line-height:1.08!important;color:var(--navy)!important;margin:0 0 6px!important}
+.cepaps .hero .sub{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:24px!important;color:var(--teal);margin:0 0 18px!important}
+.cepaps .hero img{width:200px;height:200px;display:block}
+.cepaps .sec{margin:56px 0 0}
+.cepaps .lead{max-width:66ch;color:var(--ink2)}
+.cepaps .tres{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0 0;padding:0;list-style:none}
+.cepaps .tres li{background:#fff;border:1px solid var(--sand);border-radius:12px;padding:20px;margin:0}
+.cepaps .tres b{display:block;font-family:'Fraunces',Georgia,serif;font-size:20px;color:var(--navy);margin-bottom:4px}
+.cepaps .num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#fff;font-weight:700;font-size:15px;margin-bottom:10px}
+.cepaps .video{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:var(--navy2)}
+.cepaps .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.cepaps .fotos{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:10px;margin:22px 0 0}
+.cepaps .fotos figure{margin:0;overflow:hidden;border-radius:10px;background:var(--sand)}
+.cepaps .fotos figure:first-child{grid-row:span 2}
+.cepaps .fotos img{width:100%;height:100%;object-fit:cover;display:block}
+.cepaps .cap{font-size:15px!important;color:var(--ink2);margin:10px 0 0!important}
+.cepaps .claus{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:22px 0 0;padding:0;list-style:none}
+.cepaps .claus li{background:var(--cream);border-left:4px solid var(--teal);border-radius:0 10px 10px 0;padding:18px 20px;margin:0}
+.cepaps .claus b{display:block;color:var(--navy);margin-bottom:2px}
+.cepaps .crono{list-style:none;margin:24px 0 0;padding:0;position:relative}
+.cepaps .crono:before{content:"";position:absolute;left:11px;top:10px;bottom:30px;width:2px;background:var(--sand)}
+.cepaps .crono li{position:relative;padding:0 0 22px 46px;margin:0}
+.cepaps .crono li:last-child{padding-bottom:0}
+.cepaps .dot{position:absolute;left:2px;top:6px;width:20px;height:20px;border-radius:50%;box-sizing:border-box}
+.cepaps .dot.ind{background:#fff;border:3px solid var(--gold)}
+.cepaps .dot.grup{background:var(--navy);border:3px solid var(--navy)}
+.cepaps .dot.fi{background:var(--gold);border:3px solid var(--gold)}
+.cepaps .quan{font-weight:700;font-size:15px!important;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin:0!important}
+.cepaps .g .quan{color:var(--navy)}
+.cepaps .que{font-weight:600;font-size:19px!important;margin:2px 0 2px!important}
+.cepaps .det{color:var(--ink2);margin:0!important}
+.cepaps .lleg{display:flex;flex-wrap:wrap;gap:22px;margin:14px 0 0;font-size:16px}
+.cepaps .lleg span{display:inline-flex;align-items:center;gap:8px}
+.cepaps .lleg .dot{position:static;width:16px;height:16px}
+.cepaps .nota{background:var(--cream);border-radius:10px;padding:16px 20px;margin:26px 0 0!important}
+.cepaps .forms{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0 0}
+.cepaps .forms a{display:block;text-decoration:none;background:#fff;border:1px solid var(--sand);border-radius:12px;padding:20px;color:var(--ink);transition:border-color .2s}
+.cepaps .forms a:hover{border-color:var(--navy)}
+.cepaps .forms small{display:block;font-size:14px;color:var(--teal);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+.cepaps .forms span{display:block;margin-top:10px;font-size:16px;color:var(--navy);font-weight:600}
+.cepaps .docs{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0 0}
+.cepaps .docs a{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border:1px solid var(--navy);border-radius:8px;text-decoration:none;font-weight:600;font-size:17px;color:var(--navy);background:#fff}
+.cepaps .docs a:hover{background:var(--cream)}
+.cepaps .docs svg{width:20px;height:20px;flex:none}
+.cepaps .fonts{font-size:15px!important;color:var(--ink2);border-top:1px solid var(--sand);padding-top:16px;margin-top:48px!important}
+@media (max-width:760px){
+.cepaps .hero{grid-template-columns:1fr;padding:24px;gap:16px}
+.cepaps .hero img{width:120px;height:120px;order:-1}
+.cepaps .hero h1{font-size:34px!important}
+.cepaps h2{font-size:28px!important}
+.cepaps .tres,.cepaps .claus,.cepaps .forms{grid-template-columns:1fr}
+.cepaps .fotos{grid-template-columns:1fr 1fr;grid-template-rows:240px 160px 160px}
+.cepaps .fotos figure:first-child{grid-row:auto;grid-column:span 2}
+}
+</style>
+<div class="cepaps">
+
+<div class="hero">
+<div>
+<h1>Aprenentatge servei</h1>
+<p class="sub">a l'illa de Formentera · curs 2026-2027</p>
+<p>L'alumnat aprèn el que toca del currículum fent una feina que algú de l'illa necessita de veritat. Aquest curs hi participen tres centres: el CEIP Sant Ferran de ses Roques, el CEIP Mestre Lluís Andreu i el Col·legi Virgen Milagrosa, amb el Parc Natural de ses Salines d'Eivissa i Formentera i els centres per a majors de l'illa.</p>
+</div>
+<img src="%%SEGELL%%" alt="Segell del programa Aprenentatge Servei Illa de Formentera" width="200" height="200">
+</div>
+
+<div class="sec">
+<h2>Què és, en tres idees</h2>
+<ul class="tres">
+<li><span class="num">1</span><b>Aprenentatge</b>Continguts del currículum treballats des d'una perspectiva competencial.</li>
+<li><span class="num">2</span><b>Servei</b>Una necessitat real de l'entorn a la qual l'alumnat dona resposta.</li>
+<li><span class="num">3</span><b>Un sol projecte</b>Les dues coses es planifiquen i s'avaluen juntes.</li>
+</ul>
+</div>
+
+%%VIDEO%%
+
+<div class="sec">
+<h2>La jornada d'inici</h2>
+<p class="lead">Dilluns 26 d'octubre, al Centre d'Interpretació de Can Marroig, els equips dels tres centres començaren el curs amb Carme Frau Lladó, formadora experta en aprenentatge servei, i amb una visita guiada pel Parc Natural amb l'equip d'educació ambiental.</p>
+<div class="fotos">
+<figure><img src="%%F1%%" alt="Sessió de la jornada d'inici a la sala de Can Marroig" loading="lazy"></figure>
+<figure><img src="%%F2%%" alt="Carme Frau Lladó durant la sessió" loading="lazy"></figure>
+<figure><img src="%%F3%%" alt="Sargantana de les Pitiüses a Can Marroig" loading="lazy"></figure>
+<figure><img src="%%F4%%" alt="La sala de Can Marroig oberta al Parc Natural" loading="lazy"></figure>
+<figure><img src="%%F5%%" alt="L'equip d'educació ambiental del Parc Natural amb els docents" loading="lazy"></figure>
+</div>
+<p class="cap">Fotografies publicades amb el permís de les persones que hi apareixen.</p>
+
+<h3 style="margin-top:36px!important">El que ens emportam</h3>
+<ul class="claus">
+<li><b>Primer, la necessitat</b>El servei i els continguts arriben després. No es forcen al principi del projecte.</li>
+<li><b>Poques trobades, ben aprofitades</b>Dues o tres sessions de tots els centres durant el curs, en llocs agradables i que no siguin de ningú.</li>
+<li><b>Tot el centre a bord</b>Les direccions i les caps d'estudis, dins el projecte des del primer dia.</li>
+<li><b>Acompanyar és escoltar</b>Qui acompanya escolta i conta experiències viscudes, no teoria.</li>
+</ul>
+</div>
+
+<div class="sec">
+<h2>El recorregut del curs</h2>
+<p class="lead">Tots els centres segueixen el mateix camí: visites a cada centre per acompanyar el projecte de prop i trobades de tots els centres per compartir-lo.</p>
+<div class="lleg"><span><i class="dot ind"></i>Visita al centre</span><span><i class="dot grup"></i>Trobada de tots els centres</span><span><i class="dot fi"></i>Celebració</span></div>
+<ol class="crono">
+<li><i class="dot ind"></i><p class="quan">Novembre</p><p class="que">Visita a cada centre</p><p class="det">El CEP proposa dates i cada centre tria la que li va millor.</p></li>
+<li class="g"><i class="dot grup"></i><p class="quan">Desembre</p><p class="que">Primera trobada de tots els centres, presencial</p><p class="det">Les emocions i l'entorn, la necessitat que ha detectat cada centre i les entitats amb què es pot fer feina.</p></li>
+<li><i class="dot ind"></i><p class="quan">Gener</p><p class="que">Visita a cada centre</p><p class="det">El servei: què farà l'alumnat i per a qui.</p></li>
+<li class="g"><i class="dot grup"></i><p class="quan">Febrer</p><p class="que">Segona trobada de tots els centres</p><p class="det">Posada en comú dels serveis i primeres idees per a la celebració.</p></li>
+<li class="g"><i class="dot grup"></i><p class="quan">Març</p><p class="que">Tercera trobada de tots els centres</p><p class="det">Concreció de la celebració i avaluació del projecte.</p></li>
+<li><i class="dot fi"></i><p class="quan">Final d'abril</p><p class="que">Celebració i difusió</p><p class="det">Els centres mostren a l'illa el servei que han fet.</p></li>
+</ol>
+<p class="nota"><strong>Dates, llocs i horaris</strong> es coordinen amb els equips de cada centre i es publiquen aquí a mesura que es concreten.</p>
+</div>
+
+<div class="sec">
+<h2>Les formacions de cada centre</h2>
+<p class="lead">Cada centre té la seva formació, de 30 hores, amb inscripció al Portal del personal. A la fitxa hi ha els continguts, els objectius i com es certifica.</p>
+<div class="forms">
+<a href="https://cepformentera.caib.es/2026/09/24/aprenentatge-servei-a-lilla-de-formentera-ceip-sant-ferran-de-ses-roques/"><small>Esdeveniment 361</small><b>CEIP Sant Ferran de ses Roques</b><span>Veure la formació →</span></a>
+<a href="https://cepformentera.caib.es/2026/09/24/aprenentatge-servei-a-lilla-de-formentera-ceip-mestre-lluis-andreu/"><small>Esdeveniment 360</small><b>CEIP Mestre Lluís Andreu</b><span>Veure la formació →</span></a>
+<a href="%%POST363%%"><small>Esdeveniment 363</small><b>Col·legi Virgen Milagrosa</b><span>Veure la formació →</span></a>
+</div>
+</div>
+
+<div class="sec">
+<h2>Per llegir abans de començar</h2>
+<p class="lead">La guia breu explica què és l'aprenentatge servei, què no és i com es reconeix un projecte ben fet. El tríptic resumeix el programa d'aquest curs.</p>
+<div class="docs">
+<a href="%%GUIA%%" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/></svg>Guia breu per als centres (PDF)</a>
+<a href="%%TRIPTIC%%" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/></svg>Tríptic del programa (PDF)</a>
+</div>
+</div>
+
+<p class="fonts">Programa d'experiència formativa del CEP de Formentera amb el Servei de Formació Permanent del Professorat. Línia estratègica 8, Entorn i sostenibilitat, del <a href="%%PLAQ%%" target="_blank" rel="noopener">Pla quadriennal de formació permanent del professorat 2024-2028 (BOIB núm. 119, de 10/09/2024)</a>. Informació: <a href="mailto:cep@cepformentera.cat">cep@cepformentera.cat</a>.</p>
+
+</div>
+<!-- /wp:html -->
