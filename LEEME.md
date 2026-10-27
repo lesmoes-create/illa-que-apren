@@ -52,10 +52,11 @@ recursos/
 | `resum.txt` | Resumen e ideas clave (texto plano) | Desplegable «Resum i idees clau» |
 | `materials.pdf` | Materiales de la ponencia | Botón «Materials i productes» |
 
-**Sesiones de formación al centro**: un solo archivo.
+**Sesiones de formación al centro** (las lleva el equipo del CEP):
 
 | Archivo | Qué es | Cómo aparece en la web |
 |---|---|---|
+| `presentacio.pdf` | Presentación de la sesión | Botón «Presentació de la sessió» |
 | `materials.pdf` | Conclusiones, acuerdos y protocolos del equipo | Botón «Conclusions i protocols de l'equip» |
 
 Mientras un archivo no está, la web muestra un recuadro discontinuo «pendent». En cuanto lo subes con el nombre correcto, aparece solo.
