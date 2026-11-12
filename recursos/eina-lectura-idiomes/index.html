@@ -155,23 +155,34 @@
             <span class="lbl">Logo que sortirà</span>
             <div class="logo-centre" id="logo-centre"><span class="estat">Cap</span></div>
           </div>
-          <fieldset class="checks full" id="arees">
-            <legend>Àrea o matèria (en pots marcar diverses)</legend>
-            <label><input type="checkbox" value="Llengua estrangera"> Llengua estrangera</label>
-            <label><input type="checkbox" value="Coneixement del Medi Natural, Social i Cultural"> Coneixement del Medi</label>
-            <label><input type="checkbox" value="Biologia i Geologia"> Biologia i Geologia</label>
-            <label><input type="checkbox" value="Física i Química"> Física i Química</label>
-            <label><input type="checkbox" value="Geografia i Història"> Geografia i Història</label>
-            <label><input type="checkbox" value="Matemàtiques"> Matemàtiques</label>
-            <label><input type="checkbox" value="Tecnologia i Digitalització"> Tecnologia i Digitalització</label>
-            <label><input type="checkbox" value="Educació Física"> Educació Física</label>
-            <label><input type="checkbox" value="Música"> Música</label>
-            <label><input type="checkbox" value="Educació Plàstica, Visual i Audiovisual"> Educació Plàstica i Visual</label>
-            <label><input type="checkbox" value="Educació en Valors Cívics i Ètics"> Valors Cívics i Ètics</label>
-          </fieldset>
-          <div class="fld">
-            <label for="area-altra">Una altra àrea o matèria</label>
-            <input type="text" id="area-altra" placeholder="Opcional">
+          <div class="full grup" id="arees">
+            <p>Àrea o matèria</p>
+            <small style="color:var(--ink-2)">Marca'n <b>una o diverses</b>. Si en marques més d'una, el text les combina (per exemple, Biologia i Geologia amb Geografia i Història: la posidònia i el turisme). Si no en marques cap, la tria la IA.</small>
+            <fieldset class="checks" data-etapa="P" style="margin-top:.6rem">
+              <legend>Primària</legend>
+              <label><input type="checkbox" value="Llengua estrangera"> Llengua estrangera</label>
+              <label><input type="checkbox" value="Coneixement del Medi Natural, Social i Cultural"> Coneixement del Medi</label>
+              <label><input type="checkbox" value="Matemàtiques"> Matemàtiques</label>
+              <label><input type="checkbox" value="Educació Artística"> Educació Artística</label>
+              <label><input type="checkbox" value="Educació Física"> Educació Física</label>
+            </fieldset>
+            <fieldset class="checks" data-etapa="S" style="margin-top:.6rem">
+              <legend>ESO</legend>
+              <label><input type="checkbox" value="Llengua estrangera"> Llengua estrangera</label>
+              <label><input type="checkbox" value="Biologia i Geologia"> Biologia i Geologia</label>
+              <label><input type="checkbox" value="Física i Química"> Física i Química</label>
+              <label><input type="checkbox" value="Geografia i Història"> Geografia i Història</label>
+              <label><input type="checkbox" value="Matemàtiques"> Matemàtiques</label>
+              <label><input type="checkbox" value="Tecnologia i Digitalització"> Tecnologia i Digitalització</label>
+              <label><input type="checkbox" value="Música"> Música</label>
+              <label><input type="checkbox" value="Educació Plàstica, Visual i Audiovisual"> Educació Plàstica i Visual</label>
+              <label><input type="checkbox" value="Educació Física"> Educació Física</label>
+              <label><input type="checkbox" value="Educació en Valors Cívics i Ètics"> Valors Cívics i Ètics</label>
+            </fieldset>
+          </div>
+          <div class="fld full">
+            <label for="area-altra">Una altra àrea, matèria o projecte</label>
+            <input type="text" id="area-altra" placeholder="Opcional. Per exemple: projecte de ciències, tutoria">
           </div>
           <div class="fld">
             <label for="tema">Tema o contingut</label>
@@ -206,6 +217,7 @@
               <option value="discontinu">Discontinu</option>
               <option value="mixt">Mixt</option>
             </select>
+            <small id="format-ajuda"></small>
           </div>
           <div class="fld">
             <span class="lbl">Extensió prevista</span>
@@ -395,7 +407,7 @@
       <div class="box">
         <h2>Versions</h2>
         <ul><li><b>1.1-LE</b> · Novembre de 2026. Primera versió per a anglès, francès i alemany, per provar amb els departaments de llengües estrangeres.</li></ul>
-        <p>Per a català i castellà, fes servir l'<a href="../eina-lectura/">eina de comprensió lectora</a>.</p>
+        <p>Aquesta eina és un complement: per a català i castellà continua la de sempre, l'<a href="../eina-lectura/">eina de comprensió lectora</a>, sense canvis.</p>
       </div>
       <div class="box">
         <h2>Contacte</h2>
@@ -451,7 +463,7 @@ function ajudaNivell(){
 }
 $('llengua').addEventListener('change',function(){$('estatus').value=P.estatusPerDefecte(this.value);nivellTocat=false;posaReferencia();actualitza();});
 $('estatus').addEventListener('change',function(){nivellTocat=false;posaReferencia();actualitza();});
-$('curs').addEventListener('change',function(){nivellTocat=false;posaReferencia();actualitza();});
+$('curs').addEventListener('change',function(){nivellTocat=false;areesVisibles();posaReferencia();actualitza();});
 $('nivell').addEventListener('change',function(){nivellTocat=true;ajudaNivell();actualitza();});
 
 /* ---------- Logo ---------- */
@@ -472,9 +484,22 @@ function carregaLogo(){
 $('centre').addEventListener('change',function(){carregaLogo();actualitza();});
 
 /* ---------- Dades i prompt ---------- */
+var FORMATS={
+  continu:'<b>Continu</b>: text seguit, en paràgrafs, com un article, un relat o una carta. És el que es fa servir per defecte.',
+  discontinu:'<b>Discontinu</b>: la informació no va en paràgrafs seguits, sinó en taules, gràfics, mapes, horaris, cartells o infografies.',
+  mixt:'<b>Mixt</b>: text en paràgrafs més algun element discontinu (una taula, un gràfic, un mapa) que cal llegir per respondre alguna pregunta.'
+};
+function ajudaFormat(){$('format-ajuda').innerHTML=FORMATS[$('format').value];}
+function areesVisibles(){
+  var c=$('curs').value,et=c?P.CURSOS[c].etapa:'';
+  [].forEach.call($('arees').querySelectorAll('fieldset'),function(f){
+    var mostra=!et||f.getAttribute('data-etapa')===et;f.hidden=!mostra;
+    if(!mostra)[].forEach.call(f.querySelectorAll('input'),function(i){i.checked=false;});
+  });
+}
 function dades(){
   var c=$('curs').value;if(!c)return null;
-  var arees=marcats('arees');if(val('area-altra'))arees.push(val('area-altra'));
+  var arees=[];marcats('arees').forEach(function(a){if(arees.indexOf(a)<0)arees.push(a);});if(val('area-altra'))arees.push(val('area-altra'));
   return {curs:c,llengua:$('llengua').value,estatus:$('estatus').value,nivell:$('nivell').value,
     centre:val('centre'),arees:arees,tema:val('tema'),sequencia:$('sequencia').value,complementaries:marcats('complementaries'),
     genere:val('genere'),format:$('format').value,vocabulari:val('vocabulari'),
@@ -573,7 +598,7 @@ $('b-copiar-format').addEventListener('click',function(){
 
 /* ---------- Exemple ---------- */
 $('b-exemple').addEventListener('click',function(){
-  $('curs').value='1e';$('llengua').value='en';$('estatus').value='PLE';nivellTocat=false;posaReferencia();
+  $('curs').value='1e';areesVisibles();$('llengua').value='en';$('estatus').value='PLE';nivellTocat=false;posaReferencia();
   $('centre').value='IES Marc Ferrer';carregaLogo();
   [].forEach.call($('arees').querySelectorAll('input'),function(i){i.checked=(i.value==='Biologia i Geologia'||i.value==='Geografia i Història');});
   $('tema').value='La posidònia, la planta que fa les platges de Formentera';$('sequencia').value='explicativa';
@@ -611,6 +636,7 @@ $('b-correu').addEventListener('click',function(){
 
 ['area-altra','tema','sequencia','genere','format','vocabulari','ll_instr','ll_preg','ll_pauta','p10'].forEach(function(id){$(id).addEventListener('input',actualitza);$(id).addEventListener('change',actualitza);});
 $('arees').addEventListener('change',actualitza);$('complementaries').addEventListener('change',actualitza);
+$('format').addEventListener('change',ajudaFormat);ajudaFormat();areesVisibles();
 $('f-dades').addEventListener('submit',function(e){e.preventDefault();});
 $('f-valoracio').addEventListener('submit',function(e){e.preventDefault();});
 actualitza();
