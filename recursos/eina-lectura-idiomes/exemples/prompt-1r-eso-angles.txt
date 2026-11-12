@@ -37,7 +37,7 @@ El títol general serà:
 
 READING COMPREHENSION TEST
 
-Sota el títol general, escriu una sola línia amb el curs i el nivell (per exemple: 1r d’ESO · A2). No escriguis el nom del centre ni cap logo: els afegeix l’eina del CEP de Formentera quan maqueta la prova.
+Sota el títol general, escriu una sola línia amb el curs i el nivell, tal com apareixen aquí: 1r d’ESO · A2. No escriguis el nom del centre ni cap logo, encara que el centre aparegui a les dades: l’eina del CEP de Formentera els afegeix quan maqueta la prova.
 
 Títol del text
 
@@ -117,7 +117,8 @@ L’adequació al nivell no ha de dependre només de la longitud. També s’han
 Control lèxic (obligatori)
 
 - Almenys el 98 % de les paraules del text, sense comptar els noms propis ni el vocabulari indicat pel docent, han de ser del nivell indicat o d’un nivell inferior segons l’English Vocabulary Profile (Cambridge) o, si no el pots consultar, el lèxic EFLLex del projecte CEFRLex.
-- Com a màxim un 2 % de paraules poden ser d’un nivell superior, i només si són necessàries. Cada una s’ha de poder inferir clarament pel context o anar glossada entre parèntesis amb paraules del nivell.
+- Com a màxim un 2 % de paraules poden ser d’un nivell superior, i només si són necessàries. Cada una s’ha de poder inferir clarament pel context o anar glossada entre parèntesis amb paraules del nivell. El percentatge es compta sobre totes les aparicions.
+- Excepció: si el tema té una paraula clau que no és del nivell (per exemple, el nom d’una planta o d’un animal), glossa-la la primera vegada i després la pots repetir: compta com a vocabulari indicat pel docent.
 - El vocabulari indicat pel docent compta com a conegut.
 - Repeteix les paraules clau. No les canviïs per sinònims només per variar l’estil.
 - Cap pregunta ni cap opció de resposta no pot dependre d’entendre una paraula per sobre del nivell, tret que la pregunta demani expressament inferir-ne el significat pel context i el context ho permeti.
@@ -279,7 +280,7 @@ La pregunta 10 serà sempre oberta, breu i d’AVALUAR. Pot partir d’una afirm
 A student says: “[...]”.
 Is this a good conclusion according to the text? Explain your answer.
 
-La resposta tindrà un màxim de tres oracions. L’alumne respon en anglès.
+La resposta tindrà un màxim de tres oracions (a Pre-A1 i A1, n’hi ha prou amb una o dues). L’alumne respon en anglès.
 
 17. GRADACIÓ DE LA DIFICULTAT
 

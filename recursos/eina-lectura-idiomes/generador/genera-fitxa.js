@@ -74,7 +74,7 @@ a{color:var(--blau)}
   <img src="logos/cep-formentera.png" alt="Centre de Professorat de Formentera">
 </header>
 
-<p class="idea">En una llengua estrangera, el text es calibra pel <b>nivell MECR del grup</b>, no pel curs. Amb el prompt 1.1 tal com és, un text de 1r d’ESO té unes <b>1.050 paraules</b> (velocitat lectora en llengua materna). Amb aquesta versió: anglès com a primera llengua estrangera (A2), <b>250-350 paraules</b>; francès o alemany com a segona (Pre-A1), <b>60-100</b>.</p>
+<p class="idea">En una llengua estrangera, el text es calibra pel <b>nivell MECR del grup</b>, no pel curs. Amb el prompt 1.1 tal com és, un text de 1r d’ESO té unes <b>1.050 paraules</b> (velocitat lectora en llengua materna). Amb aquesta versió: anglès com a primera llengua estrangera (A2), <b>250-350 paraules</b>; francès o alemany com a segona (Pre-A1), <b>90-120</b>.</p>
 
 <h2><span>1</span>Nivell de referència per curs</h2>
 <p>És el nivell que l’eina posa per defecte. <b>El docent el canvia</b> si el grup està per sobre o per sota: mana el nivell del grup, no el curs.</p>
@@ -108,7 +108,7 @@ a{color:var(--blau)}
 <h2><span>6</span>Llengües de la prova</h2>
 <ul>
 <li>Per defecte, <b>tot va en la llengua de la prova</b>: títol, dades de l’alumne, instruccions, preguntes, pauta i resposta de la pregunta 10.</li>
-<li>Es pot canviar per a cada part. Als nivells Pre-A1 i A1, les instruccions poden anar en català o castellà.</li>
+<li>A Pre-A1 i A1, les instruccions i la pregunta 10 surten en una versió curta i senzilla de la llengua de la prova. Si encara costa, es poden posar en català o castellà.</li>
 <li>Si la pregunta 10 es respon en la llengua estrangera, la pauta no penalitza els errors de llengua si la resposta s’entén.</li>
 </ul>
 

@@ -21,9 +21,9 @@ var ORDRE=['3p','4p','5p','6p','1e','2e','3e','4e'];
 
 /* ---------- Nivells MECR ---------- */
 var NIVELLS={
- 'preA1':{nom:'Pre-A1',p:[60,100],d:[4,3,2,1],banda:1,frase:'molt breus, d’unes 6-8 paraules',par:'2-3 oracions per paràgraf, 3-4 paràgrafs'},
- 'A1':{nom:'A1',p:[100,150],d:[4,3,2,1],banda:1,frase:'breus, d’unes 8-10 paraules',par:'2-4 oracions per paràgraf, 3-5 paràgrafs'},
- 'A1p':{nom:'A1+',p:[150,200],d:[3,3,2,2],banda:2,frase:'d’unes 8-12 paraules',par:'3-4 oracions per paràgraf'},
+ 'preA1':{nom:'Pre-A1',p:[90,120],d:[4,3,2,1],banda:1,frase:'molt breus, d’unes 6-8 paraules',par:'2-3 oracions per paràgraf, 3-4 paràgrafs'},
+ 'A1':{nom:'A1',p:[120,160],d:[4,3,2,1],banda:1,frase:'breus, d’unes 8-10 paraules',par:'2-4 oracions per paràgraf, 3-5 paràgrafs'},
+ 'A1p':{nom:'A1+',p:[160,200],d:[3,3,2,2],banda:2,frase:'d’unes 8-12 paraules',par:'3-4 oracions per paràgraf'},
  'A2i':{nom:'A2 inicial',p:[200,250],d:[3,3,2,2],banda:2,frase:'d’unes 10-12 paraules',par:'3-5 oracions per paràgraf'},
  'A2':{nom:'A2',p:[250,350],d:[3,2,3,2],banda:2,frase:'d’unes 10-14 paraules',par:'3-5 oracions per paràgraf'},
  'A2p':{nom:'A2+',p:[350,450],d:[2,3,3,2],banda:3,frase:'d’unes 12-15 paraules',par:'4-5 oracions per paràgraf'},
@@ -77,6 +77,16 @@ var P10={
  en:'A student says: “[...]”.\nIs this a good conclusion according to the text? Explain your answer.',
  fr:'Un élève dit : « [...] ».\nEst-ce que cette affirmation est juste d’après le texte ? Justifie ta réponse.',
  de:'Ein Schüler sagt: „[...]“.\nStimmt diese Aussage laut Text? Begründe deine Antwort.'
+};
+var INSTR_INICIAL={
+ en:'BEFORE YOU START\n\n1. Read the text.\n\n2. Read the text again. Underline the important words.\n\n3. Answer questions 1-9. You can look at the text.\n\n4. Question 10: answer and say why. Use the text.\n\n5. Check your answers.',
+ fr:'AVANT DE COMMENCER\n\n1. Lis le texte.\n\n2. Lis encore le texte. Souligne les mots importants.\n\n3. Réponds aux questions 1 à 9. Tu peux regarder le texte.\n\n4. Question 10 : réponds et dis pourquoi. Utilise le texte.\n\n5. Vérifie tes réponses.',
+ de:'BEVOR DU ANFÄNGST\n\n1. Lies den Text.\n\n2. Lies den Text noch einmal. Unterstreiche wichtige Wörter.\n\n3. Beantworte die Fragen 1 bis 9. Du kannst in den Text schauen.\n\n4. Frage 10: Antworte und sag warum. Benutze den Text.\n\n5. Kontrolliere deine Antworten.'
+};
+var P10_INICIAL={
+ en:'A student says: “[...]”.\nIs it true? Why?',
+ fr:'Un élève dit : « [...] ».\nC’est vrai ? Pourquoi ?',
+ de:'Ein Schüler sagt: „[...]“.\nStimmt das? Warum?'
 };
 var NOM_LL={ca:'català',es:'castellà',en:'anglès',fr:'francès',de:'alemany'};
 
@@ -157,7 +167,7 @@ El títol general serà:
 
 {{TITOL}}
 
-Sota el títol general, escriu una sola línia amb el curs i el nivell (per exemple: {{CURS}} · {{NIVELL}}). No escriguis el nom del centre ni cap logo: els afegeix l’eina del CEP de Formentera quan maqueta la prova.
+Sota el títol general, escriu una sola línia amb el curs i el nivell, tal com apareixen aquí: {{CURS}} · {{NIVELL}}. No escriguis el nom del centre ni cap logo, encara que el centre aparegui a les dades: l’eina del CEP de Formentera els afegeix quan maqueta la prova.
 
 Títol del text
 
@@ -211,7 +221,8 @@ L’adequació al nivell no ha de dependre només de la longitud. També s’han
 Control lèxic (obligatori)
 
 - Almenys el 98 % de les paraules del text, sense comptar els noms propis ni el vocabulari indicat pel docent, han de ser del nivell indicat o d’un nivell inferior segons {{LEX}}.
-- Com a màxim un 2 % de paraules poden ser d’un nivell superior, i només si són necessàries. Cada una s’ha de poder inferir clarament pel context o anar glossada entre parèntesis amb paraules del nivell.
+- Com a màxim un 2 % de paraules poden ser d’un nivell superior, i només si són necessàries. Cada una s’ha de poder inferir clarament pel context o anar glossada entre parèntesis amb paraules del nivell. El percentatge es compta sobre totes les aparicions.
+- Excepció: si el tema té una paraula clau que no és del nivell (per exemple, el nom d’una planta o d’un animal), glossa-la la primera vegada i després la pots repetir: compta com a vocabulari indicat pel docent.
 - El vocabulari indicat pel docent compta com a conegut.
 - Repeteix les paraules clau. No les canviïs per sinònims només per variar l’estil.
 - Cap pregunta ni cap opció de resposta no pot dependre d’entendre una paraula per sobre del nivell, tret que la pregunta demani expressament inferir-ne el significat pel context i el context ho permeti.
@@ -357,7 +368,7 @@ La pregunta 10 serà sempre oberta, breu i d’AVALUAR. Pot partir d’una afirm
 
 {{P10}}
 
-La resposta tindrà un màxim de tres oracions. {{P10_LL}}
+La resposta tindrà un màxim de tres oracions (a Pre-A1 i A1, n’hi ha prou amb una o dues). {{P10_LL}}
 
 17. GRADACIÓ DE LA DIFICULTAT
 
@@ -534,11 +545,11 @@ function construeix(o){
     : 'L’alumne respon en '+nomLl(o.p10,o.llengua)+'.';
   var rep={
     ART:L.art,LLENGUA:L.nom,ESTATUS:o.estatus==='SLE'?'segona':'primera',TITOL:L.titol,CURS:C.nom,NIVELL:N.nom,
-    ALUMNE:ALUMNE[li],LL_INSTR:NOM_LL[li],INSTRUCCIONS:INSTRUCCIONS[li],
+    ALUMNE:ALUMNE[li],LL_INSTR:NOM_LL[li],INSTRUCCIONS:(N.banda===1&&INSTR_INICIAL[li])?INSTR_INICIAL[li]:INSTRUCCIONS[li],
     T_EXT:tExtensio(o.nivell),T_ADEQ:tAdequacio(o.nivell),LEX:L.lex,T_GRAM:tGramatica(o.llengua,o.nivell),
     T_PROC:tProcessos(o.nivell,false),T_PROC_TOTAL:tProcessos(o.nivell,true),
     LL_PREG:NOM_LL[lp],BUITS:C.etapa==='S'?BUITS_ESO:BUITS_P,BUITS_PAUTA:C.etapa==='S'?BUITS_PAUTA:'',
-    P10:P10[lp],P10_LL:p10ll,T_TIPO:tTipografia(o.curs),LL_PAUTA:nomLl(o.ll_pauta,o.llengua)
+    P10:(N.banda===1&&P10_INICIAL[lp])?P10_INICIAL[lp]:P10[lp],P10_LL:p10ll,T_TIPO:tTipografia(o.curs),LL_PAUTA:nomLl(o.ll_pauta,o.llengua)
   };
   var t=PROMPT.replace(/\{\{([A-Z_0-9]+)\}\}/g,function(m,k){return rep[k]!=null?rep[k]:m;});
   return t+dadesProva(o);

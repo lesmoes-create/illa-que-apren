@@ -37,7 +37,7 @@ El títol general serà:
 
 ÉPREUVE DE COMPRÉHENSION ÉCRITE
 
-Sota el títol general, escriu una sola línia amb el curs i el nivell (per exemple: 1r d’ESO · Pre-A1). No escriguis el nom del centre ni cap logo: els afegeix l’eina del CEP de Formentera quan maqueta la prova.
+Sota el títol general, escriu una sola línia amb el curs i el nivell, tal com apareixen aquí: 1r d’ESO · Pre-A1. No escriguis el nom del centre ni cap logo, encara que el centre aparegui a les dades: l’eina del CEP de Formentera els afegeix quan maqueta la prova.
 
 Títol del text
 
@@ -69,23 +69,15 @@ Escriu exactament aquest apartat, en francès:
 
 AVANT DE COMMENCER
 
-1. Première lecture
-Lis tout le texte pour comprendre de quoi il parle. Tu n’as pas encore besoin de retenir tous les détails.
+1. Lis le texte.
 
-2. Deuxième lecture
-Relis-le attentivement. Tu peux souligner les mots ou les idées importants et écrire de petites notes dans la marge.
+2. Lis encore le texte. Souligne les mots importants.
 
-3. Réponds
-Tu peux relire le texte autant de fois que nécessaire. Avant de choisir une réponse, vérifie que le texte la justifie.
+3. Réponds aux questions 1 à 9. Tu peux regarder le texte.
 
-4. Questions 1 à 9
-Réponds à chaque question comme on te le demande.
+4. Question 10 : réponds et dis pourquoi. Utilise le texte.
 
-5. Question 10
-Réponds brièvement et justifie ta réponse avec des informations du texte (trois phrases maximum).
-
-6. Vérifie
-Avant de rendre l’épreuve, vérifie toutes tes réponses.
+5. Vérifie tes réponses.
 
 5. EXTENSIÓ DEL TEXT
 
@@ -93,7 +85,7 @@ Per als textos continus, l’extensió depèn del nivell MECR del grup:
 
 | Nivell MECR | Extensió del text continu |
 |---|---|
-| Pre-A1 | entre 60 i 100 paraules |
+| Pre-A1 | entre 90 i 120 paraules |
 
 No calculis l’extensió amb velocitats lectores de llengua materna: en una llengua estrangera es llegeix més a poc a poc i amb més esforç. Si el text és bo dins aquest interval, no l’allarguis artificialment.
 
@@ -117,7 +109,8 @@ L’adequació al nivell no ha de dependre només de la longitud. També s’han
 Control lèxic (obligatori)
 
 - Almenys el 98 % de les paraules del text, sense comptar els noms propis ni el vocabulari indicat pel docent, han de ser del nivell indicat o d’un nivell inferior segons el lèxic FLELex del projecte CEFRLex (UCLouvain) i els referencials de nivell del Consell d’Europa per al francès.
-- Com a màxim un 2 % de paraules poden ser d’un nivell superior, i només si són necessàries. Cada una s’ha de poder inferir clarament pel context o anar glossada entre parèntesis amb paraules del nivell.
+- Com a màxim un 2 % de paraules poden ser d’un nivell superior, i només si són necessàries. Cada una s’ha de poder inferir clarament pel context o anar glossada entre parèntesis amb paraules del nivell. El percentatge es compta sobre totes les aparicions.
+- Excepció: si el tema té una paraula clau que no és del nivell (per exemple, el nom d’una planta o d’un animal), glossa-la la primera vegada i després la pots repetir: compta com a vocabulari indicat pel docent.
 - El vocabulari indicat pel docent compta com a conegut.
 - Repeteix les paraules clau. No les canviïs per sinònims només per variar l’estil.
 - Cap pregunta ni cap opció de resposta no pot dependre d’entendre una paraula per sobre del nivell, tret que la pregunta demani expressament inferir-ne el significat pel context i el context ho permeti.
@@ -276,9 +269,9 @@ La pregunta valdrà 1 punt en total, independentment del nombre de buits. A la p
 La pregunta 10 serà sempre oberta, breu i d’AVALUAR. Pot partir d’una afirmació feta per un alumne, d’una interpretació, d’una conclusió, d’una valoració o d’una decisió sobre l’ús d’una evidència. L’alumne haurà de respondre i justificar la resposta a partir del text. Format orientatiu:
 
 Un élève dit : « [...] ».
-Est-ce que cette affirmation est juste d’après le texte ? Justifie ta réponse.
+C’est vrai ? Pourquoi ?
 
-La resposta tindrà un màxim de tres oracions. L’alumne respon en francès.
+La resposta tindrà un màxim de tres oracions (a Pre-A1 i A1, n’hi ha prou amb una o dues). L’alumne respon en francès.
 
 17. GRADACIÓ DE LA DIFICULTAT
 
@@ -438,7 +431,7 @@ DADES D’AQUESTA PROVA
 
 - Centre: IES Marc Ferrer
 - Curs: 1r d’ESO
-- Nivell MECR del grup: Pre-A1 (extensió: entre 60 i 100 paraules)
+- Nivell MECR del grup: Pre-A1 (extensió: entre 90 i 120 paraules)
 - Llengua de la prova: francès (segona llengua estrangera)
 - Àrea o matèria: Biologia i Geologia, Geografia i Història
 - Tema o contingut: La posidònia, la planta que fa les platges de Formentera
