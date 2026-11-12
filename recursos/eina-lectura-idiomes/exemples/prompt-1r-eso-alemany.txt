@@ -1,0 +1,453 @@
+PROMPT MESTRE PER ELABORAR PROVES DE COMPRENSIÓ LECTORA
+
+Centres de Formentera - Versió 1.1 · Adaptació per a llengües estrangeres (en prova)
+
+Actua com a especialista en didàctica de la lectura, en didàctica de l’alemany com a llengua estrangera, en avaluació de la comprensió lectora i en disseny de proves educatives. Has d’elaborar una prova completa de comprensió lectora en alemany per a alumnat que aprèn l’alemany com a segona llengua estrangera: no és la seva llengua materna ni la llengua vehicular del centre.
+
+El text i les preguntes s’han de calibrar pel nivell de competència del grup en alemany segons el Marc europeu comú de referència per a les llengües (MECR), no per l’edat ni pel curs. La prova avalua la comprensió lectora, no el coneixement aïllat de vocabulari o de gramàtica: si un alumne falla un ítem, ha de ser perquè no ha comprès el text, no perquè no entén la pregunta o les opcions.
+
+1. DADES QUE ES PROPORCIONARAN
+
+- Centre. Si no s’indica cap centre, no l’inventis ni l’incloguis.
+- Curs i nivell MECR del grup. Mana el nivell MECR.
+- Llengua de la prova i si és la primera o la segona llengua estrangera de l’alumnat.
+- Àrea o matèria: una o diverses. Si n’hi ha diverses, el text les ha d’integrar de manera natural.
+- Tema o contingut: tema concret o lliure.
+- Seqüència textual dominant: narrativa / descriptiva / explicativa / argumentativa / dialogal.
+- Altres seqüències textuals complementàries: una o diverses, si escau.
+- Gènere discursiu: notícia, reportatge, relat, conte, faula, llegenda, biografia, crònica, entrevista, article divulgatiu, entrada enciclopèdica, carta, correu electrònic, diari, ressenya, fullet informatiu, instruccions, text teatral, etc.
+- Format textual: continu / discontinu / mixt. Per defecte, el format serà continu. Només elabora un text discontinu o mixt quan s’indiqui expressament.
+- Vocabulari que ha d’aparèixer: paraules, expressions, conceptes o termes específics que es vulguin incorporar al text. Integra aquest vocabulari de manera natural, sense forçar-lo ni concentrar-lo en un únic paràgraf.
+- Llengua de les instruccions, de les preguntes, de la pauta de correcció i de la resposta de la pregunta 10.
+
+La seqüència textual dominant, el gènere discursiu i el format textual són dimensions diferents. Per exemple, un reportatge pot ser predominantment explicatiu, incorporar una seqüència narrativa i presentar-se en format mixt si combina text continu amb una taula o una infografia.
+
+Si alguna dada no s’especifica, selecciona una opció adequada al nivell, a l’àrea i a l’objectiu d’avaluar la comprensió lectora, excepte el centre i el format discontinu o mixt, que no s’han d’inventar.
+
+2. ESTRUCTURA GENERAL DE LA PROVA
+
+- Títol general i curs.
+- Dades de l’alumne.
+- Instruccions.
+- Text o conjunt de materials de lectura.
+- Preguntes de comprensió.
+- Pauta de correcció per al docent.
+
+El títol general serà:
+
+TEST ZUM LESEVERSTEHEN
+
+Sota el títol general, escriu una sola línia amb el curs i el nivell (per exemple: 1r d’ESO · Pre-A1). No escriguis el nom del centre ni cap logo: els afegeix l’eina del CEP de Formentera quan maqueta la prova.
+
+Títol del text
+
+El títol ha de ser suggeridor però no explícit, i sempre comprensible al nivell indicat. No ha de revelar directament el tema central, la idea principal ni la conclusió del text. Ha d’oferir alguna pista per activar hipòtesis o expectatives, de manera que l’alumnat hagi d’inferir de què pot tractar el text abans o durant la lectura.
+
+El títol pot ser:
+
+- interrogatiu;
+- una expressió significativa;
+- una frase breu relacionada amb una idea del text;
+- una referència indirecta a algun element rellevant;
+- evocador o metafòric, només a A2+ i B1 i amb paraules del nivell.
+
+Evita títols purament temàtics que revelin directament el contingut central, i també jocs de paraules, ironia o expressions idiomàtiques que el nivell no pot entendre. El títol no ha de ser enganyós ni arbitrari: després de llegir el text, la seva relació amb el contingut ha de resultar comprensible.
+
+3. DADES DE L’ALUMNE
+
+Escriu exactament aquestes línies:
+
+Vor- und Nachname: ___________________________________________
+
+Klasse: ______________________
+
+Datum: ______________________
+
+4. INSTRUCCIONS PER A L’ALUMNAT
+
+Escriu exactament aquest apartat, en alemany:
+
+BEVOR DU ANFÄNGST
+
+1. Erstes Lesen
+Lies den ganzen Text und finde heraus, worum es geht. Du musst dir noch nicht alle Details merken.
+
+2. Zweites Lesen
+Lies den Text noch einmal genau. Du kannst wichtige Wörter oder Ideen unterstreichen und kurze Notizen an den Rand schreiben.
+
+3. Antworten
+Du kannst den Text so oft lesen, wie du willst. Prüfe vor jeder Antwort, ob der Text sie bestätigt.
+
+4. Fragen 1-9
+Beantworte jede Frage so, wie es dort steht.
+
+5. Frage 10
+Antworte kurz und begründe deine Antwort mit Informationen aus dem Text (höchstens drei Sätze).
+
+6. Kontrollieren
+Kontrolliere alle Antworten, bevor du den Test abgibst.
+
+5. EXTENSIÓ DEL TEXT
+
+Per als textos continus, l’extensió depèn del nivell MECR del grup:
+
+| Nivell MECR | Extensió del text continu |
+|---|---|
+| Pre-A1 | entre 60 i 100 paraules |
+
+No calculis l’extensió amb velocitats lectores de llengua materna: en una llengua estrangera es llegeix més a poc a poc i amb més esforç. Si el text és bo dins aquest interval, no l’allarguis artificialment.
+
+Textos discontinus i mixtos
+
+Quan el format sigui discontinu o mixt, el nombre de paraules deixa de ser el criteri principal. Ajusta la quantitat de text i d’informació a una càrrega lectora equivalent al nivell.
+
+- No intentis completar artificialment el nombre de paraules establert per als textos continus.
+- En un text discontinu, considera la densitat de dades, el nombre de categories, llegendes, eixos, apartats, relacions espacials i informació que s’ha d’integrar.
+- En un text mixt, redueix la longitud del component continu en funció de la quantitat i la complexitat de la informació aportada pels elements discontinus.
+- No apliquis un percentatge fix de reducció: adapta la càrrega lectora al material concret.
+
+6. ADEQUACIÓ AL NIVELL MECR
+
+L’adequació al nivell no ha de dependre només de la longitud. També s’han de graduar la longitud de les oracions, el vocabulari, la gramàtica, la densitat informativa, el grau d’abstracció, la quantitat d’informació implícita, la distància entre informacions que s’han de relacionar i la varietat de connectors.
+
+| Nivell MECR | Oracions | Paràgrafs |
+|---|---|---|
+| Pre-A1 | molt breus, d’unes 6-8 paraules | 2-3 oracions per paràgraf, 3-4 paràgrafs |
+
+Control lèxic (obligatori)
+
+- Almenys el 98 % de les paraules del text, sense comptar els noms propis ni el vocabulari indicat pel docent, han de ser del nivell indicat o d’un nivell inferior segons les llistes de vocabulari del Goethe-Institut per als exàmens Start Deutsch 1 (A1), Goethe-Zertifikat A2 i B1, i el lèxic DAFlex del projecte CEFRLex.
+- Com a màxim un 2 % de paraules poden ser d’un nivell superior, i només si són necessàries. Cada una s’ha de poder inferir clarament pel context o anar glossada entre parèntesis amb paraules del nivell.
+- El vocabulari indicat pel docent compta com a conegut.
+- Repeteix les paraules clau. No les canviïs per sinònims només per variar l’estil.
+- Cap pregunta ni cap opció de resposta no pot dependre d’entendre una paraula per sobre del nivell, tret que la pregunta demani expressament inferir-ne el significat pel context i el context ho permeti.
+
+Control gramatical
+
+- Pre-A1 i A1: oracions principals amb el verb en segona posició; Präsens de sein, haben i verbs regulars freqüents; preguntes amb W-Wörter; nominatiu i acusatiu; möchte i können; negació amb nicht i kein; connectors und, aber, oder.
+- Evita paraules compostes llargues i poc freqüents (si en cal alguna, que sigui transparent pels seus components), el genitiu fora de les fórmules freqüents, el Konjunktiv I, els atributs participials extensos i les oracions amb el verb molt allunyat del subjecte.
+
+La complexitat no ha de ser artificial. Prioritza la claredat, la cohesió, les relacions lògiques recognoscibles, els connectors adequats al nivell i els referents pronominals inequívocs.
+
+7. ESTRUCTURA DELS PARÀGRAFS
+
+Aquest criteri és obligatori en tots els nivells. Cada paràgraf ha de constituir una unitat de significat i ha de girar entorn d’una idea principal. Comprova que:
+
+- cada paràgraf té una idea central identificable;
+- les altres oracions desenvolupen, expliquen, exemplifiquen, contrasten o concreten aquesta idea;
+- no s’hi acumulen dues idees principals independents;
+- la longitud dels paràgrafs és adequada al nivell;
+- hi ha progressió lògica entre uns paràgrafs i els altres;
+- el conjunt construeix una macroestructura coherent.
+
+Als nivells inicials, la idea principal ha de ser més fàcilment recognoscible. A mesura que augmenta el nivell, pot aparèixer de manera menys explícita i exigir més integració per part del lector.
+
+8. CARACTERÍSTIQUES DEL TEXT
+
+El text ha de:
+
+- ser adequat a l’edat de l’alumnat i al nivell MECR;
+- resultar interessant;
+- ser clar i coherent;
+- tenir prou riquesa informativa per permetre preguntes de diferent profunditat;
+- evitar l’acumulació excessiva de noms, dates o dades secundàries;
+- contenir relacions causals, temporals, comparatives o argumentatives adequades al nivell;
+- permetre fer inferències;
+- tenir una idea global recognoscible;
+- permetre integrar informació de diferents fragments;
+- oferir elements que permetin valorar críticament afirmacions, evidències, decisions o punts de vista;
+- entendre’s sense coneixements culturals del país de la llengua que el text no expliqui.
+
+El text s’ha de poder llegir com un text autèntic i coherent per si mateix, no com un conjunt de frases construïdes només per generar preguntes.
+
+Format continu, discontinu o mixt
+
+Per defecte, el material serà continu. Si s’indica expressament un format discontinu o mixt, pot incloure taules, cronologies, gràfics, mapes, infografies, cartells, horaris, formularis, esquemes, menús, prospectes, requadres o altres elements semblants.
+
+Un element discontinu només compta com a part real del text si aporta informació necessària per comprendre o respondre almenys alguna pregunta. Una imatge merament decorativa no converteix el text en mixt.
+
+9. PROCESSOS DE COMPRENSIÓ I NOMENCLATURA
+
+| Etiqueta | Descripció |
+|---|---|
+| LOCALITZAR | Localitzar i obtenir informació explícita. |
+| DEDUIR | Extreure conclusions directes. |
+| INTERPRETAR | Interpretar i integrar idees i informacions. |
+| AVALUAR | Analitzar i avaluar el contingut i els elements textuals. |
+
+Utilitza sempre aquestes quatre etiquetes en majúscules a la pauta de correcció i al resum de resultats, sigui quina sigui la llengua de la pauta.
+
+Distribució dels processos segons el nivell
+
+| Nivell | LOCALITZAR | DEDUIR | INTERPRETAR | AVALUAR |
+|---|---|---|---|---|
+| Pre-A1 | 4 | 3 | 2 | 1 |
+
+En una llengua estrangera, els processos d’interpretar i d’avaluar són els primers que cauen quan falta llengua; per això, als nivells inicials pesen més LOCALITZAR i DEDUIR. La numeració concreta de les preguntes ha de respectar aquesta distribució i mantenir els ítems agrupats per procés, de menor a major demanda cognitiva. La pregunta 10 serà sempre d’AVALUAR.
+
+10. LOCALITZAR
+
+Les preguntes de LOCALITZAR han d’exigir identificar informació expressada directament en el text. Poden consistir a:
+
+- localitzar una dada;
+- identificar una acció o característica;
+- trobar una informació concreta;
+- reconèixer una idea explícita;
+- recuperar informació d’una taula, imatge, mapa o gràfic.
+
+No converteixis totes les preguntes de LOCALITZAR en simples cerques de xifres, noms o dates. Almenys una ha d’exigir comprendre correctament una idea explícita.
+
+11. DEDUIR
+
+Les preguntes de DEDUIR han d’exigir connectar dues o més informacions per obtenir una conclusió que no apareix formulada literalment, però que es desprèn clarament del text. Poden consistir a:
+
+- establir una relació causa-conseqüència;
+- deduir per què passa alguna cosa;
+- relacionar dos fets;
+- inferir una característica;
+- establir una relació temporal o lògica;
+- connectar informacions situades en llocs diferents.
+
+La inferència s’ha de poder justificar a partir del text, sense necessitat de coneixements externs.
+
+12. INTERPRETAR
+
+Les preguntes d’INTERPRETAR han d’exigir comprendre una part substancial del text o el text en conjunt. Poden consistir a:
+
+- identificar la idea principal o el missatge global;
+- relacionar diferents paràgrafs;
+- comparar o contrastar informacions;
+- integrar diferents exemples sota una mateixa idea;
+- interpretar la funció d’un episodi dins el conjunt;
+- formular una generalització;
+- identificar la millor síntesi;
+- aplicar una idea del text a una situació nova.
+
+13. AVALUAR
+
+Les preguntes d’AVALUAR han d’exigir prendre distància respecte del text i formular un judici fonamentat. Poden consistir a:
+
+- decidir si una afirmació està ben sustentada;
+- valorar si una evidència és adequada;
+- identificar una conclusió insuficientment fonamentada;
+- valorar el títol;
+- analitzar la intenció o perspectiva de l’autor;
+- valorar la funció d’un element gràfic;
+- distingir entre fet, interpretació i opinió;
+- determinar quina informació és més pertinent per a una finalitat.
+
+La resposta s’ha de poder justificar principalment a partir del text. No converteixis aquestes preguntes en simples opinions personals.
+
+14. FORMAT DE LES PREGUNTES 1-9
+
+Les preguntes 1-9 seran majoritàriament de resposta múltiple amb quatre opcions: A, B, C i D. Només hi haurà una resposta inequívocament correcta.
+
+- Escriu les preguntes i les opcions en alemany.
+- Si són en alemany, han de ser d’un nivell igual o inferior al del text, i les opcions han de ser més curtes i més senzilles que el text.
+- A LOCALITZAR, l’opció correcta pot recollir paraules del text. A DEDUIR, INTERPRETAR i AVALUAR, l’opció correcta ha de dir el mateix amb altres paraules: no pot ser una còpia literal d’una frase del text.
+
+Els distractors han de ser:
+
+- plausibles;
+- homogenis en extensió i estructura;
+- basats en possibles errors de comprensió, no en paraules difícils;
+- prou versemblants per exigir la lectura del text;
+- clarament incorrectes un cop s’ha comprès bé el text.
+
+Evita “totes les anteriors”, “cap de les anteriors”, distractors absurds, pistes gramaticals o lèxiques, alternatives parcialment correctes i que la resposta correcta sigui sistemàticament la més llarga. Distribueix de manera equilibrada les respostes correctes entre A, B, C i D.
+
+15. PREGUNTA DE COMPLETAR BUITS A ESO
+
+A les proves d’ESO, una de les preguntes 1-9 ha de consistir a completar els buits d’un paràgraf. Aquesta pregunta:
+
+- substituirà una de les preguntes de resposta múltiple i mantindrà el total de 10 preguntes;
+- s’ubicarà dins el procés de comprensió més adequat;
+- tindrà una extensió aproximada d’un paràgraf breu, adequat al nivell, i formarà una unitat coherent de significat;
+- no serà una simple còpia d’un paràgraf original amb paraules eliminades: preferentment reconstruirà, sintetitzarà o integrarà informació del text;
+- obligarà a comprendre les relacions entre idees i no es convertirà en un exercici purament gramatical o lèxic;
+- inclourà un banc d’opcions amb paraules del nivell, amb una opció més que buits, que permeti una correcció objectiva;
+- evitarà que es pugui resoldre per pistes gramaticals (article, gènere, nombre, concordança o terminació);
+- cada opció s’utilitzarà una sola vegada.
+
+La pregunta valdrà 1 punt en total, independentment del nombre de buits. A la pauta de correcció s’ha d’especificar el valor de cada resposta correcta.
+
+16. PREGUNTA 10
+
+La pregunta 10 serà sempre oberta, breu i d’AVALUAR. Pot partir d’una afirmació feta per un alumne, d’una interpretació, d’una conclusió, d’una valoració o d’una decisió sobre l’ús d’una evidència. L’alumne haurà de respondre i justificar la resposta a partir del text. Format orientatiu:
+
+Ein Schüler sagt: „[...]“.
+Stimmt diese Aussage laut Text? Begründe deine Antwort.
+
+La resposta tindrà un màxim de tres oracions. L’alumne respon en alemany.
+
+17. GRADACIÓ DE LA DIFICULTAT
+
+La dificultat no s’ha de basar en paraules més rares. Ha de dependre progressivament de:
+
+- la quantitat d’informació que cal localitzar;
+- la distància entre les informacions que s’han de relacionar;
+- el grau d’explicitud de la resposta;
+- la necessitat d’integrar fragments;
+- la necessitat de comprendre el text global;
+- la presència d’informació implícita;
+- la necessitat de valorar evidències;
+- la necessitat de justificar una conclusió.
+
+Dins cada procés, inclou ítems de dificultat diversa i ajusta la demanda cognitiva al nivell. Una pregunta d’AVALUAR de Pre-A1 no ha de tenir la mateixa exigència que una de B1.
+
+18. CONTROL DE QUALITAT DELS ÍTEMS
+
+Abans de presentar la prova, comprova que:
+
+- la resposta correcta es pot demostrar a partir del text;
+- no hi ha dues respostes defensables;
+- el procés assignat és realment el que exigeix la pregunta;
+- una pregunta de LOCALITZAR no sigui en realitat inferencial;
+- una pregunta de DEDUIR no es pugui respondre copiant literalment una frase;
+- una pregunta d’INTERPRETAR exigeixi integrar informació;
+- una pregunta d’AVALUAR exigeixi valorar o justificar;
+- cap pregunta ni opció no fa servir vocabulari o gramàtica per sobre del nivell;
+- la resposta no depengui de coneixements externs;
+- una pregunta no reveli la resposta d’una altra;
+- en la pregunta de completar buits, la resposta depengui de la comprensió del text i no de pistes gramaticals.
+
+Si un ítem no compleix aquests criteris, reescriu-lo abans de presentar-lo.
+
+19. FORMAT VISUAL DEL DOCUMENT
+
+La prova ha de tenir una estètica neta, clara, professional, moderna, adequada a l’edat i poc recarregada.
+
+Educació Secundària: tipografia clara i de bona llegibilitat, amb serif o sense, com Georgia, Cambria, Charter, Source Serif o una d’equivalent.
+
+- 1r d’ESO: 12 pt
+
+20. ALINEACIÓ I COMPOSICIÓ DEL TEXT
+
+En tots els cursos:
+
+- Text alineat a l’esquerra, sense justificar.
+- Sense partició de paraules al final de línia: en una llengua estrangera, una paraula partida afegeix una dificultat de lectura que no volem avaluar.
+- Interlineat aproximat entre 1,3 i 1,5.
+- Marges amplis, separació visible entre paràgrafs i espai en blanc suficient.
+- Jerarquia visual clara i negreta només quan sigui funcional.
+
+21. IMATGES I ELEMENTS GRÀFICS
+
+No pots inserir imatges reals. Quan una imatge ajudi a la lectura, indica on aniria amb una línia entre claudàtors que descrigui què ha de mostrar, per exemple: [Imatge: ...]. Si la imatge és decorativa, cap resposta no n’ha de dependre.
+
+22. FORMA DE PRESENTAR-HO
+
+Escriu la prova en Markdown simple, perquè l’eina del CEP la pugui maquetar:
+
+- # per al títol general i ## per als apartats (dades de l’alumne, instruccions, títol del text, preguntes);
+- les opcions de resposta en línies separades que comencin per A), B), C) i D);
+- negreta (**text**) només quan sigui funcional;
+- taules amb el format | columna | columna |.
+
+No escriguis cap comentari abans del títol general. La pauta de correcció ha de començar exactament amb aquesta línia:
+
+## PAUTA DE CORRECCIÓ
+
+PAUTA DE CORRECCIÓ PER AL DOCENT
+
+Després de la prova de l’alumnat, genera la secció de la pauta de correcció en alemany.
+
+23. RESPOSTES CORRECTES DE LES PREGUNTES 1-9
+
+Inclou una taula amb aquest format (amb els encapçalaments en la llengua de la pauta):
+
+| Pregunta | Resposta correcta | Procés | Evidència textual | Justificació |
+|---|---|---|---|---|
+| 1 | B | LOCALITZAR | [...] | [...] |
+| 2 | D | LOCALITZAR | [...] | [...] |
+| 3 | A | DEDUIR | [...] | [...] |
+
+La justificació ha de ser breu però prou precisa perquè el docent pugui entendre per què la resposta correcta és inequívoca. En les preguntes de DEDUIR, INTERPRETAR o AVALUAR, explica també breument quina operació cognitiva exigeix l’ítem.
+
+Pregunta de completar buits: indica també la solució correcta de cada buit, el valor de cada resposta, la puntuació total de la pregunta, el procés que avalua i una breu justificació de per què la tasca pertany a aquest procés.
+
+24. CORRECCIÓ DE LA PREGUNTA 10
+
+Resposta model: redacta una resposta possible, correcta i adequada al nivell, amb un màxim de tres oracions.
+
+Idees o evidències clau: indica quines idees, informacions o evidències del text haurien d’aparèixer, explícitament o mitjançant una paràfrasi equivalent, perquè la resposta es consideri ben fonamentada. No exigeixis que la resposta de l’alumne coincideixi literalment amb el model.
+
+25. RÚBRICA DE LA PREGUNTA 10
+
+| Puntuació | Criteri |
+|---|---|
+| 1 punt | Respon correctament a la qüestió i justifica la resposta de manera clara i suficient mitjançant una o més informacions rellevants del text. La relació entre l’evidència i la conclusió és comprensible. |
+| 0,5 punts | La resposta és essencialment correcta, però la justificació és parcial, massa general, poc precisa o incompleta. També es pot concedir 0,5 quan s’aporta una evidència pertinent però la relació amb la conclusió queda poc explicada. |
+| 0 punts | La resposta és incorrecta, contradictòria amb el text, no està justificada, es basa només en una opinió personal o utilitza informació que no permet sostenir la conclusió. |
+
+- No penalitzis errors ortogràfics, gramaticals o d’expressió en alemany, excepte si impedeixen comprendre la resposta.
+- No exigeixis citacions literals i accepta paràfrasis correctes.
+- Una resposta més llarga no obté més puntuació pel fet de ser-ho.
+- Valora la comprensió i la justificació, no la qualitat lingüística.
+- Si la resposta és correcta però no hi ha cap justificació, la puntuació màxima serà 0,5 punts.
+- Si la conclusió és incorrecta, la puntuació serà 0 punts, encara que l’alumne copiï informació del text, excepte si la pregunta admet expressament més d’una valoració possible i aquesta està ben argumentada.
+
+26. EXEMPLES DE CORRECCIÓ DE LA PREGUNTA 10
+
+Escriu un exemple de resposta d’1 punt, un de 0,5 punts i un de 0 punts.
+
+27. RESULTATS PER PROCESSOS
+
+Inclou el quadre corresponent al nivell. Cada pregunta val 1 punt i la prova queda directament puntuada sobre 10.
+
+| Nivell | LOCALITZAR | DEDUIR | INTERPRETAR | AVALUAR | Total |
+|---|---|---|---|---|---|
+| Pre-A1 | 4 | 3 | 2 | 1 | 10 |
+
+28. INFORMACIÓ FINAL DE CONTROL PER AL DOCENT
+
+- Curs i nivell MECR aplicat:
+- Llengua de la prova i llengua de les instruccions, de les preguntes, de la pauta i de la resposta de la pregunta 10:
+- Àrea o matèria:
+- Tema o contingut:
+- Seqüència textual dominant i complementàries:
+- Gènere discursiu i format textual:
+- Nombre exacte de paraules del text continu i interval previst:
+- Paraules per sobre del nivell: llista completa i percentatge sobre el total:
+- Temps verbals i estructures principals utilitzats:
+- Distribució d’ítems per processos:
+- Pregunta de completar buits: sí / no, i procés en què s’ha incorporat:
+
+En textos continus, comprova que el nombre real de paraules és dins l’interval previst. En textos discontinus o mixtos, valora la càrrega lectora global.
+
+29. PROCEDIMENT DE GENERACIÓ
+
+Segueix aquests passos:
+
+- determina el nivell MECR, l’extensió i la gramàtica que corresponen a la prova;
+- identifica el format textual sol·licitat: continu, discontinu o mixt;
+- planifica internament l’estructura global del text i la idea principal de cada paràgraf;
+- redacta el text;
+- revisa’l paraula per paraula per complir el control lèxic i el control gramatical, i reescriu el que se’n surti;
+- comprova la coherència, la cohesió, l’estructura dels paràgrafs i el nombre de paraules;
+- comprova que el títol sigui suggeridor, no explícit i comprensible al nivell;
+- aplica la distribució de preguntes per processos corresponent al nivell;
+- si és una prova d’ESO, incorpora una pregunta de completar buits dins el procés més adequat;
+- comprova individualment la qualitat, la dificultat, el nivell de llengua i la classificació de cada ítem;
+- redacta la pauta de correcció;
+- revisa el conjunt abans de presentar-lo.
+
+No mostris aquesta planificació interna. Presenta directament la prova acabada i, a continuació, la pauta de correcció per al docent.
+
+DADES D’AQUESTA PROVA
+
+- Centre: IES Marc Ferrer
+- Curs: 1r d’ESO
+- Nivell MECR del grup: Pre-A1 (extensió: entre 60 i 100 paraules)
+- Llengua de la prova: alemany (segona llengua estrangera)
+- Àrea o matèria: Biologia i Geologia, Geografia i Història
+- Tema o contingut: La posidònia, la planta que fa les platges de Formentera
+- Seqüència textual dominant: explicativa
+- Altres seqüències textuals complementàries: descriptiva
+- Gènere discursiu: article divulgatiu
+- Format textual: continu
+- Vocabulari que ha d’aparèixer: die Pflanze, das Meer, der Strand, das Wasser, schützen
+- Llengua de les instruccions: alemany
+- Llengua de les preguntes i de les opcions: alemany
+- Llengua de la pauta de correcció: alemany
+- Llengua de resposta de la pregunta 10: alemany

@@ -1,0 +1,134 @@
+/* Genera parametres.html a partir de les mateixes dades que fa servir l'eina (prompt.js).
+   Ús: node generador/genera-fitxa.js  (des de la carpeta eina-lectura-idiomes) */
+const fs=require('fs'),path=require('path');
+const P=require('../prompt.js');
+const C=P.CURSOS,N=P.NIVELLS,L=P.LLENGUES;
+const e=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+const files=P.ORDRE.map(k=>`<tr><td>${e(C[k].nom)}</td><td>${N[C[k].ref.PLE].nom}</td><td>${C[k].etapa==='S'?N[C[k].ref.SLE].nom:'<span class="m">No s’imparteix</span>'}</td></tr>`).join('');
+const nivells=P.ORDRE_N.map(k=>`<tr><td><b>${N[k].nom}</b></td><td class="n">${N[k].p[0]}-${N[k].p[1]}</td><td>${e(N[k].frase)}</td><td>${e(N[k].par)}</td><td class="n">${N[k].d.join(' · ')}</td></tr>`).join('');
+const bandes={1:'Pre-A1 i A1',2:'A1+, A2 inicial i A2',3:'A2+ i B1'};
+const gram=['en','fr','de'].map(lk=>`<section class="ll"><h3>${e(L[lk].nom[0].toUpperCase()+L[lk].nom.slice(1))}</h3><dl>${[1,2,3].map(b=>`<dt>${bandes[b]}</dt><dd>${e(L[lk].gram[b])}</dd>`).join('')}<dt>A tots els nivells, evita</dt><dd>${e(L[lk].evita)}.</dd></dl><p class="m">Vocabulari de referència: ${e(L[lk].lex)}.</p></section>`).join('');
+const format=P.ORDRE.map(k=>`<tr><td>${e(C[k].nom)}</td><td>${C[k].etapa==='P'?'Verdana (sans serif)':'Georgia (amb serif)'}</td><td class="n">${e(C[k].cos)}</td><td>A l’esquerra, sense partir paraules</td><td class="n">${C[k].etapa==='P'?'1,45':'1,35'}</td></tr>`).join('');
+
+const html=`<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fitxa de paràmetres · Comprensió lectora en llengües estrangeres</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{--blau:#004B99;--blau-fosc:#0b2f63;--or:#B79D1E;--or-suau:#f6efd2;--tinta:#1b2433;--tinta-2:#4c5870;--linia:#d6dce8;--paper:#fff;--paper-2:#f3f6fb}
+*{box-sizing:border-box}
+html{background:var(--paper-2)}
+body{margin:0;background:var(--paper-2);color:var(--tinta);font:10.5pt/1.45 Barlow,"Segoe UI",Arial,sans-serif}
+.full{background:var(--paper);max-width:210mm;margin:0 auto;padding:16mm 16mm 14mm;padding-left:max(16px,16mm);padding-right:max(16px,16mm)}
+@media (max-width:640px){.full{padding:20px max(16px,env(safe-area-inset-left,0px)) 20px max(16px,env(safe-area-inset-right,0px))}}
+header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;border-bottom:3px solid var(--or);padding-bottom:10px;margin-bottom:12px}
+.ttl{flex:1;min-width:0}
+@media (max-width:520px){header{flex-direction:column-reverse}}
+header img{height:46px;width:auto}
+.ttl h1{font:700 22pt/1.02 "Barlow Condensed","Arial Narrow",Arial,sans-serif;text-transform:uppercase;color:var(--blau);margin:0 0 4px;text-wrap:balance}
+.ttl p{margin:0;color:var(--tinta-2)}
+h2{font:700 13pt/1.1 "Barlow Condensed","Arial Narrow",Arial,sans-serif;text-transform:uppercase;letter-spacing:.02em;color:var(--blau);margin:13px 0 5px;break-after:avoid}
+h2 span{color:var(--or);margin-right:6px}
+h3{font:700 11pt/1.2 "Barlow Condensed","Arial Narrow",Arial,sans-serif;text-transform:uppercase;color:var(--blau-fosc);margin:0 0 4px}
+p{margin:0 0 6px;max-width:72ch}
+.idea{background:var(--blau);color:#fff;padding:10px 14px;border-radius:2px;margin:0 0 4px}
+.idea b{color:#f1d66b}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;margin:4px 0 6px;font-size:9.5pt;break-inside:avoid}
+th,td{border-bottom:1px solid var(--linia);padding:4px 6px;text-align:left;vertical-align:top}
+th{font-weight:600;color:var(--blau-fosc);background:var(--paper-2);border-bottom:2px solid var(--blau)}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.m{color:var(--tinta-2);font-size:9pt}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:760px){.grid3{grid-template-columns:1fr}}
+.ll{border-top:2px solid var(--or);padding-top:6px;min-width:0;break-inside:avoid}
+dl{margin:0;font-size:9.2pt}
+dt{font-weight:600;color:var(--blau-fosc);margin-top:4px}
+dd{margin:0}
+.tag{display:inline-block;font-size:8pt;font-weight:600;padding:1px 6px;border-radius:2px;white-space:nowrap}
+.tag.r{background:#e3eefb;color:var(--blau-fosc)}
+.tag.c{background:var(--or-suau);color:#6b5a08}
+ul{margin:0 0 6px;padding-left:16px}
+li{margin:2px 0}
+.fonts li{font-size:8.6pt;margin:2px 0;line-height:1.38}
+footer{margin-top:10px;padding-top:6px;border-top:1px solid var(--linia);color:var(--tinta-2);font-size:8.5pt}
+a{color:var(--blau)}
+@page{size:A4;margin:12mm 0 14mm;@bottom-center{content:counter(page) " / " counter(pages);font:8.5pt Barlow,Arial,sans-serif;color:#4c5870}}
+@media print{html,body{background:#fff}.full{padding-top:0;padding-bottom:0}}
+</style>
+</head>
+<body>
+<div class="full">
+<header>
+  <div class="ttl">
+    <h1>Fitxa de paràmetres</h1>
+    <p><b>Comprensió lectora en llengües estrangeres</b> · anglès, francès i alemany</p>
+    <p>Prompt mestre de Miguel Ángel Tirado, versió 1.1 · adaptació del CEP de Formentera <b>1.1-LE, en prova</b> · 12 de novembre de 2026</p>
+  </div>
+  <img src="logos/cep-formentera.png" alt="Centre de Professorat de Formentera">
+</header>
+
+<p class="idea">En una llengua estrangera, el text es calibra pel <b>nivell MECR del grup</b>, no pel curs. Amb el prompt 1.1 tal com és, un text de 1r d’ESO té unes <b>1.050 paraules</b> (velocitat lectora en llengua materna). Amb aquesta versió: anglès com a primera llengua estrangera (A2), <b>250-350 paraules</b>; francès o alemany com a segona (Pre-A1), <b>60-100</b>.</p>
+
+<h2><span>1</span>Nivell de referència per curs</h2>
+<p>És el nivell que l’eina posa per defecte. <b>El docent el canvia</b> si el grup està per sobre o per sota: mana el nivell del grup, no el curs.</p>
+<div class="scroll"><table><thead><tr><th>Curs</th><th>Primera llengua estrangera</th><th>Segona llengua estrangera</th></tr></thead><tbody>${files}</tbody></table></div>
+<p class="m">Proposta del CEP per pilotar <span class="tag c">decisió CEP</span>. La normativa basa el currículum de llengua estrangera en el MECR, però no és la font d’aquesta taula.</p>
+
+<h2><span>2</span>Què canvia segons el nivell</h2>
+<div class="scroll"><table><thead><tr><th>Nivell</th><th>Paraules</th><th>Oracions</th><th>Paràgrafs</th><th>LOC · DED · INT · AVA</th></tr></thead><tbody>${nivells}</tbody></table></div>
+<p class="m">LOC: localitzar · DED: deduir · INT: interpretar · AVA: avaluar. Sempre 10 preguntes; la 10 és d’avaluar. Als nivells inicials pesen més localitzar i deduir, perquè interpretar i avaluar són els primers processos que cauen quan falta llengua <span class="tag r">recerca</span>. Extensions i longitud de les oracions <span class="tag c">decisió CEP</span>: cronometrau la primera aplicació i ajustau-les.</p>
+
+<h2><span>3</span>Vocabulari</h2>
+<ul>
+<li>Almenys el <b>98 %</b> de les paraules del text (sense noms propis ni el vocabulari que demana el docent) han de ser del nivell o d’un nivell inferior <span class="tag r">recerca</span>.</li>
+<li>Màxim un 2 % per sobre del nivell, només si cal, inferible pel context o glossat entre parèntesis.</li>
+<li>Les preguntes i les opcions, del mateix nivell o d’un nivell inferior al del text, i més curtes que el text.</li>
+<li>El percentatge que diu la IA no és fiable: comprovau-lo amb <a href="https://cental.uclouvain.be/cefrlex/analyse/">CEFRLex · Analyse</a> (les tres llengües) o, en anglès, amb <a href="https://textinspector.com/">Text Inspector</a>.</li>
+</ul>
+
+<h2><span>4</span>Gramàtica de cada llengua</h2>
+<div class="grid3">${gram}</div>
+<p class="m" style="margin-top:6px">Selecció orientativa del CEP a partir dels nivells del MECR <span class="tag c">decisió CEP</span>. Que la revisi cada departament.</p>
+
+<h2><span>5</span>Format de la prova</h2>
+<div class="scroll"><table><thead><tr><th>Curs</th><th>Tipografia</th><th>Mida</th><th>Alineació</th><th>Interlineat</th></tr></thead><tbody>${format}</tbody></table></div>
+<ul>
+<li><b>Alineat a l’esquerra i sense partir paraules en tots els cursos</b>, també a 6è i a l’ESO, on la versió 1.1 justifica amb partició. Una paraula partida en una llengua estrangera és una dificultat de lectura que no volem avaluar <span class="tag c">decisió CEP</span>.</li>
+<li>L’eina posa el <b>logo del centre</b> a la capçalera, el curs i el nivell, els <b>números de pàgina</b> i la <b>pauta en una pàgina a part</b>. Hi ha dos Word: per a l’alumnat (sense pauta) i complet.</li>
+<li>Les imatges no les fa la IA: on posa [Image: ...], hi posa una imatge el docent.</li>
+</ul>
+
+<h2><span>6</span>Llengües de la prova</h2>
+<ul>
+<li>Per defecte, <b>tot va en la llengua de la prova</b>: títol, dades de l’alumne, instruccions, preguntes, pauta i resposta de la pregunta 10.</li>
+<li>Es pot canviar per a cada part. Als nivells Pre-A1 i A1, les instruccions poden anar en català o castellà.</li>
+<li>Si la pregunta 10 es respon en la llengua estrangera, la pauta no penalitza els errors de llengua si la resposta s’entén.</li>
+</ul>
+
+<h2><span>7</span>Què es manté igual que a la versió 1.1</h2>
+<p>Deu preguntes amb quatre processos (LOCALITZAR, DEDUIR, INTERPRETAR, AVALUAR), resposta múltiple A-D, una pregunta de completar buits a l’ESO, la pregunta 10 oberta d’avaluar, títol suggeridor però no explícit, paràgrafs amb una idea principal, pauta amb evidència textual i la mateixa rúbrica de la pregunta 10.</p>
+
+<h2><span>8</span>D’on surt cada decisió</h2>
+<ul class="fonts">
+<li><span class="tag r">recerca</span> Cobertura lèxica del 98 %: Hu i Nation (2000), <i>Reading in a Foreign Language</i>, 13(1); 95 % com a mínim i 98 % com a òptim: <a href="https://scholarspace.manoa.hawaii.edu/bitstream/10125/66648/1/22_1_10125_66648_laufer.pdf">Laufer i Ravenhorst-Kalovski (2010)</a>. Les rèpliques de <a href="https://ulb-dok.uibk.ac.at/ulbtirolfodok/content/titleinfo/9760724/full.pdf">Kremmel et al. (2023)</a> i <a href="https://doi.org/10.64152/10125/67517">Webb, Pellicer-Sánchez i Wang (2025)</a> no el reprodueixen del tot: el feim servir com a objectiu de disseny, no com a llei.</li>
+<li><span class="tag r">recerca</span> Amb textos autèntics, arribar al 98 % demana 8.000-9.000 famílies de paraules (<a href="https://www.wgtn.ac.nz/__data/assets/pdf_file/0018/1626120/2006-How-large-a-vocab.pdf">Nation, 2006</a>): per això el text s’ha d’escriure al nivell.</li>
+<li><span class="tag r">recerca</span> Llindar lingüístic: les estratègies de lectura de la llengua materna només es transfereixen quan hi ha prou llengua (Clarke, 1980; Alderson, 1984).</li>
+<li><span class="tag r">referència</span> Nivells i descriptors: Consell d’Europa, <i>MECR. Volum complementari</i> (2020). Lèxic graduat per nivells: projecte <a href="https://cental.uclouvain.be/cefrlex">CEFRLex</a> (UCLouvain: EFLLex, FLELex, DAFlex); llistes de vocabulari del Goethe-Institut (<a href="https://www.goethe.de/pro/relaunch/prf/ca/A1_SD1_Wortliste_02.pdf">Start Deutsch 1, A1</a>); English Vocabulary Profile (Cambridge).</li>
+<li><span class="tag c">decisió CEP</span> Nivell per curs, extensions, longitud de les oracions, gramàtica per franja, mides de lletra i alineació. Són per pilotar i es revisaran amb les valoracions dels departaments.</li>
+<li><span class="tag r">normativa</span> Primària: Reial decret 157/2022, d’1 de març (BOE núm. 52, de 2 de març de 2022) i Decret 41/2025, d’1 d’agost (BOIB núm. 103, de 4 d’agost de 2025), que basa l’anivellament de llengua estrangera en el MECR adaptat a l’edat. ESO: Reial decret 217/2022, de 29 de març (BOE núm. 76, de 30 de març de 2022) i Decret 42/2025, d’1 d’agost (BOIB núm. 103, de 4 d’agost de 2025).</li>
+</ul>
+
+<footer>CEP de Formentera · Servei de Formació Permanent del Professorat · Govern de les Illes Balears. Prompt mestre de Miguel Ángel Tirado, difós amb la seva autorització; aquesta adaptació no és la versió oficial. CC BY-NC-SA 4.0.</footer>
+</div>
+</body>
+</html>
+`;
+fs.writeFileSync(path.join(__dirname,'..','parametres.html'),html);
+console.log('parametres.html',html.length);

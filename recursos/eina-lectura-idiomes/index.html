@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eina de comprensió lectora en llengües estrangeres · Illa que aprèn</title>
+<meta name="description" content="Prompt mestre de Miguel Ángel Tirado adaptat a l'anglès, el francès i l'alemany com a llengües estrangeres. Prepara el prompt, compta les paraules i maqueta la prova amb el logo del centre. CEP de Formentera.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Semi+Condensed:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<style>
+/* Estils propis de l'eina. La resta ve de site.css */
+.pas{padding-block:0 2.5rem;margin-bottom:2.5rem;border-bottom:1px solid var(--rule)}
+.pas:last-child{border-bottom:0;margin-bottom:0}
+.pas > h2{display:flex;align-items:baseline;gap:.75rem;font-size:var(--step-2);color:var(--blue);margin-bottom:.6rem}
+.pas > h2 span{font-size:1.5em;line-height:.8;color:var(--sun)}
+.pas > p.intro{color:var(--ink-2);max-width:var(--measure);margin-bottom:1.25rem}
+.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem 1.5rem}
+.fgrid .full{grid-column:1 / -1}
+@media (max-width:640px){.fgrid{grid-template-columns:1fr}}
+.fld{display:grid;gap:.35rem;align-content:start;min-width:0}
+.fld > label,.fld > .lbl{font-weight:600}
+.fld small{color:var(--ink-2);font-size:var(--step--1)}
+.fld input[type=text],.fld select,.fld textarea,.fld input[type=number]{font:inherit;font-size:1rem;width:100%;padding:.6rem .7rem;border:1px solid var(--sea);border-radius:2px;background:var(--paper);color:var(--ink)}
+.fld textarea{resize:vertical;min-height:5.5rem;line-height:1.5}
+.fld input:focus-visible,.fld select:focus-visible,.fld textarea:focus-visible{outline:3px solid var(--sun);outline-offset:1px}
+.req{color:var(--sun-ink);font-weight:600}
+.checks{display:flex;flex-wrap:wrap;gap:.4rem .5rem;border:0;margin:0;padding:0;min-width:0}
+.checks legend{font-weight:600;padding:0;margin-bottom:.4rem}
+.checks label{display:inline-flex;align-items:center;gap:.45rem;padding:.4rem .7rem;border:1px solid var(--rule);border-radius:2px;cursor:pointer;font-size:.98rem;background:var(--paper)}
+.checks label:hover{background:var(--paper-2)}
+.checks label:has(input:checked){border-color:var(--blue);background:var(--paper-2)}
+.checks input{accent-color:var(--blue);margin:0}
+.grup{border-top:1px solid var(--rule);padding-top:1rem;margin-top:.25rem}
+.grup > p{font-family:var(--f-display);font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--blue);margin:0 0 .25rem}
+.resum-prompt{display:flex;flex-wrap:wrap;gap:.35rem 1.5rem;padding:1rem 1.2rem;background:var(--blue);color:var(--on-blue-2);border-radius:2px;margin-bottom:1rem}
+.resum-prompt b{color:var(--sun);font-weight:600}
+.prompt-box summary{cursor:pointer;font-weight:600;color:var(--blue);padding-block:.4rem}
+.prompt-box textarea{width:100%;min-height:22rem;margin-top:.5rem;font:inherit;font-size:.9rem;line-height:1.45;padding:.8rem;border:1px solid var(--rule);border-radius:2px;background:var(--paper-2);color:var(--ink)}
+.quiz-bar{margin-block:1rem}
+.quiz-bar button:disabled{opacity:.45;cursor:not-allowed}
+.avis{padding:.9rem 1.1rem;background:var(--gold-soft);color:var(--ink);border-radius:2px;max-width:var(--measure)}
+.avis b{color:var(--sun-ink)}
+.usar{margin:1rem 0 0;padding-left:1.25rem;display:grid;gap:.4rem;max-width:var(--measure)}
+.estat{display:block;font-family:var(--f-data);font-weight:600;color:var(--ink-2);min-height:1.5em}
+.mesura{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:1rem;border-radius:2px}
+.mesura div{background:var(--paper);padding:1rem}
+.mesura b{display:block;font-family:var(--f-display);font-weight:700;font-size:2.4rem;line-height:1;color:var(--blue);font-variant-numeric:tabular-nums}
+.mesura span{color:var(--ink-2);font-size:var(--step--1)}
+@media (max-width:560px){.mesura{grid-template-columns:1fr}}
+.veredicte{margin-top:.75rem;padding:.75rem 1rem;border-radius:2px;border-left:5px solid var(--rule);background:var(--paper-2);max-width:var(--measure)}
+.veredicte.ok{border-left-color:var(--blue)}
+.veredicte.fora{border-left-color:var(--sun)}
+.logo-centre{display:flex;align-items:center;gap:.75rem;min-height:3.2rem}
+.logo-centre img{height:3rem;width:auto;max-width:9rem;object-fit:contain;background:#fff;padding:.2rem;border:1px solid var(--rule)}
+.fitxa{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:2px;margin-top:1rem}
+.fitxa div{background:var(--paper);padding:.75rem .9rem;min-width:0}
+.fitxa b{display:block;font-family:var(--f-display);font-weight:700;font-size:1.35rem;line-height:1.1;color:var(--blue)}
+.fitxa span{color:var(--ink-2);font-size:var(--step--1)}
+@media (max-width:700px){.fitxa{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.paper-wrap{overflow-x:auto;margin-top:1rem;border:1px solid var(--rule);background:var(--paper-2);padding:1rem;border-radius:2px;max-height:38rem;overflow-y:auto}
+.paper{background:#fff;color:#111;max-width:42rem;margin:0 auto;padding:2rem 2.2rem;box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.paper:empty::before{content:"Aquí veuràs la prova maquetada quan hi enganxis la resposta de la IA.";color:#667;font-family:var(--f-body)}
+.encerts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.6rem}
+@media (max-width:560px){.encerts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.encerts .fld label{font-weight:500;font-size:var(--step--1)}
+.box ul{margin:0;padding-left:1.1rem;display:grid;gap:.3rem;font-size:var(--step--1)}
+.box .data{color:var(--sun-ink);font-weight:600}
+.box a.lnk{font-family:var(--f-display);font-weight:700;font-size:1.05rem;text-transform:uppercase;letter-spacing:.03em;color:var(--blue);text-decoration:none;border-bottom:3px solid var(--sun);justify-self:start}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<a class="skip" href="#eina">Salta a l'eina</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="../../index.html#inici"><img src="../../assets/logos/cep-formentera.png" alt="Centre de Professorat de Formentera" width="120" height="43"><span>Illa que aprèn</span></a>
+    <nav class="nav" aria-label="Seccions">
+      <a href="../../index.html#recursos">Espais de treball</a><a href="../../index.html#centres">Centres</a>
+      <a href="../../index.html#recorregut">Recorregut</a>
+      <a href="../../index.html#municipi">Municipi</a>
+      <a href="../../index.html#origens">D'on venim</a>
+      <a href="../../index.html#pensament">El fil</a>
+      <a href="../../index.html#replicar">Com replicar-ho</a>
+      <a href="../../index.html#biblioteca">Biblioteca</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap crumbs" style="padding-bottom:1rem"><a href="../../index.html">Illa que aprèn</a> · <a href="../../index.html#recursos">Espais de treball</a> · <a href="../eina-lectura/">Eina de comprensió lectora</a> · Llengües estrangeres</div>
+  <div class="e-hero"><div class="wrap">
+    <h1>Comprensió lectora en llengües estrangeres</h1>
+    <div class="facts data"><span>Prompt mestre de <b>Miguel Ángel Tirado</b></span><span>Anglès · Francès · Alemany</span><span>Versió <b>1.1-LE</b> · en prova</span><span><b>5</b> passes</span><span>Sense registre</span></div>
+    <p class="lede" style="margin-top:1rem">En una llengua estrangera, el text s'ha de calibrar pel nivell MECR del grup i no pel curs. Tries el curs, la llengua i el nivell; copies el prompt a la teva IA; comproves les paraules; i enganxes la resposta aquí perquè surti la prova en Word amb el logo del centre i el format del curs.</p>
+  </div></div>
+
+  <div class="wrap e-grid" id="eina">
+    <div>
+
+      <!-- PAS 1 -->
+      <section class="pas" aria-labelledby="p1">
+        <h2 id="p1"><span>1</span>Dades de la prova</h2>
+        <p class="intro">Només el curs és obligatori. El nivell MECR es posa sol segons el curs i la llengua, però el pots canviar: <b>mana el nivell del grup real</b>. Si deixes un camp buit, la IA triarà l'opció més adequada al nivell.</p>
+        <div class="quiz-bar" style="margin-top:-.5rem"><button type="button" class="sec" id="b-exemple">Carrega l'exemple de 1r d'ESO</button></div>
+        <form id="f-dades" class="fgrid" autocomplete="off">
+          <div class="fld">
+            <label for="curs">Curs <span class="req">(obligatori)</span></label>
+            <select id="curs" required>
+              <option value="">Tria el curs</option>
+              <optgroup label="Educació Primària">
+                <option value="3p">3r de primària</option><option value="4p">4t de primària</option>
+                <option value="5p">5è de primària</option><option value="6p">6è de primària</option>
+              </optgroup>
+              <optgroup label="Educació Secundària Obligatòria">
+                <option value="1e">1r d'ESO</option><option value="2e">2n d'ESO</option>
+                <option value="3e">3r d'ESO</option><option value="4e">4t d'ESO</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="fld">
+            <label for="llengua">Llengua de la prova</label>
+            <select id="llengua">
+              <option value="en">Anglès</option>
+              <option value="fr">Francès</option>
+              <option value="de">Alemany</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label for="estatus">Per a aquest grup és la</label>
+            <select id="estatus">
+              <option value="PLE">Primera llengua estrangera</option>
+              <option value="SLE">Segona llengua estrangera</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label for="nivell">Nivell MECR del grup</label>
+            <select id="nivell"></select>
+            <small id="nivell-ajuda">Tria el curs per veure el nivell de referència.</small>
+          </div>
+          <div class="fld">
+            <label for="centre">Centre</label>
+            <select id="centre">
+              <option value="">Sense centre</option>
+              <option value="CEIP Mestre Lluís Andreu" data-logo="ceip-mestre-lluis-andreu.png">CEIP Mestre Lluís Andreu</option>
+              <option value="CEIP Sant Ferran de ses Roques" data-logo="ceip-sant-ferran.png">CEIP Sant Ferran de ses Roques</option>
+              <option value="CEIP El Pilar de la Mola" data-logo="">CEIP El Pilar de la Mola</option>
+              <option value="CCEIP Virgen Milagrosa" data-logo="cceip-virgen-milagrosa.png">CCEIP Virgen Milagrosa</option>
+              <option value="IES Marc Ferrer" data-logo="ies-marc-ferrer.png">IES Marc Ferrer</option>
+            </select>
+            <small>El logo surt a la capçalera de la prova quan la maquetes al pas 4.</small>
+          </div>
+          <div class="fld">
+            <span class="lbl">Logo que sortirà</span>
+            <div class="logo-centre" id="logo-centre"><span class="estat">Cap</span></div>
+          </div>
+          <fieldset class="checks full" id="arees">
+            <legend>Àrea o matèria (en pots marcar diverses)</legend>
+            <label><input type="checkbox" value="Llengua estrangera"> Llengua estrangera</label>
+            <label><input type="checkbox" value="Coneixement del Medi Natural, Social i Cultural"> Coneixement del Medi</label>
+            <label><input type="checkbox" value="Biologia i Geologia"> Biologia i Geologia</label>
+            <label><input type="checkbox" value="Física i Química"> Física i Química</label>
+            <label><input type="checkbox" value="Geografia i Història"> Geografia i Història</label>
+            <label><input type="checkbox" value="Matemàtiques"> Matemàtiques</label>
+            <label><input type="checkbox" value="Tecnologia i Digitalització"> Tecnologia i Digitalització</label>
+            <label><input type="checkbox" value="Educació Física"> Educació Física</label>
+            <label><input type="checkbox" value="Música"> Música</label>
+            <label><input type="checkbox" value="Educació Plàstica, Visual i Audiovisual"> Educació Plàstica i Visual</label>
+            <label><input type="checkbox" value="Educació en Valors Cívics i Ètics"> Valors Cívics i Ètics</label>
+          </fieldset>
+          <div class="fld">
+            <label for="area-altra">Una altra àrea o matèria</label>
+            <input type="text" id="area-altra" placeholder="Opcional">
+          </div>
+          <div class="fld">
+            <label for="tema">Tema o contingut</label>
+            <input type="text" id="tema" placeholder="Opcional. Per exemple: la posidònia">
+          </div>
+          <div class="fld">
+            <label for="sequencia">Seqüència textual dominant</label>
+            <select id="sequencia">
+              <option value="">Que la triï la IA</option>
+              <option>narrativa</option><option>descriptiva</option><option>explicativa</option><option>argumentativa</option><option>dialogal</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label for="genere">Gènere discursiu</label>
+            <input type="text" id="genere" list="l-genere" placeholder="Opcional">
+            <datalist id="l-genere">
+              <option value="notícia"><option value="reportatge"><option value="relat"><option value="conte"><option value="faula"><option value="llegenda"><option value="biografia"><option value="crònica"><option value="entrevista"><option value="article divulgatiu"><option value="entrada enciclopèdica"><option value="carta"><option value="correu electrònic"><option value="diari"><option value="ressenya"><option value="fullet informatiu"><option value="instruccions"><option value="text teatral"><option value="publicació en una xarxa social"><option value="blog">
+            </datalist>
+          </div>
+          <fieldset class="checks full" id="complementaries">
+            <legend>Seqüències complementàries (opcional)</legend>
+            <label><input type="checkbox" value="narrativa"> narrativa</label>
+            <label><input type="checkbox" value="descriptiva"> descriptiva</label>
+            <label><input type="checkbox" value="explicativa"> explicativa</label>
+            <label><input type="checkbox" value="argumentativa"> argumentativa</label>
+            <label><input type="checkbox" value="dialogal"> dialogal</label>
+          </fieldset>
+          <div class="fld">
+            <label for="format">Format textual</label>
+            <select id="format">
+              <option value="continu">Continu (per defecte)</option>
+              <option value="discontinu">Discontinu</option>
+              <option value="mixt">Mixt</option>
+            </select>
+          </div>
+          <div class="fld">
+            <span class="lbl">Extensió prevista</span>
+            <span class="estat" id="objectiu">Tria un curs per veure-la.</span>
+          </div>
+          <div class="fld full">
+            <label for="vocabulari">Vocabulari que ha d'aparèixer</label>
+            <textarea id="vocabulari" rows="2" placeholder="Opcional. Paraules en la llengua de la prova, separades per comes"></textarea>
+          </div>
+          <div class="full grup">
+            <p>Llengües de la prova</p>
+            <small style="color:var(--ink-2)">Per defecte, tot el que llegeix l'alumnat va en la llengua de la prova. Als nivells Pre-A1 i A1 pots posar les instruccions en català o castellà.</small>
+          </div>
+          <div class="fld">
+            <label for="ll_instr">Instruccions i dades de l'alumne</label>
+            <select id="ll_instr"><option value="prova">La llengua de la prova</option><option value="ca">Català</option><option value="es">Castellà</option></select>
+          </div>
+          <div class="fld">
+            <label for="ll_preg">Preguntes i opcions</label>
+            <select id="ll_preg"><option value="prova">La llengua de la prova</option><option value="ca">Català</option><option value="es">Castellà</option></select>
+          </div>
+          <div class="fld">
+            <label for="ll_pauta">Pauta de correcció</label>
+            <select id="ll_pauta"><option value="prova">La llengua de la prova</option><option value="ca">Català</option><option value="es">Castellà</option></select>
+          </div>
+          <div class="fld">
+            <label for="p10">Resposta de la pregunta 10</label>
+            <select id="p10"><option value="prova">En la llengua de la prova</option><option value="tria">L'alumne tria la llengua</option></select>
+          </div>
+        </form>
+        <div class="fitxa" id="fitxa" aria-live="polite" hidden>
+          <div><b id="fx-nivell">-</b><span>nivell MECR</span></div>
+          <div><b id="fx-paraules">-</b><span>paraules del text</span></div>
+          <div><b id="fx-proc">-</b><span>LOC · DED · INT · AVA</span></div>
+          <div><b id="fx-format">-</b><span>format de la prova</span></div>
+        </div>
+      </section>
+
+      <!-- PAS 2 -->
+      <section class="pas" aria-labelledby="p2">
+        <h2 id="p2"><span>2</span>Copia el prompt</h2>
+        <p class="intro">El prompt és el de la versió 1.1, adaptat a la llengua estrangera. Només inclou les files de les taules del nivell triat, perquè la IA no les confongui, i al final hi afegeix les dades del pas 1.</p>
+        <div class="resum-prompt data" id="resum-prompt"><span>Encara no has triat el curs.</span></div>
+        <div class="quiz-bar">
+          <button type="button" id="b-copiar" disabled>Copiar el prompt</button>
+          <button type="button" class="sec" id="b-txt" disabled>Descarregar .txt</button>
+          <span class="estat" id="estat-copia" role="status" aria-live="polite"></span>
+        </div>
+        <details class="prompt-box">
+          <summary>Veure el prompt que es copiarà</summary>
+          <textarea id="prompt" readonly aria-label="Prompt preparat"></textarea>
+        </details>
+        <ol class="usar">
+          <li>Obre una conversa nova a l'assistent d'IA que facis servir, enganxa el prompt i envia'l.</li>
+          <li>Revisa la prova abans de passar-la: el text, cada pregunta i la pauta. La IA s'equivoca, sobretot en el nombre de paraules i en el nivell del vocabulari.</li>
+          <li>Copia tota la resposta de la IA (amb el botó de copiar de la mateixa IA) i enganxa-la al pas 4.</li>
+        </ol>
+        <p class="avis" style="margin-top:1rem"><b>No hi posis dades de l'alumnat.</b> Ni noms ni cap informació personal: l'eina no en necessita cap.</p>
+      </section>
+
+      <!-- PAS 3 -->
+      <section class="pas" aria-labelledby="p3">
+        <h2 id="p3"><span>3</span>Compta les paraules del text</h2>
+        <p class="intro">La IA no compta bé les paraules. Enganxa aquí només el text de lectura, sense el títol ni les preguntes, i l'eina el compta per tu.</p>
+        <div class="fld">
+          <label for="text-lectura">Text de lectura</label>
+          <textarea id="text-lectura" rows="7" placeholder="Paste the reading text here · Colle ici le texte · Füge hier den Text ein"></textarea>
+        </div>
+        <div class="mesura" aria-live="polite">
+          <div><b id="m-paraules">0</b><span>paraules</span></div>
+          <div><b id="m-paragrafs">0</b><span>paràgrafs</span></div>
+          <div><b id="m-oracio">0</b><span>paraules per oració, de mitjana</span></div>
+        </div>
+        <p class="veredicte" id="veredicte">Tria un curs al pas 1 per comparar-ho amb l'extensió prevista.</p>
+        <p style="color:var(--ink-2);font-size:var(--step--1);max-width:var(--measure);margin-top:.75rem">Per comprovar el nivell del vocabulari: <a href="https://cental.uclouvain.be/cefrlex/analyse/" target="_blank" rel="noopener">CEFRLex · Analyse</a> (anglès, francès i alemany, de la UCLouvain) o, en anglès, <a href="https://textinspector.com/" target="_blank" rel="noopener">Text Inspector</a>. El percentatge que diu la IA no és fiable per si sol.</p>
+      </section>
+
+      <!-- PAS 4 -->
+      <section class="pas" aria-labelledby="p4">
+        <h2 id="p4"><span>4</span>Maqueta la prova amb el logo del centre</h2>
+        <p class="intro">Enganxa aquí <b>tota</b> la resposta de la IA. L'eina hi posa el logo del centre i el format del curs (tipografia, mida, alineació a l'esquerra, sense partir paraules i números de pàgina) i te la dona en Word. La pauta va en una pàgina a part.</p>
+        <div class="fld">
+          <label for="resposta">Resposta de la IA</label>
+          <textarea id="resposta" rows="8" placeholder="Enganxa aquí tota la prova que t'ha fet la IA"></textarea>
+        </div>
+        <div class="quiz-bar">
+          <button type="button" id="b-word-alumnat" disabled>Word per a l'alumnat</button>
+          <button type="button" class="sec" id="b-word-complet" disabled>Word amb la pauta</button>
+          <button type="button" class="sec" id="b-copiar-format" disabled>Copiar amb format</button>
+          <span class="estat" id="estat-maqueta" role="status" aria-live="polite"></span>
+        </div>
+        <div class="paper-wrap"><div class="paper" id="paper"></div></div>
+        <p style="color:var(--ink-2);font-size:var(--step--1);max-width:var(--measure);margin-top:.75rem">«Copiar amb format» serveix per enganxar la prova a Google Docs o a un Word que ja tinguis obert. Les imatges no les fa la IA: on posa <i>[Image: ...]</i>, hi has de posar tu una imatge.</p>
+      </section>
+
+      <!-- PAS 5 -->
+      <section class="pas" aria-labelledby="p5">
+        <h2 id="p5"><span>5</span>Envia'ns la teva valoració</h2>
+        <p class="intro">Aquesta versió està en prova. Cada valoració arriba al CEP de Formentera i serveix per ajustar els nivells i el prompt. Ens interessa sobretot si el text era del nivell del grup i amb quina IA l'has fet.</p>
+        <form id="f-valoracio" class="fgrid" autocomplete="off">
+          <div class="fld">
+            <label for="ia">IA que has fet servir</label>
+            <select id="ia"><option value="">Tria'n una</option><option>Claude</option><option>ChatGPT</option><option>Gemini</option><option>Copilot</option><option>Una altra</option></select>
+          </div>
+          <div class="fld">
+            <label for="global">Valoració global de la prova</label>
+            <select id="global">
+              <option value="">Tria una opció</option>
+              <option value="5">5 · La podria passar tal com està</option>
+              <option value="4">4 · Amb retocs petits</option>
+              <option value="3">3 · Amb canvis importants</option>
+              <option value="2">2 · Gairebé l'he hagut de refer</option>
+              <option value="1">1 · No m'ha servit</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label for="adequacio">El text és del nivell del grup?</label>
+            <select id="adequacio"><option value="">Tria una opció</option><option>Sí</option><option>Massa fàcil</option><option>Massa difícil (vocabulari)</option><option>Massa difícil (gramàtica)</option><option>Massa llarg</option><option>Massa curt</option></select>
+          </div>
+          <div class="fld">
+            <label for="preguntes-nivell">Les preguntes s'entenen al nivell del grup?</label>
+            <select id="preguntes-nivell"><option value="">Tria una opció</option><option>Sí</option><option>Algunes no</option><option>No</option></select>
+          </div>
+          <fieldset class="checks full" id="problemes">
+            <legend>Problemes que has trobat (marca els que calgui)</legend>
+            <label><input type="checkbox" value="Títol massa metafòric o idiomàtic"> Títol massa difícil</label>
+            <label><input type="checkbox" value="Procés mal assignat"> Procés mal assignat</label>
+            <label><input type="checkbox" value="Dues respostes defensables"> Dues respostes defensables</label>
+            <label><input type="checkbox" value="Distractors poc plausibles"> Distractors poc plausibles</label>
+            <label><input type="checkbox" value="Pistes gramaticals als buits o a les opcions"> Pistes gramaticals</label>
+            <label><input type="checkbox" value="Resposta que depèn de coneixements externs"> Depèn de coneixements externs</label>
+            <label><input type="checkbox" value="Pauta de correcció amb errors"> Pauta amb errors</label>
+            <label><input type="checkbox" value="La IA no ha seguit el format"> No ha seguit el format</label>
+            <label><input type="checkbox" value="La maquetació en Word ha fallat"> La maquetació ha fallat</label>
+          </fieldset>
+          <div class="fld full">
+            <label for="items">Quins ítems i què hi passa</label>
+            <textarea id="items" rows="3" placeholder="Per exemple: la 4 fa servir una paraula de B1 que el grup no coneix"></textarea>
+          </div>
+          <div class="fld">
+            <label for="aula">L'has passada a l'aula?</label>
+            <select id="aula"><option value="">Tria una opció</option><option>Sí</option><option>No</option></select>
+          </div>
+          <div class="fld" id="w-alumnes" hidden>
+            <label for="alumnes">Nombre d'alumnes que l'han feta</label>
+            <input type="number" id="alumnes" min="1" max="60" inputmode="numeric">
+          </div>
+          <fieldset class="checks full" id="w-encerts" hidden style="display:block">
+            <legend>Alumnes que han encertat cada pregunta (opcional, sense noms)</legend>
+            <div class="encerts" id="encerts"></div>
+          </fieldset>
+          <div class="fld full">
+            <label for="comentari">Altres comentaris o propostes de millora</label>
+            <textarea id="comentari" rows="3"></textarea>
+          </div>
+        </form>
+        <div class="quiz-bar">
+          <button type="button" id="b-correu">Enviar la valoració</button>
+          <button type="button" class="sec" id="b-copiar-val">Copiar la valoració</button>
+          <span class="estat" id="estat-val" role="status" aria-live="polite"></span>
+        </div>
+        <p style="color:var(--ink-2);font-size:var(--step--1);max-width:var(--measure)">El botó obre el teu programa de correu amb la valoració ja escrita, adreçada a <span style="user-select:all">cep@cepformentera.cat</span>. Si no se t'obre, copia-la i envia-la tu.</p>
+      </section>
+    </div>
+
+    <aside class="aside">
+      <div class="box">
+        <h2>Fitxa de paràmetres</h2>
+        <p>Tots els paràmetres d'aquesta versió en un full: nivells per curs, paraules, gramàtica de cada llengua, format i d'on surt cada decisió.</p>
+        <a class="lnk" href="parametres.html">Veure la fitxa</a>
+        <a class="lnk" href="parametres.pdf" style="margin-top:.5rem">Fitxa en PDF</a>
+      </div>
+      <div class="box">
+        <h2>Exemples de 1r d'ESO</h2>
+        <p>El mateix tema, la posidònia, preparat per a cada llengua. L'anglès com a primera llengua estrangera (A2); el francès i l'alemany com a segona (Pre-A1).</p>
+        <div class="slots" style="margin-top:0">
+          <a class="slot ready" href="exemples/prompt-1r-eso-angles.txt" download>Anglès · A2</a>
+          <a class="slot ready" href="exemples/prompt-1r-eso-frances.txt" download>Francès · Pre-A1</a>
+          <a class="slot ready" href="exemples/prompt-1r-eso-alemany.txt" download>Alemany · Pre-A1</a>
+        </div>
+      </div>
+      <div class="box">
+        <h2>Autoria i llicència</h2>
+        <p><i>Prompt mestre per elaborar proves de comprensió lectora</i>, versió 1.1 per als centres de Formentera. Autor: Miguel Ángel Tirado.</p>
+        <p>Adaptació per a llengües estrangeres del CEP de Formentera, en prova. No és la versió oficial del prompt. Llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>.</p>
+      </div>
+      <div class="box">
+        <h2>Versions</h2>
+        <ul><li><b>1.1-LE</b> · Novembre de 2026. Primera versió per a anglès, francès i alemany, per provar amb els departaments de llengües estrangeres.</li></ul>
+        <p>Per a català i castellà, fes servir l'<a href="../eina-lectura/">eina de comprensió lectora</a>.</p>
+      </div>
+      <div class="box">
+        <h2>Contacte</h2>
+        <p>CEP de Formentera. Coordinació: Carmen Moles i Enrique Ozán.</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap logos" aria-label="Institucions">
+    <img src="../../assets/logos/cep-formentera.png" alt="Centre de Professorat de Formentera" height="48">
+    <img src="../../assets/logos/sfpp.png" alt="Servei de Formació Permanent del Professorat" height="48">
+    <img src="../../assets/logos/govern-illes-balears.png" alt="Govern de les Illes Balears" height="48">
+  </div>
+  <div class="wrap">
+    <div>
+      <p><b>CEP de Formentera</b> · Servei de Formació Permanent del Professorat · Govern de les Illes Balears</p>
+      <p>Prompt mestre de Miguel Ángel Tirado, difós amb la seva autorització. L'eina no desa cap dada: tot el que hi escrius es queda al teu navegador.</p>
+    </div>
+    <div>
+      <p>Continguts sota llicència <b>Creative Commons BY-NC-SA 4.0</b>: podeu compartir-los i adaptar-los citant la font, sense ús comercial i amb la mateixa llicència.</p>
+      <p>Darrera actualització: 12 de novembre de 2026.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="prompt.js"></script>
+<script src="maqueta.js"></script>
+<script>
+(function(){
+'use strict';
+var P=window.PromptLE,M=window.MaquetaLE,CORREU='cep@cepformentera.cat';
+var $=function(id){return document.getElementById(id);};
+function val(id){return ($(id).value||'').trim();}
+function marcats(id){return [].slice.call($(id).querySelectorAll('input:checked')).map(function(i){return i.value;});}
+var milers=P.milers;
+
+/* ---------- Nivells ---------- */
+P.ORDRE_N.forEach(function(k){var o=document.createElement('option');o.value=k;o.textContent=P.NIVELLS[k].nom;$('nivell').appendChild(o);});
+var nivellTocat=false;
+function posaReferencia(){
+  var c=$('curs').value;if(!c)return;
+  var ref=P.referencia(c,$('estatus').value);
+  if(!nivellTocat)$('nivell').value=ref;
+  ajudaNivell();
+}
+function ajudaNivell(){
+  var c=$('curs').value;if(!c){$('nivell-ajuda').textContent='Tria el curs per veure el nivell de referència.';return;}
+  var ref=P.referencia(c,$('estatus').value),n=$('nivell').value;
+  $('nivell-ajuda').textContent=n===ref?'Nivell de referència per a '+P.CURSOS[c].nom+' ('+($('estatus').value==='SLE'?'segona':'primera')+' llengua estrangera).':'Has canviat el nivell. El de referència per a aquest curs és '+P.NIVELLS[ref].nom+'.';
+}
+$('llengua').addEventListener('change',function(){$('estatus').value=P.estatusPerDefecte(this.value);nivellTocat=false;posaReferencia();actualitza();});
+$('estatus').addEventListener('change',function(){nivellTocat=false;posaReferencia();actualitza();});
+$('curs').addEventListener('change',function(){nivellTocat=false;posaReferencia();actualitza();});
+$('nivell').addEventListener('change',function(){nivellTocat=true;ajudaNivell();actualitza();});
+
+/* ---------- Logo ---------- */
+var logo=null; // {bytes,w,h,src}
+function carregaLogo(){
+  var op=$('centre').selectedOptions[0],f=op?op.getAttribute('data-logo'):'';
+  var box=$('logo-centre');logo=null;
+  if(!$('centre').value){box.innerHTML='<span class="estat">Cap</span>';refesMaqueta();return;}
+  if(!f){box.innerHTML='<span class="estat">Encara no tenim aquest logo. La prova sortirà amb el nom del centre.</span>';refesMaqueta();return;}
+  box.innerHTML='<img src="logos/'+f+'" alt="Logo de '+$('centre').value+'">';
+  fetch('logos/'+f).then(function(r){if(!r.ok)throw 0;return r.arrayBuffer();}).then(function(buf){
+    var bytes=new Uint8Array(buf),bin='';for(var i=0;i<bytes.length;i++)bin+=String.fromCharCode(bytes[i]);
+    var src='data:image/png;base64,'+btoa(bin),im=new Image();
+    im.onload=function(){logo={bytes:bytes,w:im.naturalWidth,h:im.naturalHeight,src:src};refesMaqueta();};
+    im.src=src;
+  }).catch(function(){logo=null;refesMaqueta();});
+}
+$('centre').addEventListener('change',function(){carregaLogo();actualitza();});
+
+/* ---------- Dades i prompt ---------- */
+function dades(){
+  var c=$('curs').value;if(!c)return null;
+  var arees=marcats('arees');if(val('area-altra'))arees.push(val('area-altra'));
+  return {curs:c,llengua:$('llengua').value,estatus:$('estatus').value,nivell:$('nivell').value,
+    centre:val('centre'),arees:arees,tema:val('tema'),sequencia:$('sequencia').value,complementaries:marcats('complementaries'),
+    genere:val('genere'),format:$('format').value,vocabulari:val('vocabulari'),
+    ll_instr:$('ll_instr').value,ll_preg:$('ll_preg').value,ll_pauta:$('ll_pauta').value,p10:$('p10').value};
+}
+var promptActual='';
+function actualitza(){
+  var d=dades(),ok=!!d;
+  $('b-copiar').disabled=!ok;$('b-txt').disabled=!ok;$('fitxa').hidden=!ok;
+  if(!ok){promptActual='';$('prompt').value='';$('resum-prompt').innerHTML='<span>Encara no has triat el curs.</span>';$('objectiu').textContent='Tria un curs per veure-la.';comptar();refesMaqueta();return;}
+  var N=P.NIVELLS[d.nivell],C=P.CURSOS[d.curs],L=P.LLENGUES[d.llengua];
+  promptActual=P.construeix(d);$('prompt').value=promptActual;
+  $('objectiu').innerHTML=d.format==='continu'?('Entre <b>'+N.p[0]+'</b> i <b>'+N.p[1]+'</b> paraules (nivell '+N.nom+')'):'Càrrega lectora equivalent al nivell '+N.nom;
+  $('fx-nivell').textContent=N.nom;$('fx-paraules').textContent=N.p[0]+'-'+N.p[1];$('fx-proc').textContent=N.d.join(' · ');
+  $('fx-format').textContent=(C.etapa==='P'?'Verdana ':'Georgia ')+String(C.pt).replace('.',',')+' pt';
+  $('resum-prompt').innerHTML='<span><b>'+C.nom+'</b></span><span>'+L.nom+' · '+N.nom+'</span><span>'+(d.estatus==='SLE'?'segona':'primera')+' llengua estrangera</span><span>'+milers(promptActual.length)+' caràcters</span>';
+  comptar();refesMaqueta();
+}
+
+/* ---------- Copiar i descarregar ---------- */
+function copia(text,estat){
+  function fet(){$(estat).textContent='Copiat. Ara enganxa-ho on calgui.';}
+  function alt(){
+    var t=document.createElement('textarea');t.value=text;t.setAttribute('readonly','');t.style.position='fixed';t.style.opacity='0';
+    document.body.appendChild(t);t.select();
+    try{document.execCommand('copy');fet();}catch(e){$(estat).textContent='No s’ha pogut copiar. Selecciona el text i copia’l a mà.';}
+    document.body.removeChild(t);
+  }
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(fet,alt);}else{alt();}
+}
+function descarrega(nom,blob){
+  var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=nom;
+  document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},800);
+}
+function slug(d){return P.CURSOS[d.curs].slug+'-'+{en:'angles',fr:'frances',de:'alemany'}[d.llengua]+'-'+P.NIVELLS[d.nivell].nom.toLowerCase().replace(/[^a-z0-9]+/g,'');}
+$('b-copiar').addEventListener('click',function(){copia(promptActual,'estat-copia');});
+$('b-txt').addEventListener('click',function(){var d=dades();descarrega('prompt-comprensio-lectora-'+slug(d)+'.txt',new Blob([promptActual],{type:'text/plain;charset=utf-8'}));});
+
+/* ---------- Comptador ---------- */
+function comptar(){
+  var t=$('text-lectura').value.trim();
+  var paraules=t?t.split(/\s+/).filter(function(w){return /[A-Za-zÀ-ÿ0-9ßẞ]/.test(w);}).length:0;
+  var paragrafs=t?t.split(/\n+/).filter(function(p){return p.trim().length>0;}).length:0;
+  var oracions=t?t.split(/[.!?…]+(?=\s|$)/).filter(function(o){return /[A-Za-zÀ-ÿ0-9]/.test(o);}).length:0;
+  $('m-paraules').textContent=milers(paraules);$('m-paragrafs').textContent=paragrafs;
+  $('m-oracio').textContent=oracions?String(Math.round(paraules/oracions*10)/10).replace('.',','):'0';
+  var v=$('veredicte'),d=dades();v.className='veredicte';
+  if(!d){v.textContent='Tria un curs al pas 1 per comparar-ho amb l’extensió prevista.';return;}
+  var N=P.NIVELLS[d.nivell],a=N.p[0],b=N.p[1];
+  if(d.format!=='continu'){v.textContent='En textos discontinus o mixtos, el nombre de paraules no és el criteri principal. Valora la càrrega lectora global.';return;}
+  if(!paraules){v.textContent='Objectiu per al nivell '+N.nom+': entre '+a+' i '+b+' paraules.';return;}
+  var nota=d.llengua==='de'?' En alemany les paraules compostes fan que el recompte surti una mica més baix.':'';
+  if(paraules<a){v.className='veredicte fora';v.textContent='Curt: en falten '+(a-paraules)+' per arribar a '+a+'. Si el text és bo, no cal allargar-lo.'+nota;}
+  else if(paraules>b){v.className='veredicte fora';v.textContent='Llarg: en sobren '+(paraules-b)+' respecte de '+b+'. Demana a la IA que el retalli sense perdre cap informació que necessitin les preguntes.';}
+  else{v.className='veredicte ok';v.textContent='Dins l’interval del nivell '+N.nom+' ('+a+'-'+b+' paraules).';}
+}
+$('text-lectura').addEventListener('input',comptar);
+
+/* ---------- Maquetació ---------- */
+function opcionsMaqueta(){
+  var d=dades();
+  var C=d?P.CURSOS[d.curs]:P.CURSOS['1e'];
+  return {etapa:C.etapa,pt:C.pt,lang:d?P.LLENGUES[d.llengua].lang:'en-GB',centre:val('centre'),curs:C.nom,nivell:d?P.NIVELLS[d.nivell].nom:'',
+    logo:logo,logoSrc:logo?logo.src:'',titol:d?P.LLENGUES[d.llengua].titol:''};
+}
+var blocs=[];
+function refesMaqueta(){
+  var t=$('resposta').value.trim(),ok=!!t&&!!dades();
+  ['b-word-alumnat','b-word-complet','b-copiar-format'].forEach(function(id){$(id).disabled=!ok;});
+  if(!t){$('paper').innerHTML='';$('estat-maqueta').textContent='';return;}
+  blocs=M.analitza(t);
+  $('paper').innerHTML=M.html(blocs,opcionsMaqueta());
+  if(!dades()){$('estat-maqueta').textContent='Tria el curs al pas 1 per poder baixar el Word.';return;}
+  $('estat-maqueta').textContent=M.teParta(blocs)?'Pauta trobada: anirà en una pàgina a part.':'No trobo la línia «## PAUTA DE CORRECCIÓ». El Word per a l’alumnat sortirà amb tot el que has enganxat.';
+}
+$('resposta').addEventListener('input',refesMaqueta);
+function word(ambPauta){
+  if(!window.JSZip){$('estat-maqueta').textContent='No s’ha pogut carregar el generador de Word. Comprova la connexió i torna-ho a provar.';return;}
+  var d=dades(),o=opcionsMaqueta();
+  M.docx(M.talla(blocs,ambPauta),o,window.JSZip).generateAsync({type:'blob',mimeType:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'}).then(function(b){
+    descarrega('prova-'+slug(d)+(ambPauta?'-amb-pauta':'-alumnat')+'.docx',b);
+    $('estat-maqueta').textContent='Word preparat. Si no el veus, mira a Baixades.';
+  }).catch(function(){$('estat-maqueta').textContent='No s’ha pogut fer el Word. Copia amb format i enganxa-ho al teu document.';});
+}
+$('b-word-alumnat').addEventListener('click',function(){word(false);});
+$('b-word-complet').addEventListener('click',function(){word(true);});
+$('b-copiar-format').addEventListener('click',function(){
+  var h=M.html(M.talla(blocs,true),opcionsMaqueta()),txt=$('paper').innerText;
+  if(navigator.clipboard&&window.ClipboardItem&&window.isSecureContext){
+    navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([h],{type:'text/html'}),'text/plain':new Blob([txt],{type:'text/plain'})})])
+      .then(function(){$('estat-maqueta').textContent='Copiat amb format. Enganxa-ho a Google Docs o a Word.';},selecciona);
+  }else selecciona();
+  function selecciona(){var r=document.createRange();r.selectNodeContents($('paper'));var s=getSelection();s.removeAllRanges();s.addRange(r);$('estat-maqueta').textContent='Prova seleccionada: prem Ctrl+C (Cmd+C al Mac) per copiar-la.';}
+});
+
+/* ---------- Exemple ---------- */
+$('b-exemple').addEventListener('click',function(){
+  $('curs').value='1e';$('llengua').value='en';$('estatus').value='PLE';nivellTocat=false;posaReferencia();
+  $('centre').value='IES Marc Ferrer';carregaLogo();
+  [].forEach.call($('arees').querySelectorAll('input'),function(i){i.checked=(i.value==='Biologia i Geologia'||i.value==='Geografia i Història');});
+  $('tema').value='La posidònia, la planta que fa les platges de Formentera';$('sequencia').value='explicativa';
+  [].forEach.call($('complementaries').querySelectorAll('input'),function(i){i.checked=i.value==='descriptiva';});
+  $('genere').value='article divulgatiu';$('format').value='continu';$('vocabulari').value='seagrass, roots, oxygen, beach, protect';
+  actualitza();$('p2').scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+/* ---------- Valoració ---------- */
+(function(){var h='';for(var i=1;i<=10;i++){h+='<div class="fld"><label for="e'+i+'">Pregunta '+i+'</label><input type="number" id="e'+i+'" min="0" max="60" inputmode="numeric"></div>';}$('encerts').innerHTML=h;})();
+$('aula').addEventListener('change',function(){var s=this.value==='Sí';$('w-alumnes').hidden=!s;$('w-encerts').hidden=!s;});
+function textValoracio(){
+  var d=dades(),r=['VALORACIÓ · Comprensió lectora en llengües estrangeres · Prompt v'+P.VERSIO,''];
+  if(d){r.push('Curs: '+P.CURSOS[d.curs].nom);r.push('Llengua: '+P.LLENGUES[d.llengua].nom+' ('+(d.estatus==='SLE'?'segona':'primera')+' LE)');r.push('Nivell MECR: '+P.NIVELLS[d.nivell].nom);r.push('Format: '+d.format);if(d.arees.length)r.push('Àrees: '+d.arees.join(', '));}
+  else r.push('Curs: no indicat');
+  if(val('centre'))r.push('Centre: '+val('centre'));
+  r.push('IA utilitzada: '+(val('ia')||'no indicada'));
+  r.push('Valoració global: '+(val('global')||'no indicada')+' / 5');
+  r.push('Nivell del text: '+(val('adequacio')||'no indicat'));
+  r.push('Preguntes al nivell del grup: '+(val('preguntes-nivell')||'no indicat'));
+  var p=$('m-paraules').textContent;if(p!=='0')r.push('Paraules del text (comptador de l’eina): '+p);
+  var pr=marcats('problemes');r.push('Problemes: '+(pr.length?pr.join('; '):'cap marcat'));
+  if(val('items'))r.push('Ítems concrets: '+val('items'));
+  r.push('Passada a l’aula: '+(val('aula')||'no indicat'));
+  if(val('aula')==='Sí'){if(val('alumnes'))r.push('Alumnes: '+val('alumnes'));var e=[];for(var i=1;i<=10;i++){var x=val('e'+i);if(x!=='')e.push('P'+i+'='+x);}if(e.length)r.push('Encerts per pregunta: '+e.join(', '));}
+  if(val('comentari'))r.push('Comentaris: '+val('comentari'));
+  return r.join('\n');
+}
+$('b-copiar-val').addEventListener('click',function(){copia(textValoracio(),'estat-val');});
+$('b-correu').addEventListener('click',function(){
+  var d=dades(),ass='Valoració comprensió lectora LE v'+P.VERSIO+(d?' · '+P.CURSOS[d.curs].nom+' · '+P.LLENGUES[d.llengua].nom:'');
+  window.location.href='mailto:'+CORREU+'?subject='+encodeURIComponent(ass)+'&body='+encodeURIComponent(textValoracio());
+  $('estat-val').textContent='S’ha obert el correu. Si no el veus, copia la valoració.';
+});
+
+['area-altra','tema','sequencia','genere','format','vocabulari','ll_instr','ll_preg','ll_pauta','p10'].forEach(function(id){$(id).addEventListener('input',actualitza);$(id).addEventListener('change',actualitza);});
+$('arees').addEventListener('change',actualitza);$('complementaries').addEventListener('change',actualitza);
+$('f-dades').addEventListener('submit',function(e){e.preventDefault();});
+$('f-valoracio').addEventListener('submit',function(e){e.preventDefault();});
+actualitza();
+})();
+</script>
+</body>
+</html>
