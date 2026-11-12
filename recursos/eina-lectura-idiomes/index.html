@@ -297,12 +297,32 @@
 
       <!-- PAS 4 -->
       <section class="pas" aria-labelledby="p4">
-        <h2 id="p4"><span>4</span>Maqueta la prova amb el logo del centre</h2>
-        <p class="intro">Enganxa aquí <b>tota</b> la resposta de la IA. L'eina hi posa el logo del centre i el format del curs (tipografia, mida, alineació a l'esquerra, sense partir paraules i números de pàgina) i te la dona en Word. La pauta va en una pàgina a part.</p>
-        <div class="fld">
-          <label for="resposta">Resposta de la IA</label>
-          <textarea id="resposta" rows="8" placeholder="Enganxa aquí tota la prova que t'ha fet la IA"></textarea>
-        </div>
+        <h2 id="p4"><span>4</span>Maqueta la prova</h2>
+        <p class="intro">Enganxa aquí <b>tota</b> la resposta de la IA. L'eina la posa en el format dels centres: capçalera amb el tipus de prova, el curs i la matèria; quadre amb el logo del centre, el nom i el curs; instruccions; TEXT 1; preguntes per parts segons el procés; requadre per a la pregunta oberta; taula de resultats; i la pauta en una pàgina a part. Tipografia i mida del curs, alineat a l'esquerra i sense partir paraules.</p>
+        <form id="f-maqueta" class="fgrid" autocomplete="off">
+          <div class="fld">
+            <label for="mq-tipus">Tipus de prova (capçalera)</label>
+            <input type="text" id="mq-tipus" list="l-tipus">
+            <datalist id="l-tipus"><option value="Initial test"><option value="Reading test"><option value="Évaluation initiale"><option value="Eingangstest"><option value="Prova inicial"></datalist>
+          </div>
+          <div class="fld">
+            <label for="mq-materia">Matèria (capçalera)</label>
+            <input type="text" id="mq-materia">
+          </div>
+          <div class="fld full">
+            <label for="mq-titol">Títol del quadre</label>
+            <input type="text" id="mq-titol">
+            <small>Si el deixes buit, s'hi posa el títol que ha escrit la IA.</small>
+          </div>
+          <div class="fld full">
+            <label for="resposta">Text 1: resposta de la IA</label>
+            <textarea id="resposta" rows="7" placeholder="Enganxa aquí tota la prova que t'ha fet la IA"></textarea>
+          </div>
+          <div class="fld full">
+            <label for="resposta2">Text 2 (opcional)</label>
+            <textarea id="resposta2" rows="4" placeholder="Si la prova té dos textos, demana a la IA una segona prova amb un altre text i enganxa-la aquí. Les preguntes es numeren a continuació de les del text 1."></textarea>
+          </div>
+        </form>
         <div class="quiz-bar">
           <button type="button" id="b-word-alumnat" disabled>Word per a l'alumnat</button>
           <button type="button" class="sec" id="b-word-complet" disabled>Word amb la pauta</button>
@@ -310,7 +330,7 @@
           <span class="estat" id="estat-maqueta" role="status" aria-live="polite"></span>
         </div>
         <div class="paper-wrap"><div class="paper" id="paper"></div></div>
-        <p style="color:var(--ink-2);font-size:var(--step--1);max-width:var(--measure);margin-top:.75rem">«Copiar amb format» serveix per enganxar la prova a Google Docs o a un Word que ja tinguis obert. Les imatges no les fa la IA: on posa <i>[Image: ...]</i>, hi has de posar tu una imatge.</p>
+        <p style="color:var(--ink-2);font-size:var(--step--1);max-width:var(--measure);margin-top:.75rem"><b>Per tenir-la a Google Docs:</b> puja el Word a Google Drive i obre'l amb Google Docs, o bé «Copiar amb format» i enganxa-ho en un document de Google Docs. Les imatges no les fa la IA: on posa <i>[Image: ...]</i>, hi has de posar tu una imatge.</p>
       </section>
 
       <!-- PAS 5 -->
@@ -437,11 +457,11 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script src="prompt.js"></script>
-<script src="maqueta.js"></script>
+<script src="../eina-lectura/maqueta.js"></script>
 <script>
 (function(){
 'use strict';
-var P=window.PromptLE,M=window.MaquetaLE,CORREU='cep@cepformentera.cat';
+var P=window.PromptLE,M=window.MaquetaProva,CORREU='cep@cepformentera.cat';
 var $=function(id){return document.getElementById(id);};
 function val(id){return ($(id).value||'').trim();}
 function marcats(id){return [].slice.call($(id).querySelectorAll('input:checked')).map(function(i){return i.value;});}
@@ -473,8 +493,8 @@ function carregaLogo(){
   var box=$('logo-centre');logo=null;
   if(!$('centre').value){box.innerHTML='<span class="estat">Cap</span>';refesMaqueta();return;}
   if(!f){box.innerHTML='<span class="estat">Encara no tenim aquest logo. La prova sortirà amb el nom del centre.</span>';refesMaqueta();return;}
-  box.innerHTML='<img src="logos/'+f+'" alt="Logo de '+$('centre').value+'">';
-  fetch('logos/'+f).then(function(r){if(!r.ok)throw 0;return r.arrayBuffer();}).then(function(buf){
+  box.innerHTML='<img src="../eina-lectura/logos/'+f+'" alt="Logo de '+$('centre').value+'">';
+  fetch('../eina-lectura/logos/'+f).then(function(r){if(!r.ok)throw 0;return r.arrayBuffer();}).then(function(buf){
     var bytes=new Uint8Array(buf),bin='';for(var i=0;i<bytes.length;i++)bin+=String.fromCharCode(bytes[i]);
     var src='data:image/png;base64,'+btoa(bin),im=new Image();
     im.onload=function(){logo={bytes:bytes,w:im.naturalWidth,h:im.naturalHeight,src:src};refesMaqueta();};
@@ -560,27 +580,40 @@ function comptar(){
 $('text-lectura').addEventListener('input',comptar);
 
 /* ---------- Maquetació ---------- */
+var TIPUS={en:'Initial test',fr:'Évaluation initiale',de:'Eingangstest'},MATERIA={en:'English',fr:'Français',de:'Deutsch'};
+var tipusTocat=false,materiaTocada=false;
+function autoCamps(){var l=$('llengua').value;if(!tipusTocat)$('mq-tipus').value=TIPUS[l];if(!materiaTocada)$('mq-materia').value=MATERIA[l];}
 function opcionsMaqueta(){
-  var d=dades();
-  var C=d?P.CURSOS[d.curs]:P.CURSOS['1e'];
-  return {etapa:C.etapa,pt:C.pt,lang:d?P.LLENGUES[d.llengua].lang:'en-GB',centre:val('centre'),curs:C.nom,nivell:d?P.NIVELLS[d.nivell].nom:'',
-    logo:logo,logoSrc:logo?logo.src:'',titol:d?P.LLENGUES[d.llengua].titol:''};
+  var d=dades(),C=d?P.CURSOS[d.curs]:P.CURSOS['1e'];
+  return {lang:d?P.LLENGUES[d.llengua].lang:'en-GB',etapa:C.etapa,pt:C.pt,font:C.etapa==='P'?'Verdana, Arial, sans-serif':'Georgia, Cambria, serif',fontDocx:C.etapa==='P'?'Verdana':'Georgia',
+    alin:'left',partir:false,line:C.etapa==='P'?1.45:1.35,tipus:val('mq-tipus'),curs:C.nom+(d?' · '+P.NIVELLS[d.nivell].nom:''),materia:val('mq-materia'),
+    centre:val('centre'),titolQuadre:val('mq-titol'),logo:logo,logoSrc:logo?logo.src:''};
 }
-var blocs=[];
+var model=null;
 function refesMaqueta(){
-  var t=$('resposta').value.trim(),ok=!!t&&!!dades();
+  var t=$('resposta').value.trim(),ok=!!t&&!!dades()&&!!M;
   ['b-word-alumnat','b-word-complet','b-copiar-format'].forEach(function(id){$(id).disabled=!ok;});
-  if(!t){$('paper').innerHTML='';$('estat-maqueta').textContent='';return;}
-  blocs=M.analitza(t);
-  $('paper').innerHTML=M.html(blocs,opcionsMaqueta());
-  if(!dades()){$('estat-maqueta').textContent='Tria el curs al pas 1 per poder baixar el Word.';return;}
-  $('estat-maqueta').textContent=M.teParta(blocs)?'Pauta trobada: anirà en una pàgina a part.':'No trobo la línia «## PAUTA DE CORRECCIÓ». El Word per a l’alumnat sortirà amb tot el que has enganxat.';
+  if(!t){$('paper').innerHTML='';$('estat-maqueta').textContent='';model=null;return;}
+  if(!dades()){$('estat-maqueta').textContent='Tria el curs al pas 1: el format depèn del curs.';return;}
+  var o=opcionsMaqueta();model=M.munta([t,$('resposta2').value],o);
+  $('paper').innerHTML=M.html(model,o,true);
+  var r=M.resum(model),av=[r.preguntes+' preguntes'+(r.textos>1?' en '+r.textos+' textos':'')];
+  av.push(r.processos?'parts per procés i taula de resultats':'no trobo els processos a la pauta: sortirà sense parts ni taula de resultats');
+  if(!r.pauta)av.push('no trobo la pauta');
+  if(!logo&&val('centre'))av.push('aquest centre encara no té logo');
+  $('estat-maqueta').textContent=av.join(' · ')+'.';
 }
-$('resposta').addEventListener('input',refesMaqueta);
+['resposta','resposta2'].forEach(function(id){$(id).addEventListener('input',refesMaqueta);});
+$('mq-tipus').addEventListener('input',function(){tipusTocat=true;refesMaqueta();});
+$('mq-materia').addEventListener('input',function(){materiaTocada=true;refesMaqueta();});
+$('mq-titol').addEventListener('input',refesMaqueta);
+$('llengua').addEventListener('change',autoCamps);
+$('f-maqueta').addEventListener('submit',function(e){e.preventDefault();});
+autoCamps();
 function word(ambPauta){
-  if(!window.JSZip){$('estat-maqueta').textContent='No s’ha pogut carregar el generador de Word. Comprova la connexió i torna-ho a provar.';return;}
+  if(!window.JSZip||!model){$('estat-maqueta').textContent='No s’ha pogut carregar el generador de Word. Comprova la connexió i torna-ho a provar.';return;}
   var d=dades(),o=opcionsMaqueta();
-  M.docx(M.talla(blocs,ambPauta),o,window.JSZip).generateAsync({type:'blob',mimeType:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'}).then(function(b){
+  M.docx(model,o,window.JSZip,ambPauta).generateAsync({type:'blob',mimeType:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'}).then(function(b){
     descarrega('prova-'+slug(d)+(ambPauta?'-amb-pauta':'-alumnat')+'.docx',b);
     $('estat-maqueta').textContent='Word preparat. Si no el veus, mira a Baixades.';
   }).catch(function(){$('estat-maqueta').textContent='No s’ha pogut fer el Word. Copia amb format i enganxa-ho al teu document.';});
@@ -588,12 +621,12 @@ function word(ambPauta){
 $('b-word-alumnat').addEventListener('click',function(){word(false);});
 $('b-word-complet').addEventListener('click',function(){word(true);});
 $('b-copiar-format').addEventListener('click',function(){
-  var h=M.html(M.talla(blocs,true),opcionsMaqueta()),txt=$('paper').innerText;
+  var h=M.html(model,opcionsMaqueta(),false),txt=$('paper').innerText;
+  function selecciona(){var r=document.createRange();r.selectNodeContents($('paper'));var s=getSelection();s.removeAllRanges();s.addRange(r);$('estat-maqueta').textContent='Prova seleccionada: prem Ctrl+C (Cmd+C al Mac) i enganxa-la a Google Docs.';}
   if(navigator.clipboard&&window.ClipboardItem&&window.isSecureContext){
     navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([h],{type:'text/html'}),'text/plain':new Blob([txt],{type:'text/plain'})})])
-      .then(function(){$('estat-maqueta').textContent='Copiat amb format. Enganxa-ho a Google Docs o a Word.';},selecciona);
+      .then(function(){$('estat-maqueta').textContent='Copiat amb format, sense la pauta. Enganxa-ho a Google Docs o a Word.';},selecciona);
   }else selecciona();
-  function selecciona(){var r=document.createRange();r.selectNodeContents($('paper'));var s=getSelection();s.removeAllRanges();s.addRange(r);$('estat-maqueta').textContent='Prova seleccionada: prem Ctrl+C (Cmd+C al Mac) per copiar-la.';}
 });
 
 /* ---------- Exemple ---------- */

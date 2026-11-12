@@ -24,7 +24,7 @@ const html=`<!doctype html>
 :root{--blau:#004B99;--blau-fosc:#0b2f63;--or:#B79D1E;--or-suau:#f6efd2;--tinta:#1b2433;--tinta-2:#4c5870;--linia:#d6dce8;--paper:#fff;--paper-2:#f3f6fb}
 *{box-sizing:border-box}
 html{background:var(--paper-2)}
-body{margin:0;background:var(--paper-2);color:var(--tinta);font:10.5pt/1.45 Barlow,"Segoe UI",Arial,sans-serif}
+body{margin:0;background:var(--paper-2);color:var(--tinta);font:10.2pt/1.42 Barlow,"Segoe UI",Arial,sans-serif}
 .full{background:var(--paper);max-width:210mm;margin:0 auto;padding:16mm 16mm 14mm;padding-left:max(16px,16mm);padding-right:max(16px,16mm)}
 @media (max-width:640px){.full{padding:20px max(16px,env(safe-area-inset-left,0px)) 20px max(16px,env(safe-area-inset-right,0px))}}
 header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;border-bottom:3px solid var(--or);padding-bottom:10px;margin-bottom:12px}
@@ -33,7 +33,7 @@ header{display:flex;justify-content:space-between;align-items:flex-start;gap:16p
 header img{height:46px;width:auto}
 .ttl h1{font:700 22pt/1.02 "Barlow Condensed","Arial Narrow",Arial,sans-serif;text-transform:uppercase;color:var(--blau);margin:0 0 4px;text-wrap:balance}
 .ttl p{margin:0;color:var(--tinta-2)}
-h2{font:700 13pt/1.1 "Barlow Condensed","Arial Narrow",Arial,sans-serif;text-transform:uppercase;letter-spacing:.02em;color:var(--blau);margin:11px 0 4px;break-after:avoid}
+h2{font:700 13pt/1.1 "Barlow Condensed","Arial Narrow",Arial,sans-serif;text-transform:uppercase;letter-spacing:.02em;color:var(--blau);margin:9px 0 3px;break-after:avoid}
 h2 span{color:var(--or);margin-right:6px}
 h3{font:700 11pt/1.2 "Barlow Condensed","Arial Narrow",Arial,sans-serif;text-transform:uppercase;color:var(--blau-fosc);margin:0 0 4px}
 p{margin:0 0 6px;max-width:72ch}
@@ -57,7 +57,7 @@ dd{margin:0}
 ul{margin:0 0 6px;padding-left:16px}
 li{margin:2px 0}
 .fonts li{font-size:8.6pt;margin:2px 0;line-height:1.38}
-footer{margin-top:10px;padding-top:6px;border-top:1px solid var(--linia);color:var(--tinta-2);font-size:8.5pt}
+footer{margin-top:6px;padding-top:4px;border-top:1px solid var(--linia);color:var(--tinta-2);font-size:8.5pt}
 a{color:var(--blau)}
 @page{size:A4;margin:12mm 0 14mm;@bottom-center{content:counter(page) " / " counter(pages);font:8.5pt Barlow,Arial,sans-serif;color:#4c5870}}
 @media print{html,body{background:#fff}.full{padding-top:0;padding-bottom:0}}
@@ -71,7 +71,7 @@ a{color:var(--blau)}
     <p><b>Comprensió lectora en llengües estrangeres</b> · anglès, francès i alemany</p>
     <p>Prompt mestre de Miguel Ángel Tirado, versió 1.1 · adaptació del CEP de Formentera <b>1.1-LE, en prova</b> · 12 de novembre de 2026</p>
   </div>
-  <img src="logos/cep-formentera.png" alt="Centre de Professorat de Formentera">
+  <img src="../../assets/logos/cep-formentera.png" alt="Centre de Professorat de Formentera">
 </header>
 
 <p class="idea">En una llengua estrangera, el text es calibra pel <b>nivell MECR del grup</b>, no pel curs. Amb el prompt 1.1 tal com és, un text de 1r d’ESO té unes <b>1.050 paraules</b> (velocitat lectora en llengua materna). Amb aquesta versió: anglès com a primera llengua estrangera (A2), <b>250-350 paraules</b>; francès o alemany com a segona (Pre-A1), <b>90-120</b>.</p>
@@ -101,7 +101,7 @@ a{color:var(--blau)}
 <div class="scroll"><table><thead><tr><th>Curs</th><th>Tipografia</th><th>Mida</th><th>Alineació</th><th>Interlineat</th></tr></thead><tbody>${format}</tbody></table></div>
 <ul>
 <li><b>Alineat a l’esquerra i sense partir paraules en tots els cursos</b>, també a 6è i a l’ESO, on la versió 1.1 justifica amb partició. Una paraula partida en una llengua estrangera és una dificultat de lectura que no volem avaluar <span class="tag c">decisió CEP</span>.</li>
-<li>L’eina posa el <b>logo del centre</b> a la capçalera, el curs i el nivell, els <b>números de pàgina</b> i la <b>pauta en una pàgina a part</b>. Hi ha dos Word: per a l’alumnat (sense pauta) i complet.</li>
+<li>L’eina maqueta la prova en el <b>format dels centres</b>: capçalera (tipus de prova, curs i matèria), quadre amb el <b>logo del centre</b>, nom i curs, TEXT 1 (i TEXT 2 si n’hi ha), preguntes per <b>parts segons el procés</b>, requadre per a la resposta oberta, <b>taula de resultats</b>, números de pàgina i la pauta en una pàgina a part. Surt en Word i s’obre amb Google Docs.</li>
 <li>Les imatges no les fa la IA: on posa [Image: ...], hi posa una imatge el docent.</li>
 </ul>
 

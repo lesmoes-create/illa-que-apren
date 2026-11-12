@@ -43,6 +43,9 @@
 .avis b{color:var(--sun-ink)}
 .usar{margin:1rem 0 0;padding-left:1.25rem;display:grid;gap:.4rem;max-width:var(--measure)}
 .estat{display:block;font-family:var(--f-data);font-weight:600;color:var(--ink-2);min-height:1.5em}
+.paper-wrap{overflow:auto;margin-top:1rem;border:1px solid var(--rule);background:var(--paper-2);padding:1rem;border-radius:2px;max-height:40rem}
+.paper{background:#fff;color:#111;max-width:44rem;margin:0 auto;padding:2rem 2.2rem;box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.paper:empty::before{content:"Aquí veuràs la prova maquetada quan hi enganxis la resposta de la IA.";color:#667;font-family:var(--f-body)}
 .mesura{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:1rem;border-radius:2px}
 .mesura div{background:var(--paper);padding:1rem}
 .mesura b{display:block;font-family:var(--f-display);font-weight:700;font-size:2.4rem;line-height:1;color:var(--blue);font-variant-numeric:tabular-nums}
@@ -80,7 +83,7 @@
   <div class="wrap crumbs" style="padding-bottom:1rem"><a href="../../index.html">Illa que aprèn</a> · <a href="../../index.html#recursos">Espais de treball</a> · Eina de comprensió lectora</div>
   <div class="e-hero"><div class="wrap">
     <h1>Eina de comprensió lectora</h1>
-    <div class="facts data"><span>Prompt mestre de <b>Miguel Ángel Tirado</b></span><span>Versió <b>1.1</b> · Formentera</span><span><b>4</b> passes</span><span>Sense registre</span></div>
+    <div class="facts data"><span>Prompt mestre de <b>Miguel Ángel Tirado</b></span><span>Versió <b>1.1</b> · Formentera</span><span><b>5</b> passes</span><span>Sense registre</span></div>
     <p class="lede" style="margin-top:1rem">Prepara el prompt per a una prova concreta: tries el curs i les dades, el copies i l'enganxes a l'assistent d'IA que facis servir. Després pots comprovar l'extensió del text i enviar-nos la valoració per millorar-lo.</p>
   </div></div>
 
@@ -192,7 +195,7 @@
         <ol class="usar">
           <li>Obre una conversa nova a l'assistent d'IA que facis servir, enganxa el prompt i envia'l.</li>
           <li>Revisa la prova abans de passar-la: el text, cada pregunta i la pauta de correcció. La IA s'equivoca, sobretot en el recompte de paraules i en la classificació d'alguns ítems.</li>
-          <li>Per maquetar-la, descarrega la plantilla de Word del curs (a la columna de la dreta) i enganxa-hi el contingut sense format.</li>
+          <li>Per maquetar-la, enganxa tota la resposta de la IA al pas 4: surt en Word amb el logo del centre i el format del curs. Si ho prefereixes, també pots fer servir la plantilla de Word del curs (a la columna de la dreta).</li>
         </ol>
         <p class="avis" style="margin-top:1rem"><b>No hi posis dades de l'alumnat.</b> Ni noms ni cap informació personal: l'eina no en necessita cap.</p>
       </section>
@@ -215,7 +218,45 @@
 
       <!-- PAS 4 -->
       <section class="pas" aria-labelledby="p4">
-        <h2 id="p4"><span>4</span>Envia'ns la teva valoració</h2>
+        <h2 id="p4"><span>4</span>Maqueta la prova</h2>
+        <p class="intro">Enganxa aquí <b>tota</b> la resposta de la IA. L'eina la posa en el format dels centres: capçalera amb el tipus de prova, el curs i la matèria; quadre amb el logo del centre, el nom i el curs; instruccions; TEXT 1; preguntes per parts segons el procés; requadre per a la pregunta oberta; taula de resultats; i la pauta en una pàgina a part. Respecta la tipografia, la mida i l'alineació del curs que marca el prompt.</p>
+        <form id="f-maqueta" class="fgrid" autocomplete="off">
+          <div class="fld">
+            <label for="mq-tipus">Tipus de prova (capçalera)</label>
+            <input type="text" id="mq-tipus" list="l-tipus" value="Prova inicial">
+            <datalist id="l-tipus"><option value="Prova inicial"><option value="Prova de comprensió lectora"><option value="Prova final"><option value="Prueba inicial"><option value="Prueba de comprensión lectora"></datalist>
+          </div>
+          <div class="fld">
+            <label for="mq-materia">Matèria (capçalera)</label>
+            <input type="text" id="mq-materia" placeholder="Per exemple: Llengua catalana">
+          </div>
+          <div class="fld full">
+            <label for="mq-titol">Títol del quadre</label>
+            <input type="text" id="mq-titol">
+            <small>Es posa sol a partir del tipus de prova. El pots canviar.</small>
+          </div>
+          <div class="fld full">
+            <label for="resposta1">Text 1: resposta de la IA</label>
+            <textarea id="resposta1" rows="7" placeholder="Enganxa aquí tota la prova que t'ha fet la IA"></textarea>
+          </div>
+          <div class="fld full">
+            <label for="resposta2">Text 2 (opcional)</label>
+            <textarea id="resposta2" rows="4" placeholder="Si la prova té dos textos, demana a la IA una segona prova amb un altre text i enganxa-la aquí. Les preguntes es numeren a continuació de les del text 1."></textarea>
+          </div>
+        </form>
+        <div class="quiz-bar">
+          <button type="button" id="b-word-alumnat" disabled>Word per a l'alumnat</button>
+          <button type="button" class="sec" id="b-word-complet" disabled>Word amb la pauta</button>
+          <button type="button" class="sec" id="b-copiar-format" disabled>Copiar amb format</button>
+          <span class="estat" id="estat-maqueta" role="status" aria-live="polite"></span>
+        </div>
+        <div class="paper-wrap"><div class="paper" id="paper"></div></div>
+        <p style="color:var(--ink-2);font-size:var(--step--1);max-width:var(--measure);margin-top:.75rem"><b>Per tenir-la a Google Docs:</b> puja el Word a Google Drive i obre'l amb Google Docs, o bé «Copiar amb format» i enganxa-ho en un document de Google Docs. Google Docs no parteix paraules a final de línia: si el text és justificat, revisa que no quedin espais massa grans.</p>
+      </section>
+
+      <!-- PAS 5 -->
+      <section class="pas" aria-labelledby="p5">
+        <h2 id="p5"><span>5</span>Envia'ns la teva valoració</h2>
         <p class="intro">Cada valoració arriba al CEP de Formentera i serveix per millorar el prompt en les properes versions. Ens interessa sobretot què ha fallat i amb quina IA. Si has passat la prova a l'aula, els encerts per pregunta ens ajuden a saber quins ítems funcionen.</p>
         <form id="f-valoracio" class="fgrid" autocomplete="off">
           <div class="fld">
@@ -343,6 +384,8 @@
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="maqueta.js"></script>
 <script>
 (function(){
 'use strict';
@@ -1026,6 +1069,73 @@ $('b-correu').addEventListener('click',function(){
   window.location.href='mailto:'+CORREU+'?subject='+encodeURIComponent(assumpte)+'&body='+encodeURIComponent(textValoracio());
   $('estat-val').textContent='S’ha obert el correu. Si no el veus, copia la valoració.';
 });
+
+/* ---------- Maquetació (pas 4) ---------- */
+var LOGOS={'CEIP Mestre Lluís Andreu':'ceip-mestre-lluis-andreu.png','CEIP Sant Ferran de ses Roques':'ceip-sant-ferran.png','CCEIP Virgen Milagrosa':'cceip-virgen-milagrosa.png','IES Marc Ferrer':'ies-marc-ferrer.png'};
+var logo=null,logoNom='',titolTocat=false,materiaTocada=false;
+function carregaLogo(){
+  var c=val('centre'),f='';
+  Object.keys(LOGOS).forEach(function(k){if(c&&k.toLowerCase().indexOf(c.toLowerCase())===0||c.toLowerCase()===k.toLowerCase())f=LOGOS[k];});
+  if(f===logoNom)return;logoNom=f;logo=null;
+  if(!f){refesMaqueta();return;}
+  fetch('logos/'+f).then(function(r){if(!r.ok)throw 0;return r.arrayBuffer();}).then(function(buf){
+    var bytes=new Uint8Array(buf),bin='';for(var i=0;i<bytes.length;i++)bin+=String.fromCharCode(bytes[i]);
+    var src='data:image/png;base64,'+btoa(bin),im=new Image();
+    im.onload=function(){logo={bytes:bytes,w:im.naturalWidth,h:im.naturalHeight};logo.src=src;refesMaqueta();};im.src=src;
+  }).catch(function(){logo=null;refesMaqueta();});
+}
+function esCastella(){return /castell/i.test($('llengua').value);}
+function autoCamps(){
+  if(!titolTocat){var t=val('mq-tipus')||(esCastella()?'Prueba':'Prova');$('mq-titol').value=(t+(esCastella()?' de comprensión lectora':' de comprensió lectora')).toUpperCase();}
+  if(!materiaTocada)$('mq-materia').value=val('area')||(esCastella()?'Llengua castellana':'Llengua catalana');
+}
+function opcionsMaqueta(){
+  var k=$('curs').value,c=CURSOS[k],pt=parseFloat(String(c.cos).replace(/ pt/,'').split('-').pop().replace(',','.'));
+  return {lang:esCastella()?'es-ES':'ca-ES',etapa:c.etapa,pt:pt,font:c.etapa==='P'?'Verdana, Arial, sans-serif':'Georgia, Cambria, serif',fontDocx:c.etapa==='P'?'Verdana':'Georgia',
+    alin:c.alin==='B'?'both':'left',partir:c.alin==='B',line:c.etapa==='P'?1.3:1.2,
+    tipus:val('mq-tipus'),curs:c.nom,materia:val('mq-materia'),centre:val('centre'),titolQuadre:val('mq-titol'),logo:logo,logoSrc:logo?logo.src:''};
+}
+var model=null;
+function refesMaqueta(){
+  var t1=$('resposta1').value.trim(),k=$('curs').value,ok=!!t1&&!!k&&!!window.MaquetaProva;
+  ['b-word-alumnat','b-word-complet','b-copiar-format'].forEach(function(id){$(id).disabled=!ok;});
+  if(!t1){$('paper').innerHTML='';$('estat-maqueta').textContent='';model=null;return;}
+  if(!k){$('estat-maqueta').textContent='Tria el curs al pas 1: el format depèn del curs.';return;}
+  var o=opcionsMaqueta();model=MaquetaProva.munta([t1,$('resposta2').value],o);
+  $('paper').innerHTML=MaquetaProva.html(model,o,true);
+  var r=MaquetaProva.resum(model),av=[];
+  av.push(r.preguntes+' preguntes'+(r.textos>1?' en '+r.textos+' textos':''));
+  av.push(r.processos?'parts per procés i taula de resultats':'no trobo els processos a la pauta: sortirà sense parts ni taula de resultats');
+  if(!r.pauta)av.push('no trobo la pauta');
+  if(!logo&&val('centre'))av.push('aquest centre encara no té logo');
+  $('estat-maqueta').textContent=av.join(' · ')+'.';
+}
+function word(ambPauta){
+  if(!window.JSZip||!model){$('estat-maqueta').textContent='No s’ha pogut carregar el generador de Word. Comprova la connexió i torna-ho a provar.';return;}
+  var o=opcionsMaqueta(),c=CURSOS[$('curs').value];
+  MaquetaProva.docx(model,o,window.JSZip,ambPauta).generateAsync({type:'blob',mimeType:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'}).then(function(b){
+    var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='prova-'+c.slug+(ambPauta?'-amb-pauta':'-alumnat')+'.docx';document.body.appendChild(a);a.click();
+    setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},800);
+    $('estat-maqueta').textContent='Word preparat. Si no el veus, mira a Baixades.';
+  });
+}
+$('b-word-alumnat').addEventListener('click',function(){word(false);});
+$('b-word-complet').addEventListener('click',function(){word(true);});
+$('b-copiar-format').addEventListener('click',function(){
+  var o=opcionsMaqueta(),h=MaquetaProva.html(model,o,false);
+  function selecciona(){var r=document.createRange();r.selectNodeContents($('paper'));var s=getSelection();s.removeAllRanges();s.addRange(r);$('estat-maqueta').textContent='Prova seleccionada: prem Ctrl+C (Cmd+C al Mac) i enganxa-la a Google Docs.';}
+  if(navigator.clipboard&&window.ClipboardItem&&window.isSecureContext){
+    navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([h],{type:'text/html'}),'text/plain':new Blob([$('paper').innerText],{type:'text/plain'})})])
+      .then(function(){$('estat-maqueta').textContent='Copiat amb format, sense la pauta. Enganxa-ho a Google Docs o a Word.';},selecciona);
+  }else selecciona();
+});
+$('mq-titol').addEventListener('input',function(){titolTocat=true;refesMaqueta();});
+$('mq-materia').addEventListener('input',function(){materiaTocada=true;refesMaqueta();});
+$('mq-tipus').addEventListener('input',function(){autoCamps();refesMaqueta();});
+['resposta1','resposta2'].forEach(function(id){$(id).addEventListener('input',refesMaqueta);});
+['curs','llengua','centre','area'].forEach(function(id){$(id).addEventListener('change',function(){autoCamps();carregaLogo();refesMaqueta();});$(id).addEventListener('input',function(){autoCamps();carregaLogo();});});
+$('f-maqueta').addEventListener('submit',function(e){e.preventDefault();});
+autoCamps();
 
 ['curs','llengua','centre','area','tema','sequencia','genere','format','vocabulari'].forEach(function(id){
   $(id).addEventListener('input',actualitza);$(id).addEventListener('change',actualitza);
