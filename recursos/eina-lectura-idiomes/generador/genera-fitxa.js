@@ -33,7 +33,7 @@ header{display:flex;justify-content:space-between;align-items:flex-start;gap:16p
 header img{height:46px;width:auto}
 .ttl h1{font:700 22pt/1.02 "Barlow Condensed","Arial Narrow",Arial,sans-serif;text-transform:uppercase;color:var(--blau);margin:0 0 4px;text-wrap:balance}
 .ttl p{margin:0;color:var(--tinta-2)}
-h2{font:700 13pt/1.1 "Barlow Condensed","Arial Narrow",Arial,sans-serif;text-transform:uppercase;letter-spacing:.02em;color:var(--blau);margin:13px 0 5px;break-after:avoid}
+h2{font:700 13pt/1.1 "Barlow Condensed","Arial Narrow",Arial,sans-serif;text-transform:uppercase;letter-spacing:.02em;color:var(--blau);margin:11px 0 4px;break-after:avoid}
 h2 span{color:var(--or);margin-right:6px}
 h3{font:700 11pt/1.2 "Barlow Condensed","Arial Narrow",Arial,sans-serif;text-transform:uppercase;color:var(--blau-fosc);margin:0 0 4px}
 p{margin:0 0 6px;max-width:72ch}
@@ -125,7 +125,7 @@ a{color:var(--blau)}
 <li><span class="tag r">normativa</span> Primària: Reial decret 157/2022, d’1 de març (BOE núm. 52, de 2 de març de 2022) i Decret 41/2025, d’1 d’agost (BOIB núm. 103, de 4 d’agost de 2025), que basa l’anivellament de llengua estrangera en el MECR adaptat a l’edat. ESO: Reial decret 217/2022, de 29 de març (BOE núm. 76, de 30 de març de 2022) i Decret 42/2025, d’1 d’agost (BOIB núm. 103, de 4 d’agost de 2025).</li>
 </ul>
 
-<footer>CEP de Formentera · Servei de Formació Permanent del Professorat · Govern de les Illes Balears. Prompt mestre de Miguel Ángel Tirado, difós amb la seva autorització; aquesta adaptació no és la versió oficial. CC BY-NC-SA 4.0.</footer>
+<footer>CEP de Formentera · SFPP · Govern de les Illes Balears. Adaptació no oficial del prompt de Miguel Ángel Tirado, difós amb la seva autorització. CC BY-NC-SA 4.0.</footer>
 </div>
 </body>
 </html>
