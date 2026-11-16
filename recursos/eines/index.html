@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mapa de les eines de lectura · Illa que aprèn</title>
+<meta name="description" content="Què hi ha i com s'han fet les quatre eines de lectura del CEP de Formentera, de P3 a 4t d'ESO: fonts, criteris i forma d'ús.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Semi+Condensed:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<link rel="stylesheet" href="../../assets/css/eines.css">
+<style>
+.mapa{display:block;padding-top:.5rem}
+.franja{display:grid;grid-template-columns:repeat(13,minmax(0,1fr));gap:.35rem .25rem;margin-top:1rem}
+.cursos,.etapes{display:contents}
+.cursos span{grid-row:2;text-align:center;font-family:var(--f-data);font-weight:600;font-size:.85rem;color:var(--ink-2);border-bottom:2px solid var(--rule);padding-bottom:.25rem}
+.etapes span{grid-row:1;text-align:center;font-family:var(--f-display);font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--blue);font-size:.95rem;border-bottom:3px solid var(--blue);padding-bottom:.2rem}
+.barra{display:block;padding:.55rem .7rem;border-radius:2px;text-decoration:none;font-size:.9rem;line-height:1.3;color:#fff;background:var(--blue-deep)}
+.barra b{display:block;font-family:var(--f-display);text-transform:uppercase;font-size:1.05rem;letter-spacing:.02em}
+.barra.b1{background:#004B99}.barra.b2{background:#0A3E7A}.barra.b3{background:#003570}.barra.b4{background:#2B5C93}
+.barra:hover{outline:3px solid var(--sun)}
+.ref{display:block;padding:.35rem .6rem;border:1.5px dashed #B79D1E;color:#5A4B08;font-family:var(--f-data);font-size:.8rem;border-radius:2px;background:#FBF6E3}
+.passes{list-style:none;counter-reset:p;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.6rem;margin:1rem 0 0;padding:0}
+.passes li{counter-increment:p;padding:.8rem .8rem .9rem;background:var(--paper-2,#F3F6FA);border-top:4px solid var(--sun);font-size:.95rem;line-height:1.4}
+.passes li::before{content:counter(p);display:block;font-family:var(--f-display);font-weight:700;font-size:1.8rem;color:var(--blue);line-height:1}
+.passes li b{display:block;color:var(--ink);margin:.2rem 0}
+.tres{margin-top:1.2rem}
+.fitxes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1rem}
+.fitxa{border:1px solid var(--rule);border-top:4px solid var(--blue);padding:1rem 1.1rem;background:#fff}
+.fitxa h3{font-family:var(--f-display);text-transform:uppercase;color:var(--blue);font-size:1.25rem;margin:0 0 .5rem}
+.fitxa p{font-size:.95rem;line-height:1.45;margin:.35rem 0}
+.fitxa .qui{font-family:var(--f-data);font-size:.82rem;color:var(--ink-2);margin-top:.6rem}
+@media (max-width:820px){.passes{grid-template-columns:1fr 1fr}.fitxes{grid-template-columns:1fr}
+ .franja{grid-template-columns:repeat(13,minmax(2.4rem,1fr));overflow-x:auto}}
+@media print{
+ header.bar,.crumbs,#b-imp,footer,.skip{display:none!important}
+ .e-hero{padding:0!important;background:none!important;color:#0B1B33!important}
+ .e-hero h1,.e-hero .lede,.e-hero .facts{color:#0B1B33!important}
+ html{font-size:12px}
+ .pas{break-inside:auto;padding:.4rem 0 .6rem!important;margin:0!important;border:0!important}
+ .pas h2{break-after:avoid;margin-bottom:.3rem}
+ .fitxa,.passes li,.reg tr,.franja{break-inside:avoid}
+ .e-hero h1{font-size:2rem!important}
+ .lede{font-size:1rem!important}
+ .barra{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .passes li,.ref,.fitxa{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .passes{grid-template-columns:repeat(5,minmax(0,1fr))}.fitxes{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#eina">Salta a l'eina</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="../../index.html#inici"><img src="../../assets/logos/cep-formentera.png" alt="Centre de Professorat de Formentera" width="120" height="43"><span>Illa que aprèn</span></a>
+    <nav class="nav" aria-label="Seccions">
+      <a href="../../index.html#recursos">Espais de treball</a><a href="../../index.html#centres">Centres</a>
+      <a href="../../index.html#recorregut">Recorregut</a>
+      <a href="../../index.html#municipi">Municipi</a>
+      <a href="../../index.html#origens">D'on venim</a>
+      <a href="../../index.html#pensament">El fil</a>
+      <a href="../../index.html#replicar">Com replicar-ho</a>
+      <a href="../../index.html#biblioteca">Biblioteca</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap crumbs" style="padding-bottom:1rem"><a href="../../index.html">Illa que aprèn</a> · <a href="../../index.html#eines">Eines</a> · Mapa de les eines</div>
+  <div class="e-hero"><div class="wrap">
+    <h1>Les eines de lectura: què hi ha i com s'han fet</h1>
+    <div class="facts data"><span><b>4</b> eines</span><span>De <b>3 anys</b> a <b>4t d'ESO</b></span><span>Sense API ni dades d'alumnes</span><span>Actualitzat el 16/11/2026</span></div>
+    <p class="lede" style="margin-top:1rem">Un mateix fil per a tota l'illa: llegir i escriure bé obre tot el currículum, i les dificultats es poden prevenir si es detecten aviat i s'hi respon. Les eines ajuden a fer-ho amb criteris comuns, de P3 a l'institut.</p>
+    <div class="quiz-bar" style="margin-top:1.25rem"><button type="button" id="b-imp" class="sec">Imprimir o desar en PDF</button></div>
+  </div></div>
+
+  <div class="wrap mapa" id="eina">
+
+    <section class="pas" aria-labelledby="m1">
+      <h2 id="m1"><span>1</span>Quina eina per a cada curs</h2>
+      <div class="franja" role="img" aria-label="Franja de cursos de P3 a 4t d'ESO amb les quatre eines i les dues referències: eina d'infantil de P3 a P5, eina de primer cicle a 1r i 2n, comprensió lectora de 3r de primària a 4t d'ESO, llengües estrangeres de 3r de primària a 4t d'ESO, PACBAL de P5 a 2n i Ripoll de 1r de primària a 4t d'ESO.">
+        <div class="cursos">
+          <span>P3</span><span>P4</span><span>P5</span><span>1r</span><span>2n</span><span>3r</span><span>4t</span><span>5è</span><span>6è</span><span>1r</span><span>2n</span><span>3r</span><span>4t</span>
+        </div>
+        <div class="etapes"><span style="grid-column:1/4">Infantil</span><span style="grid-column:4/10">Primària</span><span style="grid-column:10/14">ESO</span></div>
+        <a class="barra b1" href="../eina-infantil/" style="grid-column:1/4"><b>Infantil</b> contes, consciència fonològica, sons de les lletres</a>
+        <a class="barra b2" href="../eina-primer-cicle/" style="grid-column:4/6"><b>Primer cicle</b> velocitat i precisió</a>
+        <a class="barra b3" href="../eina-lectura/" style="grid-column:6/14"><b>Comprensió lectora</b> prompt mestre de Miguel Ángel Tirado, català i castellà</a>
+        <a class="barra b4" href="../eina-lectura-idiomes/" style="grid-column:6/14"><b>Llengües estrangeres</b> anglès, francès i alemany, per nivell MECR</a>
+        <span class="ref" style="grid-column:3/6">Referència: PACBAL (P5 a 2n)</span>
+        <span class="ref" style="grid-column:4/14">Referència de velocitat: Ripoll, Tapia i Aguado (2020)</span>
+      </div>
+    </section>
+
+    <section class="pas" aria-labelledby="m2">
+      <h2 id="m2"><span>2</span>Totes funcionen igual</h2>
+      <ol class="passes">
+        <li><b>Tries les dades</b> curs, llengua, tema. Cap nom d'alumne.</li>
+        <li><b>Copies el prompt</b> a l'assistent d'IA que facis servir. Cap API ni compte del CEP.</li>
+        <li><b>Revises</b> el que torna la IA. La revisió final és sempre del docent.</li>
+        <li><b>Imprimeixes</b> els fulls de l'alumne i del docent, ja maquetats.</li>
+        <li><b>Decidiu en equip</b> amb els resultats i tornau a mesurar.</li>
+      </ol>
+      <div class="tres">
+        <p class="nota" style="margin:0 0 .4rem"><b>Les tres preguntes de Miguel Ángel Tirado davant els resultats</b> (model de resposta a la intervenció):</p>
+        <ol class="usar">
+          <li>És un problema individual o de tot el grup?</li>
+          <li>Quina dificultat predomina?</li>
+          <li>Quines mesures i amb quina intensitat: tot el grup, petit grup o treball individual especialitzat? I quan tornam a mesurar?</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="pas" aria-labelledby="m3">
+      <h2 id="m3"><span>3</span>Les quatre eines</h2>
+      <div class="fitxes">
+        <article class="fitxa">
+          <h3>Infantil · P3, P4 i P5</h3>
+          <p><b>Què fa.</b> Conte per llegir en veu alta amb paraules d'un camp lèxic que tornen i s'amplien; conversa per comprendre'l; cinc minuts de jocs de consciència fonològica amb paraules del conte. Graella d'observació per nivell i registre dels sons de les lletres.</p>
+          <p><b>Progressió.</b> P3 la frase i la paraula; P4 la síl·laba; P5 el so i el principi alfabètic. Proposta perquè cada equip de cicle l'acordi.</p>
+          <p><b>D'on surt.</b> Ponències de Tirado als CEIP (setembre de 2026), Decret 40/2025 i Ordre 29/2025. Punts de tall de P5 del PACBAL.</p>
+          <p class="qui">Feta pel CEP · v0.2 en prova</p>
+        </article>
+        <article class="fitxa">
+          <h3>Primer cicle · 1r i 2n</h3>
+          <p><b>Què fa.</b> Prova d'un minut de paraules, pseudoparaules i text amb les grafies que el grup ja coneix. Full de l'alumne, full del docent amb el recompte fet i registre de paraules correctes per minut, precisió i prosòdia, amb semàfor.</p>
+          <p><b>Per què velocitat i precisió.</b> A 1r i 2n, segons Tirado, és el que s'avalua; la comprensió entra a partir de 3r.</p>
+          <p><b>D'on surt.</b> Ponències de Tirado, Decret 41/2025 (criteri 4.1 de primer cicle), PACBAL i Ripoll et al. (2020).</p>
+          <p class="qui">Feta pel CEP · v0.2 en prova</p>
+        </article>
+        <article class="fitxa">
+          <h3>Comprensió lectora · de 3r a 4t d'ESO</h3>
+          <p><b>Què fa.</b> Prova de comprensió adaptada al curs: text calibrat (extensió, sintaxi, vocabulari), preguntes pels quatre processos de PIRLS i pauta de correcció. Maquetació en Word amb el format dels centres.</p>
+          <p><b>D'on surt.</b> Prompt mestre de Miguel Ángel Tirado (15 pàgines d'instruccions), versió per a Formentera acordada amb l'autor.</p>
+          <p class="qui">Autor del prompt: Miguel Ángel Tirado · v1.1</p>
+        </article>
+        <article class="fitxa">
+          <h3>Llengües estrangeres · de 3r a 4t d'ESO</h3>
+          <p><b>Què fa.</b> La mateixa prova en anglès, francès o alemany, amb el text calibrat pel nivell MECR del grup i no pel curs.</p>
+          <p><b>D'on surt.</b> Adaptació del prompt de Tirado feta amb el professorat de llengües. Complementa l'eina de comprensió, no la substitueix.</p>
+          <p class="qui">Adaptació del CEP · v1.1-LE en prova</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="pas" aria-labelledby="m4">
+      <h2 id="m4"><span>4</span>D'on surt cada criteri</h2>
+      <div class="reg-wrap"><table class="reg">
+        <thead><tr><th scope="col">Criteri</th><th scope="col">Font</th></tr></thead>
+        <tbody>
+          <tr><td>Consciència fonològica cada dia, uns 15 minuts; principi alfabètic; lectura automàtica</td><td>Ponències de Miguel Ángel Tirado, 353 i 355 (setembre de 2026)</td></tr>
+          <tr><td>Contes per camps lèxics que tornen; vocabulari i comprensió oral a infantil</td><td>Ponència 355; Decret 40/2025, d'1 d'agost (BOIB núm. 102, de 2/08/2025)</td></tr>
+          <tr><td>Codificar i descodificar tots els fonemes i grafies a primer cicle</td><td>Decret 41/2025, d'1 d'agost (BOIB núm. 103, de 4/08/2025), criteri 4.1</td></tr>
+          <tr><td>A infantil s'avalua observant, sense notes</td><td>Ordre 29/2025, de 21 d'octubre (BOIB núm. 140, de 23/10/2025)</td></tr>
+          <tr><td>Punts de tall (risc, algun risc, normatiu) de P5 a 2n</td><td>PACBAL: Font, Castells i Ramon (2016), Escola d'Educació Especial l'Estel de Vic, annex 11. Percentils 5 i 20, alumnat català</td></tr>
+          <tr><td>Velocitat de referència per curs (1r: 25-72; 2n: 45-101; 3r: 58-111 paraules per minut)</td><td>Ripoll, Tapia i Aguado (2020), <i>Revista de Psicodidáctica, 25</i>(2), 158-165. És la taula que va mostrar Tirado</td></tr>
+          <tr><td>Quatre processos de comprensió (localitzar, deduir, interpretar i integrar, avaluar)</td><td>PIRLS, recollit al prompt de Tirado</td></tr>
+          <tr><td>Prosòdia en quatre nivells</td><td>Escala de lectura oral de NAEP, adaptada</td></tr>
+          <tr><td>Respondre segons la intensitat que cal (grup, petit grup, individual)</td><td>Model de resposta a la intervenció (RTI), ponències de Tirado</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section class="pas" aria-labelledby="m5">
+      <h2 id="m5"><span>5</span>Què no fan</h2>
+      <ul class="usar">
+        <li>No substitueixen el judici del docent ni les proves institucionals que passa l'equip de suport.</li>
+        <li>No posen notes: donen informació per decidir suports.</li>
+        <li>No desen cap dada: tot es fa al navegador de qui les usa.</li>
+        <li>La IA s'equivoca: cal llegir el text, comprovar les pseudoparaules i ajustar la pauta abans de passar-la.</li>
+      </ul>
+      <p class="nota">Les eines d'infantil i primer cicle són una proposta del CEP de Formentera a partir de les ponències, pendent que la revisi Miguel Ángel Tirado. Les valoracions dels equips, a <a href="mailto:cep@cepformentera.cat">cep@cepformentera.cat</a>.</p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap logos" aria-label="Institucions">
+    <img src="../../assets/logos/cep-formentera.png" alt="Centre de Professorat de Formentera" height="48">
+    <img src="../../assets/logos/sfpp.png" alt="Servei de Formació Permanent del Professorat" height="48">
+    <img src="../../assets/logos/govern-illes-balears.png" alt="Govern de les Illes Balears" height="48">
+  </div>
+  <div class="wrap">
+    <div>
+      <p><b>CEP de Formentera</b> · Servei de Formació Permanent del Professorat · Govern de les Illes Balears</p>
+      <p>Eines del CEP de Formentera. El prompt de comprensió lectora és de Miguel Ángel Tirado, difós amb la seva autorització. Les eines no desen cap dada: tot el que hi escrius es queda al teu navegador.</p>
+    </div>
+    <div>
+      <p>Continguts sota llicència <b>Creative Commons BY-NC-SA 4.0</b>: podeu compartir-los i adaptar-los citant la font, sense ús comercial i amb la mateixa llicència.</p>
+      <p>Darrera actualització: 16 de novembre de 2026.</p>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('b-imp').addEventListener('click',function(){window.print();});</script>
+</body>
+</html>

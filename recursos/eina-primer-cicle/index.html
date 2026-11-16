@@ -32,7 +32,7 @@
   <div class="wrap crumbs" style="padding-bottom:1rem"><a href="../../index.html">Illa que aprèn</a> · <a href="../../index.html#eines">Eines</a> · Eina de primer cicle</div>
   <div class="e-hero"><div class="wrap">
     <h1>Velocitat i precisió lectora</h1>
-    <div class="facts data"><span>Primer cicle de primària · <b>1r i 2n</b></span><span>Versió <b>0.1</b> · en prova</span><span><b>5</b> passes</span><span>Sense registre</span></div>
+    <div class="facts data"><span>Primer cicle de primària · <b>1r i 2n</b></span><span>Versió <b>0.2</b> · en prova</span><span><b>5</b> passes</span><span>Sense registre</span></div>
     <p class="lede" style="margin-top:1rem">Prepara una prova breu d'eficàcia lectora amb les grafies que ja heu treballat: una llista de paraules, una de pseudoparaules i un text, un minut cadascuna. L'eina et dona el full de l'alumne, el full del docent amb el recompte de paraules ja fet i un registre que calcula les paraules correctes per minut.</p>
   </div></div>
 
@@ -135,16 +135,17 @@
           </div>
           <div class="fld"><label for="ll-p">Llindar paraules (PCPM)</label><input type="number" id="ll-p" min="0" max="300" inputmode="numeric" placeholder="Opcional"></div>
           <div class="fld"><label for="ll-s">Llindar pseudoparaules (PCPM)</label><input type="number" id="ll-s" min="0" max="300" inputmode="numeric" placeholder="Opcional"></div>
-          <div class="fld"><label for="ll-t">Llindar text (PCPM)</label><input type="number" id="ll-t" min="0" max="300" inputmode="numeric" placeholder="Opcional"></div>
+          <div class="fld"><label for="ll-t">Llindar text propi (PCPM)</label><input type="number" id="ll-t" min="0" max="300" inputmode="numeric" placeholder="Opcional"></div>
           <div class="fld"><label for="ll-pr">Precisió mínima (%)</label><input type="number" id="ll-pr" min="0" max="100" inputmode="numeric" value="95"></div>
+          <div class="fld full"><p class="nota" id="semafor-info" style="margin:0"></p></div>
         </form>
         <div class="reg-wrap"><table class="reg" id="reg"><thead><tr>
           <th scope="col">Infant</th>
           <th scope="col">Paraules<br>llegides</th><th scope="col">Errors</th><th scope="col">PCPM</th>
           <th scope="col">Pseudo<br>llegides</th><th scope="col">Errors</th><th scope="col">PCPM</th>
-          <th scope="col">Text<br>llegides</th><th scope="col">Errors</th><th scope="col">PCPM</th><th scope="col">Precisió<br>text</th>
+          <th scope="col">Text<br>llegides</th><th scope="col">Errors</th><th scope="col">PCPM</th><th scope="col">Semàfor<br>PACBAL</th><th scope="col">Precisió<br>text</th>
           <th scope="col">Prosòdia<br>1-4</th>
-        </tr></thead><tbody id="reg-cos"><tr><td colspan="12" class="nota">Escriu els noms a dalt per obrir el registre.</td></tr></tbody></table></div>
+        </tr></thead><tbody id="reg-cos"><tr><td colspan="13" class="nota">Escriu els noms a dalt per obrir el registre.</td></tr></tbody></table></div>
         <div id="resum-grup" class="mesura" hidden></div>
         <div class="quiz-bar">
           <button type="button" id="b-imp-reg" disabled>Imprimir el registre</button>
@@ -161,7 +162,10 @@
             <li>Prosòdia del text (escala adaptada de l'estudi de lectura oral de NAEP): 1 paraula a paraula · 2 de dues en dues, poc fraseig · 3 grups de tres o quatre paraules, fraseig adequat, poca expressivitat · 4 frases amb sentit, respecta la puntuació i hi posa expressió.</li>
           </ol>
         </details>
-        <p class="nota" style="margin-top:1rem"><b>Sobre els llindars.</b> La referència comuna dels centres de Formentera és la taula de colors que va presentar Miguel Ángel Tirado, basada en la recerca de Ripoll. Quan la tingueu, posau-ne els valors a les caselles de llindar. Com a orientació, el metaanàlisi de Ripoll, Tapia i Aguado (2020) dona una mitjana de lectura en veu alta d'unes 49 paraules per minut a 1r i unes 73 a 2n, en alumnat de parla castellana i sense distingir trimestre: no són punts de tall i el català pot donar valors diferents.</p>
+        <div class="nota" style="margin-top:1rem">
+          <p><b>D'on surten els colors.</b> El semàfor del text fa servir els punts de tall de fluïdesa lectora del PACBAL per curs i trimestre (percentils 5 i 20 d'alumnat català): <b>vermell</b>, risc, suport substancial; <b>taronja</b>, algun risc, suport addicional; <b>verd</b>, normatiu. El PACBAL fa la mitjana de tres textos d'un minut i l'eina en fa servir un: la lectura és orientativa. Per a les paraules i les pseudoparaules no hi ha semàfor perquè el PACBAL les puntua d'una altra manera; si el centre té llindars propis, escriu-los a les caselles.</p>
+          <p><b>La taula de Tirado.</b> La referència de velocitat que va mostrar Miguel Ángel Tirado és la del metaanàlisi de Ripoll, Tapia i Aguado (2020), en lectura en veu alta: 1r, mitjana 48,67 i rang 25-72; 2n, mitjana 72,96 i rang 45-101 (mitjana més i menys la mediana de les desviacions típiques, alumnat de parla castellana, sense distingir trimestre). Les velocitats mínimes del prompt de comprensió lectora per a 3r (58) i 4t (75) coincideixen amb el límit inferior del rang de Ripoll per a aquests cursos.</p>
+        </div>
       </section>
 
       <section class="pas" aria-labelledby="p5">
@@ -182,6 +186,7 @@
         <h2>D'on surt</h2>
         <p>De les ponències de Miguel Ángel Tirado als CEIP Sant Ferran de ses Roques i Mestre Lluís Andreu (setembre de 2026): eficàcia lectora com a velocitat, precisió i comprensió; seguiment amb indicadors objectius (paraules correctes per minut, anàlisi d'errors, escales de prosòdia) i resposta a la intervenció.</p>
         <p>Fonamentació que va citar: Share (1995); Ehri et al. (2001); Castles, Rastle i Nation (2018); Fuchs et al. (2001); Therrien (2004); Kuhn, Schwanenflugel i Meisinger (2010).</p>
+        <p>Punts de tall: Font, J., Castells, M. i Ramon, D. (2016). <i>PACBAL. Prova d'avaluació dels components bàsics de l'aprenentatge de la lectura</i>. Vic: Escola d'Educació Especial l'Estel.</p>
         <p>Velocitat de referència: Ripoll Salceda, J. C., Tapia Montesinos, M. M. i Aguado Alonso, G. (2020). Velocidad lectora en alumnado hispanohablante: un metaanálisis. <i>Revista de Psicodidáctica, 25</i>(2), 158-165. <a href="https://doi.org/10.1016/j.psicod.2020.01.002" target="_blank" rel="noopener">doi.org/10.1016/j.psicod.2020.01.002</a></p>
       </div>
       <div class="box">
@@ -194,10 +199,16 @@
       <div class="box">
         <h2>Les altres eines</h2>
         <ul>
+          <li><a href="../eines/">Mapa de les quatre eines</a> · què hi ha i com s'han fet</li>
           <li><a href="../eina-infantil/">Infantil</a> · contes, consciència fonològica i sons de les lletres</li>
           <li><a href="../eina-lectura/">Comprensió lectora</a> · de 3r de primària a 4t d'ESO</li>
           <li><a href="../eina-lectura-idiomes/">Llengües estrangeres</a> · anglès, francès i alemany</li>
         </ul>
+      </div>
+      <div class="box">
+        <h2>Prova de cribratge: PACBAL</h2>
+        <p>Quan cal una prova estandarditzada, la de referència en català és el PACBAL, Prova d'Avaluació dels Components Bàsics de l'Aprenentatge de la Lectura (Josep Font, Montse Castells i Dolors Ramon, Escola d'Educació Especial l'Estel de Vic, 2016). Avalua a P5, 1r i 2n, per trimestres: segmentació fonèmica, principi alfabètic, pseudoparaules, paraules, fluïdesa i comprensió. Es pot reproduir citant-ne la font i l'autoria.</p>
+        <p><a href="https://xtec.gencat.cat/ca/curriculum/primaria/recursos-i-materials/llengues/comprensio-lectora/pacbal/" target="_blank" rel="noopener">Materials del PACBAL a XTEC</a></p>
       </div>
       <div class="box">
         <h2>Encara no hi és</h2>
@@ -205,7 +216,7 @@
       </div>
       <div class="box">
         <h2>Versions</h2>
-        <ul><li><b>0.1</b> · 16/11/2026 · Primera versió en prova, feta pel CEP a partir de les ponències. Pendent que la revisi Miguel Ángel Tirado.</li></ul>
+        <ul><li><b>0.2</b> · 16/11/2026 · Semàfor del text amb els punts de tall del PACBAL i taula de Ripoll que va mostrar Tirado.</li><li><b>0.1</b> · 16/11/2026 · Primera versió en prova, feta pel CEP a partir de les ponències. Pendent que la revisi Miguel Ángel Tirado.</li></ul>
       </div>
     </aside>
   </div>
@@ -232,7 +243,7 @@
 <script>
 (function(){
 'use strict';
-var VERSIO='0.1';
+var VERSIO='0.2';
 var CORREU='cep@cepformentera.cat';
 function $(id){return document.getElementById(id);}
 function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
@@ -266,7 +277,7 @@ function dades(){return {k:$('curs').value,c:CURSOS[$('curs').value],t:$('trim')
 function construeix(d){
   var c=d.c,L=[],totes=d.g.length===GRAFIES[d.ll].length;
   L.push('PROMPT PER ELABORAR UNA PROVA D’EFICÀCIA LECTORA (VELOCITAT I PRECISIÓ) DE PRIMER CICLE');
-  L.push(c.nom+' · '+d.t+'r trimestre · Versió '+VERSIO+' · CEP de Formentera, a partir de les ponències de Miguel Ángel Tirado (curs 2026-2027)');
+  L.push(c.nom+' · '+ord(d.t)+' trimestre · Versió '+VERSIO+' · CEP de Formentera, a partir de les ponències de Miguel Ángel Tirado (curs 2026-2027)');
   L.push('');
   L.push('ROL');
   L.push('Ets un/a especialista en l’ensenyament inicial de la lectura en '+d.ll+'. Prepares proves breus de lectura en veu alta d’un minut per mesurar la velocitat i la precisió lectora (paraules correctes per minut).');
@@ -277,7 +288,7 @@ function construeix(d){
   L.push('- Marc: Decret 41/2025, d’1 d’agost, de currículum d’educació primària de les Illes Balears, primer cicle, criteri 4.1: codificar i descodificar tots els fonemes i grafies i relacionar correctament grafies i fonemes.');
   L.push('');
   L.push('DADES');
-  L.push('- Curs: '+c.nom+', '+d.t+'r trimestre.');
+  L.push('- Curs: '+c.nom+', '+ord(d.t)+' trimestre.');
   L.push('- Llengua: '+d.ll+(d.ll==='català'?' (estàndard, amb lèxic proper a les Illes Balears).':'.'));
   L.push('- Grafies que l’alumnat ja coneix: '+(totes?'totes les de la llengua.':d.g.join(', ')+'.'));
   if(!totes) L.push('- REGLA ESTRICTA: fes servir NOMÉS aquestes grafies en tot el material (paraules, pseudoparaules i text). Si una paraula necessita una altra grafia, no la facis servir. Repassa-ho lletra per lletra abans de donar la resposta.');
@@ -313,7 +324,7 @@ function actualitza(){
   if(!d.c){$('resum-prompt').innerHTML='<span>Encara no has triat el curs.</span>';$('prompt').value='';promptActual='';return;}
   if(!d.g.length){$('resum-prompt').innerHTML='<span>Marca almenys una grafia.</span>';$('prompt').value='';promptActual='';return;}
   promptActual=construeix(d);$('prompt').value=promptActual;
-  $('resum-prompt').innerHTML='<span><b>'+esc(d.c.nom)+'</b> · '+d.t+'r trimestre</span><span>'+esc(d.ll)+'</span><span>'+d.c.par+' paraules + '+d.c.pse+' pseudoparaules</span><span>text de '+d.c.text+' paraules</span><span>'+(d.g.length===GRAFIES[d.ll].length?'totes les grafies':d.g.length+' grafies')+'</span>';
+  $('resum-prompt').innerHTML='<span><b>'+esc(d.c.nom)+'</b> · '+ord(d.t)+' trimestre</span><span>'+esc(d.ll)+'</span><span>'+d.c.par+' paraules + '+d.c.pse+' pseudoparaules</span><span>text de '+d.c.text+' paraules</span><span>'+(d.g.length===GRAFIES[d.ll].length?'totes les grafies':d.g.length+' grafies')+'</span>';
 }
 ['trim','lletra','tema'].forEach(function(id){$(id).addEventListener('input',actualitza);$(id).addEventListener('change',actualitza);});
 
@@ -374,7 +385,7 @@ function fulls(){
   llista(par,'Paraules',false);llista(pse,'Paraules inventades',true);
   if(pars.length){A.push('<div class="salt">'+(titol?'<h2 style="text-transform:none;font-size:1.5rem">'+esc(maj(titol,d))+'</h2>':'<h2>Text</h2>')+pars.map(function(p){return '<p class="gran">'+inline(maj(p,d))+'</p>';}).join('')+'</div>');}
   /* full del docent */
-  var D=[capcalera('Full del docent · '+curs)];
+  var D=[capcalera('Full del docent · '+curs)];var cS=d.k?PACBAL_FLO[d.k][d.t]:null;
   D.push('<p class="escala">Infant: ____________________ · Data: ____________ · Aplica: ____________</p>');
   D.push('<p class="escala">Un minut per llista. Ratllau els errors i feis una barra on s’acaba el minut. El número de cada fila és el total acumulat de paraules fins al final d’aquella fila.</p>');
   function llistaD(arr,tit){if(!arr.length)return;var rows=[];for(var i=0;i<arr.length;i+=5){var f=arr.slice(i,i+5);rows.push('<tr>'+f.map(function(w){return '<td>'+esc(maj(w,d))+'</td>';}).join('')+'<td style="text-align:right;color:#7A6A10;font-weight:600">'+(i+f.length)+'</td></tr>');}
@@ -382,7 +393,7 @@ function fulls(){
   llistaD(par,'Paraules');llistaD(pse,'Paraules inventades');
   if(pars.length){var acc=0;D.push('<h2>Text'+(titol?': '+esc(titol):'')+'</h2>');
     pars.forEach(function(p){var fr=p.match(/[^.!?…]+[.!?…»"]*\s*/g)||[p];D.push('<p>'+fr.map(function(f){acc+=paraulesDe(f).length;return inline(maj(f.trim(),d))+'<span class="cnt">'+acc+'</span>';}).join(' ')+'</p>');});
-    D.push('<p class="escala">Llegides: ______ · Errors: ______ · PCPM: ______ · Precisió: ______ % · Prosòdia (1-4): ______</p>');}
+    D.push('<p class="escala">Llegides: ______ · Errors: ______ · PCPM: ______ · Precisió: ______ % · Prosòdia (1-4): ______</p>'+(cS?'<p class="escala">Semàfor (PACBAL, '+esc(curs)+', '+ord(d.t)+' trimestre): risc fins a '+cS[0]+' · algun risc de '+(cS[0]+1)+' a '+cS[1]+' · normatiu des de '+(cS[1]+1)+'</p>':''));}
   if(s.preg&&s.preg.join('').trim()){D.push('<h2>Preguntes orals (opcionals)</h2>'+s.preg.filter(function(l){return l.trim();}).map(function(l){return '<p>'+inline(l.trim().replace(/^[-*•]\s+/,''))+'</p>';}).join(''));}
   D.push('<p class="peu">Errors: canviar, ometre, afegir o invertir sons o paraules; aturar-se més de 3 segons. L’autocorrecció no és error. PCPM = llegides − errors. Prosòdia: 1 paraula a paraula · 2 de dues en dues · 3 grups de tres o quatre, poca expressivitat · 4 frases amb sentit, puntuació i expressió.</p>');
   $('paper-alumne').innerHTML=A.join('');$('paper-docent').innerHTML=D.join('');
@@ -396,6 +407,14 @@ $('b-imp-docent').addEventListener('click',function(){imprimeix('<div class="pap
 
 /* ---------- Registre ---------- */
 var CAMPS=['pl','pe','sl','se','tl','te','pr'];
+function ord(x){return x==='2'?'2n':x+'r';}
+/* Punts de tall de fluïdesa lectora del PACBAL (manual, annex 11, p. 95-98): [risc fins a, algun risc fins a] */
+var PACBAL_FLO={'1':{'1':[10,28],'2':[15,30],'3':[25,38]},'2':{'1':[30,46],'2':[42,60],'3':[46,65]}};
+function semafor(v){var d=dades();if(v==null||!d.k)return null;var c=PACBAL_FLO[d.k][d.t];if(!c)return null;
+  if(v<=c[0])return {cls:'sem-r',txt:'Risc'};if(v<=c[1])return {cls:'sem-t',txt:'Algun risc'};return {cls:'sem-v',txt:'Normatiu'};}
+function infoSemafor(){var d=dades(),el=$('semafor-info');if(!el)return;
+  if(!d.k){el.textContent='Tria el curs al pas 1 i el semàfor del text es posarà sol.';return;}
+  var c=PACBAL_FLO[d.k][d.t];el.innerHTML='Semàfor del text per a <b>'+esc(d.c.nom)+', '+ord(d.t)+' trimestre</b> (PACBAL, fluïdesa lectora): <span class="sem sem-r">risc fins a '+c[0]+'</span> <span class="sem sem-t">algun risc de '+(c[0]+1)+' a '+c[1]+'</span> <span class="sem sem-v">normatiu des de '+(c[1]+1)+'</span>';}
 var valors={};
 function nomsReg(){return $('r-noms').value.split('\n').map(function(x){return x.trim();}).filter(Boolean);}
 function num(v){var n=parseInt(v,10);return isNaN(n)?null:n;}
@@ -404,7 +423,7 @@ function pintaReg(){
   var n=nomsReg(),cos=$('reg-cos');
   if(!n.length){cos.innerHTML='<tr><td colspan="12" class="nota">Escriu els noms a dalt per obrir el registre.</td></tr>';$('b-imp-reg').disabled=$('b-csv').disabled=true;$('resum-grup').hidden=true;return;}
   cos.innerHTML=n.map(function(x,i){var v=valors[x]||{};function inp(k,max){return '<td><input type="number" min="0" max="'+max+'" inputmode="numeric" data-n="'+esc(x)+'" data-k="'+k+'" value="'+(v[k]!=null?v[k]:'')+'" aria-label="'+esc(x)+' '+k+'"></td>';}
-    return '<tr data-r="'+i+'"><th scope="row">'+esc(x)+'</th>'+inp('pl',300)+inp('pe',300)+'<td class="num" data-o="p"></td>'+inp('sl',300)+inp('se',300)+'<td class="num" data-o="s"></td>'+inp('tl',300)+inp('te',300)+'<td class="num" data-o="t"></td><td class="num" data-o="pr"></td>'+inp('pr',4)+'</tr>';}).join('');
+    return '<tr data-r="'+i+'"><th scope="row">'+esc(x)+'</th>'+inp('pl',300)+inp('pe',300)+'<td class="num" data-o="p"></td>'+inp('sl',300)+inp('se',300)+'<td class="num" data-o="s"></td>'+inp('tl',300)+inp('te',300)+'<td class="num" data-o="t"></td><td data-o="sem"></td><td class="num" data-o="pr"></td>'+inp('pr',4)+'</tr>';}).join('');
   cos.querySelectorAll('input').forEach(function(inp){inp.addEventListener('input',function(){var nn=inp.dataset.n;valors[nn]=valors[nn]||{};var v=num(inp.value);if(v!==null&&(v<0||(inp.dataset.k==='pr'&&(v<1||v>4)))){v=null;inp.setAttribute('aria-invalid','true');}else inp.removeAttribute('aria-invalid');valors[nn][inp.dataset.k]=v;calcula();});});
   $('b-imp-reg').disabled=$('b-csv').disabled=false;calcula();
 }
@@ -412,7 +431,8 @@ function fila(x){
   var v=valors[x]||{};var r={p:pcpm(v.pl,v.pe),s:pcpm(v.sl,v.se),t:pcpm(v.tl,v.te),prec:null,pros:v.pr};
   if(v.tl&&r.t!=null)r.prec=Math.round((r.t/v.tl)*100);
   var ll={p:num($('ll-p').value),s:num($('ll-s').value),t:num($('ll-t').value),pr:num($('ll-pr').value)};
-  r.ajuda=(ll.p!==null&&r.p!==null&&r.p<ll.p)||(ll.s!==null&&r.s!==null&&r.s<ll.s)||(ll.t!==null&&r.t!==null&&r.t<ll.t)||(ll.pr!==null&&r.prec!==null&&r.prec<ll.pr);
+  r.sem=semafor(r.t);
+  r.ajuda=(r.sem&&r.sem.cls!=='sem-v')||(ll.p!==null&&r.p!==null&&r.p<ll.p)||(ll.s!==null&&r.s!==null&&r.s<ll.s)||(ll.t!==null&&r.t!==null&&r.t<ll.t)||(ll.pr!==null&&r.prec!==null&&r.prec<ll.pr);
   return r;
 }
 function calcula(){
@@ -422,6 +442,7 @@ function calcula(){
     tr.querySelector('[data-o="p"]').textContent=r.p!=null?r.p:'';
     tr.querySelector('[data-o="s"]').textContent=r.s!=null?r.s:'';
     tr.querySelector('[data-o="t"]').textContent=r.t!=null?r.t:'';
+    tr.querySelector('[data-o="sem"]').innerHTML=r.sem?'<span class="sem '+r.sem.cls+'">'+r.sem.txt+'</span>':'';
     tr.querySelector('[data-o="pr"]').textContent=r.prec!=null?r.prec+' %':'';
     tr.classList.toggle('ajuda',!!r.ajuda);if(r.ajuda)aj++;
     ['p','s','t'].forEach(function(k){if(r[k]!=null)sum[k].push(r[k]);});
@@ -435,16 +456,16 @@ function calcula(){
 $('r-noms').addEventListener('input',pintaReg);
 function taulaReg(){
   var n=nomsReg(),d=dades();
-  var h=['<div class="paper">'+capcalera('Registre d’eficàcia lectora · '+(d.c?d.c.nom:'Primer cicle'))+'<h1>Velocitat i precisió lectora</h1><p class="escala">'+(d.c?esc(d.c.nom)+' · '+d.t+'r trimestre · ':'')+esc(d.ll)+' · Data: ____________</p>'];
-  h.push('<table><thead><tr><th>Infant</th><th>PCPM paraules</th><th>PCPM pseudo</th><th>PCPM text</th><th>Precisió text</th><th>Prosòdia</th><th>Revisar a l’equip</th></tr></thead><tbody>');
-  n.forEach(function(x){var r=fila(x);h.push('<tr><td>'+esc(x)+'</td><td>'+(r.p!=null?r.p:'')+'</td><td>'+(r.s!=null?r.s:'')+'</td><td>'+(r.t!=null?r.t:'')+'</td><td>'+(r.prec!=null?r.prec+' %':'')+'</td><td>'+(r.pros!=null?r.pros:'')+'</td><td>'+(r.ajuda?'Sí':'')+'</td></tr>');});
+  var h=['<div class="paper">'+capcalera('Registre d’eficàcia lectora · '+(d.c?d.c.nom:'Primer cicle'))+'<h1>Velocitat i precisió lectora</h1><p class="escala">'+(d.c?esc(d.c.nom)+' · '+ord(d.t)+' trimestre · ':'')+esc(d.ll)+' · Data: ____________</p>'];
+  h.push('<table><thead><tr><th>Infant</th><th>PCPM paraules</th><th>PCPM pseudo</th><th>PCPM text</th><th>Semàfor PACBAL</th><th>Precisió text</th><th>Prosòdia</th><th>Revisar a l’equip</th></tr></thead><tbody>');
+  n.forEach(function(x){var r=fila(x);h.push('<tr><td>'+esc(x)+'</td><td>'+(r.p!=null?r.p:'')+'</td><td>'+(r.s!=null?r.s:'')+'</td><td>'+(r.t!=null?r.t:'')+'</td><td>'+(r.sem?r.sem.txt:'')+'</td><td>'+(r.prec!=null?r.prec+' %':'')+'</td><td>'+(r.pros!=null?r.pros:'')+'</td><td>'+(r.ajuda?'Sí':'')+'</td></tr>');});
   h.push('</tbody></table><p class="peu">Decisions: el problema és individual o de grup? Quina dificultat predomina (precisió, velocitat, descodificació de pseudoparaules)? Quina mesura, amb quina intensitat i quan tornam a mesurar? CEP de Formentera, a partir de les ponències de Miguel Ángel Tirado.</p></div>');
   return h.join('');
 }
 $('b-imp-reg').addEventListener('click',function(){imprimeix(taulaReg());});
 $('b-csv').addEventListener('click',function(){
-  var n=nomsReg(),rows=[['Infant','Paraules llegides','Errors','PCPM paraules','Pseudo llegides','Errors','PCPM pseudo','Text llegides','Errors','PCPM text','Precisió text (%)','Prosòdia','Revisar']];
-  n.forEach(function(x){var v=valors[x]||{},r=fila(x);rows.push([x,v.pl,v.pe,r.p,v.sl,v.se,r.s,v.tl,v.te,r.t,r.prec,v.pr,r.ajuda?'Sí':'']);});
+  var n=nomsReg(),rows=[['Infant','Paraules llegides','Errors','PCPM paraules','Pseudo llegides','Errors','PCPM pseudo','Text llegides','Errors','PCPM text','Semàfor PACBAL','Precisió text (%)','Prosòdia','Revisar']];
+  n.forEach(function(x){var v=valors[x]||{},r=fila(x);rows.push([x,v.pl,v.pe,r.p,v.sl,v.se,r.s,v.tl,v.te,r.t,r.sem?r.sem.txt:'',r.prec,v.pr,r.ajuda?'Sí':'']);});
   var csv=rows.map(function(r){return r.map(function(c){c=(c==null?'':String(c));return /[;"\n]/.test(c)?'"'+c.replace(/"/g,'""')+'"':c;}).join(';');}).join('\n');
   descarrega('registre-velocitat-lectora.csv','﻿'+csv,'text/csv');estat('estat-reg','Descarregat.');
 });
@@ -455,7 +476,8 @@ $('b-correu').addEventListener('click',function(){
   location.href='mailto:'+CORREU+'?subject='+encodeURIComponent('Valoració · Eina de primer cicle')+'&body='+encodeURIComponent('Eina de primer cicle v'+VERSIO+'\nCurs: '+(d.c?d.c.nom:'no indicat')+'\nLlengua: '+d.ll+'\n\n'+t);
 });
 
-pintaGrafies();actualitza();
+pintaGrafies();actualitza();infoSemafor();
+['curs','trim'].forEach(function(id){$(id).addEventListener('change',function(){infoSemafor();calcula();});});
 })();
 </script>
 </body>

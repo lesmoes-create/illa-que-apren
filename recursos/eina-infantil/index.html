@@ -32,7 +32,7 @@
   <div class="wrap crumbs" style="padding-bottom:1rem"><a href="../../index.html">Illa que aprèn</a> · <a href="../../index.html#eines">Eines</a> · Eina d'infantil</div>
   <div class="e-hero"><div class="wrap">
     <h1>Contes que fan créixer el vocabulari</h1>
-    <div class="facts data"><span>Educació infantil · <b>3, 4 i 5 anys</b></span><span>Versió <b>0.1</b> · en prova</span><span><b>5</b> passes</span><span>Sense registre</span></div>
+    <div class="facts data"><span>Educació infantil · <b>3, 4 i 5 anys</b></span><span>Versió <b>0.2</b> · en prova</span><span><b>5</b> passes</span><span>Sense registre</span></div>
     <p class="lede" style="margin-top:1rem">Prepara un conte per llegir en veu alta amb les paraules del camp lèxic que treballau, la conversa per comprendre'l i cinc minuts de jocs de consciència fonològica fets amb les paraules del mateix conte. Després imprimeix la graella d'observació del teu nivell i el registre dels sons de les lletres.</p>
   </div></div>
 
@@ -162,7 +162,7 @@
         <details class="prompt-box"><summary>Veure els indicadors del nivell</summary>
           <div id="g-indicadors" style="padding-top:.5rem"></div>
         </details>
-        <p class="nota" style="margin-top:1rem">La graella és un registre d'aula. No substitueix les proves institucionals del centre, que passa un equip reduït i especialitzat, ni les proves de segmentació fonèmica i de principi alfabètic que Miguel Ángel Tirado va dir que compartiria. Quan les tinguem, les publicarem aquí.</p>
+        <p class="nota" style="margin-top:1rem">La graella és un registre d'aula. No substitueix les proves institucionals del centre, que passa un equip reduït i especialitzat, ni una prova estandarditzada. Per a P5, la prova de cribratge de referència en català és el PACBAL, que mesura en un minut la segmentació fonèmica i el principi alfabètic (vegeu els punts de tall al costat).</p>
       </section>
 
       <section class="pas" aria-labelledby="p5">
@@ -192,8 +192,22 @@
         </ul>
       </div>
       <div class="box">
+        <h2>Cribratge a P5: PACBAL</h2>
+        <p>Prova d'Avaluació dels Components Bàsics de l'Aprenentatge de la Lectura (Josep Font, Montse Castells i Dolors Ramon, Escola d'Educació Especial l'Estel de Vic, 2016). Individual, un minut per prova. Punts de tall (percentils 5 i 20) en puntuació directa:</p>
+        <table class="reg" style="font-size:.85rem">
+          <thead><tr><th>P5</th><th>Segmentació fonèmica</th><th>Principi alfabètic</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">1r trim.</th><td>risc 0<br>algun risc 1-13<br>normatiu 14 o més</td><td>risc fins a 4<br>algun risc 5-18<br>normatiu 19 o més</td></tr>
+            <tr><th scope="row">2n trim.</th><td>risc fins a 7<br>algun risc 8-24<br>normatiu 25 o més</td><td>risc fins a 11<br>algun risc 12-27<br>normatiu 28 o més</td></tr>
+            <tr><th scope="row">3r trim.</th><td>risc fins a 15<br>algun risc 16-36<br>normatiu 37 o més</td><td>risc fins a 18<br>algun risc 19-28<br>normatiu 29 o més</td></tr>
+          </tbody>
+        </table>
+        <p>Font: manual del PACBAL, annex 11. Es pot reproduir citant-ne la font i l'autoria. <a href="https://xtec.gencat.cat/ca/curriculum/primaria/recursos-i-materials/llengues/comprensio-lectora/pacbal/" target="_blank" rel="noopener">Materials a XTEC</a></p>
+      </div>
+      <div class="box">
         <h2>Les altres eines</h2>
         <ul>
+          <li><a href="../eines/">Mapa de les quatre eines</a> · què hi ha i com s'han fet</li>
           <li><a href="../eina-primer-cicle/">Primer cicle de primària</a> · velocitat i precisió lectora</li>
           <li><a href="../eina-lectura/">Comprensió lectora</a> · de 3r de primària a 4t d'ESO</li>
           <li><a href="../eina-lectura-idiomes/">Llengües estrangeres</a> · anglès, francès i alemany</li>
@@ -201,7 +215,7 @@
       </div>
       <div class="box">
         <h2>Versions</h2>
-        <ul><li><b>0.1</b> · 16/11/2026 · Primera versió en prova, feta pel CEP a partir de les ponències. Pendent que la revisi Miguel Ángel Tirado.</li></ul>
+        <ul><li><b>0.2</b> · 16/11/2026 · Punts de tall del PACBAL per a P5.</li><li><b>0.1</b> · 16/11/2026 · Primera versió en prova, feta pel CEP a partir de les ponències. Pendent que la revisi Miguel Ángel Tirado.</li></ul>
       </div>
     </aside>
   </div>
@@ -228,7 +242,7 @@
 <script>
 (function(){
 'use strict';
-var VERSIO='0.1';
+var VERSIO='0.2';
 var CORREU='cep@cepformentera.cat';
 function $(id){return document.getElementById(id);}
 function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}

@@ -87,3 +87,7 @@
   @page{size:A4;margin:14mm 14mm 18mm;@bottom-right{content:"Pàgina " counter(page) " de " counter(pages);font-family:'Barlow',Arial,sans-serif;font-size:9pt;color:#44546B}@bottom-left{content:"CEP de Formentera · Illa que aprèn";font-family:'Barlow',Arial,sans-serif;font-size:9pt;color:#44546B}}
 }
 .e-grid > *{min-width:0}
+.sem{display:inline-block;padding:.1rem .45rem;border-radius:2px;font-family:var(--f-data);font-size:.85rem;font-weight:600;white-space:nowrap}
+.sem-r{background:#F6D5D1;color:#7A1B10}
+.sem-t{background:#FBE3C4;color:#6B3A00}
+.sem-v{background:#D5EBD8;color:#14532D}
