@@ -40,7 +40,10 @@ recursos/
     sessio-02 a sessio-08    Formación al centro
     sessio-09/   15/02/2027  Ponencia
     sessio-10 a sessio-12    Formación al centro
-  eina-lectura/              Herramienta de comprensión lectora (v1.1)
+  eina-lectura/              Herramienta de comprensión lectora (v1.1), de 3º de primaria a 4º de ESO
+  eina-lectura-idiomes/      Comprensión lectora en lenguas extranjeras (en prueba)
+  eina-infantil/             Infantil 3-5 años: cuentos con vocabulario que vuelve, conciencia fonológica, parrilla de observación (v0.1, en prueba)
+  eina-primer-cicle/         1º y 2º de primaria: velocidad y precisión lectora, registro de PCPM (v0.1, en prueba)
 ```
 
 **Sesiones de ponencia**: usa **exactamente** estos nombres dentro de la carpeta:

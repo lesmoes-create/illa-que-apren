@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eina d'infantil · Contes que fan créixer el vocabulari · Illa que aprèn</title>
+<meta name="description" content="Eina per preparar contes de lectura en veu alta amb vocabulari que torna, conversa i jocs de consciència fonològica, i graelles d'observació per a 3, 4 i 5 anys. CEP de Formentera.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Semi+Condensed:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<link rel="stylesheet" href="../../assets/css/eines.css">
+</head>
+<body>
+<a class="skip" href="#eina">Salta a l'eina</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="../../index.html#inici"><img src="../../assets/logos/cep-formentera.png" alt="Centre de Professorat de Formentera" width="120" height="43"><span>Illa que aprèn</span></a>
+    <nav class="nav" aria-label="Seccions">
+      <a href="../../index.html#recursos">Espais de treball</a><a href="../../index.html#centres">Centres</a>
+      <a href="../../index.html#recorregut">Recorregut</a>
+      <a href="../../index.html#municipi">Municipi</a>
+      <a href="../../index.html#origens">D'on venim</a>
+      <a href="../../index.html#pensament">El fil</a>
+      <a href="../../index.html#replicar">Com replicar-ho</a>
+      <a href="../../index.html#biblioteca">Biblioteca</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap crumbs" style="padding-bottom:1rem"><a href="../../index.html">Illa que aprèn</a> · <a href="../../index.html#eines">Eines</a> · Eina d'infantil</div>
+  <div class="e-hero"><div class="wrap">
+    <h1>Contes que fan créixer el vocabulari</h1>
+    <div class="facts data"><span>Educació infantil · <b>3, 4 i 5 anys</b></span><span>Versió <b>0.1</b> · en prova</span><span><b>5</b> passes</span><span>Sense registre</span></div>
+    <p class="lede" style="margin-top:1rem">Prepara un conte per llegir en veu alta amb les paraules del camp lèxic que treballau, la conversa per comprendre'l i cinc minuts de jocs de consciència fonològica fets amb les paraules del mateix conte. Després imprimeix la graella d'observació del teu nivell i el registre dels sons de les lletres.</p>
+  </div></div>
+
+  <div class="wrap e-grid" id="eina">
+    <div>
+
+      <section class="pas" aria-labelledby="p0">
+        <h2 id="p0">Per què així</h2>
+        <p class="intro">Miguel Ángel Tirado ho repeteix a les ponències d'aquest curs: <b>«tot comença a infantil»</b>. És l'etapa que més pot compensar les diferències de partida. Per aprendre a llegir calen tres peces, amb una seqüència estructurada: la consciència fonològica, treballada cada dia uns 15 minuts (de la paraula a la síl·laba i al so), el principi alfabètic (quin so fa cada lletra) i, més endavant, la lectura automàtica. I per comprendre, vocabulari i coneixement del món: per això els contes s'organitzen per camps lèxics que tornen i s'amplien de 3 a 5 anys, amb una sintaxi que també creix.</p>
+        <p class="intro" style="margin-bottom:.4rem">La progressió per edats és una proposta perquè cada equip de cicle l'acordi i l'ajusti:</p>
+        <ul class="usar">
+          <li><b>3 anys</b> · la frase i la paraula: quantes paraules té una frase, quines paraules sonen igual.</li>
+          <li><b>4 anys</b> · la paraula i la síl·laba: picar síl·labes, la síl·laba inicial, les rimes.</li>
+          <li><b>5 anys</b> · el so: so inicial, unir sons i segmentar paraules en fonemes, que és l'objectiu en acabar l'etapa. I els sons de les lletres: si en falta algun, sabem quin és i l'ensenyam.</li>
+        </ul>
+      </section>
+
+      <!-- PAS 1 -->
+      <section class="pas" aria-labelledby="p1">
+        <h2 id="p1"><span>1</span>Dades del conte</h2>
+        <p class="intro">Només l'edat és obligatòria. Si deixes un camp buit, la IA triarà el més adequat a l'edat.</p>
+        <form id="f-dades" class="fgrid" autocomplete="off">
+          <div class="fld">
+            <label for="edat">Edat del grup <span class="req">(obligatori)</span></label>
+            <select id="edat" required>
+              <option value="">Tria l'edat</option>
+              <option value="3">3 anys (1r d'infantil)</option>
+              <option value="4">4 anys (2n d'infantil)</option>
+              <option value="5">5 anys (3r d'infantil)</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label for="llengua">Llengua del conte</label>
+            <select id="llengua"><option value="català">Català</option><option value="castellà">Castellà</option></select>
+          </div>
+          <div class="fld">
+            <label for="camp">Camp lèxic</label>
+            <input type="text" id="camp" list="l-camp" placeholder="Per exemple: el mar">
+            <datalist id="l-camp"><option value="el mar i la platja"><option value="els animals de la granja"><option value="la casa"><option value="el cos"><option value="els aliments"><option value="el temps i les estacions"><option value="els oficis"><option value="el camp de Formentera"><option value="els transports"></datalist>
+          </div>
+          <div class="fld">
+            <label for="cicle">Aquest conte és</label>
+            <select id="cicle">
+              <option value="nou">El primer d'aquest camp lèxic</option>
+              <option value="torna">Un conte que torna al camp lèxic i l'amplia</option>
+            </select>
+            <small>Si torna, escriu a sota les paraules que ja coneixen.</small>
+          </div>
+          <div class="fld full">
+            <label for="paraules">Paraules que han de tornar</label>
+            <textarea id="paraules" rows="2" placeholder="Opcional. Separades per comes: barca, onada, gavina, xarxa..."></textarea>
+            <small id="ajuda-par">Tria l'edat per veure quantes paraules noves convé.</small>
+          </div>
+          <div class="fld">
+            <label for="tema">Tema o situació</label>
+            <input type="text" id="tema" placeholder="Opcional. Per exemple: un dia de vent al port">
+          </div>
+          <div class="fld">
+            <label for="personatge">Personatge que torna</label>
+            <input type="text" id="personatge" placeholder="Opcional. Per exemple: la gavina Lila">
+            <small>Un personatge fix ajuda a enllaçar els contes del curs.</small>
+          </div>
+          <div class="fld full">
+            <label for="lletres-tr">Lletres que ja heu treballat (5 anys)</label>
+            <input type="text" id="lletres-tr" placeholder="Opcional. Per exemple: m, p, l, s, a, e, i, o, u">
+            <small>La IA en triarà tres del conte per al joc de sons. A 3 i 4 anys no es fa servir.</small>
+          </div>
+        </form>
+      </section>
+
+      <!-- PAS 2 -->
+      <section class="pas" aria-labelledby="p2">
+        <h2 id="p2"><span>2</span>Copia el prompt</h2>
+        <p class="intro">Copia el prompt i enganxa'l a l'assistent d'IA que facis servir (ChatGPT, Gemini, Claude, Copilot...). Llegeix el conte abans de dur-lo a l'aula: la revisió final sempre és teva.</p>
+        <div class="resum-prompt data" id="resum-prompt"><span>Encara no has triat l'edat.</span></div>
+        <div class="quiz-bar">
+          <button type="button" id="b-copiar" disabled>Copiar el prompt</button>
+          <button type="button" class="sec" id="b-txt" disabled>Descarregar .txt</button>
+          <span class="estat" id="estat-copia" role="status" aria-live="polite"></span>
+        </div>
+        <details class="prompt-box"><summary>Veure el prompt</summary>
+          <textarea id="prompt" readonly aria-label="Prompt preparat"></textarea>
+        </details>
+      </section>
+
+      <!-- PAS 3 -->
+      <section class="pas" aria-labelledby="p3">
+        <h2 id="p3"><span>3</span>Prepara el conte per imprimir</h2>
+        <p class="intro">Enganxa aquí tota la resposta de la IA. Veuràs el conte, la conversa i els jocs en un full net per imprimir o desar en PDF.</p>
+        <div class="fld full"><label for="resposta">Resposta de la IA</label>
+          <textarea id="resposta" rows="7" placeholder="Enganxa aquí tota la resposta"></textarea></div>
+        <div class="quiz-bar">
+          <button type="button" id="b-imp-conte" disabled>Imprimir o desar en PDF</button>
+          <span class="estat" id="estat-conte" role="status" aria-live="polite"></span>
+        </div>
+        <div class="paper-wrap"><div class="paper" id="paper-conte"></div></div>
+      </section>
+
+      <!-- PAS 4 -->
+      <section class="pas" aria-labelledby="p4">
+        <h2 id="p4"><span>4</span>Graella d'observació i sons de les lletres</h2>
+        <p class="intro">A infantil s'avalua observant i descrivint. Aquesta graella recull, per a cada infant, el que fa sol, amb ajuda o encara no, en consciència fonològica, vocabulari i comprensió oral. Serveix per decidir a qui cal donar més temps i com, no per posar notes.</p>
+        <form class="fgrid" autocomplete="off" id="f-graella">
+          <div class="fld">
+            <label for="g-edat">Nivell</label>
+            <select id="g-edat"><option value="3">3 anys</option><option value="4">4 anys</option><option value="5">5 anys</option></select>
+          </div>
+          <div class="fld">
+            <label for="g-grup">Grup i tutor/a</label>
+            <input type="text" id="g-grup" placeholder="Opcional. Per exemple: 5 anys A · Marta">
+          </div>
+          <div class="fld full">
+            <label for="g-noms">Infants</label>
+            <textarea id="g-noms" rows="3" placeholder="Un nom o unes inicials per línia. Si ho deixes buit, el full surt amb 25 files en blanc."></textarea>
+            <small>No es desa enlloc: el full es fa al teu navegador.</small>
+          </div>
+          <fieldset class="checks full" id="g-lletres-w">
+            <legend>Lletres treballades per al registre de sons (sobretot 5 anys)</legend>
+            <div class="lletres" id="g-lletres"></div>
+          </fieldset>
+        </form>
+        <div class="quiz-bar">
+          <button type="button" id="b-imp-graella">Imprimir la graella</button>
+          <button type="button" class="sec" id="b-imp-lletres">Imprimir el registre de sons</button>
+          <span class="estat" id="estat-graella" role="status" aria-live="polite"></span>
+        </div>
+        <details class="prompt-box"><summary>Veure els indicadors del nivell</summary>
+          <div id="g-indicadors" style="padding-top:.5rem"></div>
+        </details>
+        <p class="nota" style="margin-top:1rem">La graella és un registre d'aula. No substitueix les proves institucionals del centre, que passa un equip reduït i especialitzat, ni les proves de segmentació fonèmica i de principi alfabètic que Miguel Ángel Tirado va dir que compartiria. Quan les tinguem, les publicarem aquí.</p>
+      </section>
+
+      <section class="pas" aria-labelledby="p5">
+        <h2 id="p5"><span>5</span>Digues-nos com ha anat</h2>
+        <p class="intro">Aquesta eina és nova. Si l'has provada a l'aula, dues línies ens ajuden a millorar-la.</p>
+        <div class="fld full"><label for="val">Què ha funcionat i què canviaries</label>
+          <textarea id="val" rows="3" placeholder="Per exemple: el conte de 4 anys era massa llarg; els jocs de síl·labes han anat molt bé"></textarea></div>
+        <div class="quiz-bar">
+          <button type="button" id="b-correu">Enviar la valoració</button>
+          <span class="estat" id="estat-val" role="status" aria-live="polite"></span>
+        </div>
+        <p class="nota">S'obre el teu correu amb el text adreçat a <a href="mailto:cep@cepformentera.cat">cep@cepformentera.cat</a>.</p>
+      </section>
+    </div>
+
+    <aside class="aside">
+      <div class="box">
+        <h2>D'on surt</h2>
+        <p>De les ponències de Miguel Ángel Tirado al CEIP Sant Ferran de ses Roques (28/09/2026) i al CEIP Mestre Lluís Andreu (29/09/2026): consciència fonològica cada dia, uns 15 minuts; principi alfabètic; contes amb vocabulari que torna.</p>
+        <p>Fonamentació que va citar: National Reading Panel (2000); Ehri et al. (2001); Melby-Lervåg, Lyster i Hulme (2012); Share (1995); Castles, Rastle i Nation (2018); Gough i Tunmer (1986); Dickinson i Porche (2011).</p>
+      </div>
+      <div class="box">
+        <h2>Currículum</h2>
+        <ul>
+          <li>Decret 40/2025, d'1 d'agost, de currículum d'educació infantil (BOIB núm. 102, de 2/08/2025): consciència fonològica a través de la segmentació de paraules, rimes i síl·labes inicials i finals; associació fonema-grafema, vocabulari i comprensió verbal; orientacions per a la competència lectora al segon cicle.</li>
+          <li>Ordre 29/2025, de 21 d'octubre, d'avaluació d'infantil (BOIB núm. 140, de 23/10/2025): avaluar observant, sense notes.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h2>Les altres eines</h2>
+        <ul>
+          <li><a href="../eina-primer-cicle/">Primer cicle de primària</a> · velocitat i precisió lectora</li>
+          <li><a href="../eina-lectura/">Comprensió lectora</a> · de 3r de primària a 4t d'ESO</li>
+          <li><a href="../eina-lectura-idiomes/">Llengües estrangeres</a> · anglès, francès i alemany</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h2>Versions</h2>
+        <ul><li><b>0.1</b> · 16/11/2026 · Primera versió en prova, feta pel CEP a partir de les ponències. Pendent que la revisi Miguel Ángel Tirado.</li></ul>
+      </div>
+    </aside>
+  </div>
+  <div id="imprimir" aria-hidden="true"></div>
+</main>
+
+<footer>
+  <div class="wrap logos" aria-label="Institucions">
+    <img src="../../assets/logos/cep-formentera.png" alt="Centre de Professorat de Formentera" height="48">
+    <img src="../../assets/logos/sfpp.png" alt="Servei de Formació Permanent del Professorat" height="48">
+    <img src="../../assets/logos/govern-illes-balears.png" alt="Govern de les Illes Balears" height="48">
+  </div>
+  <div class="wrap">
+    <div>
+      <p><b>CEP de Formentera</b> · Servei de Formació Permanent del Professorat · Govern de les Illes Balears</p>
+      <p>Eina del CEP de Formentera a partir de les ponències de Miguel Ángel Tirado. L'eina no desa cap dada: tot el que hi escrius es queda al teu navegador.</p>
+    </div>
+    <div>
+      <p>Continguts sota llicència <b>Creative Commons BY-NC-SA 4.0</b>: podeu compartir-los i adaptar-los citant la font, sense ús comercial i amb la mateixa llicència.</p>
+      <p>Darrera actualització: 16 de novembre de 2026.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+'use strict';
+var VERSIO='0.1';
+var CORREU='cep@cepformentera.cat';
+function $(id){return document.getElementById(id);}
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+/* ---------- Paràmetres per edat (proposta del CEP, ajustable) ---------- */
+var EDATS={
+ '3':{nom:'3 anys',curs:'1r curs del segon cicle d’educació infantil',ext:'150-250',min:'3 a 4',noves:'4 a 6',
+  sint:'Oracions simples i curtes, en present o passat simple. Estructura repetitiva o acumulativa, amb una frase que torna a cada escena i que els infants puguin dir amb tu.',
+  conversa:'5 preguntes en total: 1 abans de llegir, 2 durant i 2 després. Preguntes curtes, de resposta oral breu o assenyalant la imatge.',
+  nivell:'CONSCIÈNCIA LÈXICA (la frase i la paraula)',
+  jocs:'Tres jocs de 5 minuts en total, amb frases i paraules del conte: (1) comptar les paraules d’una frase curta del conte picant de mans; (2) dir si una paraula és llarga o curta en sentir-la; (3) trobar dues paraules que rimen, amb ajuda del mestre.',
+  alfabet:false},
+ '4':{nom:'4 anys',curs:'2n curs del segon cicle d’educació infantil',ext:'250-400',min:'4 a 5',noves:'6 a 8',
+  sint:'Oracions simples i coordinades (i, però) i connectors temporals clars (primer, després, al final). Algun diàleg breu entre personatges.',
+  conversa:'6 preguntes en total: 1 abans, 2 durant i 3 després.',
+  nivell:'CONSCIÈNCIA SIL·LÀBICA (la paraula i la síl·laba)',
+  jocs:'Tres jocs de 5 minuts en total, amb paraules del conte: (1) picar les síl·labes de paraules de dues i tres síl·labes; (2) dir la síl·laba inicial i trobar altres paraules del conte que comencin igual; (3) rimes: quina paraula acaba com…',
+  alfabet:false},
+ '5':{nom:'5 anys',curs:'3r curs del segon cicle d’educació infantil',ext:'350-550',min:'5 a 6',noves:'8 a 10',
+  sint:'Oracions simples i compostes, amb alguna subordinada molt freqüent i transparent (perquè, quan, si). Diàleg entre personatges. Un problema i una solució, i un detall que s’ha de deduir.',
+  conversa:'7 preguntes en total: 1 abans, 2 durant i 4 després.',
+  nivell:'CONSCIÈNCIA FONÈMICA (el so) i PRINCIPI ALFABÈTIC',
+  jocs:'Quatre jocs de 5 minuts en total, amb paraules del conte: (1) quin és el primer so d’una paraula; (2) unir sons dits a poc a poc per formar una paraula del conte (síntesi); (3) segmentar en sons paraules curtes del conte de 3 o 4 sons (per exemple, de síl·labes CV o CVC); (4) principi alfabètic: tres lletres que surten al conte, el seu so i una paraula del conte que el té.',
+  alfabet:true}
+};
+
+function dades(){
+  return {e:$('edat').value, c:EDATS[$('edat').value], ll:$('llengua').value, camp:$('camp').value.trim(),
+    cicle:$('cicle').value, par:$('paraules').value.trim(), tema:$('tema').value.trim(),
+    pers:$('personatge').value.trim(), lletres:$('lletres-tr').value.trim()};
+}
+
+function construeix(d){
+  var c=d.c, L=[];
+  var buit='(Si és buit, tria-ho tu, adequat a l’edat i a l’entorn de l’infant.)';
+  L.push('PROMPT PER ELABORAR UN CONTE DE LECTURA EN VEU ALTA AMB VOCABULARI QUE TORNA I JOCS DE CONSCIÈNCIA FONOLÒGICA');
+  L.push('Educació infantil · '+c.nom+' · Versió '+VERSIO+' · CEP de Formentera, a partir de les ponències de Miguel Ángel Tirado (curs 2026-2027)');
+  L.push('');
+  L.push('ROL');
+  L.push('Ets un/a mestre/a d’educació infantil amb formació en desenvolupament del llenguatge oral i en les bases de la lectura. Escrius contes per llegir en veu alta a l’aula i prepares, a partir del mateix conte, la conversa i els jocs de consciència fonològica.');
+  L.push('');
+  L.push('PER QUÈ');
+  L.push('- Comprendre depèn del vocabulari i del coneixement del món: com més vocabulari, més comprensió. A infantil, la lectura en veu alta del mestre és la manera més directa d’ampliar-lo.');
+  L.push('- El vocabulari s’organitza per camps lèxics que tornen i s’amplien al llarg dels tres cursos d’infantil, amb una sintaxi que també creix.');
+  L.push('- La consciència fonològica es treballa cada dia, uns 15 minuts, de manera sistemàtica i progressiva: lèxica, sil·làbica i fonèmica. L’objectiu en acabar infantil és segmentar les paraules en fonemes i conèixer el so de les lletres.');
+  L.push('- Marc curricular: Decret 40/2025, d’1 d’agost, de currículum d’educació infantil de les Illes Balears (consciència fonològica a través de la segmentació de paraules, determinació de rimes i reconeixement de síl·labes inicials i finals; associació fonema-grafema; vocabulari i comprensió verbal).');
+  L.push('');
+  L.push('DADES');
+  L.push('- Grup: '+c.nom+' ('+c.curs+').');
+  L.push('- Llengua del conte i de tot el material: '+d.ll+(d.ll==='català'?' estàndard, amb formes pròpies de les Illes Balears quan siguin naturals (per exemple, el lèxic de l’entorn).':'.'));
+  L.push('- Camp lèxic: '+(d.camp||buit));
+  L.push('- Tema o situació: '+(d.tema||buit));
+  L.push('- Personatge que torna: '+(d.pers||'(Cap. Pots crear-ne un si ajuda el conte.)'));
+  if(d.cicle==='torna'){
+    L.push('- Aquest conte TORNA a un camp lèxic que el grup ja coneix. Paraules que ja coneixen: '+(d.par||'(no indicades: tria’n tu de bàsiques del camp lèxic)')+'. Fes-les tornar totes i afegeix-hi '+c.noves+' paraules noves del mateix camp lèxic, una mica més precises o menys freqüents.');
+  }else{
+    L.push('- Paraules que han de tornar: '+(d.par||'(Tria’n tu '+c.noves+' del camp lèxic, concretes, útils i que es puguin mostrar o representar.)'));
+  }
+  if(c.alfabet) L.push('- Lletres que ja s’han treballat: '+(d.lletres||'(no indicades: tria lletres de so estable i freqüents al conte)')+'.');
+  L.push('');
+  L.push('CONDICIONS DEL CONTE');
+  L.push('1. És per llegir-lo en veu alta el mestre o la mestra. Els infants no el llegeixen. Durada de lectura: entre '+c.min+' minuts. Extensió: '+c.ext+' paraules.');
+  L.push('2. Sintaxi: '+c.sint);
+  L.push('3. Cada paraula que ha de tornar apareix almenys tres vegades, en situacions diferents, i el context n’aclareix el significat sense haver d’explicar-lo.');
+  L.push('4. Paràgrafs curts. Marca amb [PAUSA] els dos punts on el mestre s’atura per fer les preguntes de durant la lectura.');
+  L.push('5. Títol breu i clar. Res de lliçons morals explícites al final.');
+  L.push('6. Personatges diversos, sense estereotips de gènere, d’origen ni de família. Entorns propers a un infant de Formentera quan el tema ho permeti.');
+  L.push('7. Ni violència, ni por excessiva, ni marques comercials, ni personatges amb drets d’autor.');
+  L.push('');
+  L.push('QUÈ HAS D’ESCRIURE');
+  L.push('Escriu en Markdown, amb aquests apartats i exactament aquests títols, en aquest ordre:');
+  L.push('');
+  L.push('## CONTE');
+  L.push('El títol en negreta i el conte.');
+  L.push('');
+  L.push('## PARAULES QUE TORNEN');
+  L.push('Una línia per paraula: la paraula, una explicació que pugui entendre un infant de '+c.nom+' i un gest, objecte o imatge per acompanyar-la.');
+  L.push('');
+  L.push('## CONVERSA');
+  L.push(c.conversa+' Indica a cada pregunta, entre parèntesis, el moment (abans, durant o després) i el procés: localitzar (què diu el conte), deduir (què no diu però s’entén), interpretar i integrar (com se sent, per què passa, en quin ordre) o valorar (què en pensam). Inclou almenys una pregunta de deduir. Afegeix, en cursiva, la resposta que esperam.');
+  L.push('');
+  L.push('## JOCS DE CONSCIÈNCIA FONOLÒGICA');
+  L.push('Nivell: '+c.nivell+'. '+c.jocs+' Per a cada joc: nom del joc, com es fa (dues o tres frases), les paraules o frases del conte que s’hi fan servir i una variant per a l’infant que necessita més ajuda.');
+  L.push('Escriu els sons entre barres (/m/) i no els confonguis amb el nom de la lletra. Comprova que el nombre de síl·labes o de sons de cada paraula és correcte en '+d.ll+'.'+(d.ll==='català'?' Compte amb les vocals neutres i amb les consonants finals que no es pronuncien: tria paraules en què el so sigui clar.':''));
+  L.push('');
+  L.push('## QUÈ OBSERVAM AVUI');
+  L.push('Tres o quatre conductes observables en aquesta sessió (per exemple: fa servir dues paraules del camp lèxic en explicar el conte), redactades perquè el mestre pugui marcar «ho fa sol», «amb ajuda» o «encara no».');
+  L.push('');
+  L.push('## PER A CASA');
+  L.push('Tres línies per a les famílies, en llenguatge planer: de què parla el conte, dues paraules per fer servir a casa i una pregunta per conversar.');
+  L.push('');
+  L.push('NORMES FINALS');
+  L.push('- No afegeixis cap altre apartat ni comentaris fora dels apartats.');
+  L.push('- No t’inventis dades, autors ni referències.');
+  L.push('- El mestre o la mestra revisa tot el material abans de dur-lo a l’aula.');
+  return L.join('\n');
+}
+
+var promptActual='';
+function actualitza(){
+  var d=dades(), ok=!!d.c;
+  $('b-copiar').disabled=!ok;$('b-txt').disabled=!ok;
+  if(!ok){$('resum-prompt').innerHTML='<span>Encara no has triat l’edat.</span>';$('prompt').value='';promptActual='';$('ajuda-par').textContent='Tria l’edat per veure quantes paraules noves convé.';return;}
+  promptActual=construeix(d);$('prompt').value=promptActual;
+  $('ajuda-par').textContent='A '+d.c.nom+': entre '+d.c.noves.replace(' a ',' i ')+' paraules noves per conte.';
+  $('resum-prompt').innerHTML='<span><b>'+esc(d.c.nom)+'</b></span><span>'+esc(d.ll)+'</span><span>'+esc(d.c.ext)+' paraules</span><span>'+esc(d.c.min)+' min de lectura</span><span>'+esc(d.c.nivell.toLowerCase())+'</span>';
+  if($('g-edat').value!==d.e){$('g-edat').value=d.e;pintaIndicadors();}
+}
+['edat','llengua','camp','cicle','paraules','tema','personatge','lletres-tr'].forEach(function(id){$(id).addEventListener('input',actualitza);$(id).addEventListener('change',actualitza);});
+
+function estat(id,t){$(id).textContent=t;setTimeout(function(){$(id).textContent='';},4000);}
+function copia(text,id){
+  function fet(){estat(id,'Copiat. Ara enganxa-ho a la IA.');}
+  function alt(){var t=$('prompt');t.parentNode.open=true;t.select();try{document.execCommand('copy');fet();}catch(e){estat(id,'Selecciona el text i copia’l a mà.');}}
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(fet,alt);}else{alt();}
+}
+function descarrega(nom,text){
+  var b=new Blob([text],{type:'text/plain;charset=utf-8'});
+  var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=nom;
+  document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},500);
+}
+$('b-copiar').addEventListener('click',function(){copia(promptActual,'estat-copia');});
+$('b-txt').addEventListener('click',function(){descarrega('prompt-conte-infantil-'+dades().e+'anys-v'+VERSIO+'.txt',promptActual);});
+
+/* ---------- Markdown mínim -> HTML ---------- */
+function inline(t){
+  t=esc(t);
+  t=t.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/(^|[^*])\*(?!\s)(.+?)\*/g,'$1<i>$2</i>').replace(/_(.+?)_/g,'<i>$1</i>');
+  return t;
+}
+function md(text){
+  var out=[],lines=text.replace(/\r/g,'').split('\n'),inUl=false,inOl=false,para=[];
+  function flushP(){if(para.length){out.push('<p>'+inline(para.join(' '))+'</p>');para=[];}}
+  function closeL(){if(inUl){out.push('</ul>');inUl=false;}if(inOl){out.push('</ol>');inOl=false;}}
+  lines.forEach(function(l){
+    var s=l.trim();
+    if(!s){flushP();closeL();return;}
+    var m;
+    if((m=s.match(/^#{1,2}\s+(.*)/))){flushP();closeL();out.push('<h2>'+inline(m[1].replace(/\*/g,''))+'</h2>');return;}
+    if((m=s.match(/^#{3,6}\s+(.*)/))){flushP();closeL();out.push('<h3>'+inline(m[1])+'</h3>');return;}
+    if((m=s.match(/^[-*•]\s+(.*)/))){flushP();if(inOl){out.push('</ol>');inOl=false;}if(!inUl){out.push('<ul>');inUl=true;}out.push('<li>'+inline(m[1])+'</li>');return;}
+    if((m=s.match(/^\d+[.)]\s+(.*)/))){flushP();if(inUl){out.push('</ul>');inUl=false;}if(!inOl){out.push('<ol>');inOl=true;}out.push('<li>'+inline(m[1])+'</li>');return;}
+    closeL();flushP();para.push(s);
+  });
+  flushP();closeL();
+  return out.join('\n');
+}
+function capcalera(titol){
+  var g=$('g-grup')?$('g-grup').value.trim():'';
+  return '<div class="cap"><span>CEP de Formentera · Illa que aprèn</span><span>'+esc(titol)+'</span></div>';
+}
+function pintaConte(){
+  var t=$('resposta').value.trim();
+  $('b-imp-conte').disabled=!t;
+  var d=dades();
+  $('paper-conte').innerHTML=t?capcalera('Conte · '+(d.c?d.c.nom:'Educació infantil'))+md(t).replace(/\[PAUSA\]/g,'<b style="color:#7A6A10">[PAUSA]</b>')+'<p class="peu">Material elaborat amb IA a partir del prompt del CEP de Formentera (v'+VERSIO+') i revisat pel mestre o la mestra.</p>':'';
+}
+$('resposta').addEventListener('input',pintaConte);
+
+function imprimeix(html){
+  var w=$('imprimir');w.innerHTML=html;w.setAttribute('aria-hidden','false');
+  document.body.classList.add('imprimint');setTimeout(function(){window.print();document.body.classList.remove('imprimint');},50);
+}
+$('b-imp-conte').addEventListener('click',function(){imprimeix('<div class="paper">'+$('paper-conte').innerHTML+'</div>');});
+
+/* ---------- Graella d'observació ---------- */
+var IND={
+ '3':{t:'3 anys',blocs:[
+   ['Consciència fonològica (frase i paraula)',['Repeteix una frase curta del conte','Separa una frase de tres paraules picant de mans','Diu si una paraula és llarga o curta en sentir-la','Reconeix dues paraules que rimen, amb ajuda']],
+   ['Vocabulari i comprensió oral',['Fa servir paraules del camp lèxic treballat','Respon què i qui sobre el conte','Diu com se sent un personatge','Explica què ha passat amb l’ajuda de les imatges']]]},
+ '4':{t:'4 anys',blocs:[
+   ['Consciència fonològica (paraula i síl·laba)',['Pica les síl·labes d’una paraula de dues o tres síl·labes','Diu la síl·laba inicial d’una paraula','Troba paraules que comencen per la mateixa síl·laba','Reconeix i diu paraules que rimen']],
+   ['Vocabulari i comprensió oral',['Fa servir paraules del camp lèxic treballat','Respon on, quan i per què sobre el conte','Endevina què passarà i ho comprova','Torna a explicar el conte en ordre (primer, després, al final)']]]},
+ '5':{t:'5 anys',blocs:[
+   ['Consciència fonològica (el so)',['Diu el primer so d’una paraula','Diu paraules que comencen pel mateix so','Uneix sons dits a poc a poc i diu la paraula','Segmenta en sons paraules de tres o quatre sons']],
+   ['Principi alfabètic',['Diu el so de les lletres treballades (vegeu el registre de sons)','Escriu paraules senzilles relacionant so i lletra']],
+   ['Vocabulari i comprensió oral',['Fa servir paraules del camp lèxic treballat','Deduu el que el conte no diu','Explica el perquè d’un fet del conte','Torna a explicar el conte amb ordre i amb paraules noves']]]}
+};
+var LLETRES={
+ 'català':['a','e','i','o','u','m','p','l','s','t','n','d','r','b','g','c','f','v','x','j','z','ç','ll','ny','qu','gu','h','k','w','y'],
+ 'castellà':['a','e','i','o','u','m','p','l','s','t','n','d','r','b','g','c','f','v','j','z','ñ','ll','ch','qu','gu','y','h','k','x','w']
+};
+var PER_DEFECTE=['a','e','i','o','u','m','p','l','s','t','n'];
+function pintaLletres(){
+  var ll=$('llengua').value, sel=llegeixLletres();
+  if(!sel.length) sel=PER_DEFECTE;
+  $('g-lletres').innerHTML=LLETRES[ll].map(function(x){return '<label><input type="checkbox" value="'+x+'"'+(sel.indexOf(x)>=0?' checked':'')+'>'+x+'</label>';}).join('');
+}
+function llegeixLletres(){return Array.prototype.map.call(document.querySelectorAll('#g-lletres input:checked'),function(i){return i.value;});}
+$('llengua').addEventListener('change',pintaLletres);
+function pintaIndicadors(){
+  var g=IND[$('g-edat').value];
+  $('g-indicadors').innerHTML=g.blocs.map(function(b){return '<p style="margin:.4rem 0 .2rem"><b>'+esc(b[0])+'</b></p><ul class="usar" style="margin-top:0">'+b[1].map(function(i){return '<li>'+esc(i)+'</li>';}).join('')+'</ul>';}).join('');
+}
+$('g-edat').addEventListener('change',pintaIndicadors);
+function noms(){
+  var n=$('g-noms').value.split('\n').map(function(x){return x.trim();}).filter(Boolean);
+  if(!n.length){n=[];for(var i=0;i<25;i++)n.push('');}
+  return n;
+}
+function graella(){
+  var g=IND[$('g-edat').value], n=noms(), grup=$('g-grup').value.trim(), h=[];
+  var trims=['1r trimestre','2n trimestre','3r trimestre'];
+  g.blocs.forEach(function(b,bi){
+    h.push('<div class="paper'+(bi?' salt':'')+'">'+capcalera('Graella d’observació · '+g.t));
+    h.push('<h1>'+esc(b[0])+'</h1><p class="escala">'+(grup?esc(grup)+' · ':'')+'Data: ____________ · Marcau a cada casella: <b>S</b> ho fa sol/a · <b>A</b> amb ajuda · <b>N</b> encara no · <b>–</b> no observat</p>');
+    h.push('<table><thead><tr><th>Infant</th>'+b[1].map(function(i,k){return '<th>'+(k+1)+'. '+esc(i)+'</th>';}).join('')+'<th>Observacions</th></tr></thead><tbody>');
+    n.forEach(function(x){h.push('<tr><td style="height:1.9rem">'+esc(x)+'</td>'+b[1].map(function(){return '<td class="c"></td>';}).join('')+'<td style="width:22%"></td></tr>');});
+    h.push('</tbody></table><p class="peu">Registre d’aula per decidir suports (a tot el grup, en petit grup o individual). Avaluar observant, sense notes: Ordre 29/2025, de 21 d’octubre (BOIB núm. 140, de 23/10/2025). CEP de Formentera, a partir de les ponències de Miguel Ángel Tirado.</p></div>');
+  });
+  return h.join('');
+}
+function registreSons(){
+  var ll=llegeixLletres(), n=noms(), grup=$('g-grup').value.trim();
+  if(!ll.length) return '';
+  var h=['<div class="paper">'+capcalera('Registre de sons de les lletres')];
+  h.push('<h1>Sap el so de cada lletra?</h1><p class="escala">'+(grup?esc(grup)+' · ':'')+'Data: ____________ · Mostrau la lletra i demanau quin so fa (no el nom). Marcau <b>✓</b> si el diu, <b>✗</b> si no. Les lletres amb ✗ són les que cal ensenyar a aquest infant.</p>');
+  h.push('<table><thead><tr><th>Infant</th>'+ll.map(function(x){return '<th style="text-align:center">'+esc(x)+'</th>';}).join('')+'<th>Lletres per ensenyar</th></tr></thead><tbody>');
+  n.forEach(function(x){h.push('<tr><td style="height:1.9rem">'+esc(x)+'</td>'+ll.map(function(){return '<td class="c"></td>';}).join('')+'<td style="width:18%"></td></tr>');});
+  h.push('</tbody></table><p class="peu">Si un infant no reconeix el so d’alguna lletra, sabem quina és i l’ensenyam (Miguel Ángel Tirado, ponències als CEIP de Formentera, setembre de 2026). CEP de Formentera.</p></div>');
+  return h.join('');
+}
+$('b-imp-graella').addEventListener('click',function(){imprimeix(graella());});
+$('b-imp-lletres').addEventListener('click',function(){var r=registreSons();if(!r){estat('estat-graella','Marca almenys una lletra.');return;}imprimeix(r);});
+
+/* ---------- Valoració ---------- */
+$('b-correu').addEventListener('click',function(){
+  var t=$('val').value.trim();if(!t){estat('estat-val','Escriu primer la valoració.');return;}
+  var d=dades();
+  var cos='Eina d’infantil v'+VERSIO+'\nEdat: '+(d.c?d.c.nom:'no indicada')+'\nLlengua: '+d.ll+'\n\n'+t;
+  location.href='mailto:'+CORREU+'?subject='+encodeURIComponent('Valoració · Eina d’infantil')+'&body='+encodeURIComponent(cos);
+});
+
+pintaLletres();pintaIndicadors();actualitza();
+})();
+</script>
+</body>
+</html>
