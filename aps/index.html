@@ -203,7 +203,9 @@ footer a{color:#fff}
 .servei{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:clamp(20px,4vw,44px);align-items:center;background:var(--navy);color:#fff;border-radius:var(--r);padding:clamp(22px,3vw,34px);margin:40px 0 0}
 .servei h3{color:#fff;margin:0 0 14px;font-size:24px}
 .servei .ink.gp{max-width:200px;margin:0;filter:brightness(0) invert(1);opacity:.85}
-.tipus{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.tipus{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.servei-p{color:#D5DDE8;font-size:16px;line-height:1.5;margin:0 0 16px}
+.servei-p a{color:#fff}
 .tipus li{background:rgba(255,255,255,.07);border-radius:10px;padding:18px}
 .tipus .ti{width:30px;height:30px;color:var(--gold);display:block;margin-bottom:10px}
 .tipus b{display:block;font-family:var(--serif);font-weight:600;font-size:19px;margin-bottom:4px}
@@ -371,16 +373,17 @@ footer a{color:#fff}
     </li>
   </ol>
   <div class="servei">
-    <div class="servei-t"><h3>Quin servei pot fer l’alumnat?</h3><img class="ink gp" src="img/gravat-salines.webp" alt="Gravat de les salines, amb un munt de sal i un rasclet" width="1000" height="665" loading="lazy"></div>
+    <div class="servei-t"><h3>Quin servei pot fer l’alumnat?</h3><p class="servei-p">La <a href="https://csv.caib.es/concsvfront/view.xhtml?hash=97fc4dc99435e9c4f53774de108303c7eb9e760d1c87794797fd99f43df91a6a" target="_blank" rel="noopener">Instrucció del programa</a> situa el servei al Parc Natural, al Centre de dia i als centres per a majors de Formentera, perquè l’alumnat participi en la vida de la comunitat.</p><img class="ink gp" src="img/gravat-salines.webp" alt="Gravat de les salines, amb un munt de sal i un rasclet" width="1000" height="665" loading="lazy"></div>
     <ul class="tipus">
-      <li><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a10 10 0 1 0 20 0" /> <path d="M12 19a10 10 0 0 1 10 -10" /> <path d="M2 9a10 10 0 0 1 10 10" /> <path d="M12 4a9.7 9.7 0 0 1 2.99 7.5" /> <path d="M9.01 11.5a9.7 9.7 0 0 1 2.99 -7.5" /></svg><b>Cuidar el medi</b><span>Biodiversitat, regeneració de dunes, caixes niu.</span></li>
-      <li><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a3 3 0 0 1 0 6" /> <path d="M10 8v11a1 1 0 0 1 -1 1h-1a1 1 0 0 1 -1 -1v-5" /> <path d="M12 8h0l4.524 -3.77a.9 .9 0 0 1 1.476 .692v12.156a.9 .9 0 0 1 -1.476 .692l-4.524 -3.77h-8a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h8" /></svg><b>Sensibilitzar</b><span>Consum responsable, espècies invasores.</span></li>
-      <li><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 18l2 -13l2 -2l2 2l2 13" /> <path d="M5 21v-3h14v3" /> <path d="M3 21l18 0" /></svg><b>Millorar el patrimoni</b><span>Reforestacions, restauració d’elements patrimonials, camins senyalitzats.</span></li>
+      <li><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 13l-2 -2" /> <path d="M12 12l2 -2" /> <path d="M12 21v-13" /> <path d="M9.824 16a3 3 0 0 1 -2.743 -3.69a3 3 0 0 1 .304 -4.833a3 3 0 0 1 4.615 -3.707a3 3 0 0 1 4.614 3.707a3 3 0 0 1 .305 4.833a3 3 0 0 1 -2.919 3.695h-4z" /></svg><b>Cuidar el medi natural</b><span>Al Parc Natural de ses Salines: biodiversitat, regeneració de dunes, caixes niu, reforestacions.</span></li>
+      <li><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 21l-1 -4l-2 -3v-6" /> <path d="M5 14l-1 -3l4 -3l3 2l3 .5" /> <path d="M8 4m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M7 17l-2 4" /> <path d="M16 21v-8.5a1.5 1.5 0 0 1 3 0v.5" /></svg><b>Amb els majors de l’illa</b><span>Al Centre de dia i als centres per a majors: relació entre generacions, la memòria dels majors i la convivència.</span></li>
+      <li><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 18l2 -13l2 -2l2 2l2 13" /> <path d="M5 21v-3h14v3" /> <path d="M3 21l18 0" /></svg><b>Patrimoni i memòria</b><span>Restaurar elements patrimonials, senyalitzar camins i recollir el patrimoni immaterial de la comunitat.</span></li>
+      <li><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a3 3 0 0 1 0 6" /> <path d="M10 8v11a1 1 0 0 1 -1 1h-1a1 1 0 0 1 -1 -1v-5" /> <path d="M12 8h0l4.524 -3.77a.9 .9 0 0 1 1.476 .692v12.156a.9 .9 0 0 1 -1.476 .692l-4.524 -3.77h-8a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h8" /></svg><b>Sensibilitzar la comunitat</b><span>Campanyes de consum responsable o sobre espècies invasores, i difondre el que s’ha fet.</span></li>
     </ul>
   </div>
   <div class="xarxa">
     <p class="xarxa-t">Cap projecte va tot sol. Al voltant de cada un hi ha una xarxa:</p>
-    <ul><li>El centre</li><li>Les entitats</li><li>Les famílies</li><li>La comunitat educativa</li><li>El CEP</li><li>Les administracions</li></ul>
+    <ul><li>El centre</li><li>Les famílies</li><li>El Parc Natural</li><li>El Centre de dia i els centres de majors</li><li>El Consell de Formentera</li><li>El CEP</li><li>La comunitat</li></ul>
   </div>
   <div class="cf-links">
   <a class="btn" href="docs/material-jornada-inici-carme-frau.pdf" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M9 9l1 0"/><path d="M9 13l6 0"/><path d="M9 17l6 0"/></svg>Material de treball i fitxa del projecte (PDF)</a>
