@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aprenentatge servei a l’illa de Formentera · CEP de Formentera</title>
+<meta name="description" content="Programa d’aprenentatge servei del CEP de Formentera, curs 2026-2027: tres centres, el Parc Natural i els centres per a majors de l’illa. Recorregut, formacions i documents.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aprenentatge servei a l’illa de Formentera">
+<meta property="og:description" content="Tres centres de Formentera aprenen el currículum fent una feina que l’illa necessita. Curs 2026-2027.">
+<meta property="og:image" content="https://lesmoes-create.github.io/illa-que-apren/aps/img/og-aps.jpg">
+<meta property="og:url" content="https://lesmoes-create.github.io/illa-que-apren/aps/">
+<link rel="icon" href="img/segell-aps.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600;1,8..60,400&family=Barlow:wght@400;500;600;700&display=swap">
+<style>
+:root{--navy:#12305A;--navy2:#0B2240;--teal:#2F6F7A;--gold:#B8902B;--gold-ink:#8A6A1A;--cream:#F5F1E8;--sand:#EDE5D3;--ink:#1F2933;--ink2:#4A5563;--serif:'Source Serif 4',Georgia,serif}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:#fff;color:var(--ink);font-family:Barlow,'Segoe UI',Arial,sans-serif;font-size:18px;line-height:1.6}
+img{max-width:100%}
+a{color:var(--navy);text-underline-offset:.2em}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--navy);color:#fff;padding:8px 14px;border-radius:6px;z-index:9}
+.skip:focus{left:8px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
+
+/* Barra */
+.bar{border-bottom:1px solid var(--sand);background:#fff}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.bar .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy);font-weight:600;font-size:16px}
+.bar .brand img{height:38px;width:auto}
+.bar nav{display:flex;gap:20px;font-size:16px}
+.bar nav a{text-decoration:none;font-weight:500}
+.bar nav a:hover{text-decoration:underline}
+
+/* Capçalera */
+.hero{background:var(--cream);margin-top:28px;border-radius:14px;padding:clamp(24px,4vw,40px);display:grid;grid-template-columns:1fr 176px;gap:32px;align-items:center}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5vw,48px);line-height:1.06;color:var(--navy);margin:0 0 6px}
+.hero .sub{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--teal);margin:0 0 18px}
+.hero p{margin:0;max-width:62ch}
+.hero img{width:176px;height:176px;display:block}
+
+h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,3.4vw,34px);line-height:1.15;color:var(--navy);margin:0 0 14px}
+h3{font-family:var(--serif);font-weight:600;font-size:22px;line-height:1.25;color:var(--navy);margin:36px 0 6px}
+.sec{margin:64px 0 0}
+.lead{max-width:66ch;color:var(--ink2);margin:0}
+
+/* Equació */
+.eq{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:20px;align-items:start;margin:24px 0 0}
+.eq>div{border-top:3px solid var(--teal);padding-top:14px}
+.eq>div.res{border-top-color:var(--gold)}
+.eq b{display:block;font-family:var(--serif);font-weight:600;font-size:24px;color:var(--navy);margin-bottom:6px}
+.eq span{display:block;color:var(--ink2)}
+.eq i{font-style:normal;font-family:var(--serif);font-size:40px;line-height:1;color:var(--gold);padding-top:22px}
+
+/* Vídeo i fotos */
+.video{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:var(--navy2);margin-top:20px}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.fotos{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:230px 230px;gap:10px;margin:24px 0 0}
+.fotos figure{margin:0;overflow:hidden;border-radius:10px;background:var(--sand)}
+.fotos figure:first-child{grid-row:span 2}
+.fotos img{width:100%;height:100%;object-fit:cover;display:block}
+.cap{font-size:15px;color:var(--ink2);margin:10px 0 0}
+
+.claus{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:20px 0 0;padding:0;list-style:none}
+.claus li{background:var(--cream);border-left:4px solid var(--teal);border-radius:0 10px 10px 0;padding:18px 20px}
+.claus b{display:block;color:var(--navy);margin-bottom:2px}
+
+/* Recorregut */
+.lleg{display:flex;flex-wrap:wrap;gap:22px;margin:16px 0 0;font-size:16px;color:var(--ink2)}
+.lleg span{display:inline-flex;align-items:center;gap:8px}
+.crono{list-style:none;margin:24px 0 0;padding:0;position:relative}
+.crono::before{content:"";position:absolute;left:11px;top:10px;bottom:30px;width:2px;background:var(--sand)}
+.crono li{position:relative;padding:0 0 24px 46px}
+.crono li:last-child{padding-bottom:0}
+.dot{position:absolute;left:2px;top:6px;width:20px;height:20px;border-radius:50%}
+.lleg .dot{position:static;width:16px;height:16px;display:inline-block}
+.dot.ind{background:#fff;border:3px solid var(--gold)}
+.dot.grup{background:var(--navy);border:3px solid var(--navy)}
+.dot.fi{background:var(--gold);border:3px solid var(--gold)}
+.quan{font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-ink);margin:0}
+.g .quan{color:var(--navy)}
+.que{font-weight:600;font-size:19px;margin:2px 0}
+.det{color:var(--ink2);margin:0;max-width:62ch}
+.nota{background:var(--cream);border-radius:10px;padding:16px 20px;margin:28px 0 0}
+
+/* Formacions */
+.forms{margin:22px 0 0;border-top:1px solid var(--sand)}
+.forms a{display:grid;grid-template-columns:150px 1fr auto;align-items:center;gap:16px;text-decoration:none;border-bottom:1px solid var(--sand);padding:18px 4px;color:var(--ink);transition:background .2s}
+.forms a:hover{background:var(--cream)}
+.forms small{font-size:15px;color:var(--ink2)}
+.forms b{font-family:var(--serif);font-weight:600;font-size:22px;color:var(--navy)}
+.forms span{display:inline-flex;align-items:center;gap:6px;font-size:16px;color:var(--navy);font-weight:600}
+
+/* Documents i compartir */
+.docs{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0 0}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border:1px solid var(--navy);border-radius:8px;text-decoration:none;font-weight:600;font-size:17px;color:var(--navy);background:#fff;cursor:pointer;font-family:inherit}
+.btn:hover{background:var(--cream)}
+.ico{width:20px;height:20px;flex:none}
+.share{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:56px 0 0;padding:20px 0 0;border-top:1px solid var(--sand)}
+.share p{margin:0 8px 0 0;font-weight:600;color:var(--navy)}
+.share .btn{font-size:16px;padding:9px 14px}
+.fonts{font-size:15px;color:var(--ink2);margin:28px 0 0}
+footer{margin:56px 0 0;background:var(--navy);color:#DCE4EF;font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:24px;padding-bottom:24px}
+footer a{color:#fff}
+
+@media (max-width:760px){
+.bar nav{display:none}
+.hero{grid-template-columns:1fr;gap:16px}
+.hero img{width:120px;height:120px;order:-1}
+.claus{grid-template-columns:1fr}
+.eq{grid-template-columns:1fr;gap:10px}
+.eq i{padding:0;font-size:30px}
+.forms a{grid-template-columns:1fr;gap:4px}
+.fotos{grid-template-columns:1fr 1fr;grid-template-rows:260px 170px 170px}
+.fotos figure:first-child{grid-row:auto;grid-column:span 2}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#contingut">Salta al contingut</a>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="https://cepformentera.caib.es/" target="_blank" rel="noopener"><img src="../assets/logos/cep-formentera.png" alt="Centre de Professorat de Formentera" width="106" height="38"></a>
+    <nav aria-label="Seccions">
+      <a href="#recorregut">Recorregut</a>
+      <a href="#formacions">Formacions</a>
+      <a href="#documents">Documents</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contingut" class="wrap">
+
+<section class="hero">
+  <div>
+    <h1>Aprenentatge servei a l’illa de Formentera</h1>
+    <p class="sub">Curs 2026-2027</p>
+    <p>L’alumnat aprèn el que toca del currículum fent una feina que algú de l’illa necessita de veritat. Aquest curs hi participen tres centres: el CEIP Sant Ferran de ses Roques, el CEIP Mestre Lluís Andreu i el Col·legi Virgen Milagrosa, amb el Parc Natural de ses Salines d’Eivissa i Formentera i els centres per a majors de l’illa.</p>
+  </div>
+  <img src="img/segell-aps.png" alt="Segell del programa Aprenentatge Servei Illa de Formentera" width="176" height="176">
+</section>
+
+<section class="sec">
+  <h2>Què és, en tres idees</h2>
+  <div class="eq">
+    <div><b>Aprenentatge</b><span>Continguts del currículum treballats des d’una perspectiva competencial.</span></div>
+    <i aria-hidden="true">+</i>
+    <div><b>Servei</b><span>Una necessitat real de l’entorn a la qual l’alumnat dona resposta.</span></div>
+    <i aria-hidden="true">=</i>
+    <div class="res"><b>Un sol projecte</b><span>Les dues coses es planifiquen i s’avaluen juntes.</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>El programa en un minut</h2>
+  <div class="video"><iframe src="https://player.vimeo.com/video/1236551282?dnt=1" allow="fullscreen; picture-in-picture" title="Aprenentatge Servei a Formentera" loading="lazy"></iframe></div>
+</section>
+
+<section class="sec">
+  <h2>La jornada d’inici</h2>
+  <p class="lead">Dilluns 26 d’octubre, al Centre d’Interpretació de Can Marroig, els equips dels tres centres començaren el curs amb Carme Frau Lladó, formadora experta en aprenentatge servei, i amb una visita guiada pel Parc Natural amb l’equip d’educació ambiental.</p>
+  <div class="fotos">
+    <figure><img src="img/jornada-26-10-1.jpg" alt="Sessió de la jornada d’inici a la sala de Can Marroig" width="1050" height="1400" loading="lazy"></figure>
+    <figure><img src="img/jornada-26-10-2.jpg" alt="Carme Frau Lladó durant la sessió" width="1050" height="1400" loading="lazy"></figure>
+    <figure><img src="img/jornada-26-10-3.jpg" alt="Sargantana de les Pitiüses a Can Marroig" width="1050" height="1400" loading="lazy"></figure>
+    <figure><img src="img/jornada-26-10-4.jpg" alt="La sala de Can Marroig oberta al Parc Natural" width="1050" height="1400" loading="lazy"></figure>
+    <figure><img src="img/jornada-26-10-5.jpg" alt="L’equip d’educació ambiental del Parc Natural amb els docents" width="1050" height="1400" loading="lazy"></figure>
+  </div>
+  <p class="cap">Fotografies publicades amb el permís de les persones que hi apareixen.</p>
+
+  <h3>El que ens emportam</h3>
+  <ul class="claus">
+    <li><b>Primer, la necessitat</b>El servei i els continguts arriben després. No es forcen al principi del projecte.</li>
+    <li><b>Poques trobades, ben aprofitades</b>Poques sessions de tots els centres durant el curs, en llocs agradables que no siguin de cap centre.</li>
+    <li><b>Tot el centre a bord</b>Les direccions i les caps d’estudis, dins el projecte des del primer dia.</li>
+    <li><b>Acompanyar és escoltar</b>Qui acompanya escolta i conta experiències viscudes, no teoria.</li>
+  </ul>
+</section>
+
+<section class="sec" id="recorregut">
+  <h2>El recorregut del curs</h2>
+  <p class="lead">Tots els centres segueixen el mateix camí: visites a cada centre per acompanyar el projecte de prop i trobades de tots els centres per compartir-lo.</p>
+  <div class="lleg" aria-hidden="true"><span><i class="dot ind"></i>Visita al centre</span><span><i class="dot grup"></i>Trobada de tots els centres</span><span><i class="dot fi"></i>Celebració</span></div>
+  <ol class="crono">
+    <li><i class="dot ind" aria-hidden="true"></i><p class="quan">Novembre</p><p class="que">Visita a cada centre</p><p class="det">El CEP proposa dates i cada centre tria la que li va millor.</p></li>
+    <li class="g"><i class="dot grup" aria-hidden="true"></i><p class="quan">Desembre</p><p class="que">Primera trobada de tots els centres, presencial</p><p class="det">Les emocions i l’entorn, la necessitat que ha detectat cada centre i les entitats amb què es pot fer feina.</p></li>
+    <li><i class="dot ind" aria-hidden="true"></i><p class="quan">Gener</p><p class="que">Visita a cada centre</p><p class="det">El servei: què farà l’alumnat i per a qui.</p></li>
+    <li class="g"><i class="dot grup" aria-hidden="true"></i><p class="quan">Març</p><p class="que">Segona trobada de tots els centres</p><p class="det">Posada en comú dels serveis, concreció de la celebració i avaluació del projecte.</p></li>
+    <li><i class="dot fi" aria-hidden="true"></i><p class="quan">Final d’abril</p><p class="que">Celebració i difusió</p><p class="det">Els centres mostren a l’illa el servei que han fet.</p></li>
+  </ol>
+  <p class="nota"><strong>Dates, llocs i horaris</strong> es coordinen amb els equips de cada centre i es publiquen aquí a mesura que es concreten.</p>
+</section>
+
+<section class="sec" id="formacions">
+  <h2>Les formacions de cada centre</h2>
+  <p class="lead">Cada centre té la seva formació, de 30 hores. A la fitxa hi ha els continguts, els objectius i com es certifica.</p>
+  <div class="forms">
+    <a href="docs/fitxa-361-ceip-sant-ferran.pdf" target="_blank" rel="noopener"><small>Esdeveniment 361</small><b>CEIP Sant Ferran de ses Roques</b><span>Fitxa (PDF) <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></span></a>
+    <a href="docs/fitxa-360-ceip-mestre-lluis-andreu.pdf" target="_blank" rel="noopener"><small>Esdeveniment 360</small><b>CEIP Mestre Lluís Andreu</b><span>Fitxa (PDF) <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></span></a>
+    <a href="docs/fitxa-363-cceip-virgen-milagrosa.pdf" target="_blank" rel="noopener"><small>Esdeveniment 363</small><b>Col·legi Virgen Milagrosa</b><span>Fitxa (PDF) <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></span></a>
+  </div>
+</section>
+
+<section class="sec" id="documents">
+  <h2>Per llegir abans de començar</h2>
+  <p class="lead">La guia breu explica què és l’aprenentatge servei, què no és i com es reconeix un projecte ben fet. El tríptic resumeix el programa d’aquest curs.</p>
+  <div class="docs">
+    <a class="btn" href="docs/guia-aps-cep-formentera.pdf" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M9 9l1 0"/><path d="M9 13l6 0"/><path d="M9 17l6 0"/></svg>Guia breu per als centres (PDF)</a>
+    <a class="btn" href="docs/triptic-aps-formentera-2026-27.pdf" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M9 9l1 0"/><path d="M9 13l6 0"/><path d="M9 17l6 0"/></svg>Tríptic del programa (PDF)</a>
+  </div>
+</section>
+
+<div class="share">
+  <p>Comparteix aquesta pàgina</p>
+  <a class="btn" href="https://wa.me/?text=Aprenentatge%20servei%20a%20l%E2%80%99illa%20de%20Formentera%20https%3A%2F%2Flesmoes-create.github.io%2Filla-que-apren%2Faps%2F" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"/><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"/></svg>WhatsApp</a>
+  <a class="btn" href="mailto:?subject=Aprenentatge%20servei%20a%20l%E2%80%99illa%20de%20Formentera&amp;body=https%3A%2F%2Flesmoes-create.github.io%2Filla-que-apren%2Faps%2F"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"/><path d="M3 7l9 6l9 -6"/></svg>Correu</a>
+  <button class="btn" type="button" id="copia"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 15l6 -6"/><path d="M11 6l.463 -.536a5 5 0 0 1 7.071 7.072l-.534 .464"/><path d="M13 18l-.397 .534a5.068 5.068 0 0 1 -7.127 0a4.972 4.972 0 0 1 0 -7.071l.524 -.463"/></svg><span>Copia l’enllaç</span></button>
+</div>
+
+<p class="fonts">Programa d’experiència formativa del CEP de Formentera amb el Servei de Formació Permanent del Professorat. Línia estratègica 8, Entorn i sostenibilitat, del <a href="https://www.caib.es/eboibfront/ca/2024/11977/690727/resolucio-del-conseller-d-educacio-i-universitats-" target="_blank" rel="noopener">Pla quadriennal de formació permanent del professorat 2024-2028 (BOIB núm. 119, de 10/09/2024)</a>. Informació: <a href="mailto:cep@cepformentera.cat">cep@cepformentera.cat</a>.</p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Centre de Professorat de Formentera</span>
+    <span><a href="https://cepformentera.caib.es/itineraris-aprenentatge/" target="_blank" rel="noopener">Tots els itineraris d’aprenentatge</a> · <a href="../">Formentera, illa que aprèn</a></span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('copia').addEventListener('click', function () {
+  var b = this, t = b.querySelector('span');
+  navigator.clipboard.writeText('https://lesmoes-create.github.io/illa-que-apren/aps/').then(function () {
+    t.textContent = 'Enllaç copiat';
+    setTimeout(function () { t.textContent = 'Copia l’enllaç'; }, 2500);
+  });
+});
+</script>
+</body>
+</html>
