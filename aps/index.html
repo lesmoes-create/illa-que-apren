@@ -178,6 +178,10 @@ footer a{color:#fff}
 .fotos figure:first-child{grid-row:auto;grid-column:span 2}
 .camp,.docs{grid-template-columns:1fr}
 .btn{white-space:normal}
+.idees{padding:24px 16px;margin-left:-6px;margin-right:-6px}
+.cerca{padding:18px 14px}
+.filtres{flex-wrap:nowrap;overflow-x:auto;margin-left:-14px;margin-right:-14px;padding:0 14px 6px;scroll-snap-type:x proximity}
+.chip{white-space:nowrap;flex:none;scroll-snap-align:start}
 }
 </style>
 </head>
@@ -292,7 +296,7 @@ footer a{color:#fff}
     <h3>Cerca al banc d’experiències</h3>
     <div class="filtres" id="ambits" role="group" aria-label="Àmbit del servei"></div>
     <div class="camp">
-      <div><label for="q">Paraules del títol</label><input id="q" type="search" placeholder="Per exemple: hort, avis, platja" autocomplete="off"></div>
+      <div><label for="q">Paraules del títol</label><input id="q" type="search" placeholder="hort, avis, platja" autocomplete="off"></div>
       <div><label for="etapa">Etapa</label><select id="etapa"><option value="">Totes</option></select></div>
     </div>
     <p class="compte" id="compte" aria-live="polite"></p>
