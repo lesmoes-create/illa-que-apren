@@ -186,21 +186,39 @@ footer a{color:#fff}
 .crono a{color:var(--navy)}
 
 /* Com es fa (Carme Frau) */
-.passes{display:grid;gap:26px;margin:24px 0 0}
-.passes h3{font-size:20px;margin:0 0 8px;color:var(--teal)}
-.passes ol{margin:0;padding:0;list-style:none;counter-reset:p}
-.passes li{counter-increment:p;position:relative;padding:8px 0 8px 40px;border-bottom:1px solid var(--sand)}
-.passes li::before{content:counter(p);position:absolute;left:0;top:8px;width:26px;height:26px;border-radius:50%;background:var(--cream);color:var(--navy);font-weight:700;font-size:14px;display:grid;place-items:center}
-.servei{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(20px,4vw,48px);align-items:center;background:var(--cream);border-radius:var(--r);padding:clamp(20px,3vw,32px);margin:40px 0 0}
-.servei h3{margin:0 0 10px}
-.servei dl{margin:0}
-.servei dt{font-weight:700;color:var(--navy);margin-top:12px}
-.servei dd{margin:2px 0 0;color:var(--ink2)}
-.xarxa{margin:16px 0 0;color:var(--ink2)}
-.cf-links{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 0}
+.cf-cap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end}
+.cf-cap .ink.gp{max-width:150px;margin:0}
+.cami{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;position:relative;counter-reset:none}
+.cami::before{content:"";position:absolute;top:49px;left:8%;right:8%;border-top:2px dashed #C9BFA6;z-index:0}
+.etapa{position:relative;z-index:1;background:#fff;border-radius:var(--r);padding:18px 22px 22px;box-shadow:0 1px 0 var(--sand),0 10px 30px -18px rgba(18,48,90,.35)}
+.fita{display:flex;justify-content:flex-start;transform:translateY(-0px);padding-top:0;margin:0 0 6px}
+.num{display:grid;place-items:center;width:62px;height:62px;border-radius:50%;font-family:var(--serif);font-weight:600;font-size:30px;color:#fff;border:5px solid var(--cream);margin-top:0}
+.e1 .num{background:var(--teal)} .e2 .num{background:var(--navy)} .e3 .num{background:var(--gold)}
+.etapa h3{font-size:23px;margin:6px 0 2px;color:var(--navy)}
+.etapa .sub{margin:0 0 12px;color:var(--ink2);font-size:16px}
+.etapa ul{list-style:none;margin:0;padding:0}
+.etapa ul li{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;padding:9px 0;border-top:1px solid #EFE8D8;font-size:17px;line-height:1.35}
+.pi{width:34px;height:34px;padding:7px;border-radius:9px;box-sizing:border-box}
+.e1 .pi{background:var(--teal-soft);color:var(--teal)} .e2 .pi{background:#E3E8F0;color:var(--navy)} .e3 .pi{background:#F3EBD6;color:var(--gold-ink)}
+.servei{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:clamp(20px,4vw,44px);align-items:center;background:var(--navy);color:#fff;border-radius:var(--r);padding:clamp(22px,3vw,34px);margin:40px 0 0}
+.servei h3{color:#fff;margin:0 0 14px;font-size:24px}
+.servei .ink.gp{max-width:200px;margin:0;filter:brightness(0) invert(1);opacity:.85}
+.tipus{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.tipus li{background:rgba(255,255,255,.07);border-radius:10px;padding:18px}
+.tipus .ti{width:30px;height:30px;color:var(--gold);display:block;margin-bottom:10px}
+.tipus b{display:block;font-family:var(--serif);font-weight:600;font-size:19px;margin-bottom:4px}
+.tipus span{color:#D5DDE8;font-size:16px;line-height:1.45}
+.xarxa{margin:28px 0 0;text-align:center}
+.xarxa-t{color:var(--ink2);margin:0 0 12px}
+.xarxa ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.xarxa li{border:1.5px solid var(--teal);color:var(--teal);border-radius:999px;padding:6px 14px;font-weight:600;font-size:15px}
+.cf-links{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 0;justify-content:center}
 
 @media (max-width:860px){
-.qui-g,.split,.split.rev,.servei{grid-template-columns:1fr}
+.qui-g,.split,.split.rev,.servei,.cami,.tipus,.cf-cap{grid-template-columns:1fr}
+.cami::before{top:20px;bottom:20px;left:31px;right:auto;border-top:0;border-left:2px dashed #C9BFA6}
+.cami{gap:26px}
+.cf-cap .ink.gp{display:none}
 .split .sticky{position:static}
 .split figure{max-width:520px}
 .bar nav{display:none}
@@ -312,59 +330,63 @@ footer a{color:#fff}
   </ul>
 </section>
 
-<section class="sec split rev" id="com-es-fa">
-  <div>
-    <h2>Com es fa un projecte, amb Carme Frau</h2>
-    <p class="lead">Aquests són els passos que Carme Frau Lladó va compartir amb els equips a la jornada d’inici. Serveixen de guia, no de recepta: cada centre els adapta al seu grup.</p>
-    <div class="passes">
-      <div>
-        <h3>Per començar</h3>
-        <ol>
-          <li>Reconèixer una necessitat de l’entorn.</li>
-          <li>Pensar quin servei hi pot donar resposta.</li>
-          <li>Cercar entitats amb qui col·laborar.</li>
-          <li>Planificar lligant els aprenentatges amb el servei.</li>
-        </ol>
-      </div>
-      <div>
-        <h3>Amb l’alumnat</h3>
-        <ol>
-          <li>Reflexionar sobre la necessitat i motivar.</li>
-          <li>Acompanyar els aprenentatges.</li>
-          <li>Preparar el servei.</li>
-          <li>Dur a terme el servei.</li>
-        </ol>
-      </div>
-      <div>
-        <h3>Per acabar</h3>
-        <ol>
-          <li>Comunicar el servei i els resultats.</li>
-          <li>Celebrar i reconèixer la feina feta.</li>
-          <li>Reflexionar sobre el sentit del projecte.</li>
-          <li>Avaluar el servei i l’aprenentatge, i proposar millores.</li>
-        </ol>
-      </div>
+<section class="sec" id="com-es-fa">
+  <div class="cf-cap">
+    <div>
+      <h2>Com es fa un projecte d’aprenentatge servei</h2>
+      <p class="lead">La proposta de Carme Frau Lladó a la jornada d’inici: un camí en tres moments. És una guia, no una recepta, i cada centre l’adapta al seu grup.</p>
     </div>
+    <img class="ink gp" src="img/gravat-dona-filant.webp" alt="Gravat d’una dona filant llana, asseguda davant una paret seca" width="717" height="900" loading="lazy">
   </div>
-  <figure class="sticky"><img class="ink gp" src="img/gravat-dona-filant.webp" alt="Gravat d’una dona filant llana, asseguda davant una paret seca" width="717" height="900" loading="lazy"></figure>
-</section>
-
-<div class="servei">
-  <div>
-    <h3>Quin servei pot fer l’alumnat?</h3>
-    <dl>
-      <dt>Resoldre problemes ambientals de l’entorn</dt><dd>Pèrdua de biodiversitat, regeneració de dunes, caixes niu.</dd>
-      <dt>Sensibilitzar</dt><dd>Campanyes de consum responsable o sobre espècies invasores.</dd>
-      <dt>Millorar el patrimoni natural i cultural</dt><dd>Reforestacions, restauració d’elements patrimonials, camins ben adequats i senyalitzats.</dd>
-    </dl>
-    <p class="xarxa">Al voltant de cada projecte hi ha una xarxa: el centre, les entitats, les famílies, la comunitat educativa, el CEP i les administracions.</p>
+  <ol class="cami">
+    <li class="etapa e1">
+      <div class="fita"><span class="num">1</span></div>
+      <h3>Per començar</h3><p class="sub">El centre i el docent preparen el terreny.</p>
+      <ul>
+        <li><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /> <path d="M21 21l-6 -6" /></svg><span>Detectar una necessitat de l’entorn</span></li>
+        <li><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7" /> <path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3" /> <path d="M9.7 17l4.6 0" /></svg><span>Pensar quin servei hi respon</span></li>
+        <li><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /> <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" /> <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /> <path d="M17 10h2a2 2 0 0 1 2 2v1" /> <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /> <path d="M3 13v-1a2 2 0 0 1 2 -2h2" /></svg><span>Cercar entitats amb qui col·laborar</span></li>
+        <li><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /> <path d="M16 3l0 4" /> <path d="M8 3l0 4" /> <path d="M4 11l16 0" /> <path d="M8 15h2v2h-2z" /></svg><span>Planificar: aprenentatges i servei lligats</span></li>
+      </ul>
+    </li>
+    <li class="etapa e2">
+      <div class="fita"><span class="num">2</span></div>
+      <h3>Amb l’alumnat</h3><p class="sub">L’alumnat aprèn fent i fa el servei.</p>
+      <ul>
+        <li><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" /></svg><span>Reflexionar sobre la necessitat i motivar</span></li>
+        <li><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" /> <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" /></svg><span>Acompanyar els aprenentatges</span></li>
+        <li><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" /> <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" /> <path d="M9 14l2 2l4 -4" /></svg><span>Preparar el servei</span></li>
+        <li><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /> <path d="M12 6l-3.293 3.293a1 1 0 0 0 0 1.414l.543 .543c.69 .69 1.81 .69 2.5 0l1 -1a3.182 3.182 0 0 1 4.5 0l2.25 2.25" /> <path d="M12.5 15.5l2 2" /> <path d="M15 13l2 2" /></svg><span>Dur a terme el servei</span></li>
+      </ul>
+    </li>
+    <li class="etapa e3">
+      <div class="fita"><span class="num">3</span></div>
+      <h3>Per acabar</h3><p class="sub">Es tanca el cercle i es mira enrere.</p>
+      <ul>
+        <li><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a3 3 0 0 1 0 6" /> <path d="M10 8v11a1 1 0 0 1 -1 1h-1a1 1 0 0 1 -1 -1v-5" /> <path d="M12 8h0l4.524 -3.77a.9 .9 0 0 1 1.476 .692v12.156a.9 .9 0 0 1 -1.476 .692l-4.524 -3.77h-8a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h8" /></svg><span>Comunicar el que s’ha fet</span></li>
+        <li><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h2" /> <path d="M5 4v2" /> <path d="M11.5 4l-.5 2" /> <path d="M18 5h2" /> <path d="M19 4v2" /> <path d="M15 9l-1 1" /> <path d="M18 13l2 -.5" /> <path d="M18 19h2" /> <path d="M19 18v2" /> <path d="M14 16.518l-6.518 -6.518l-4.39 9.58a1 1 0 0 0 1.329 1.329l9.579 -4.39z" /></svg><span>Celebrar i reconèixer la feina</span></li>
+        <li><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /> <path d="M9 10l.01 0" /> <path d="M15 10l.01 0" /> <path d="M9.5 15a3.5 3.5 0 0 0 5 0" /></svg><span>Reflexionar sobre el sentit del projecte</span></li>
+        <li><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18" /> <path d="M9 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M19 7m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M14 15m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M10.16 10.62l2.34 2.88" /> <path d="M15.088 13.328l2.837 -4.586" /></svg><span>Avaluar i proposar millores</span></li>
+      </ul>
+    </li>
+  </ol>
+  <div class="servei">
+    <div class="servei-t"><h3>Quin servei pot fer l’alumnat?</h3><img class="ink gp" src="img/gravat-salines.webp" alt="Gravat de les salines, amb un munt de sal i un rasclet" width="1000" height="665" loading="lazy"></div>
+    <ul class="tipus">
+      <li><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a10 10 0 1 0 20 0" /> <path d="M12 19a10 10 0 0 1 10 -10" /> <path d="M2 9a10 10 0 0 1 10 10" /> <path d="M12 4a9.7 9.7 0 0 1 2.99 7.5" /> <path d="M9.01 11.5a9.7 9.7 0 0 1 2.99 -7.5" /></svg><b>Cuidar el medi</b><span>Biodiversitat, regeneració de dunes, caixes niu.</span></li>
+      <li><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a3 3 0 0 1 0 6" /> <path d="M10 8v11a1 1 0 0 1 -1 1h-1a1 1 0 0 1 -1 -1v-5" /> <path d="M12 8h0l4.524 -3.77a.9 .9 0 0 1 1.476 .692v12.156a.9 .9 0 0 1 -1.476 .692l-4.524 -3.77h-8a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h8" /></svg><b>Sensibilitzar</b><span>Consum responsable, espècies invasores.</span></li>
+      <li><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 18l2 -13l2 -2l2 2l2 13" /> <path d="M5 21v-3h14v3" /> <path d="M3 21l18 0" /></svg><b>Millorar el patrimoni</b><span>Reforestacions, restauració d’elements patrimonials, camins senyalitzats.</span></li>
+    </ul>
   </div>
-  <figure style="margin:0"><img class="ink gp" src="img/gravat-salines.webp" alt="Gravat de les salines, amb un munt de sal i un rasclet" width="1000" height="665" loading="lazy"></figure>
-</div>
-<div class="cf-links">
+  <div class="xarxa">
+    <p class="xarxa-t">Cap projecte va tot sol. Al voltant de cada un hi ha una xarxa:</p>
+    <ul><li>El centre</li><li>Les entitats</li><li>Les famílies</li><li>La comunitat educativa</li><li>El CEP</li><li>Les administracions</li></ul>
+  </div>
+  <div class="cf-links">
   <a class="btn" href="docs/material-jornada-inici-carme-frau.pdf" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M9 9l1 0"/><path d="M9 13l6 0"/><path d="M9 17l6 0"/></svg>Material de treball i fitxa del projecte (PDF)</a>
   <a class="btn" href="https://apstramuntana.eu/author/carmefrau1/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 15l6 -6"/><path d="M11 6l.463 -.536a5 5 0 0 1 7.071 7.072l-.534 .464"/><path d="M13 18l-.397 .534a5.068 5.068 0 0 1 -7.127 0a4.972 4.972 0 0 1 0 -7.071l.524 -.463"/></svg>Experiències de Carme Frau a l’ApS Serra de Tramuntana</a>
 </div>
+</section>
 
 <section class="sec split rev" id="recorregut">
   <div>
@@ -380,12 +402,11 @@ footer a{color:#fff}
       <li class="fet"><i class="dot inst" aria-hidden="true"></i><p class="quan">Setembre<span class="estat">Fet</span></p><p class="que">Visita a Can Marroig</p><p class="det">L’equip del CEP visita Can Marroig i parla amb les tècniques d’educació ambiental del Parc Natural per preparar la jornada d’inici i les visites de l’alumnat.</p></li>
       <li class="fet"><i class="dot inst" aria-hidden="true"></i><p class="quan">25 de setembre<span class="estat">Fet</span></p><p class="que">Reunió amb el Consell de Formentera</p><p class="det">Amb la consellera d’Educació i Benestar Social acordam que el Consell pagui el transport de l’alumnat al Parc Natural, al centre de dia i als centres de majors.</p></li>
       <li class="fet g"><i class="dot grup" aria-hidden="true"></i><p class="quan">26 d’octubre<span class="estat">Fet</span></p><p class="que">Jornada d’inici a Can Marroig</p><p class="det">Amb Carme Frau Lladó, el Servei de Formació Permanent del Professorat i l’equip d’educació ambiental del Parc Natural. El Parc demana més implicació dels centres que el curs passat, i les consultes dels centres al Parc passen pel CEP.</p></li>
-      <li class="fet"><i class="dot ind" aria-hidden="true"></i><p class="quan">16 de novembre<span class="estat">Fet</span></p><p class="que">Primera visita de seguiment</p><p class="det">Al CEIP Mestre Lluís Andreu.</p></li>
+      <li class="fet"><i class="dot ind" aria-hidden="true"></i><p class="quan">16 i 18 de novembre<span class="estat">Fet</span></p><p class="que">Primera visita de seguiment als tres centres</p><p class="det">CEIP Mestre Lluís Andreu, CEIP Sant Ferran de ses Roques i Col·legi Virgen Milagrosa.</p></li>
     </ol>
 
     <p class="fase">El que ve</p>
     <ol class="crono">
-      <li><i class="dot ind" aria-hidden="true"></i><p class="quan">Novembre</p><p class="que">Visita a la resta de centres</p><p class="det">El CEP proposa dates i cada centre tria la que li va millor.</p></li>
       <li class="g"><i class="dot grup" aria-hidden="true"></i><p class="quan">Desembre</p><p class="que">Primera trobada de tots els centres, presencial</p><p class="det">Les emocions i l’entorn, la necessitat que ha detectat cada centre i les entitats amb què es pot fer feina.</p></li>
       <li><i class="dot ind" aria-hidden="true"></i><p class="quan">Gener</p><p class="que">Visita a cada centre</p><p class="det">El servei: què farà l’alumnat i per a qui.</p></li>
       <li class="g"><i class="dot grup" aria-hidden="true"></i><p class="quan">Març</p><p class="que">Segona trobada de tots els centres</p><p class="det">Posada en comú dels serveis, concreció de la celebració i avaluació del projecte.</p></li>
